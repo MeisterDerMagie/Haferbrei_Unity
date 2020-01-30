@@ -42,5 +42,15 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
+  },
+  "lock": {
+    "com.johannesmp.unityscenereference": {
+      "revision": "upm",
+      "hash": "6b3bbf3b68b23aa88de628095a4656585aaa60df"
+    },
+    "com.mambojambostudios.unity-atoms": {
+      "revision": "canary",
+      "hash": "0916c0ae96e7f8e74650062dff1d2038b7255c13"
+    }
   }
 }
