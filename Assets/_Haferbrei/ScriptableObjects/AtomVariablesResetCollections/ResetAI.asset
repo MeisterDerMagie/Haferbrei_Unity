@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bfc2851ff4dab34b9d195865b17e92c, type: 3}
+  m_Name: ResetAI
+  m_EditorClassIdentifier: 
+  atomVariablesToReset:
+  - {fileID: 11400000, guid: 31de075cb9f34d2458afcdc16aa8ba4a, type: 2}
+  - {fileID: 11400000, guid: 40e17f92e80e95847aaa5648fecd288c, type: 2}
+  - {fileID: 11400000, guid: f39b895bf2c90324889fe040e78577f2, type: 2}
+  - {fileID: 11400000, guid: f852588c3d4e55a4da9aa8f7eda4a44e, type: 2}
+  - {fileID: 11400000, guid: 98c5d6482b5724c4c83461cc56e1f342, type: 2}
+  - {fileID: 11400000, guid: f9c51e493bbc5b04a818090f6cf90836, type: 2}
+  - {fileID: 11400000, guid: 0959066e0fa17094ab6704db6089e577, type: 2}
+  - {fileID: 11400000, guid: 29a5a06e736994d4a9c8cfc57c124ac1, type: 2}
+  - {fileID: 11400000, guid: 9a210f15f721f8342aeacb6e7f8d8d60, type: 2}
+  - {fileID: 11400000, guid: b6975a675045f1f4f986664a86e0e43e, type: 2}
