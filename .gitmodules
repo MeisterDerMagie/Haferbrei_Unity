@@ -1,3 +1,6 @@
 [submodule "Assets/_Wichtel"]
 	path = Assets/_Wichtel
 	url = https://github.com/MeisterDerMagie/_Wichtel.git
+[submodule "Assets/guid-based-reference"]
+	path = Assets/guid-based-reference
+	url = https://github.com/Unity-Technologies/guid-based-reference
