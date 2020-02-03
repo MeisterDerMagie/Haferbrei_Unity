@@ -34,13 +34,13 @@
      private void EnterUI()
      {
          BlockedByUI = true;
-         Debug.Log("Enter UI!");
+         //Debug.Log("Enter UI!");
      }
 
      private void ExitUI()
      {
          BlockedByUI = false;
-         Debug.Log("Exit UI!");
+         //Debug.Log("Exit UI!");
      }
 
  }
