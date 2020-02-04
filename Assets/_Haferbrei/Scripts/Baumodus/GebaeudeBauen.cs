@@ -11,8 +11,11 @@ namespace Haferbrei {
 public class GebaeudeBauen : MonoBehaviour
 {
     [SerializeField, BoxGroup("Info"), ReadOnly] private GameObject gebaeudePreview;
+    [SerializeField, BoxGroup("Info"), ReadOnly] public bool buildingIsAllowed;
     [SerializeField, FoldoutGroup("References"), Required] private Transform previewParent;
     [SerializeField, BoxGroup("Atom Events"), Required] private BuildingsEvent onZuBauendesGebaeudeChanged;
+    [SerializeField, BoxGroup("Atom Values"), Required] private BuildingsVariable zuBauendesGebaeude;
+
 
     private void OnEnable() => onZuBauendesGebaeudeChanged.Register(OnZuBauendesGebaeudeChanged);
     private void OnDisable() => onZuBauendesGebaeudeChanged.Unregister(OnZuBauendesGebaeudeChanged);
@@ -28,6 +31,16 @@ public class GebaeudeBauen : MonoBehaviour
                                     Camera.main.ScreenToWorldPoint(Input.mousePosition).With(z: previewParent.transform.position.z),
                                             Quaternion.identity,
                                             previewParent);
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0) && buildingIsAllowed)
+        {
+            Instantiate(  zuBauendesGebaeude.Value.instancePrefab,
+                Camera.main.ScreenToWorldPoint(Input.mousePosition).With(z: previewParent.transform.position.z),
+                          Quaternion.identity);
         }
     }
 }

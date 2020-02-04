@@ -1,6 +1,6 @@
 ﻿//(c) copyright by Martin M. Klöckener
 
-namespace DiscoPong{ 
+namespace Haferbrei{ 
 public interface IResettable
 {
     void ResetSelf();

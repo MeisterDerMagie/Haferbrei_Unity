@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 
-namespace DiscoPong {
+namespace Haferbrei {
 public class SCN_LoadScenes : MonoBehaviour
 {
     [SerializeField, BoxGroup("Scene Loader"), Required] private SO_LoadScenes sceneLoader;

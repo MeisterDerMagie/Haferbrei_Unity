@@ -1,12 +1,11 @@
 ﻿//(c) copyright by Martin M. Klöckener
 using System.Collections;
 using System.Collections.Generic;
-using DiscoPong;
 using Sirenix.OdinInspector;
 using UnityAtoms;
 using UnityEngine;
 
-namespace DiscoPong {
+namespace Haferbrei {
 [CreateAssetMenu(fileName = "ResetCollection", menuName = "Scriptable Objects/AtomVariables Reset Collection", order = 0)]
 public class SO_AtomVariablesResetCollection : ScriptableObject, IResettable
 {

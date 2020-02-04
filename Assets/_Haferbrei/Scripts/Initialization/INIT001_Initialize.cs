@@ -5,7 +5,7 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 using UnityEngine.Events;
 
-namespace DiscoPong{
+namespace Haferbrei{
 public class INIT001_Initialize : SerializedMonoBehaviour
 {
     [SerializeField, BoxGroup("Settings")] private bool initOnSceneStart = true;

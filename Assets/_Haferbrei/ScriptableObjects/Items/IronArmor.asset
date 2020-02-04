@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3fb202b0dbc3ba4ca1ed207c8a7fa91, type: 3}
-  m_Name: Stroh
+  m_Script: {fileID: 11500000, guid: 2d427bb5c08b4987932b8835ee2c6f10, type: 3}
+  m_Name: IronArmor
   m_EditorClassIdentifier: 
-  identifier: stroh
-  description: "Ein B\xFCndel Stroh"
-  goldwert: 1
+  identifier: ironarmor
+  icon: {fileID: 0}
+  armorRating: 3
+  durability: 5

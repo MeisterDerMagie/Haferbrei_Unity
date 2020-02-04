@@ -5,7 +5,7 @@ using Sirenix.OdinInspector;
 using UnityAtoms;
 using UnityEngine;
 
-namespace DiscoPong{
+namespace Haferbrei{
 public class ATM_ToggleGameObjectOnAtomsEvent : MonoBehaviour, IInitSelf
 {
     [SerializeField, BoxGroup("Settings"), Required] private bool isEnabled = true;

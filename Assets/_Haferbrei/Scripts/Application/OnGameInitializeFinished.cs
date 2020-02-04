@@ -5,7 +5,7 @@ using Sirenix.OdinInspector;
 using UnityAtoms;
 using UnityEngine;
 
-namespace DiscoPong{
+namespace Haferbrei{
 public class OnGameInitializeFinished : MonoBehaviour
 {
     [SerializeField, BoxGroup("Scene Loader"), Required] private SO_LoadScenes nextScenesToLoadInBuild;

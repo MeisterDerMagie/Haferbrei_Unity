@@ -5,7 +5,7 @@ using Sirenix.OdinInspector;
 using UnityAtoms;
 using UnityEngine;
 
-namespace DiscoPong{
+namespace Haferbrei{
 public class INIT005_ResetAtomVariables : SerializedMonoBehaviour
 {
     [SerializeField, BoxGroup("Settings")] private bool resetOnSceneStart = true;

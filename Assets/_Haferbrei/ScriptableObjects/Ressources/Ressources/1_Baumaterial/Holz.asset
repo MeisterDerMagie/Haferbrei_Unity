@@ -12,6 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3fb202b0dbc3ba4ca1ed207c8a7fa91, type: 3}
   m_Name: Holz
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   identifier: holz
-  description: "Ein St\xFCck Holz"
-  goldwert: 1
+  goldwert: 0
+  category: {fileID: 11400000, guid: 46e40b3a83bb7da4e97dc596d369556e, type: 2}
