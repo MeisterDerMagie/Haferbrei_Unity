@@ -1678,6 +1678,7 @@ GameObject:
   - component: {fileID: 1243853683}
   - component: {fileID: 1243853682}
   - component: {fileID: 1243853681}
+  - component: {fileID: 1243853684}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1747,7 +1748,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1243853682}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1243853684}
+        m_MethodName: SubtractRessource
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1243853682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1784,6 +1796,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1243853679}
   m_CullTransparentMesh: 0
+--- !u!114 &1243853684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243853679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e191d3f8429d4c0a9f7078263b4516b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: ressources
+      Entry: 6
+      Data: 
+  containerToEdit: {fileID: 11400000, guid: f3e2b6cb15b3b1b488c247aeebf08013, type: 2}
+  mode: 0
+  ressource: {fileID: 11400000, guid: 97ddc323c30fb3c44809e05bd8f7894c, type: 2}
+  amount: 100
+  recipe: {fileID: 0}
 --- !u!1 &1271317365
 GameObject:
   m_ObjectHideFlags: 0
@@ -2290,7 +2331,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Player Ressources
+  m_Text: Zahle 100 Holz
 --- !u!222 &1803965431
 CanvasRenderer:
   m_ObjectHideFlags: 0
