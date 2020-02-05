@@ -51,7 +51,7 @@ public class GebaeudeBauen : MonoBehaviour
 
     private void OnBuildingIsAllowedChanged()
     {
-        gebaeudePreview.GetComponent<Building_Preview_SetBuildableMode>().SetBuildableMode(buildingIsAllowed);
+        if(gebaeudePreview != null) gebaeudePreview.GetComponent<Building_Preview_SetBuildableMode>().SetBuildableMode(buildingIsAllowed);
     }
 
     private void Update()

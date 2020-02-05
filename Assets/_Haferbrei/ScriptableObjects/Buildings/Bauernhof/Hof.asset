@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 617dd29beb3b9d942a10ccb46f2406cf, type: 3}
-  m_Name: _NONE
+  m_Name: Hof
   m_EditorClassIdentifier: 
-  canBeBuilt: 0
-  identifier: buildingSO_NONE
+  canBeBuilt: 1
+  identifier: buildingSO_hof
   capacity: 0
   isUnique: 0
-  cost: {fileID: 0}
-  instancePrefab: {fileID: 0}
-  previewPrefab: {fileID: 0}
+  cost: {fileID: 11400000, guid: bb81c264af0217c4c91d5102ff317b42, type: 2}
+  instancePrefab: {fileID: 4604666238020978129, guid: e4d9279bb5209094f8310ec0ece9f5f4,
+    type: 3}
+  previewPrefab: {fileID: 4604666238020978129, guid: c4d2f4690995c3549b512497af0a70bb,
+    type: 3}

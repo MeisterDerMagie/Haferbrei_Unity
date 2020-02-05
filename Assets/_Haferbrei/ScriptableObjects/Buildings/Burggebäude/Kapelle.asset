@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 617dd29beb3b9d942a10ccb46f2406cf, type: 3}
-  m_Name: _NONE
+  m_Name: Kapelle
   m_EditorClassIdentifier: 
-  canBeBuilt: 0
-  identifier: buildingSO_NONE
+  canBeBuilt: 1
+  identifier: buildingSO_kapelle
   capacity: 0
-  isUnique: 0
-  cost: {fileID: 0}
+  isUnique: 1
+  cost: {fileID: 11400000, guid: d9f6b204ee775da469d887b730c92971, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}
