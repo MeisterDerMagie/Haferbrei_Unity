@@ -9,38 +9,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4c017431a98423b8010843db7f59369, type: 3}
-  m_Name: RessourcePool
+  m_Script: {fileID: 11500000, guid: b57625836e6c45b1b2b0ad6d9e456212, type: 3}
+  m_Name: Markt_RessourceContainerTemplate
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: 3567302893375d0438586dad6c43b001, type: 2}
-    - {fileID: 11400000, guid: 6468732e1b40b894eae58fffcad697b5, type: 2}
-    - {fileID: 11400000, guid: 843c7aa3ee1cd1742a739d38ede09338, type: 2}
+    - {fileID: 11400000, guid: c208af7433d8cd948af3f23b02acd007, type: 2}
+    - {fileID: 11400000, guid: efb0b39fe1d755e4e9d9df8792674401, type: 2}
+    - {fileID: 11400000, guid: f6cd0521e7b2f0d48ad30a02e8f71897, type: 2}
+    - {fileID: 11400000, guid: 5ba1d0de905708641bd43f6cf64eac42, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: initialRessourcePool
-      Entry: 7
-      Data: 0|Haferbrei.RessourcePool, Assembly-CSharp
     - Name: ressources
       Entry: 7
-      Data: 1|System.Collections.Generic.Dictionary`2[[Haferbrei.Ressource, Assembly-CSharp],[System.Int32,
+      Data: 0|System.Collections.Generic.Dictionary`2[[Haferbrei.Ressource, Assembly-CSharp],[System.Int32,
         mscorlib]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 2|System.Collections.Generic.ObjectEqualityComparer`1[[Haferbrei.Ressource,
+      Data: 1|System.Collections.Generic.ObjectEqualityComparer`1[[Haferbrei.Ressource,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 12
-      Data: 3
+      Data: 5
     - Name: 
       Entry: 7
       Data: 
@@ -49,7 +48,7 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 3
-      Data: 5
+      Data: 100
     - Name: 
       Entry: 8
       Data: 
@@ -61,7 +60,7 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 3
-      Data: 2
+      Data: 20
     - Name: 
       Entry: 8
       Data: 
@@ -73,7 +72,31 @@ MonoBehaviour:
       Data: 2
     - Name: $v
       Entry: 3
-      Data: 10
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 3
+    - Name: $v
+      Entry: 3
+      Data: 12
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 4
+    - Name: $v
+      Entry: 3
+      Data: 3
     - Name: 
       Entry: 8
       Data: 
@@ -83,10 +106,3 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: ressourcePool
-      Entry: 6
-      Data: 
-  identifier: 
