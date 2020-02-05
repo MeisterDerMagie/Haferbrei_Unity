@@ -8,6 +8,8 @@ using UnityEngine;
 namespace Haferbrei {
 public class BlockBauPreviewWhenOverUI : MonoBehaviour
 {
+    [ReadOnly] public bool blockedByUI => MouseInputUIBlocker.BlockedByUI;
+    
     [SerializeField, FoldoutGroup("References"), Required] private GameObject bauPreview;
 
     private void Update()

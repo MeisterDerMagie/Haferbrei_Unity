@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 617dd29beb3b9d942a10ccb46f2406cf, type: 3}
-  m_Name: Jagdkammer
+  m_Name: Jagdzimmer
   m_EditorClassIdentifier: 
   canBeBuilt: 1
-  identifier: jagdkammer
+  identifier: jagdzimmer
   capacity: 0
   isUnique: 1
+  cost: {fileID: 11400000, guid: 12e0881d75f27ef4e99e9ee03ecb8bd7, type: 2}
   instancePrefab: {fileID: 4604666238020978129, guid: 4b4ff364b97969c4895aba951d5f5dbe,
     type: 3}
   previewPrefab: {fileID: 4604666238020978129, guid: 77e4152bfa7dfd44f9d7a874ce064881,

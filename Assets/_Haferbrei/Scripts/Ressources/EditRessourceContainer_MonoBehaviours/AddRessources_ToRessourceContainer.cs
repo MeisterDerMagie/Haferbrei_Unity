@@ -20,6 +20,8 @@ public class AddRessources_ToRessourceContainer : SerializedMonoBehaviour
     private bool modeIsMultiple => (mode == Mode.Multiple); //for Odin
     private bool modeIsRecipe => (mode == Mode.Recipe); //for Odin
     
+    public void SetRessourceContainer(RessourceContainer _ressourceContainer) => containerToEdit = _ressourceContainer;
+    public RessourceContainer GetRessourceContainer() => containerToEdit;
     
     public void AddRessource()
     {
@@ -32,13 +34,13 @@ public class AddRessources_ToRessourceContainer : SerializedMonoBehaviour
         switch (mode)
         {
             case Mode.Single:
-                containerToEdit.AddRessource(ressource, amount);
+                if(ressource != null) containerToEdit.AddRessource(ressource, amount);
                 break;
             case Mode.Multiple:
-                containerToEdit.AddRessources(ressources);
+                if(ressources != null) containerToEdit.AddRessources(ressources);
                 break;
             case Mode.Recipe:
-                containerToEdit.AddRessources(recipe);
+                if(recipe != null) containerToEdit.AddRessources(recipe);
                 break;
         }
     }

@@ -11,8 +11,10 @@ namespace Haferbrei {
 public class GebaeudeBauen : MonoBehaviour
 {
     [SerializeField, BoxGroup("Info"), ReadOnly] private GameObject gebaeudePreview;
-    [SerializeField, BoxGroup("Info"), ReadOnly] public bool buildingIsAllowed;
+    [SerializeField, BoxGroup("Info"), ReadOnly] private bool buildingIsAllowed;
     [SerializeField, FoldoutGroup("References"), Required] private Transform previewParent;
+    [SerializeField, FoldoutGroup("References"), Required] private RessourceContainer_ContainsCheck enoughRessourcesCheck;
+    [SerializeField, FoldoutGroup("References"), Required] private RessourceContainer playerRessourceContainer;
     [SerializeField, BoxGroup("Atom Events"), Required] private BuildingsEvent onZuBauendesGebaeudeChanged;
     [SerializeField, BoxGroup("Atom Values"), Required] private BuildingsVariable zuBauendesGebaeude;
 
@@ -25,23 +27,50 @@ public class GebaeudeBauen : MonoBehaviour
     {
         if(gebaeudePreview != null) Destroy(gebaeudePreview);
 
-        if (_newBuilding.previewPrefab != null)
-        {
-            gebaeudePreview = Instantiate(   _newBuilding.previewPrefab,
-                                    Camera.main.ScreenToWorldPoint(Input.mousePosition).With(z: previewParent.transform.position.z),
-                                            Quaternion.identity,
-                                            previewParent);
-        }
+        if (_newBuilding.previewPrefab == null) return;
+        
+        //set preview
+        gebaeudePreview = Instantiate(   _newBuilding.previewPrefab,
+            Camera.main.ScreenToWorldPoint(Input.mousePosition).With(z: previewParent.transform.position.z),
+            Quaternion.identity,
+            previewParent);
+            
+        //set costs recipe
+        enoughRessourcesCheck.SetRessourcesToCheckFor(zuBauendesGebaeude.Value.cost);
+    }
+
+    public void SetBuildingIsAllowed(bool _newValue)
+    {
+        if (_newValue == buildingIsAllowed) return;
+
+        buildingIsAllowed = _newValue;
+        OnBuildingIsAllowedChanged();
+    }
+
+    public bool GetBuildingIsAllowed() => buildingIsAllowed;
+
+    private void OnBuildingIsAllowedChanged()
+    {
+        gebaeudePreview.GetComponent<Building_Preview_SetBuildableMode>().SetBuildableMode(buildingIsAllowed);
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(0) && buildingIsAllowed)
         {
-            Instantiate(  zuBauendesGebaeude.Value.instancePrefab,
-                Camera.main.ScreenToWorldPoint(Input.mousePosition).With(z: previewParent.transform.position.z),
-                          Quaternion.identity);
+            BuildBuilding();
         }
+    }
+
+    private void BuildBuilding()
+    {
+        //instantiate building
+        Instantiate(  zuBauendesGebaeude.Value.instancePrefab,
+            Camera.main.ScreenToWorldPoint(Input.mousePosition).With(z: previewParent.transform.position.z),
+            Quaternion.identity);
+
+        //pay for the building
+        playerRessourceContainer.SubtractRessources(zuBauendesGebaeude.Value.cost);
     }
 }
 }

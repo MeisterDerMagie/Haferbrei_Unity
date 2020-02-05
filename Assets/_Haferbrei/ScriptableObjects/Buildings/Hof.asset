@@ -16,6 +16,7 @@ MonoBehaviour:
   identifier: hof
   capacity: 5
   isUnique: 0
+  cost: {fileID: 11400000, guid: bb81c264af0217c4c91d5102ff317b42, type: 2}
   instancePrefab: {fileID: 4604666238020978129, guid: e4d9279bb5209094f8310ec0ece9f5f4,
     type: 3}
   previewPrefab: {fileID: 4604666238020978129, guid: c4d2f4690995c3549b512497af0a70bb,

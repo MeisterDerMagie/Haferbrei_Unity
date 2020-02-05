@@ -24,6 +24,12 @@ public class GiveRessources_ToRessourceContainer : SerializedMonoBehaviour
     private bool modeIsAll => (mode == Mode.All); //for Odin
     private bool modeIsSingleOrAllOfOne => (mode == Mode.Single || mode == Mode.AllOfOne);
 
+    public void SetGivingContainer(RessourceContainer _ressourceContainer) => givingContainer = _ressourceContainer;
+    public RessourceContainer GetGivingContainer() => givingContainer;
+    
+    public void SetReceivingContainer(RessourceContainer _ressourceContainer) => receivingContainer = _ressourceContainer;
+    public RessourceContainer GetReceivingContainer() => receivingContainer;
+    
     public void GiveRessources()
     {
         if (givingContainer == null || receivingContainer == null)
@@ -35,16 +41,16 @@ public class GiveRessources_ToRessourceContainer : SerializedMonoBehaviour
         switch (mode)
         {
             case Mode.Single:
-                givingContainer.GiveRessource(ref receivingContainer, ressource, amount);
+                if(ressource != null) givingContainer.GiveRessource(ref receivingContainer, ressource, amount);
                 break;
             case Mode.Multiple:
-                givingContainer.GiveRessources(ref receivingContainer, ressources);
+                if(ressources != null) givingContainer.GiveRessources(ref receivingContainer, ressources);
                 break;
             case Mode.Recipe:
-                givingContainer.GiveRessources(ref receivingContainer, recipe);
+                if(recipe != null) givingContainer.GiveRessources(ref receivingContainer, recipe);
                 break;
             case Mode.AllOfOne:
-                givingContainer.GiveAllOfOneRessource(ref receivingContainer, ressource);
+                if(ressource != null) givingContainer.GiveAllOfOneRessource(ref receivingContainer, ressource);
                 break;
             case Mode.All:
                 givingContainer.GiveAllRessources(ref receivingContainer);

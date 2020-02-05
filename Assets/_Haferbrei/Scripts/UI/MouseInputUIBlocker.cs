@@ -11,7 +11,6 @@
  public class MouseInputUIBlocker : MonoBehaviour
  {
      public static bool BlockedByUI;
-     public bool blockedByUI; //Das hier ist ein hotfix für den Behaviour Designer, weil der keine static fields lesen kann
      private EventTrigger eventTrigger;
 
      private void Start()
@@ -36,14 +35,12 @@
      private void EnterUI()
      {
          BlockedByUI = true;
-         blockedByUI = true;
          //Debug.Log("Enter UI!");
      }
 
      private void ExitUI()
      {
          BlockedByUI = false;
-         blockedByUI = false;
          //Debug.Log("Exit UI!");
      }
 

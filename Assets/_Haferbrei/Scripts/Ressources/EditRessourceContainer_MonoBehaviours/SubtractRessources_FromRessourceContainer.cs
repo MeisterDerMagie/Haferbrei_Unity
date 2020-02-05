@@ -32,13 +32,13 @@ public class SubtractRessources_FromRessourceContainer : SerializedMonoBehaviour
         switch (mode)
         {
             case Mode.Single:
-                containerToEdit.SubtractRessource(ressource, amount);
+                if(ressource != null) containerToEdit.SubtractRessource(ressource, amount);
                 break;
             case Mode.Multiple:
-                containerToEdit.SubtractRessources(ressources);
+                if(ressources != null) containerToEdit.SubtractRessources(ressources);
                 break;
             case Mode.Recipe:
-                containerToEdit.SubtractRessources(recipe);
+                if(recipe != null) containerToEdit.SubtractRessources(recipe);
                 break;
         }
     }

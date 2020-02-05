@@ -9,6 +9,8 @@ namespace Haferbrei{
 public class RessourceContainer : SerializedScriptableObject
 {
     [OdinSerialize] private Dictionary<Ressource, int> ressources = new Dictionary<Ressource, int>();
+
+    [ReadOnly] public Action onRessourcesChanged = delegate { };
     
     //temporary lists & dictionaries that are declared here to avoid GC
     private List<Ressource> entriesToRemove = new List<Ressource>(); //this is used in the method RemoveEmptyRessourceEntries
@@ -16,74 +18,90 @@ public class RessourceContainer : SerializedScriptableObject
     
     
     //-- Add Ressources to the container --
-    public void AddRessource(Ressource _ressource, int _amount)
+    public void AddRessource(Ressource _ressource, int _amount, bool _callOnChangedEvent = true)
     {
         if (!ressources.ContainsKey(_ressource))  ressources.Add(_ressource, _amount);
         else                                      ressources[_ressource] += _amount;
+        //---
         RemoveEmptyRessourceEntries();
+        if(_callOnChangedEvent) onRessourcesChanged();
     }
 
-    public void AddRessources(Dictionary<Ressource, int> _ressources)
+    public void AddRessources(Dictionary<Ressource, int> _ressources, bool _callOnChangedEvent = true)
     {
         foreach (var ressource in _ressources)
         {
-            AddRessource(ressource.Key, ressource.Value);
+            AddRessource(ressource.Key, ressource.Value, false);
         }
+        //---
         RemoveEmptyRessourceEntries();
+        if(_callOnChangedEvent) onRessourcesChanged();
     }
 
     public void AddRessources(RessourceRecipe _recipe) => AddRessources(_recipe.recipe);
     //-- --
 
     //-- Subtract Ressources from the container --
-    public void SubtractRessource(Ressource _ressource, int _amount)
+    public void SubtractRessource(Ressource _ressource, int _amount, bool _callOnChangedEvent = true)
     {
         if (!ressources.ContainsKey(_ressource))  ressources.Add(_ressource, -_amount);
         else                                      ressources[_ressource] -= _amount;
+        //---
         RemoveEmptyRessourceEntries();
+        if(_callOnChangedEvent) onRessourcesChanged();
     }
     
-    public void SubtractRessources(Dictionary<Ressource, int> _ressources)
+    public void SubtractRessources(Dictionary<Ressource, int> _ressources, bool _callOnChangedEvent = true)
     {
         foreach (var ressource in _ressources)
         {
-            SubtractRessource(ressource.Key, ressource.Value);
+            SubtractRessource(ressource.Key, ressource.Value, false);
         }
+        //---
         RemoveEmptyRessourceEntries();
+        if(_callOnChangedEvent) onRessourcesChanged();
     }
 
     public void SubtractRessources(RessourceRecipe _recipe) => SubtractRessources(_recipe.recipe);
     //-- --
 
     //-- Transfer Ressources from this container to another --
-    public void GiveRessource(ref RessourceContainer _receiver, Ressource _ressourceToGive, int _amount)
+    public void GiveRessource(ref RessourceContainer _receiver, Ressource _ressourceToGive, int _amount, bool _callOnChangedEvent = true)
     {
         _receiver.AddRessource(_ressourceToGive, _amount);
-        SubtractRessource(_ressourceToGive, _amount);
+        SubtractRessource(_ressourceToGive, _amount, false);
+        //---
         RemoveEmptyRessourceEntries();
+        if(_callOnChangedEvent) onRessourcesChanged();
     }
 
-    public void GiveAllOfOneRessource(ref RessourceContainer _receiver, Ressource _ressourceToGive)
+    public void GiveAllOfOneRessource(ref RessourceContainer _receiver, Ressource _ressourceToGive, bool _callOnChangedEvent = true)
     {
         int amount = GetRessourceAmount(_ressourceToGive);
         if(amount != 0) _receiver.AddRessource(_ressourceToGive, amount);
-        EmptyRessource(_ressourceToGive);
+        EmptyRessource(_ressourceToGive, false);
+        //---
         RemoveEmptyRessourceEntries();
+        if(_callOnChangedEvent) onRessourcesChanged();
     }
     
-    public void GiveRessources(ref RessourceContainer _receiver, Dictionary<Ressource, int> _ressourcesToGive)
+    public void GiveRessources(ref RessourceContainer _receiver, Dictionary<Ressource, int> _ressourcesToGive, bool _callOnChangedEvent = true)
     {
         _receiver.AddRessources(_ressourcesToGive);
-        SubtractRessources(_ressourcesToGive);
+        SubtractRessources(_ressourcesToGive, false);
+        //---
         RemoveEmptyRessourceEntries();
+        if(_callOnChangedEvent) onRessourcesChanged();
     }
 
     public void GiveRessources(ref RessourceContainer _receiver, RessourceRecipe _recipe) => GiveRessources(ref _receiver, _recipe.recipe);
 
-    public void GiveAllRessources(ref RessourceContainer _receiver)
+    public void GiveAllRessources(ref RessourceContainer _receiver, bool _callOnChangedEvent = true)
     {
         _receiver.AddRessources(ressources);
-        EmptyContainer();
+        EmptyContainer(false);
+        //---
+        if(_callOnChangedEvent) onRessourcesChanged();
     }
     //-- --
     
@@ -143,14 +161,18 @@ public class RessourceContainer : SerializedScriptableObject
     
     
     //-- Empty the whole container or a specific ressource --
-    public void EmptyRessource(Ressource _ressource)
+    public void EmptyRessource(Ressource _ressource, bool _callOnChangedEvent = true)
     {
         if (ressources.ContainsKey(_ressource)) ressources.Remove(_ressource);
+        //---
+        if(_callOnChangedEvent) onRessourcesChanged();
     }
     
-    public void EmptyContainer()
+    public void EmptyContainer(bool _callOnChangedEvent = true)
     {
         ressources.Clear();
+        //---
+        if(_callOnChangedEvent) onRessourcesChanged();
     }
     //-- --
 
