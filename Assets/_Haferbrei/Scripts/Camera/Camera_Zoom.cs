@@ -10,6 +10,7 @@ using UnityEngine;
 namespace Haferbrei {
 public class Camera_Zoom : MonoBehaviour
 {
+    [SerializeField, BoxGroup("Settings")] public bool invertScrollDirection;
     [SerializeField, BoxGroup("Settings"), Min(0f)] private float zoomSpeed;
     [SerializeField, BoxGroup("Settings"), Min(0f)] private float sensitivity;
     [SerializeField, BoxGroup("Settings"), Min(0f)] private float minZoomValue;
@@ -29,7 +30,10 @@ public class Camera_Zoom : MonoBehaviour
 
         currentPositionOnCurve = Wichtel.MathW.Remap(newSize, minZoomValue, maxZoomValue, 0f, 1f);
 
-        newSize += Input.mouseScrollDelta.y * sensitivity * (zoomSensitivityCurve.Evaluate(currentPositionOnCurve));
+        var newSizeDelta = Input.mouseScrollDelta.y * sensitivity * zoomSensitivityCurve.Evaluate(currentPositionOnCurve);
+        if (invertScrollDirection) newSize += newSizeDelta;
+        else                       newSize -= newSizeDelta;
+        
         newSize = Mathf.Clamp(newSize, minZoomValue, maxZoomValue);
 
         if (newSize != mainCamera.orthographicSize)

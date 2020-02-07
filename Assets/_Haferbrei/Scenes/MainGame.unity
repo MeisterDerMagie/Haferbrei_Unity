@@ -389,7 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zoomSpeed: 1
-  sensitivity: 1
+  sensitivity: 3
   minZoomValue: 5
   maxZoomValue: 20
   zoomSensitivityCurve:
@@ -397,27 +397,28 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
+      value: 0.33
+      inSlope: 0.66999996
+      outSlope: 0.66999996
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: 0.66999996
+      outSlope: 0.66999996
       tangentMode: 34
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.33333334
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   mainCamera: {fileID: 68941129}
   currentPositionOnCurve: 0
+  newSize: 0
 --- !u!114 &68941133
 MonoBehaviour:
   m_ObjectHideFlags: 0
