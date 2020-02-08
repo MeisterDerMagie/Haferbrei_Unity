@@ -12,12 +12,16 @@ public class Camera_PanScreenEdge : MonoBehaviour
 {
     [SerializeField] private float edgeThreshold;
     [SerializeField] private float scrollSpeed;
+    [SerializeField] private AnimationCurve scrollSpeedZoomInfluence;
     [SerializeField, Range(0f, 1f)] private float dampingAmount;
-    [SerializeField, ReadOnly] private Vector2 mousePosition;
     [SerializeField, ReadOnly] private Vector3 deltaPos;
     [SerializeField, ReadOnly] private Vector3 dampingDelta;
     [SerializeField, ReadOnly] private bool isScrolling;
+    [SerializeField, ReadOnly] private bool isDamping;
     
+    private Tween dampTween;
+
+    [SerializeField, Required] Camera_Zoom zoomScript; 
     
     private void Update()
     {
@@ -31,6 +35,7 @@ public class Camera_PanScreenEdge : MonoBehaviour
         {
             deltaPos.x -= scrollSpeed;
             isScrolling = true;
+            isDamping = true;
         }
         
         //right screen edge
@@ -38,6 +43,7 @@ public class Camera_PanScreenEdge : MonoBehaviour
         {
             deltaPos.x += scrollSpeed;
             isScrolling = true;
+            isDamping = true;
         }
 
         //lower screen edge
@@ -45,6 +51,7 @@ public class Camera_PanScreenEdge : MonoBehaviour
         {
             deltaPos.y -= scrollSpeed;
             isScrolling = true;
+            isDamping = true;
         }
         
         //upper screen edge
@@ -52,21 +59,33 @@ public class Camera_PanScreenEdge : MonoBehaviour
         {
             deltaPos.y += scrollSpeed;
             isScrolling = true;
+            isDamping = true;
         }
 
         PreventScrollingIfCursorOutsideOfGameWindow(mousePos);
 
-        if(isScrolling) dampingDelta = deltaPos;
+        var deltaPosFactored = Time.deltaTime * scrollSpeedZoomInfluence.Evaluate(zoomScript.relativeZoom) * deltaPos;
+        
+        if(isScrolling) dampingDelta = deltaPosFactored;
         Damp();
 
-        transform.position += deltaPos;
+        transform.position += deltaPosFactored;
     }
 
     private void Damp()
     {
         if (isScrolling) return;
-        dampingDelta *= dampingAmount;
+        if (!isDamping)  return;
+        
         transform.position += dampingDelta;
+        dampingDelta *= Mathf.Pow(dampingAmount, Time.deltaTime);
+        
+        //Auf 0 setzen, wenn der Wert so klein ist, dass man keine Bewegung mehr sieht
+        if (Mathf.Abs(dampingDelta.x) < 0.0001f && Mathf.Abs(dampingDelta.y) < 0.0001f)
+        {
+            dampingDelta = Vector3.zero;
+            isDamping = false;
+        }
     }
 
     private void PreventScrollingIfCursorOutsideOfGameWindow(Vector3 mousePos)

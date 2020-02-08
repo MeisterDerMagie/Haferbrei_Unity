@@ -10,6 +10,12 @@ public class FramerateController : MonoBehaviour
     
     private void Awake()
     {
+        SetTargetFramerate();
+    }
+
+    [Button]
+    private void SetTargetFramerate()
+    {
         Application.targetFrameRate = targetFramerate;
     }
 }

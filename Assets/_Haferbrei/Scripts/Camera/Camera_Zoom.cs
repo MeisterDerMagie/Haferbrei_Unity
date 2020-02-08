@@ -18,7 +18,7 @@ public class Camera_Zoom : MonoBehaviour
     [SerializeField, BoxGroup("Settings"), Required] private AnimationCurve zoomSensitivityCurve;
     [SerializeField, BoxGroup("References"), Required] private Camera mainCamera;
 
-    [SerializeField, BoxGroup("Info"), ReadOnly] private float currentPositionOnCurve;
+    [SerializeField, BoxGroup("Info"), ReadOnly] public float relativeZoom;
     [SerializeField, BoxGroup("Info"), ReadOnly] private float newSize;
     
     private Tween zoomTween;
@@ -28,9 +28,9 @@ public class Camera_Zoom : MonoBehaviour
     private void Update()
     {
 
-        currentPositionOnCurve = Wichtel.MathW.Remap(newSize, minZoomValue, maxZoomValue, 0f, 1f);
+        relativeZoom = Wichtel.MathW.Remap(newSize, minZoomValue, maxZoomValue, 0f, 1f);
 
-        var newSizeDelta = Input.mouseScrollDelta.y * sensitivity * zoomSensitivityCurve.Evaluate(currentPositionOnCurve);
+        var newSizeDelta = Input.mouseScrollDelta.y * sensitivity * zoomSensitivityCurve.Evaluate(relativeZoom);
         if (invertScrollDirection) newSize += newSizeDelta;
         else                       newSize -= newSizeDelta;
         

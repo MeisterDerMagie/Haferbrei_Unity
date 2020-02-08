@@ -285,6 +285,7 @@ GameObject:
   - component: {fileID: 68941133}
   - component: {fileID: 68941131}
   - component: {fileID: 68941132}
+  - component: {fileID: 68941134}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -370,12 +371,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   edgeThreshold: 5
-  scrollSpeed: 0.15
-  dampingAmount: 0.96
-  mousePosition: {x: 0, y: 0}
+  scrollSpeed: 12
+  scrollSpeedZoomInfluence:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.9
+      inSlope: 2.1
+      outSlope: 2.1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 3
+      inSlope: 2.1
+      outSlope: 2.1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  dampingAmount: 0.0001
   deltaPos: {x: 0, y: 0, z: 0}
   dampingDelta: {x: 0, y: 0, z: 0}
   isScrolling: 0
+  isDamping: 0
+  zoomScript: {fileID: 68941132}
 --- !u!114 &68941132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,6 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 618e73c1718f478cb66d381470fddbbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  invertScrollDirection: 0
   zoomSpeed: 1
   sensitivity: 3
   minZoomValue: 5
@@ -417,7 +444,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   mainCamera: {fileID: 68941129}
-  currentPositionOnCurve: 0
+  relativeZoom: 0
   newSize: 0
 --- !u!114 &68941133
 MonoBehaviour:
@@ -432,11 +459,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameCamera: {fileID: 68941129}
-  dampingAmount: 0.95
+  dampingAmount: 0.0001
   mousePositionBefore: {x: 0, y: 0, z: 0}
   mousePositionDelta: {x: 0, y: 0, z: 0}
   dampingDelta: {x: 0, y: 0, z: 0}
-  dampMovement: 0
+  isDamping: 0
+  isPanning: 0
+--- !u!114 &68941134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68941127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ced3016582d14d988393e402af3a2949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftBoundary: -55
+  rightBoundary: 55
+  upperBoundary: 55
+  lowerBoundary: -55
+  elasticBoundarySize: 3
+  viewportLeft: 0
+  viewportRight: 0
+  viewportUpper: 0
+  viewportLower: 0
+  elasticBoundaryLeft: -52
+  elasticBoundaryRight: 52
+  elasticBoundaryUpper: 52
+  elasticBoundaryLower: -52
+  panScript: {fileID: 68941133}
+  isPanningBefore: 0
 --- !u!1 &73251021
 GameObject:
   m_ObjectHideFlags: 0
@@ -713,6 +768,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates: []
+--- !u!1 &90282887
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 90282888}
+  - component: {fileID: 90282889}
+  m_Layer: 0
+  m_Name: FramerateController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &90282888
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90282887}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &90282889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90282887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe85373b3ef0fc842971ddcc189388c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetFramerate: 100000
 --- !u!1 &123442394
 GameObject:
   m_ObjectHideFlags: 0

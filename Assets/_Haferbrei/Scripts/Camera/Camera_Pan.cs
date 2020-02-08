@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using MEC;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -13,17 +14,19 @@ public class Camera_Pan : MonoBehaviour
     [SerializeField, ReadOnly] private Vector3 mousePositionBefore;
     [SerializeField, ReadOnly] private Vector3 mousePositionDelta;
     [SerializeField, ReadOnly] private Vector3 dampingDelta;
-    [SerializeField, ReadOnly] private bool dampMovement;
-    
-    
-    
+    [SerializeField, ReadOnly] private bool isDamping;
+    [SerializeField, ReadOnly] public bool isPanning;
+
     private void Update()
     {
         mousePositionDelta = mousePositionBefore - gameCamera.ScreenToWorldPoint(Input.mousePosition);
 
         if (Input.GetMouseButtonDown(1))
         {
-            dampMovement = false;
+            isDamping = false;
+            mousePositionDelta = Vector3.zero;
+            dampingDelta = Vector3.zero;
+            isPanning = true;
         }
         
         if (Input.GetMouseButton(1))
@@ -34,7 +37,8 @@ public class Camera_Pan : MonoBehaviour
 
         if (Input.GetMouseButtonUp(1))
         {
-            dampMovement = true;
+            isDamping = true;
+            isPanning = false;
         }
         
         Damp();
@@ -44,11 +48,17 @@ public class Camera_Pan : MonoBehaviour
 
     private void Damp()
     {
-        if (!dampMovement) return;
+        if (!isDamping) return;
 
         transform.position += dampingDelta;
+        dampingDelta *= Mathf.Pow(dampingAmount, Time.deltaTime);
 
-        dampingDelta *= dampingAmount;
+        //Auf 0 setzen, wenn der Wert so klein ist, dass man keine Bewegung mehr sieht
+        if (Mathf.Abs(dampingDelta.x) < 0.0001f && Mathf.Abs(dampingDelta.y) < 0.0001f)
+        {
+            dampingDelta = Vector3.zero;
+            isDamping = false;
+        }
     }
 }
 }
