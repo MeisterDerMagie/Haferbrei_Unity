@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 617dd29beb3b9d942a10ccb46f2406cf, type: 3}
+  m_Name: Hof_Building
+  m_EditorClassIdentifier: 
+  canBeBuilt: 1
+  identifier: buildingSO_hof
+  capacity: 0
+  isUnique: 0
+  cost: {fileID: 11400000, guid: bb81c264af0217c4c91d5102ff317b42, type: 2}
+  instancePrefab: {fileID: 4604666238020978129, guid: e4d9279bb5209094f8310ec0ece9f5f4,
+    type: 3}
+  previewPrefab: {fileID: 4604666238020978129, guid: c4d2f4690995c3549b512497af0a70bb,
+    type: 3}

@@ -1,0 +1,271 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc22da4dc5bc4664ab851ce6695795ac, type: 3}
+  m_Name: SaveLoadController
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 0}
+    - {fileID: 0}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: loadedData
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.Guid, mscorlib],[Haferbrei.SaveableData,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.Guid,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 2
+      Data: 0aa72e14e8784ed4a04169212d0b3fad
+    - Name: $v
+      Entry: 7
+      Data: 2|Haferbrei.SaveablePrefabData, Assembly-CSharp
+    - Name: guid
+      Entry: 2
+      Data: 0aa72e14e8784ed4a04169212d0b3fad
+    - Name: type
+      Entry: 1
+      Data: prefab
+    - Name: parentGuid
+      Entry: 2
+      Data: ca3f45e420cc46df93918f5494fdb2c6
+    - Name: transform
+      Entry: 6
+      Data: 
+    - Name: prefabName
+      Entry: 1
+      Data: prf_Hof
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 2
+      Data: 8df52689b6124a5aafdca31fbba238ca
+    - Name: $v
+      Entry: 7
+      Data: 3|Haferbrei.SaveablePrefabData, Assembly-CSharp
+    - Name: guid
+      Entry: 2
+      Data: 8df52689b6124a5aafdca31fbba238ca
+    - Name: type
+      Entry: 1
+      Data: prefab
+    - Name: parentGuid
+      Entry: 2
+      Data: ddb0e8ceb55b4617ac3dcfc8f01180f6
+    - Name: transform
+      Entry: 6
+      Data: 
+    - Name: prefabName
+      Entry: 1
+      Data: prf_Jagdzimmer
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 2
+      Data: 0f7b025fb3ef4337b47b41e4d5048407
+    - Name: $v
+      Entry: 7
+      Data: 4|Haferbrei.SaveablePrefabData, Assembly-CSharp
+    - Name: guid
+      Entry: 2
+      Data: 0f7b025fb3ef4337b47b41e4d5048407
+    - Name: type
+      Entry: 1
+      Data: prefab
+    - Name: parentGuid
+      Entry: 2
+      Data: ddb0e8ceb55b4617ac3dcfc8f01180f6
+    - Name: transform
+      Entry: 6
+      Data: 
+    - Name: prefabName
+      Entry: 1
+      Data: prf_Hof
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: dataToSave
+      Entry: 7
+      Data: 5|System.Collections.Generic.Dictionary`2[[System.Guid, mscorlib],[Haferbrei.SaveableData,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 6|System.Collections.Generic.GenericEqualityComparer`1[[System.Guid,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 2
+      Data: 0aa72e14e8784ed4a04169212d0b3fad
+    - Name: $v
+      Entry: 7
+      Data: 7|Haferbrei.SaveablePrefabData, Assembly-CSharp
+    - Name: guid
+      Entry: 2
+      Data: 0aa72e14e8784ed4a04169212d0b3fad
+    - Name: type
+      Entry: 1
+      Data: prefab
+    - Name: parentGuid
+      Entry: 2
+      Data: ca3f45e420cc46df93918f5494fdb2c6
+    - Name: transform
+      Entry: 10
+      Data: 0
+    - Name: prefabName
+      Entry: 1
+      Data: prf_Hof
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 2
+      Data: 8df52689b6124a5aafdca31fbba238ca
+    - Name: $v
+      Entry: 7
+      Data: 8|Haferbrei.SaveablePrefabData, Assembly-CSharp
+    - Name: guid
+      Entry: 2
+      Data: 8df52689b6124a5aafdca31fbba238ca
+    - Name: type
+      Entry: 1
+      Data: prefab
+    - Name: parentGuid
+      Entry: 2
+      Data: ddb0e8ceb55b4617ac3dcfc8f01180f6
+    - Name: transform
+      Entry: 10
+      Data: 1
+    - Name: prefabName
+      Entry: 1
+      Data: prf_Jagdzimmer
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 2
+      Data: 0f7b025fb3ef4337b47b41e4d5048407
+    - Name: $v
+      Entry: 7
+      Data: 9|Haferbrei.SaveablePrefabData, Assembly-CSharp
+    - Name: guid
+      Entry: 2
+      Data: 0f7b025fb3ef4337b47b41e4d5048407
+    - Name: type
+      Entry: 1
+      Data: prefab
+    - Name: parentGuid
+      Entry: 2
+      Data: ddb0e8ceb55b4617ac3dcfc8f01180f6
+    - Name: transform
+      Entry: 6
+      Data: 
+    - Name: prefabName
+      Entry: 1
+      Data: prf_Hof
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: saveablePrefabs
+      Entry: 7
+      Data: 10|System.Collections.Generic.List`1[[Haferbrei.ISaveable, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: saveableComponents
+      Entry: 7
+      Data: 11|System.Collections.Generic.List`1[[Haferbrei.ISaveable, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 

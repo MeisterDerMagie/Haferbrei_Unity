@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using MEC;
 using UnityEngine;
 using Sirenix.OdinInspector;
 using UnityEngine.Events;
@@ -10,7 +11,7 @@ public class INIT001_Initialize : SerializedMonoBehaviour
 {
     [SerializeField, BoxGroup("Settings")] private bool initOnSceneStart = true;
     [SerializeField, ReadOnly] public List<IInitSingletons>   singletonInits = new List<IInitSingletons>();
-    //[SerializeField, ReadOnly] public List<ISaveable>         saveableInits  = new List<ISaveable>();
+    [SerializeField, ReadOnly] public List<ISaveable>         saveableInits  = new List<ISaveable>();
     //[SerializeField, ReadOnly] public List<IStoreable>        storeableInits = new List<IStoreable>();
     [SerializeField, ReadOnly] public List<IInitSelf>         selfInits      = new List<IInitSelf>();
     [SerializeField, ReadOnly] public List<IInitDependencies> dependentInits = new List<IInitDependencies>();
@@ -33,8 +34,8 @@ public class INIT001_Initialize : SerializedMonoBehaviour
         GetSingletons(transform);
         InitSingletons();
 
-        //GetSaveables(transform);
-        //InitSaveables();
+        GetSaveables(transform);
+        InitSaveables();
 
         //GetStoreables(transform);
         //InitStoreables();
@@ -45,10 +46,19 @@ public class INIT001_Initialize : SerializedMonoBehaviour
         //System.GC.Collect(); //Force Garbage Collection
 
         gameObject.SetActive(true); //Initialization is finished --> activate Scene
-        
+
+        //Alle children detachen, damit sie im root sind und nicht unnötige Transform updates senden, wenn sie sich bewegen
+        //WARUM FUNKTIONIERT DAS NICHT?? (Hat auf jeden Fall nichts damit zu tun, dass es so früh passiert. Passiert auch nach einem 5 sekündigen Delay)
+        /*
+        foreach (Transform child in transform)
+        {
+            Debug.Log(child.name);
+            child.SetParent(null);
+        }*/
+
         onInitializeFinished.Invoke();
     }
-
+    
     //--- Init Singletons ---
     #region Init Singletons
     private void GetSingletons(Transform _root)
@@ -72,7 +82,7 @@ public class INIT001_Initialize : SerializedMonoBehaviour
     #endregion
     //--- ---
 
-    /*
+    
     //--- Init Saveables ---
     #region Init Saveables
     private void GetSaveables(Transform _root)
@@ -96,6 +106,7 @@ public class INIT001_Initialize : SerializedMonoBehaviour
     #endregion
     //--- ---
 
+    /*
     //--- Init Storeables ---
     #region Init Storeables
     private void GetStoreables(Transform _root)
@@ -117,8 +128,9 @@ public class INIT001_Initialize : SerializedMonoBehaviour
         }
     }
     #endregion
-    //--- ---
     */
+    //--- ---
+    
 
     //--- Init Self and Dependents ---
     #region Init Self and Dependents
@@ -160,6 +172,8 @@ public class INIT001_Initialize : SerializedMonoBehaviour
         //saveableInits.Clear();
         //storeableInits.Clear();
     }
+
+    
     
     #if UNITY_EDITOR
     private void OnValidate()
