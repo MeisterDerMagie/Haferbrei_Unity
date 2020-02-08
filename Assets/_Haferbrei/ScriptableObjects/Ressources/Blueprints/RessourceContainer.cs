@@ -159,6 +159,19 @@ public class RessourceContainer : SerializedScriptableObject
     }
     //-- --
     
+    //-- Set the content of the container, ignoring/resetting all currently stored ressources --
+    public void SetRessources(Dictionary<Ressource, int> _ressources, bool _callOnChangedEvent = true)
+    {
+        EmptyContainer(false);
+        foreach (var ressource in _ressources)
+        {
+            AddRessource(ressource.Key, ressource.Value, false);
+        }
+        if(_callOnChangedEvent) onRessourcesChanged();
+    }
+
+    public void SetRessources(RessourceRecipe _recipe) => SetRessources(_recipe.recipe);
+    //-- --
     
     //-- Empty the whole container or a specific ressource --
     public void EmptyRessource(Ressource _ressource, bool _callOnChangedEvent = true)
