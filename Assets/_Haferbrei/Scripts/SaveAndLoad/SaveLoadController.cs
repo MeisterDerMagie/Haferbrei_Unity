@@ -73,8 +73,9 @@ public class SaveLoadController : SerializedScriptableObject
             var prefabToInstantiate = allPrefabsCollection.GetPrefab(data.prefabName);
             if (prefabToInstantiate != null)
             {
+                //instantiiere Prefab
                 gameObjectToLoad = Instantiate(prefabToInstantiate, Vector3.zero, Quaternion.identity, parentTransform);
-                //HIER: Setze die Guid auf dem neu erstellten GameObjekt.
+                //Setze die Guid auf dem neu erstellten GameObjekt.
                 gameObjectToLoad.GetComponent<GuidComponent>().SetGuid(data.guid);
             }
             else Debug.LogError("Konnte Prefab nicht finden, das beim Laden instantiiert werden sollte! (" + data.prefabName + ")");
@@ -83,6 +84,7 @@ public class SaveLoadController : SerializedScriptableObject
         // 5. Lade Daten in das GameObject
         gameObjectToLoad.GetComponent<SaveableGameObject>().LoadData(data);
 
+        //6. Initialisiere die SaveableComponent? Weiß nicht, ob das hier passieren sollte.
     }
 
     private void LoadScriptableObject(SaveableData _loadedData)
