@@ -14,8 +14,8 @@ public class SaveLoadController : SerializedScriptableObject
 {
     public AllPrefabs allPrefabsCollection;
     
-    public Dictionary<Guid, SaveableData> loadedData = new Dictionary<Guid, SaveableData>();
-    public Dictionary<Guid, SaveableData> dataToSave = new Dictionary<Guid, SaveableData>();
+    public List<SaveableData> loadedData = new List<SaveableData>();
+    public List<SaveableData> dataToSave = new List<SaveableData>();
 
     public List<ISaveable> saveableGameObjects = new List<ISaveable>();
     
@@ -27,7 +27,7 @@ public class SaveLoadController : SerializedScriptableObject
         foreach (var saveableGameObject in saveableGameObjects)
         {
             SaveableData data = saveableGameObject.SaveData();
-            dataToSave.Add(data.guid, data);
+            dataToSave.Add(data);
         }
         
         SaveGame.Save(_saveGameFileName, dataToSave);
@@ -37,13 +37,13 @@ public class SaveLoadController : SerializedScriptableObject
     [Button]
     public void LoadGameState(string _saveGameFileName)
     {
-        loadedData = SaveGame.Load<Dictionary<Guid, SaveableData>>(_saveGameFileName, null);
+        loadedData = SaveGame.Load<List<SaveableData>>(_saveGameFileName, null);
 
         foreach (var data in loadedData)
         {
-            if      (data.Value.saveableType == "GameObject")       LoadGameObject(data.Value);
-            else if (data.Value.saveableType == "ScriptableObject") LoadScriptableObject(data.Value);
-            else Debug.LogError("Can't load object of type: \"" + data.Value.saveableType + "\"");
+            if      (data.saveableType == "GameObject")       LoadGameObject(data);
+            else if (data.saveableType == "ScriptableObject") LoadScriptableObject(data);
+            else Debug.LogError("Can't load object of type: \"" + data.saveableType + "\"");
         }
 
         Debug.Log("Game loaded!");
