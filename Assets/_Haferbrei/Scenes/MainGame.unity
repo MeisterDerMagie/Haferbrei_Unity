@@ -736,7 +736,7 @@ RectTransform:
   - {fileID: 1243853680}
   - {fileID: 1184597899}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -797,7 +797,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &90282889
 MonoBehaviour:
@@ -1717,7 +1717,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &389257093
 GameObject:
@@ -2302,9 +2302,9 @@ MonoBehaviour:
   testScriptableObjectReference: {fileID: 11400000, guid: 9598ee1646e2c59418ecf8fa1a46084a,
     type: 2}
   guidReferenceTest:
-    serializedGuid: 142ea70a78e8d44ea04169212d0b3fad
-    cachedName: prf_Hof
-    cachedScene: {fileID: 102900000, guid: 43bdf5d9ff415084bae1026c5ab14d11, type: 3}
+    serializedGuid: 00000000000000000000000000000000
+    cachedName: 
+    cachedScene: {fileID: 0}
 --- !u!4 &552928981
 Transform:
   m_ObjectHideFlags: 0
@@ -2996,7 +2996,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &737089941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3090,7 +3090,7 @@ Transform:
   m_Children:
   - {fileID: 769124851}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &761198453
 GameObject:
@@ -3253,7 +3253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe22ea24230a70c4f964ef2eebf1f70d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allRessourceContainersCollection: {fileID: 11400000, guid: 267c0a58fd418b84e822c4b1bd9afefb,
+  allRessourceContainersCollection: {fileID: 11400000, guid: 26abeb4779eb5114caa88ca6b0d989f2,
     type: 2}
   creationMode: 1
   template: {fileID: 11400000, guid: a93ebd29ed5e7f4429fe217c9e4796c9, type: 2}
@@ -3701,7 +3701,7 @@ Transform:
   - {fileID: 514052707}
   - {fileID: 1181679747}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &853656322
 GameObject:
@@ -3848,7 +3848,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1007074601
 GameObject:
@@ -5823,62 +5823,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &1271317365
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1271317366}
-  - component: {fileID: 1271317367}
-  m_Layer: 0
-  m_Name: Test
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1271317366
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1271317365}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1271317367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1271317365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c31923ec7fe0cf94e8b416fb27edf501, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  reference:
-    serializedGuid: 00000000000000000000000000000000
-    cachedName: 
-    cachedScene: {fileID: 0}
 --- !u!1 &1274862427
 GameObject:
   m_ObjectHideFlags: 0
@@ -6825,7 +6769,7 @@ Transform:
   - {fileID: 123442395}
   - {fileID: 1229799734}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1649228157
 MonoBehaviour:
@@ -7908,7 +7852,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2040742817
 MonoBehaviour:
@@ -8158,5 +8102,5 @@ Transform:
   - {fileID: 8460527}
   - {fileID: 773951329}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

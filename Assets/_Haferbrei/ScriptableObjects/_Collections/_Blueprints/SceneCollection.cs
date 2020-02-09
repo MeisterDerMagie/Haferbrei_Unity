@@ -7,15 +7,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Haferbrei {
-[CreateAssetMenu(fileName = "AllScenes", menuName = "Scriptable Objects/Collections/All Scenes", order = 0)]
-public class AllScenes : SerializedScriptableObject
+[CreateAssetMenu(fileName = "SceneCollection", menuName = "Scriptable Objects/Collections/Scene Collection", order = 0)]
+public class SceneCollection : SerializedScriptableObject
 {
     [SerializeField, Delayed] private string folder;
-    [ReadOnly, SerializeField] private Dictionary<string, SceneReference> allSceneReferences = new Dictionary<string, SceneReference>();
+    [ReadOnly, SerializeField] private Dictionary<string, SceneReference> sceneReferences = new Dictionary<string, SceneReference>();
 
     public SceneReference GetScene(string _name)
     {
-        var scene = (allSceneReferences.ContainsKey(_name)) ? allSceneReferences[_name] : null;
+        var scene = (sceneReferences.ContainsKey(_name)) ? sceneReferences[_name] : null;
         return scene;
     }
     
@@ -25,15 +25,15 @@ public class AllScenes : SerializedScriptableObject
     {
         string[] foldersToSearch = {folder};
         
-        IEnumerable allScenes = Wichtel.UT_EditorUtilities_W.GetAssets<SceneAsset>(foldersToSearch, "t:scene");
+        IEnumerable scenes = Wichtel.UT_EditorUtilities_W.GetAssets<SceneAsset>(foldersToSearch, "t:scene");
 
-        allSceneReferences.Clear();
+        sceneReferences.Clear();
 
-        foreach(SceneAsset sceneAsset in allScenes)
+        foreach(SceneAsset sceneAsset in scenes)
         {
             var sceneReference = new SceneReference();
             sceneReference.ScenePath = AssetDatabase.GetAssetPath(sceneAsset);
-            if(!allSceneReferences.ContainsKey(sceneAsset.name)) allSceneReferences.Add(sceneAsset.name, sceneReference);
+            if(!sceneReferences.ContainsKey(sceneAsset.name)) sceneReferences.Add(sceneAsset.name, sceneReference);
             else
             {
                 Debug.LogError("Achtung, es gibt zwei oder mehr Szenen mit demselben Namen! (" + sceneAsset.name + ")");

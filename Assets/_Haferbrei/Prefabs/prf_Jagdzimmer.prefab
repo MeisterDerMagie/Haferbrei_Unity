@@ -16,6 +16,7 @@ MonoBehaviour:
   allPrefabsCollection: {fileID: 11400000, guid: 740091d4e49c6c7489b7b44ff400285a,
     type: 2}
   saveLoadController: {fileID: 11400000, guid: 5b1094697c808fa46ae0cf952d481a93, type: 2}
+  saveableComponents: []
 --- !u!50 &4381031509914555976
 Rigidbody2D:
   serializedVersion: 4

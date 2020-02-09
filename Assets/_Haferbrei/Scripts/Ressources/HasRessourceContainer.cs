@@ -9,7 +9,7 @@ using UnityEngine;
 namespace Haferbrei{
 public class HasRessourceContainer : MonoBehaviour, IInitSelf
 {
-    [SerializeField, BoxGroup("References"), Required, ReadOnly] private AllRessourceContainers allRessourceContainersCollection;
+    [SerializeField, BoxGroup("References"), Required, ReadOnly] private RessourceContainerCollection allRessourceContainersCollection;
     [SerializeField, BoxGroup("Settings"), DisableInPlayMode] private CreationMode creationMode;
     [SerializeField, BoxGroup("Settings"), ShowIf("creationModeIsTemplate"), DisableInPlayMode, Required]  public RessourceContainer template;
     
@@ -43,8 +43,8 @@ public class HasRessourceContainer : MonoBehaviour, IInitSelf
     {
         if(allRessourceContainersCollection != null) return;
 
-        string[] foldersToSearch = {"Assets/_Haferbrei/ScriptableObjects/Ressources"};
-        var allScriptableObjects = Wichtel.UT_ScriptableObjectsUtilities_W.GetAllScriptableObjectInstances<AllRessourceContainers>(foldersToSearch);
+        string[] foldersToSearch = {"Assets/_Haferbrei/ScriptableObjects/_Collections"};
+        var allScriptableObjects = Wichtel.UT_ScriptableObjectsUtilities_W.GetScriptableObjectInstances<RessourceContainerCollection>(foldersToSearch);
 
         if (allScriptableObjects.Count != 0) allRessourceContainersCollection = allScriptableObjects[0];
     }

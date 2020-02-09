@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 505aeb6617d749db8d112d8627f06854, type: 3}
   m_Name: AllRessourceContainers
   m_EditorClassIdentifier: 
-  allRessourceContainers_prebuilt:
+  prebuiltContainersFolder: Assets/_Haferbrei/ScriptableObjects/Ressources/RessourceContainers/PrebuiltContainers
+  ressourceContainers_prebuilt:
   - {fileID: 11400000, guid: f3e2b6cb15b3b1b488c247aeebf08013, type: 2}
-  allRessourceContainers_instantiatedAtRuntime: []
+  ressourceContainers_instantiatedAtRuntime: []

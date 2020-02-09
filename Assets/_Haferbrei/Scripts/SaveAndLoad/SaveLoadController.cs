@@ -13,8 +13,8 @@ namespace Haferbrei {
 [CreateAssetMenu(fileName = "SaveLoadController", menuName = "Scriptable Objects/SaveLoadController", order = 0)]
 public class SaveLoadController : SerializedScriptableObject
 {
-    public AllPrefabs allPrefabsCollection;
-    public AllScenes allScenesCollection;
+    public PrefabCollection allPrefabsCollection;
+    public SceneCollection allScenesCollection;
     
     public List<SaveableData> loadedData = new List<SaveableData>();
     public List<SaveableData> dataToSave = new List<SaveableData>();

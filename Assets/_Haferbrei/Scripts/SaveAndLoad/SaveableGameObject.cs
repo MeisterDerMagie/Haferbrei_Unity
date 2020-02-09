@@ -13,7 +13,7 @@ namespace Haferbrei {
 public class SaveableGameObject : MonoBehaviour, ISaveable
 {
     [SerializeField, ReadOnly] private string prefabName;
-    [SerializeField, Required] private AllPrefabs allPrefabsCollection;
+    [SerializeField, Required] private PrefabCollection allPrefabsCollection;
     [SerializeField, Required] private SaveLoadController saveLoadController;
     [SerializeField, InlineEditor, ReadOnly] public List<SaveableComponent> saveableComponents = new List<SaveableComponent>();
     

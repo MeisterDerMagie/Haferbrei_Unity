@@ -6,15 +6,15 @@ using UnityEngine;
 
 namespace Haferbrei {
 
-[CreateAssetMenu(fileName = "AllPrefabs", menuName = "Scriptable Objects/Collections/All Prefabs", order = 0)]
-public class AllPrefabs : SerializedScriptableObject
+[CreateAssetMenu(fileName = "PrefabCollection", menuName = "Scriptable Objects/Collections/Prefab Collection", order = 0)]
+public class PrefabCollection : SerializedScriptableObject
 {
     [SerializeField, Delayed] private string folder;
-    [ReadOnly, SerializeField] private Dictionary<string, GameObject> allPrefabReferences = new Dictionary<string, GameObject>();
+    [ReadOnly, SerializeField] private Dictionary<string, GameObject> prefabReferences = new Dictionary<string, GameObject>();
 
     public GameObject GetPrefab(string _name)
     {
-        var prefab = (allPrefabReferences.ContainsKey(_name)) ? allPrefabReferences[_name] : null;
+        var prefab = (prefabReferences.ContainsKey(_name)) ? prefabReferences[_name] : null;
         return prefab;
     }
     
@@ -24,13 +24,13 @@ public class AllPrefabs : SerializedScriptableObject
     {
         string[] foldersToSearch = {folder};
         
-        IEnumerable allPrefabs = Wichtel.UT_EditorUtilities_W.GetAssets<GameObject>(foldersToSearch, "t:prefab");
+        IEnumerable prefabs = Wichtel.UT_EditorUtilities_W.GetAssets<GameObject>(foldersToSearch, "t:prefab");
 
-        allPrefabReferences.Clear();
+        prefabReferences.Clear();
 
-        foreach(GameObject so in allPrefabs)
+        foreach(GameObject so in prefabs)
         {
-            if(!allPrefabReferences.ContainsKey(so.name)) allPrefabReferences.Add(so.name, so);
+            if(!prefabReferences.ContainsKey(so.name)) prefabReferences.Add(so.name, so);
             else
             {
                 Debug.LogError("Achtung, es gibt zwei oder mehr Prefabs mit demselben Namen! (" + so.name + ")");
