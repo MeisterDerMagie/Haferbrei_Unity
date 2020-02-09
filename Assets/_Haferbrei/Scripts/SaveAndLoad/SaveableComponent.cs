@@ -9,38 +9,47 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace Haferbrei {
-[RequireComponent(typeof(GuidComponent))]
-public class SaveableComponent : MonoBehaviour, ISaveable
+[ExecuteInEditMode]
+[HideMonoScript]
+public class SaveableComponent : MonoBehaviour, IStoreable
 {
-    [SerializeField, Required] private SaveLoadController saveLoadController;
+    [SerializeField, DisplayAsString] public string componentID;
     
-    public SaveableData SaveData()
+    //holt sich das dazugehörige SaveableObject (entweder auf demselben GameObject oder im nächsten Parent, das ein SaveableObject besitzt)
+    private SaveableGameObject AssociatedSaveableGameObject => (GetComponent<SaveableGameObject>() != null)
+        ? GetComponent<SaveableGameObject>()
+        : GetComponentsInParent<SaveableGameObject>(true)[0];
+    
+    public virtual SaveableComponentData StoreData()
     {
         throw new NotImplementedException();
     }
 
-    public void LoadData()
+    public virtual void RestoreData(SaveableComponentData _loadedData)
     {
         throw new NotImplementedException();
     }
 
-    public void InitSaveable()
+    public void InitStoreable()
     {
-        saveLoadController.RegisterSaveableComponent(this);
+        throw new NotImplementedException();
     }
 
     public void OnDestroy()
     {
-        saveLoadController.UnregisterSaveableComponent(this);
+        AssociatedSaveableGameObject.RemoveSaveableComponent(this);
+    }
+
+    private void OnValidate()
+    {
+        AssociatedSaveableGameObject.AddSaveableComponent(this);
     }
 }
 
 
 [Serializable]
-public class SaveableComponentData : SaveableData
+public abstract class SaveableComponentData
 {
-    public Guid parentGuid;
-    public Transform transform;
-    public string prefabName;
+    public string componentID;
 }
 }

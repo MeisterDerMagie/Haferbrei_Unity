@@ -11,6 +11,12 @@ public class AllPrefabs : SerializedScriptableObject
 {
     [SerializeField, Delayed] private string folder;
     [ReadOnly, SerializeField] private Dictionary<string, GameObject> allPrefabReferences = new Dictionary<string, GameObject>();
+
+    public GameObject GetPrefab(string _name)
+    {
+        var prefab = (allPrefabReferences.ContainsKey(_name)) ? allPrefabReferences[_name] : null;
+        return prefab;
+    }
     
     #if UNITY_EDITOR
     [Button]
@@ -31,7 +37,7 @@ public class AllPrefabs : SerializedScriptableObject
             }
         }
     }
-    
+
     private void OnValidate()
     {
         RefreshDictionary();

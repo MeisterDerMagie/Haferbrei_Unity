@@ -6,6 +6,6 @@ namespace Haferbrei{
 public abstract class SaveableData //base class for all classes that can be saved
 {
     public Guid guid; //each saveable instance has a unique ID
-    public string type; //seach saveable has a type (prefab, component, ...)
+    public string saveableType;
 }
 }

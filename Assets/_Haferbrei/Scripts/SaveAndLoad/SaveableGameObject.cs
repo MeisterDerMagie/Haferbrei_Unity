@@ -10,53 +10,75 @@ using UnityEngine;
 
 namespace Haferbrei {
 [RequireComponent(typeof(GuidComponent))]
-public class SaveablePrefab : MonoBehaviour, ISaveable
+public class SaveableGameObject : MonoBehaviour, ISaveable
 {
     [SerializeField, ReadOnly] private string prefabName;
     [SerializeField, Required] private AllPrefabs allPrefabsCollection;
     [SerializeField, Required] private SaveLoadController saveLoadController;
+    [SerializeField, InlineEditor, ReadOnly] public List<SaveableComponent> saveableComponents = new List<SaveableComponent>();
     
     [Button]
     public SaveableData SaveData()
     {
-        SaveablePrefabData data = new SaveablePrefabData();
+        SaveableGameObjectData data = new SaveableGameObjectData();
 
+        //save own data
+        data.sceneName = gameObject.scene.name;
         data.guid = GetComponent<GuidComponent>().GetGuid();
+        data.saveableType = "GameObject";
         data.prefabName = prefabName;
-        data.type = "prefab";
-        
-        data.parentGuid = transform.parent.GetComponent<GuidComponent>().GetGuid();
-        data.transform = transform;
+        data.gameObjectName = gameObject.name;
+        data.parentGuid = (transform.parent != null) ? transform.parent.GetComponent<GuidComponent>().GetGuid() : Guid.Empty;
+
+        //save component data
+        var componentDatas = new List<SaveableComponentData>();
+        foreach (var component in saveableComponents) componentDatas.Add(component.StoreData());
+        data.componentDatas = componentDatas;
         
         return data;
     }
 
-    public void LoadData()
+    public void LoadData(SaveableGameObjectData _loadedData)
     {
-        /*
-        SaveablePrefabData _data = new SaveablePrefabData();
+        //load own data
+        gameObject.name = _loadedData.gameObjectName;
 
-        if(SAL001_SaveLoadManager.instance.loadedData.ContainsKey(ID))
+        //load component data
+        foreach (var componentData in _loadedData.componentDatas)
         {
-            _data = SAL001_SaveLoadManager.instance.loadedData[ID] as SaveablePrefabData;
-
-            
-        }*/
+            foreach (var component in saveableComponents)
+            {
+                if(component.componentID == componentData.componentID) component.RestoreData(componentData);
+            }
+        }
     }
 
     [Button]
     public void InitSaveable()
     {
-        saveLoadController.RegisterSaveablePrefab(this);
+        saveLoadController.RegisterSaveableGameObject(this);
     }
 
     public void OnDestroy()
     {
-        saveLoadController.UnregisterSaveablePrefab(this);
+        saveLoadController.UnregisterSaveableGameObject(this);
+    }
+
+    public void AddSaveableComponent(SaveableComponent _component)
+    {
+        if(saveableComponents.Contains(_component)) return;
+        
+        _component.componentID = Guid.NewGuid().ToString();
+        saveableComponents.Add(_component);
+    }
+
+    public void RemoveSaveableComponent(SaveableComponent _component)
+    {
+        if (saveableComponents.Contains(_component)) saveableComponents.Remove(_component);
     }
 
 
-#if UNITY_EDITOR
+    #if UNITY_EDITOR
     #region SetPrefabNameForReference
     private void OnValidate()
     {
@@ -100,10 +122,12 @@ public class SaveablePrefab : MonoBehaviour, ISaveable
 
 
 [Serializable]
-public class SaveablePrefabData : SaveableData
+public class SaveableGameObjectData : SaveableData
 {
+    public string sceneName;
     public Guid parentGuid;
-    public Transform transform;
     public string prefabName;
+    public string gameObjectName;
+    public List<SaveableComponentData> componentDatas;
 }
 }

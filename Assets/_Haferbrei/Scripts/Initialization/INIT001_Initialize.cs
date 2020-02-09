@@ -48,15 +48,11 @@ public class INIT001_Initialize : SerializedMonoBehaviour
         gameObject.SetActive(true); //Initialization is finished --> activate Scene
 
         //Alle children detachen, damit sie im root sind und nicht unnötige Transform updates senden, wenn sie sich bewegen
-        //WARUM FUNKTIONIERT DAS NICHT?? (Hat auf jeden Fall nichts damit zu tun, dass es so früh passiert. Passiert auch nach einem 5 sekündigen Delay)
-        /*
-        foreach (Transform child in transform)
-        {
-            Debug.Log(child.name);
-            child.SetParent(null);
-        }*/
+        transform.DetachChildren();
 
         onInitializeFinished.Invoke();
+
+        gameObject.name += " (Initialization finished)";
     }
     
     //--- Init Singletons ---
