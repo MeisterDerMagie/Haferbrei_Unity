@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/_Haferbrei/Scenes/MainGame.unity
+    guid: 43bdf5d9ff415084bae1026c5ab14d11
+  - enabled: 1
+    path: Assets/_Haferbrei/Scenes/TestScene.unity
+    guid: 8dc9d3b0036d9104a96cae14d785ebe3
   m_configObjects: {}

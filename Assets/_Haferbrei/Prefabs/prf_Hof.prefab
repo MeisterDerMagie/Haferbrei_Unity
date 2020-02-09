@@ -18,7 +18,7 @@ MonoBehaviour:
   saveLoadController: {fileID: 11400000, guid: 5b1094697c808fa46ae0cf952d481a93, type: 2}
   saveableComponents:
   - {fileID: 5052366658549015922}
-  - {fileID: 43876535904324808}
+  - {fileID: 6288952012506564352}
 --- !u!114 &5052366658549015922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,7 +84,7 @@ PolygonCollider2D:
       - {x: -3.2439632, y: -1.6948717}
       - {x: 0.18932128, y: -3.6363037}
       - {x: 2.5520258, y: -2.1645334}
---- !u!114 &43876535904324808
+--- !u!114 &6288952012506564352
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9633ebf3cab0a940aaba981b512d0f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  componentID: b432537b-25e5-4b90-b3a0-7f9dbe659075
+  componentID: 5d58bde4-1b4f-4e55-b2d6-77a80ea791ff
 --- !u!1001 &6781246456170281765
 PrefabInstance:
   m_ObjectHideFlags: 0

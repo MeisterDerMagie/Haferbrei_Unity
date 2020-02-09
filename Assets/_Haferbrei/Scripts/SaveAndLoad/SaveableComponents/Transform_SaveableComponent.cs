@@ -16,7 +16,7 @@ public class Transform_SaveableComponent : SaveableComponent
         //Store TransformData
         saveableComponentData.position   = transform.position;
         saveableComponentData.rotation   = transform.rotation;
-        saveableComponentData.localScale = transform.localScale;
+        saveableComponentData.localScale = transform.lossyScale;
 
         if (RectTransform == null) return saveableComponentData;
         

@@ -23,27 +23,14 @@ MonoBehaviour:
     SerializationNodes:
     - Name: loadedData
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[System.Guid, mscorlib],[Haferbrei.SaveableData,
-        Assembly-CSharp]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.Guid,
-        mscorlib]], mscorlib
-    - Name: 
-      Entry: 8
-      Data: 
+      Data: 0|System.Collections.Generic.List`1[[Haferbrei.SaveableData, Assembly-CSharp]],
+        mscorlib
     - Name: 
       Entry: 12
-      Data: 4
+      Data: 5
     - Name: 
       Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 2
-      Data: b1458f362c194cff91b6553cb5831ed0
-    - Name: $v
-      Entry: 7
-      Data: 2|Haferbrei.SaveableGameObjectData, Assembly-CSharp
+      Data: 1|Haferbrei.SaveableGameObjectData, Assembly-CSharp
     - Name: guid
       Entry: 2
       Data: b1458f362c194cff91b6553cb5831ed0
@@ -60,18 +47,18 @@ MonoBehaviour:
       Entry: 1
       Data: prf_Hof
     - Name: gameObjectName
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: prf_Hof
     - Name: componentDatas
       Entry: 7
-      Data: 3|System.Collections.Generic.List`1[[Haferbrei.SaveableComponentData,
+      Data: 2|System.Collections.Generic.List`1[[Haferbrei.SaveableComponentData,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 1
     - Name: 
       Entry: 7
-      Data: 4|Haferbrei.Transform_SaveableComponentData, Assembly-CSharp
+      Data: 3|Haferbrei.Transform_SaveableComponentData, Assembly-CSharp
     - Name: componentID
       Entry: 1
       Data: de4a131f-e61e-4652-83af-bab64fc55c7f
@@ -226,162 +213,6 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
-      Entry: 7
-      Data: 5|Haferbrei.Transform_SaveableComponentData, Assembly-CSharp
-    - Name: componentID
-      Entry: 1
-      Data: b432537b-25e5-4b90-b3a0-7f9dbe659075
-    - Name: position
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: -20.5
-    - Name: 
-      Entry: 4
-      Data: 6.5
-    - Name: 
-      Entry: 4
-      Data: 3.5
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: rotation
-      Entry: 7
-      Data: UnityEngine.Quaternion, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: localScale
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: anchoredPosition
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: anchoredPosition3D
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: anchorMax
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: anchorMin
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: offsetMax
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: offsetMin
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: pivot
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: sizeDelta
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
       Entry: 13
       Data: 
     - Name: 
@@ -391,17 +222,8 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
       Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 2
-      Data: 44e64094d646480db13bfc8000a86bed
-    - Name: $v
-      Entry: 7
-      Data: 6|Haferbrei.SaveableGameObjectData, Assembly-CSharp
+      Data: 4|Haferbrei.SaveableGameObjectData, Assembly-CSharp
     - Name: guid
       Entry: 2
       Data: 44e64094d646480db13bfc8000a86bed
@@ -418,11 +240,11 @@ MonoBehaviour:
       Entry: 1
       Data: prf_Jagdzimmer
     - Name: gameObjectName
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: prf_Jagdzimmer
     - Name: componentDatas
       Entry: 7
-      Data: 7|System.Collections.Generic.List`1[[Haferbrei.SaveableComponentData,
+      Data: 5|System.Collections.Generic.List`1[[Haferbrei.SaveableComponentData,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -437,17 +259,8 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
       Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 2
-      Data: 06914f32f3d941b0833c9108bb599a5a
-    - Name: $v
-      Entry: 7
-      Data: 8|Haferbrei.SaveableGameObjectData, Assembly-CSharp
+      Data: 6|Haferbrei.SaveableGameObjectData, Assembly-CSharp
     - Name: guid
       Entry: 2
       Data: 06914f32f3d941b0833c9108bb599a5a
@@ -464,18 +277,18 @@ MonoBehaviour:
       Entry: 1
       Data: 
     - Name: gameObjectName
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: SaveableObject
     - Name: componentDatas
       Entry: 7
-      Data: 9|System.Collections.Generic.List`1[[Haferbrei.SaveableComponentData,
+      Data: 7|System.Collections.Generic.List`1[[Haferbrei.SaveableComponentData,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 10|Haferbrei.Transform_SaveableComponentData, Assembly-CSharp
+      Data: 8|Haferbrei.Transform_SaveableComponentData, Assembly-CSharp
     - Name: componentID
       Entry: 1
       Data: 4c6b26cf-5aad-480c-b57e-f61baa2d8a90
@@ -520,7 +333,7 @@ MonoBehaviour:
       Data: 7
     - Name: 
       Entry: 4
-      Data: 8
+      Data: 7.99999952
     - Name: 
       Entry: 4
       Data: 9
@@ -639,45 +452,36 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
       Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 2
-      Data: 7b9d84b3a9874f7ca107d248bde474d5
-    - Name: $v
-      Entry: 7
-      Data: 11|Haferbrei.SaveableGameObjectData, Assembly-CSharp
+      Data: 9|Haferbrei.SaveableGameObjectData, Assembly-CSharp
     - Name: guid
       Entry: 2
-      Data: 7b9d84b3a9874f7ca107d248bde474d5
+      Data: bf9f368ac02e4e44829d5ed76cad33a6
     - Name: saveableType
       Entry: 1
       Data: GameObject
     - Name: sceneName
       Entry: 1
-      Data: MainGame
+      Data: TestScene
     - Name: parentGuid
       Entry: 2
-      Data: a1c004ba969b465b916ad50800da0a05
+      Data: 00000000000000000000000000000000
     - Name: prefabName
       Entry: 1
       Data: prf_Hof
     - Name: gameObjectName
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: schon da
     - Name: componentDatas
       Entry: 7
-      Data: 12|System.Collections.Generic.List`1[[Haferbrei.SaveableComponentData,
+      Data: 10|System.Collections.Generic.List`1[[Haferbrei.SaveableComponentData,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 1
     - Name: 
       Entry: 7
-      Data: 13|Haferbrei.Transform_SaveableComponentData, Assembly-CSharp
+      Data: 11|Haferbrei.Transform_SaveableComponentData, Assembly-CSharp
     - Name: componentID
       Entry: 1
       Data: de4a131f-e61e-4652-83af-bab64fc55c7f
@@ -707,10 +511,10 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 4
-      Data: 0.42261824
+      Data: 0
     - Name: 
       Entry: 4
-      Data: 0.9063078
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -719,166 +523,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector3, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 1
+      Data: 1.5
     - Name: 
       Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: anchoredPosition
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: anchoredPosition3D
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: anchorMax
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: anchorMin
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: offsetMax
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: offsetMin
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: pivot
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: sizeDelta
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 14|Haferbrei.Transform_SaveableComponentData, Assembly-CSharp
-    - Name: componentID
-      Entry: 1
-      Data: b432537b-25e5-4b90-b3a0-7f9dbe659075
-    - Name: position
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: rotation
-      Entry: 7
-      Data: UnityEngine.Quaternion, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: -0.211309075
-    - Name: 
-      Entry: 4
-      Data: 0.45315364
-    - Name: 
-      Entry: 4
-      Data: -0.365998179
-    - Name: 
-      Entry: 4
-      Data: -0.784885764
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: localScale
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 4
-      Data: 1
+      Data: 0.5
     - Name: 
       Entry: 4
       Data: 1
@@ -992,6 +640,196 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 12|Haferbrei.SaveableGameObjectData, Assembly-CSharp
+    - Name: guid
+      Entry: 2
+      Data: 0eeb5dcaad484ae2a439e8259f78c023
+    - Name: saveableType
+      Entry: 1
+      Data: GameObject
+    - Name: sceneName
+      Entry: 1
+      Data: TestScene
+    - Name: parentGuid
+      Entry: 2
+      Data: bf9f368ac02e4e44829d5ed76cad33a6
+    - Name: prefabName
+      Entry: 1
+      Data: prf_Hof
+    - Name: gameObjectName
+      Entry: 1
+      Data: prf_Hof(Clone)
+    - Name: componentDatas
+      Entry: 7
+      Data: 13|System.Collections.Generic.List`1[[Haferbrei.SaveableComponentData,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 14|Haferbrei.Transform_SaveableComponentData, Assembly-CSharp
+    - Name: componentID
+      Entry: 1
+      Data: de4a131f-e61e-4652-83af-bab64fc55c7f
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: -4
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: rotation
+      Entry: 7
+      Data: UnityEngine.Quaternion, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: localScale
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.375
+    - Name: 
+      Entry: 4
+      Data: 0.5
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: anchoredPosition
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: anchoredPosition3D
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: anchorMax
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: anchorMin
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: offsetMax
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: offsetMin
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: pivot
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: sizeDelta
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
       Data: 
     - Name: 
       Entry: 8
@@ -1007,27 +845,14 @@ MonoBehaviour:
       Data: 
     - Name: dataToSave
       Entry: 7
-      Data: 15|System.Collections.Generic.Dictionary`2[[System.Guid, mscorlib],[Haferbrei.SaveableData,
-        Assembly-CSharp]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 16|System.Collections.Generic.GenericEqualityComparer`1[[System.Guid,
-        mscorlib]], mscorlib
-    - Name: 
-      Entry: 8
-      Data: 
+      Data: 15|System.Collections.Generic.List`1[[Haferbrei.SaveableData, Assembly-CSharp]],
+        mscorlib
     - Name: 
       Entry: 12
-      Data: 4
+      Data: 5
     - Name: 
       Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 2
-      Data: b1458f362c194cff91b6553cb5831ed0
-    - Name: $v
-      Entry: 7
-      Data: 17|Haferbrei.SaveableGameObjectData, Assembly-CSharp
+      Data: 16|Haferbrei.SaveableGameObjectData, Assembly-CSharp
     - Name: guid
       Entry: 2
       Data: b1458f362c194cff91b6553cb5831ed0
@@ -1044,18 +869,18 @@ MonoBehaviour:
       Entry: 1
       Data: prf_Hof
     - Name: gameObjectName
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: prf_Hof
     - Name: componentDatas
       Entry: 7
-      Data: 18|System.Collections.Generic.List`1[[Haferbrei.SaveableComponentData,
+      Data: 17|System.Collections.Generic.List`1[[Haferbrei.SaveableComponentData,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 1
     - Name: 
       Entry: 7
-      Data: 19|Haferbrei.Transform_SaveableComponentData, Assembly-CSharp
+      Data: 18|Haferbrei.Transform_SaveableComponentData, Assembly-CSharp
     - Name: componentID
       Entry: 1
       Data: de4a131f-e61e-4652-83af-bab64fc55c7f
@@ -1210,162 +1035,6 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
-      Entry: 7
-      Data: 20|Haferbrei.Transform_SaveableComponentData, Assembly-CSharp
-    - Name: componentID
-      Entry: 1
-      Data: b432537b-25e5-4b90-b3a0-7f9dbe659075
-    - Name: position
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: -20.5
-    - Name: 
-      Entry: 4
-      Data: 6.5
-    - Name: 
-      Entry: 4
-      Data: 3.5
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: rotation
-      Entry: 7
-      Data: UnityEngine.Quaternion, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: localScale
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: anchoredPosition
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: anchoredPosition3D
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: anchorMax
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: anchorMin
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: offsetMax
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: offsetMin
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: pivot
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: sizeDelta
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
       Entry: 13
       Data: 
     - Name: 
@@ -1375,17 +1044,8 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
       Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 2
-      Data: 44e64094d646480db13bfc8000a86bed
-    - Name: $v
-      Entry: 7
-      Data: 21|Haferbrei.SaveableGameObjectData, Assembly-CSharp
+      Data: 19|Haferbrei.SaveableGameObjectData, Assembly-CSharp
     - Name: guid
       Entry: 2
       Data: 44e64094d646480db13bfc8000a86bed
@@ -1402,11 +1062,11 @@ MonoBehaviour:
       Entry: 1
       Data: prf_Jagdzimmer
     - Name: gameObjectName
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: prf_Jagdzimmer
     - Name: componentDatas
       Entry: 7
-      Data: 22|System.Collections.Generic.List`1[[Haferbrei.SaveableComponentData,
+      Data: 20|System.Collections.Generic.List`1[[Haferbrei.SaveableComponentData,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -1421,17 +1081,8 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
       Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 2
-      Data: 06914f32f3d941b0833c9108bb599a5a
-    - Name: $v
-      Entry: 7
-      Data: 23|Haferbrei.SaveableGameObjectData, Assembly-CSharp
+      Data: 21|Haferbrei.SaveableGameObjectData, Assembly-CSharp
     - Name: guid
       Entry: 2
       Data: 06914f32f3d941b0833c9108bb599a5a
@@ -1448,18 +1099,18 @@ MonoBehaviour:
       Entry: 1
       Data: 
     - Name: gameObjectName
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: SaveableObject
     - Name: componentDatas
       Entry: 7
-      Data: 24|System.Collections.Generic.List`1[[Haferbrei.SaveableComponentData,
+      Data: 22|System.Collections.Generic.List`1[[Haferbrei.SaveableComponentData,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 25|Haferbrei.Transform_SaveableComponentData, Assembly-CSharp
+      Data: 23|Haferbrei.Transform_SaveableComponentData, Assembly-CSharp
     - Name: componentID
       Entry: 1
       Data: 4c6b26cf-5aad-480c-b57e-f61baa2d8a90
@@ -1483,16 +1134,16 @@ MonoBehaviour:
       Data: UnityEngine.Quaternion, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0.0370999575
+      Data: 0.03709996
     - Name: 
       Entry: 4
-      Data: 0.0417083278
+      Data: 0.04170833
     - Name: 
       Entry: 4
-      Data: 0.050734017
+      Data: 0.0507340245
     - Name: 
       Entry: 4
-      Data: 0.997151
+      Data: 0.9971511
     - Name: 
       Entry: 8
       Data: 
@@ -1504,7 +1155,7 @@ MonoBehaviour:
       Data: 7
     - Name: 
       Entry: 4
-      Data: 8
+      Data: 7.99999952
     - Name: 
       Entry: 4
       Data: 9
@@ -1623,45 +1274,36 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
       Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 2
-      Data: 7b9d84b3a9874f7ca107d248bde474d5
-    - Name: $v
-      Entry: 7
-      Data: 26|Haferbrei.SaveableGameObjectData, Assembly-CSharp
+      Data: 24|Haferbrei.SaveableGameObjectData, Assembly-CSharp
     - Name: guid
       Entry: 2
-      Data: 7b9d84b3a9874f7ca107d248bde474d5
+      Data: bf9f368ac02e4e44829d5ed76cad33a6
     - Name: saveableType
       Entry: 1
       Data: GameObject
     - Name: sceneName
       Entry: 1
-      Data: MainGame
+      Data: TestScene
     - Name: parentGuid
       Entry: 2
-      Data: a1c004ba969b465b916ad50800da0a05
+      Data: 00000000000000000000000000000000
     - Name: prefabName
       Entry: 1
       Data: prf_Hof
     - Name: gameObjectName
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: schon da
     - Name: componentDatas
       Entry: 7
-      Data: 27|System.Collections.Generic.List`1[[Haferbrei.SaveableComponentData,
+      Data: 25|System.Collections.Generic.List`1[[Haferbrei.SaveableComponentData,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 1
     - Name: 
       Entry: 7
-      Data: 28|Haferbrei.Transform_SaveableComponentData, Assembly-CSharp
+      Data: 26|Haferbrei.Transform_SaveableComponentData, Assembly-CSharp
     - Name: componentID
       Entry: 1
       Data: de4a131f-e61e-4652-83af-bab64fc55c7f
@@ -1691,10 +1333,10 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 4
-      Data: 0.42261827
+      Data: 0
     - Name: 
       Entry: 4
-      Data: 0.9063079
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -1703,166 +1345,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector3, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 1
+      Data: 1.5
     - Name: 
       Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: anchoredPosition
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: anchoredPosition3D
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: anchorMax
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: anchorMin
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: offsetMax
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: offsetMin
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: pivot
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: sizeDelta
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 29|Haferbrei.Transform_SaveableComponentData, Assembly-CSharp
-    - Name: componentID
-      Entry: 1
-      Data: b432537b-25e5-4b90-b3a0-7f9dbe659075
-    - Name: position
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: rotation
-      Entry: 7
-      Data: UnityEngine.Quaternion, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0.21130909
-    - Name: 
-      Entry: 4
-      Data: -0.4531538
-    - Name: 
-      Entry: 4
-      Data: 0.365998238
-    - Name: 
-      Entry: 4
-      Data: 0.784885764
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: localScale
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 4
-      Data: 1
+      Data: 0.5
     - Name: 
       Entry: 4
       Data: 1
@@ -1976,6 +1462,196 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 27|Haferbrei.SaveableGameObjectData, Assembly-CSharp
+    - Name: guid
+      Entry: 2
+      Data: 0eeb5dcaad484ae2a439e8259f78c023
+    - Name: saveableType
+      Entry: 1
+      Data: GameObject
+    - Name: sceneName
+      Entry: 1
+      Data: TestScene
+    - Name: parentGuid
+      Entry: 2
+      Data: bf9f368ac02e4e44829d5ed76cad33a6
+    - Name: prefabName
+      Entry: 1
+      Data: prf_Hof
+    - Name: gameObjectName
+      Entry: 1
+      Data: prf_Hof(Clone)
+    - Name: componentDatas
+      Entry: 7
+      Data: 28|System.Collections.Generic.List`1[[Haferbrei.SaveableComponentData,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 29|Haferbrei.Transform_SaveableComponentData, Assembly-CSharp
+    - Name: componentID
+      Entry: 1
+      Data: de4a131f-e61e-4652-83af-bab64fc55c7f
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: -4
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: rotation
+      Entry: 7
+      Data: UnityEngine.Quaternion, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: localScale
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.375
+    - Name: 
+      Entry: 4
+      Data: 0.5
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: anchoredPosition
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: anchoredPosition3D
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: anchorMax
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: anchorMin
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: offsetMax
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: offsetMin
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: pivot
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: sizeDelta
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
       Data: 
     - Name: 
       Entry: 8
@@ -2003,4 +1679,6 @@ MonoBehaviour:
       Entry: 8
       Data: 
   allPrefabsCollection: {fileID: 11400000, guid: 740091d4e49c6c7489b7b44ff400285a,
+    type: 2}
+  allScenesCollection: {fileID: 11400000, guid: 8367157c0a9c62a4c84c65a39baf612f,
     type: 2}
