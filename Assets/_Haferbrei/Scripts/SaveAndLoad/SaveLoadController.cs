@@ -23,7 +23,7 @@ public class SaveLoadController : SerializedScriptableObject
     
     private Dictionary<Guid, Transform> parents = new Dictionary<Guid, Transform>();
     
-    [Button]
+    [Button, DisableInEditorMode]
     public void SaveGameState(string _saveGameFileName)
     {
         dataToSave.Clear();
@@ -38,10 +38,10 @@ public class SaveLoadController : SerializedScriptableObject
         Debug.Log("Game saved!");
     }
 
-    [Button]
+    [Button, DisableInEditorMode]
     public void LoadGameState(string _saveGameFileName)
     {
-        Debug.Log("Start loading game @ " + Time.time);
+        Debug.Log("Start loading game @ frame #" + Time.frameCount + " / time: " + DateTime.Now.TimeOfDay );
         Timing.RunCoroutine(_LoadGameState(_saveGameFileName));
     }
     
@@ -52,11 +52,13 @@ public class SaveLoadController : SerializedScriptableObject
         
         //load all necessary scenes
         yield return Timing.WaitUntilDone(Timing.RunCoroutine(_LoadNecessaryScenes()));
+
+        Debug.Log("Loaded all scenes @ frame #" + Time.frameCount + " / time: " + DateTime.Now.TimeOfDay);
         
         //load data
         foreach (var data in loadedData)
         {
-            if      (data.saveableType == "GameObject")       LoadGameObject(data); //yield return Timing.WaitUntilDone(Timing.RunCoroutine(_LoadGameObject(data))); 
+            if      (data.saveableType == "GameObject")       LoadGameObject(data); //yield return Timing.WaitUntilDone(Timing.RunCoroutine(_LoadGameObject(data)));
             else if (data.saveableType == "ScriptableObject") LoadScriptableObject(data);
             else Debug.LogError("Can't load object of type: \"" + data.saveableType + "\"");
         }
@@ -64,7 +66,7 @@ public class SaveLoadController : SerializedScriptableObject
         //set parents
         SetParents();
 
-        Debug.Log("Game loaded @ " + Time.time);
+        Debug.Log("Game loaded @ frame #" + Time.frameCount + " / time: " + DateTime.Now.TimeOfDay);
     }
 
     private void SetParents()
