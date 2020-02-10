@@ -75,7 +75,7 @@ public class SaveLoadController : SerializedScriptableObject
         {
             var parent = GuidManager.ResolveGuid(pair.Key);
             if (parent == null) { Debug.LogError("Parent doesn't exist! Guid: " + pair.Key); continue; }
-            pair.Value.SetParent(parent.transform, true);
+            pair.Value.SetParent(parent.transform, false);
         }
     }
 

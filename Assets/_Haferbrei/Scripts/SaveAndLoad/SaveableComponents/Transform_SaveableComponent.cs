@@ -14,9 +14,9 @@ public class Transform_SaveableComponent : SaveableComponent
         saveableComponentData.componentID = componentID;
 
         //Store TransformData
-        saveableComponentData.position   = transform.position;
-        saveableComponentData.rotation   = transform.rotation;
-        saveableComponentData.localScale = transform.lossyScale;
+        saveableComponentData.localPosition = transform.localPosition;
+        saveableComponentData.localRotation = transform.localRotation;
+        saveableComponentData.localScale    = transform.localScale;
 
         if (RectTransform == null) return saveableComponentData;
         
@@ -38,8 +38,8 @@ public class Transform_SaveableComponent : SaveableComponent
         Transform_SaveableComponentData saveableComponentData = _loadedData as Transform_SaveableComponentData; 
 
         //Restore TransformData
-        transform.position   = saveableComponentData.position;
-        transform.rotation   = saveableComponentData.rotation;
+        transform.localPosition   = saveableComponentData.localPosition;
+        transform.localRotation   = saveableComponentData.localRotation;
         transform.localScale = saveableComponentData.localScale;
 
         if (RectTransform == null) return;
@@ -59,8 +59,8 @@ public class Transform_SaveableComponent : SaveableComponent
 public class Transform_SaveableComponentData : SaveableComponentData
 {
     //TransformData
-    public Vector3 position;
-    public Quaternion rotation;
+    public Vector3 localPosition;
+    public Quaternion localRotation;
     public Vector3 localScale;
 
     //RectTransformData    
