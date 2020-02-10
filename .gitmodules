@@ -4,3 +4,6 @@
 [submodule "Assets/guid-based-reference"]
 	path = Assets/guid-based-reference
 	url = https://github.com/MeisterDerMagie/guid-based-reference
+[submodule "Assets/OdinWatchWindow"]
+	path = Assets/OdinWatchWindow
+	url = https://gist.github.com/MeisterDerMagie/fa5c6beffc081e2a8e6fecebee136938
