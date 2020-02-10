@@ -13,42 +13,59 @@ namespace Haferbrei {
 [CreateAssetMenu(fileName = "SaveLoadController", menuName = "Scriptable Objects/SaveLoadController", order = 0)]
 public class SaveLoadController : SerializedScriptableObject
 {
+    [ReadOnly] public bool loadSaveGame; //soll beim nächsten Mal, dass das Spiel initialisiert wird, saveGame data geladen werden?
+    
     public PrefabCollection allPrefabsCollection;
     public SceneCollection allScenesCollection;
+    public GameObject initializerPrefab;
     
     public List<SaveableData> loadedData = new List<SaveableData>();
     public List<SaveableData> dataToSave = new List<SaveableData>();
 
     public List<ISaveable> saveableGameObjects = new List<ISaveable>();
     
-    private Dictionary<Guid, Transform> parents = new Dictionary<Guid, Transform>();
+    private Dictionary<Transform, Guid> parents = new Dictionary<Transform, Guid>();
+    private Dictionary<Scene, Guid> initializers = new Dictionary<Scene, Guid>();
+    private string saveGameFileName;
     
     [Button, DisableInEditorMode]
     public void SaveGameState(string _saveGameFileName)
     {
         dataToSave.Clear();
         
+        List<ISaveable> emptySaveablesToRemove = new List<ISaveable>(); //anscheinend kann es selten passieren, dass leere Einträge übrig bleiben. Hier wird sich darum gekümmert.
         foreach (var saveableGameObject in saveableGameObjects)
         {
+            if (saveableGameObject == null)
+            {
+                emptySaveablesToRemove.Add(saveableGameObject);
+                continue;
+            }
             SaveableData data = saveableGameObject.SaveData();
             dataToSave.Add(data);
         }
+        foreach (var emptyEntry in emptySaveablesToRemove) saveableGameObjects.Remove(emptyEntry);
         
         SaveGame.Save(_saveGameFileName, dataToSave);
         Debug.Log("Game saved!");
     }
 
     [Button, DisableInEditorMode]
-    public void LoadGameState(string _saveGameFileName)
+    public void PrepareLoading(string _saveGameFileName)
     {
         Debug.Log("Start loading game @ frame #" + Time.frameCount + " / time: " + DateTime.Now.TimeOfDay );
-        Timing.RunCoroutine(_LoadGameState(_saveGameFileName));
+        loadSaveGame = true;
+        saveGameFileName = _saveGameFileName;
+        
+        //Timing.RunCoroutine(_LoadGameState(_saveGameFileName));
     }
     
-    private IEnumerator<float> _LoadGameState(string _saveGameFileName)
+    public IEnumerator<float> _LoadGameState()
     {
-        loadedData = SaveGame.Load<List<SaveableData>>(_saveGameFileName, null);
+        loadSaveGame = false;
+        loadedData = SaveGame.Load<List<SaveableData>>(saveGameFileName, null);
         parents.Clear();
+        initializers.Clear();
         
         //load all necessary scenes
         yield return Timing.WaitUntilDone(Timing.RunCoroutine(_LoadNecessaryScenes()));
@@ -58,14 +75,14 @@ public class SaveLoadController : SerializedScriptableObject
         //load data
         foreach (var data in loadedData)
         {
-            if      (data.saveableType == "GameObject")       LoadGameObject(data); //yield return Timing.WaitUntilDone(Timing.RunCoroutine(_LoadGameObject(data)));
-            else if (data.saveableType == "ScriptableObject") LoadScriptableObject(data);
+            if      (data.saveableType == "ScriptableObject") LoadScriptableObject(data);
+            else if (data.saveableType == "GameObject")       LoadGameObject(data); //yield return Timing.WaitUntilDone(Timing.RunCoroutine(_LoadGameObject(data)));
             else Debug.LogError("Can't load object of type: \"" + data.saveableType + "\"");
         }
         
         //set parents
         SetParents();
-
+        
         Debug.Log("Game loaded @ frame #" + Time.frameCount + " / time: " + DateTime.Now.TimeOfDay);
     }
 
@@ -73,9 +90,9 @@ public class SaveLoadController : SerializedScriptableObject
     {
         foreach (var pair in parents)
         {
-            var parent = GuidManager.ResolveGuid(pair.Key);
+            var parent = GuidManager.ResolveGuid(pair.Value);
             if (parent == null) { Debug.LogError("Parent doesn't exist! Guid: " + pair.Key); continue; }
-            pair.Value.SetParent(parent.transform, false);
+            pair.Key.SetParent(parent.transform, false);
         }
     }
 
@@ -95,6 +112,7 @@ public class SaveLoadController : SerializedScriptableObject
             if (!SceneUtilitiesW.IsSceneLoaded(sceneName))
             {
                 var scene = allScenesCollection.GetScene(sceneName);
+                Debug.LogWarning("Achtung, Szene \"" + sceneName + "\" war nicht geladen. Idealerweise sollten alle nötigen Szenen geladen sein, bevor der Speicherstand geladen wird.");
                 yield return Timing.WaitUntilDone(SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive));
                 Debug.Log("loaded Scene: " + scene.ScenePath);
             }
@@ -104,9 +122,10 @@ public class SaveLoadController : SerializedScriptableObject
     private void LoadGameObject(SaveableData _loadedData)
     {
         var data = _loadedData as SaveableGameObjectData;
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName(data.sceneName));
+        var targetScene = SceneManager.GetSceneByName(data.sceneName);
+        SceneManager.SetActiveScene(targetScene);
         
-        // 1. Existiert das GameObjekt mit der Guid? Falls nicht, muss das Prefab instantiiert werden.
+        // 1. Existiert das GameObject mit der Guid? Falls nicht, muss das Prefab instantiiert werden.
         var gameObjectToLoad = GuidManager.ResolveGuid(data.guid);
         if (gameObjectToLoad == null) gameObjectToLoad = InstantiatePrefab(data);
         
@@ -114,9 +133,16 @@ public class SaveLoadController : SerializedScriptableObject
         gameObjectToLoad.GetComponent<SaveableGameObject>().LoadData(data);
         
         // 3. Falls das GameObject einen Parent hatte, wird der hier vermerkt, damit es den später bekommt
-        if (data.parentGuid != Guid.Empty) parents.Add(data.parentGuid, gameObjectToLoad.transform);
+        // Falls es keinen Parent hatte, wird es einem Initializer zugeordnet, damit der es dann korrekt initialisieren kann
+        if (data.parentGuid != Guid.Empty) parents.Add(gameObjectToLoad.transform, data.parentGuid); 
+        else
+        {
+            Guid initializerParent = new Guid();
+            if (!initializers.ContainsKey(targetScene)) initializers.Add(targetScene, Instantiate(initializerPrefab).GetComponent<GuidComponent>().GetGuid()); //if this scene doesn't already have an initializer, create one
+            initializerParent = initializers[targetScene];
+            parents.Add(gameObjectToLoad.transform, initializerParent);
+        }
         
-        // 4. Initialisiere die SaveableComponent? Weiß nicht, ob das hier passieren sollte.
     }
 
     private GameObject InstantiatePrefab(SaveableGameObjectData _data)

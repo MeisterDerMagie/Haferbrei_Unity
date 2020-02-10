@@ -64,13 +64,15 @@ public class GebaeudeBauen : MonoBehaviour
 
     private void BuildBuilding()
     {
-        //instantiate building
-        Instantiate(  zuBauendesGebaeude.Value.instancePrefab,
-            Camera.main.ScreenToWorldPoint(Input.mousePosition).With(z: previewParent.transform.position.z),
-            Quaternion.identity);
-
         //pay for the building
         playerRessourceContainer.SubtractRessources(zuBauendesGebaeude.Value.cost);
+        
+        //instantiate building
+        var newBuilding = Instantiate(  zuBauendesGebaeude.Value.instancePrefab,
+                               Camera.main.ScreenToWorldPoint(Input.mousePosition).With(z: previewParent.transform.position.z),
+                                        Quaternion.identity);
+        
+        INIT001_Initialize.InitializePrefab(newBuilding.transform);
     }
 }
 }

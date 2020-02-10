@@ -26,6 +26,7 @@ public class RessourceContainerCollection : ScriptableObject
         ressourceContainers_instantiatedAtRuntime.Remove(_containerToRemoveFromList);
     }
 
+    #if UNITY_EDITOR
     //scan Assets to add prebuilt Containers to the list
     private void OnValidate()
     {
@@ -39,5 +40,6 @@ public class RessourceContainerCollection : ScriptableObject
             if (!ressourceContainers_prebuilt.Contains(container)) ressourceContainers_prebuilt.Add(container);
         }
     }
+    #endif
 }
 }

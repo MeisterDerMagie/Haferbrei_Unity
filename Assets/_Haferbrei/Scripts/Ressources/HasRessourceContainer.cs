@@ -38,6 +38,7 @@ public class HasRessourceContainer : MonoBehaviour, IInitSelf
         allRessourceContainersCollection.UnregisterRessourceContainer(ressourceContainer);
     }
     
+    #if UNITY_EDITOR
     //automatically get the reference to the "allRessourceContainersCollection"
     private void OnValidate()
     {
@@ -48,5 +49,6 @@ public class HasRessourceContainer : MonoBehaviour, IInitSelf
 
         if (allScriptableObjects.Count != 0) allRessourceContainersCollection = allScriptableObjects[0];
     }
+    #endif
 }
 }
