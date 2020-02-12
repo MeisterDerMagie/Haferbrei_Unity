@@ -25,6 +25,9 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
+    - Name: guid
+      Entry: 2
+      Data: 5f44b57db6c14a739074f13f3fa97034
     - Name: recipe
       Entry: 7
       Data: 0|System.Collections.Generic.Dictionary`2[[Haferbrei.Ressource, Assembly-CSharp],[System.Int32,

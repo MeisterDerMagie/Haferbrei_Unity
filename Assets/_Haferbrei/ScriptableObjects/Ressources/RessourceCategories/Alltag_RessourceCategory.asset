@@ -12,4 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac28903cc3a46fa82903a4d1efc7aa1, type: 3}
   m_Name: Alltag_RessourceCategory
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: guid
+      Entry: 2
+      Data: 7f4876c1f27746e5b1fe7a5196c24b3d
   identifier: alltag
