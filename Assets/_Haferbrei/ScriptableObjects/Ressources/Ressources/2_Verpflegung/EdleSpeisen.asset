@@ -20,7 +20,10 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
-  identifier: edlespeisen
+    SerializationNodes:
+    - Name: guid
+      Entry: 2
+      Data: 66538fbd9f81465891c27038d762bf45
+  identifier: edleSpeisen
   goldwert: 0
-  category: {fileID: 11400000, guid: 9c2654f81b697084e8b3ca0b0e39af25, type: 2}
+  category: {fileID: 11400000, guid: 46897b6e3ff5b374d92d3a1be5f3eabf, type: 2}

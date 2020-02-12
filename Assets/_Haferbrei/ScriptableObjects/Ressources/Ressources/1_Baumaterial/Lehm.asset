@@ -20,7 +20,10 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: guid
+      Entry: 2
+      Data: 9570cac633414dddb16a668857beb346
   identifier: lehm
   goldwert: 0
   category: {fileID: 11400000, guid: 46e40b3a83bb7da4e97dc596d369556e, type: 2}

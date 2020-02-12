@@ -20,7 +20,10 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: guid
+      Entry: 2
+      Data: f14962040cf843f2a50ee67599d9a860
   identifier: waffen
   goldwert: 0
   category: {fileID: 11400000, guid: 56dfdfd295ac1ff4694f81452dc2f217, type: 2}

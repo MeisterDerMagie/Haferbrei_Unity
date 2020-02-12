@@ -20,7 +20,10 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: guid
+      Entry: 2
+      Data: 74b921ddfad149c888b2e696b520c2d3
   identifier: holz
   goldwert: 0
   category: {fileID: 11400000, guid: 46e40b3a83bb7da4e97dc596d369556e, type: 2}

@@ -20,7 +20,10 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: guid
+      Entry: 2
+      Data: 8df53e39a2ef4a9293c99d9e56cb2b0c
   identifier: pelze
   goldwert: 0
-  category: {fileID: 11400000, guid: ab48e903392b1eb489a17c537e2e61b1, type: 2}
+  category: {fileID: 11400000, guid: 62dd0944e838a2f4896adb9d9c08b89c, type: 2}
