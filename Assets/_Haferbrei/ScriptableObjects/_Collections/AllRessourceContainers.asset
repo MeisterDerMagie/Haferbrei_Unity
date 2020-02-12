@@ -12,7 +12,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 505aeb6617d749db8d112d8627f06854, type: 3}
   m_Name: AllRessourceContainers
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: f3e2b6cb15b3b1b488c247aeebf08013, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: guid
+      Entry: 2
+      Data: 2af8127f0c8645d5a68468cb948813dd
+    - Name: allRessourceContainersByGuid
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.Guid, mscorlib],[Haferbrei.RessourceContainer,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.Guid,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 2
+      Data: 2248e0e986644107989f3f07e0bffdef
+    - Name: $v
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   prebuiltContainersFolder: Assets/_Haferbrei/ScriptableObjects/Ressources/RessourceContainers/PrebuiltContainers
   ressourceContainers_prebuilt:
   - {fileID: 11400000, guid: f3e2b6cb15b3b1b488c247aeebf08013, type: 2}
   ressourceContainers_instantiatedAtRuntime: []
+  allRessourceContainers:
+  - {fileID: 11400000, guid: f3e2b6cb15b3b1b488c247aeebf08013, type: 2}

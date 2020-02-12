@@ -8,7 +8,7 @@ using UnityEngine;
 namespace Haferbrei {
 
 [CreateAssetMenu(fileName = "RessourceRecipe", menuName = "Scriptable Objects/Ressourcen/Recipe", order = 0)]
-public class RessourceRecipe : SerializedScriptableObject
+public class RessourceRecipe : ScriptableObjectWithGuid
 {
     public string identifier;
     [OdinSerialize] public Dictionary<Ressource, int> recipe = new Dictionary<Ressource, int>();

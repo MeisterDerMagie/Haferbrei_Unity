@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Haferbrei {
 [CreateAssetMenu(fileName = "Ressource", menuName = "Scriptable Objects/Ressourcen/Ressource", order = 0)]
-public class Ressource : SerializedScriptableObject
+public class Ressource : ScriptableObjectWithGuid
 {
     public string identifier;
     public float goldwert;

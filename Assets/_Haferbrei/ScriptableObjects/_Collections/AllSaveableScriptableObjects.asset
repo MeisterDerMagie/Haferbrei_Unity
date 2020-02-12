@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2057b841c574be9a8c88d60f906344b, type: 3}
-  m_Name: AllScriptableObjects
+  m_Script: {fileID: 11500000, guid: f92b4872e1dc46bcabbf4fd09372545f, type: 3}
+  m_Name: AllSaveableScriptableObjects
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -23,10 +23,10 @@ MonoBehaviour:
     SerializationNodes:
     - Name: guid
       Entry: 2
-      Data: ed75cfe39f244bcab84b9efcdf0e1f02
+      Data: 97a5ec09fe0f467bb205a1439b66a9e9
     - Name: scriptableObjectReferences
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[System.Guid, mscorlib],[Haferbrei.ScriptableObjectWithGuid,
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.Guid, mscorlib],[Haferbrei.SaveableScriptableObject,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
@@ -44,5 +44,6 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  folder: 
-  foldersToIgnore: []
+  folder: Assets/_Haferbrei/ScriptableObjects
+  foldersToIgnore:
+  - Assets/_Haferbrei/ScriptableObjects/Ressources/RessourceContainers/Templates

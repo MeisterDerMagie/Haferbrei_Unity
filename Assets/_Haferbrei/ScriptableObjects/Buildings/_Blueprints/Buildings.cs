@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Haferbrei {
 [CreateAssetMenu(fileName = "Building", menuName = "Scriptable Objects/Buildings/Building", order = 0)]
-public class Buildings : ScriptableObject
+public class Buildings : ScriptableObjectWithGuid
 {
     public bool canBeBuilt = true;
     public string identifier;

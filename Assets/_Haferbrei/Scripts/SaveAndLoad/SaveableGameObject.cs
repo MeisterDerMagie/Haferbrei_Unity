@@ -40,13 +40,15 @@ public class SaveableGameObject : MonoBehaviour, ISaveable
         return data;
     }
 
-    public void LoadData(SaveableGameObjectData _loadedData)
+    public void LoadData(SaveableData _loadedData)
     {
+        var data = _loadedData as SaveableGameObjectData;
+        
         //load own data
-        gameObject.name = _loadedData.gameObjectName;
+        gameObject.name = data.gameObjectName;
 
         //load component data
-        foreach (var componentData in _loadedData.componentDatas)
+        foreach (var componentData in data.componentDatas)
         {
             foreach (var component in saveableComponents)
             {

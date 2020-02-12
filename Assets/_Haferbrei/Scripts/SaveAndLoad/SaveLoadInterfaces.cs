@@ -3,7 +3,7 @@ public interface ISaveable
 {
     //string ID { get; set; }
     SaveableData SaveData();
-    void LoadData(SaveableGameObjectData _loadedData);
+    void LoadData(SaveableData _loadedData);
     void InitSaveable();
     void OnDestroy();
 }

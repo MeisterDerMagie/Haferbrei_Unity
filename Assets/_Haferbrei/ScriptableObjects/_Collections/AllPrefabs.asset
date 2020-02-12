@@ -16,8 +16,10 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
+    - {fileID: 1922013309848833176, guid: 6bc24db9dfcbb1248bddcda08b232168, type: 3}
+    - {fileID: 7054887534509017, guid: 84c456272dc885649a5c556341df40c1, type: 3}
     - {fileID: 7060760436674559732, guid: 5d6e697057589ba4c84bedc5a48849e5, type: 3}
-    - {fileID: 4604666238020978129, guid: e4d9279bb5209094f8310ec0ece9f5f4, type: 3}
+    - {fileID: 6781246456170281791, guid: e4d9279bb5209094f8310ec0ece9f5f4, type: 3}
     - {fileID: 4604666238020978129, guid: c4d2f4690995c3549b512497af0a70bb, type: 3}
     - {fileID: 4604666238020978129, guid: 4b4ff364b97969c4895aba951d5f5dbe, type: 3}
     - {fileID: 4604666238020978129, guid: 77e4152bfa7dfd44f9d7a874ce064881, type: 3}
@@ -26,6 +28,9 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
+    - Name: guid
+      Entry: 2
+      Data: cf7f66980f69403c9614557de997ea6d
     - Name: prefabReferences
       Entry: 7
       Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[UnityEngine.GameObject,
@@ -39,13 +44,13 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 5
+      Data: 7
     - Name: 
       Entry: 7
       Data: 
     - Name: $k
       Entry: 1
-      Data: prf_Building
+      Data: Initializer
     - Name: $v
       Entry: 10
       Data: 0
@@ -57,7 +62,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: prf_Hof
+      Data: prf_LoadingScreen
     - Name: $v
       Entry: 10
       Data: 1
@@ -69,7 +74,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: prf_Hof_Preview
+      Data: prf_Building
     - Name: $v
       Entry: 10
       Data: 2
@@ -81,7 +86,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: prf_Jagdzimmer
+      Data: prf_Hof
     - Name: $v
       Entry: 10
       Data: 3
@@ -93,10 +98,34 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: prf_Jagdzimmer_Preview
+      Data: prf_Hof_Preview
     - Name: $v
       Entry: 10
       Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: prf_Jagdzimmer
+    - Name: $v
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: prf_Jagdzimmer_Preview
+    - Name: $v
+      Entry: 10
+      Data: 6
     - Name: 
       Entry: 8
       Data: 

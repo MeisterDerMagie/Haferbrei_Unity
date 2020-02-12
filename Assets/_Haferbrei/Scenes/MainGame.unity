@@ -3116,8 +3116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe22ea24230a70c4f964ef2eebf1f70d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allRessourceContainersCollection: {fileID: 11400000, guid: 26abeb4779eb5114caa88ca6b0d989f2,
-    type: 2}
+  allRessourceContainersCollection: {fileID: 0}
   creationMode: 1
   template: {fileID: 11400000, guid: a93ebd29ed5e7f4429fe217c9e4796c9, type: 2}
   ressourceContainer: {fileID: 0}

@@ -11,7 +11,7 @@ using Wichtel;
 
 namespace Haferbrei {
 [CreateAssetMenu(fileName = "SaveLoadController", menuName = "Scriptable Objects/SaveLoadController", order = 0)]
-public class SaveLoadController : SerializedScriptableObject
+public class SaveLoadController : ScriptableObjectWithGuid
 {
     [ReadOnly] public bool loadSaveGame; //soll beim nächsten Mal, dass das Spiel initialisiert wird, saveGame data geladen werden?
     

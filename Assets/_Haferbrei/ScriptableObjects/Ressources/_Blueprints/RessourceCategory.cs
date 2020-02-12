@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Haferbrei {
 [CreateAssetMenu(fileName = "RessourceCategory", menuName = "Scriptable Objects/Ressourcen/Ressource Category", order = 0)]
-public class RessourceCategory : ScriptableObject
+public class RessourceCategory : ScriptableObjectWithGuid
 {
     public string identifier;
 }
