@@ -8,7 +8,7 @@ using UnityEngine;
 namespace Haferbrei {
 public abstract class ScriptableObjectWithGuid : SerializedScriptableObject
 {
-    [ReadOnly, DisplayAsString] public Guid guid;
+    [DisplayAsString, SerializeField] public Guid guid;
 
     public void Awake()
     {

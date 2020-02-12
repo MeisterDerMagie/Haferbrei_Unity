@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 617dd29beb3b9d942a10ccb46f2406cf, type: 3}
-  m_Name: Darre_Building
+  m_Script: {fileID: 11500000, guid: d3fb202b0dbc3ba4ca1ed207c8a7fa91, type: 3}
+  m_Name: Ressource
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -23,11 +23,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: guid
       Entry: 2
-      Data: 7bc0aa782c4c498c9fc0371ed7de7770
-  canBeBuilt: 1
-  identifier: buildingSO_darre
-  capacity: 0
-  isUnique: 0
-  cost: {fileID: 0}
-  instancePrefab: {fileID: 0}
-  previewPrefab: {fileID: 0}
+      Data: 67fc545291004a5c8c517a116b766933
+  identifier: asdf
+  goldwert: 6
+  category: {fileID: 11400000, guid: 46e40b3a83bb7da4e97dc596d369556e, type: 2}

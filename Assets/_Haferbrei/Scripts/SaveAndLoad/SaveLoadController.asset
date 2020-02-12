@@ -21,6 +21,9 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
+    - Name: guid
+      Entry: 2
+      Data: f3c97a90ec954027b37345d156a1adb1
     - Name: loadedData
       Entry: 7
       Data: 0|System.Collections.Generic.List`1[[Haferbrei.SaveableData, Assembly-CSharp]],
