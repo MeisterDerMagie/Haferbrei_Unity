@@ -13,7 +13,7 @@ public abstract class ScriptableObjectCollectionGeneric<T> : ScriptableObjectWit
 {
     [SerializeField, Delayed] protected string folder;
     [SerializeField, Delayed] protected List<string> foldersToIgnore;
-    [ReadOnly, SerializeField] protected Dictionary<Guid, T> scriptableObjects = new Dictionary<Guid, T>();
+    [ReadOnly, SerializeField] public Dictionary<Guid, T> scriptableObjects = new Dictionary<Guid, T>();
     
     #if UNITY_EDITOR
     [ReadOnly, SerializeField, BoxGroup("Just for Info")] private Dictionary<Guid, T> scriptableObjectsOnDisk = new Dictionary<Guid, T>(); //just for the inspector / debugging
@@ -41,7 +41,7 @@ public abstract class ScriptableObjectCollectionGeneric<T> : ScriptableObjectWit
     }
 
 
-#if UNITY_EDITOR
+    #if UNITY_EDITOR
     [Button]
     private void RefreshDictionary()
     {

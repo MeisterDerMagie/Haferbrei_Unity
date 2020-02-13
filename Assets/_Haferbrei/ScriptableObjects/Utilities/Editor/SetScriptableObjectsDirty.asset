@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d427bb5c08b4987932b8835ee2c6f10, type: 3}
-  m_Name: IronArmor
+  m_Script: {fileID: 11500000, guid: 7e56e9655afb2f0478d4b8fea6e2f4ac, type: 3}
+  m_Name: SetAllScriptableObjectsDirty
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -23,7 +23,6 @@ MonoBehaviour:
     SerializationNodes:
     - Name: guid
       Entry: 2
-      Data: 6981b4733785484f96ee2dc0f427103e
-  identifier: ironarmor
-  icon: {fileID: 0}
-  armorRating: 3
+      Data: d4f167cc56224410930105ecf8ca44cf
+  allScriptableObjects: {fileID: 11400000, guid: 890c3e85c169d784bbf153ae915055ee,
+    type: 2}
