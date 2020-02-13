@@ -12,10 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 617dd29beb3b9d942a10ccb46f2406cf, type: 3}
   m_Name: Flachsfeld_Building
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: guid
+      Entry: 2
+      Data: c0c1ade262494e42b6531824d8b5b0fc
   canBeBuilt: 1
   identifier: buildingSO_flachsfeld
   capacity: 0
   isUnique: 0
-  cost: {fileID: 11400000, guid: a4a6f8602ca22804a8974a40852fd86a, type: 2}
+  cost: {fileID: 0}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

@@ -12,10 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 617dd29beb3b9d942a10ccb46f2406cf, type: 3}
   m_Name: Badehaus_Building
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: guid
+      Entry: 2
+      Data: ccf1348e78de4d26968027f6c0d7a9e2
   canBeBuilt: 1
   identifier: buildingSO_badehaus
   capacity: 0
   isUnique: 0
-  cost: {fileID: 11400000, guid: 0d16478d71811184ea797cb537415ff6, type: 2}
+  cost: {fileID: 0}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

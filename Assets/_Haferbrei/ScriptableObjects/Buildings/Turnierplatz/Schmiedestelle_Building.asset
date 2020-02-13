@@ -12,10 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 617dd29beb3b9d942a10ccb46f2406cf, type: 3}
   m_Name: Schmiedestelle_Building
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: guid
+      Entry: 2
+      Data: c9880423c4d849a8ae0839129eddc7c6
   canBeBuilt: 1
   identifier: buildingSO_schmiedestelle
   capacity: 0
   isUnique: 1
-  cost: {fileID: 11400000, guid: 2c913acaa0aa4db4ba1233ba958c9b22, type: 2}
+  cost: {fileID: 0}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

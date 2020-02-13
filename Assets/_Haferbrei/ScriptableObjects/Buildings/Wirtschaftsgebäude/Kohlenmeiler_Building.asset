@@ -12,10 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 617dd29beb3b9d942a10ccb46f2406cf, type: 3}
   m_Name: Kohlenmeiler_Building
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: guid
+      Entry: 2
+      Data: ee0efb6894434766b84193530f0e6d0e
   canBeBuilt: 1
   identifier: buildingSO_kohlenmeiler
   capacity: 0
   isUnique: 0
-  cost: {fileID: 11400000, guid: 61ad3035514b7c549904e0675e668db2, type: 2}
+  cost: {fileID: 0}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

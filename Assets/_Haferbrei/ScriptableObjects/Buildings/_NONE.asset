@@ -12,6 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 617dd29beb3b9d942a10ccb46f2406cf, type: 3}
   m_Name: _NONE
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: guid
+      Entry: 2
+      Data: 8820ad1c8ee84f90bb81539ea6ee997b
   canBeBuilt: 0
   identifier: buildingSO_NONE
   capacity: 0

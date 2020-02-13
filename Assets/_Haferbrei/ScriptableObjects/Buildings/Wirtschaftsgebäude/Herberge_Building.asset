@@ -12,10 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 617dd29beb3b9d942a10ccb46f2406cf, type: 3}
   m_Name: Herberge_Building
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: guid
+      Entry: 2
+      Data: d4e6c9886d3b46a6b7725480e25a40da
   canBeBuilt: 1
   identifier: buildingSO_herberge
   capacity: 0
   isUnique: 0
-  cost: {fileID: 11400000, guid: 9b00cd104cdd9184ba3e072492d1aa16, type: 2}
+  cost: {fileID: 0}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

@@ -12,12 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 617dd29beb3b9d942a10ccb46f2406cf, type: 3}
   m_Name: Jagdzimmer_Building
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: guid
+      Entry: 2
+      Data: 1c578f5e698f4c8f97655b224c56f877
   canBeBuilt: 1
   identifier: buildingSO_jagdzimmer
   capacity: 0
   isUnique: 1
-  cost: {fileID: 11400000, guid: ad9b1062ca32ba345b260b33fe838fe1, type: 2}
-  instancePrefab: {fileID: 4604666238020978129, guid: 4b4ff364b97969c4895aba951d5f5dbe,
-    type: 3}
-  previewPrefab: {fileID: 4604666238020978129, guid: 77e4152bfa7dfd44f9d7a874ce064881,
-    type: 3}
+  cost: {fileID: 0}
+  instancePrefab: {fileID: 0}
+  previewPrefab: {fileID: 0}

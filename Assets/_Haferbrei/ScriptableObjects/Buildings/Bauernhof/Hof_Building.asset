@@ -12,12 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 617dd29beb3b9d942a10ccb46f2406cf, type: 3}
   m_Name: Hof_Building
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: guid
+      Entry: 2
+      Data: abf81d77906c4bb297304a5d0da93335
   canBeBuilt: 1
   identifier: buildingSO_hof
   capacity: 0
   isUnique: 0
-  cost: {fileID: 11400000, guid: bb81c264af0217c4c91d5102ff317b42, type: 2}
-  instancePrefab: {fileID: 6781246456170281752, guid: e4d9279bb5209094f8310ec0ece9f5f4,
+  cost: {fileID: 11400000, guid: 2f6a9dd860411104986c384c3c2d8d9c, type: 2}
+  instancePrefab: {fileID: 6781246456170281791, guid: e4d9279bb5209094f8310ec0ece9f5f4,
     type: 3}
   previewPrefab: {fileID: 4604666238020978129, guid: c4d2f4690995c3549b512497af0a70bb,
     type: 3}

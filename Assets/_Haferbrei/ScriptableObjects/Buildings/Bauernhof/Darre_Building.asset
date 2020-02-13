@@ -23,7 +23,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: guid
       Entry: 2
-      Data: 7bc0aa782c4c498c9fc0371ed7de7770
+      Data: 8af20d681737493fb0ba1abab68cb791
   canBeBuilt: 1
   identifier: buildingSO_darre
   capacity: 0
