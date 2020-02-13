@@ -31,7 +31,7 @@ public class HasRessourceContainer : MonoBehaviour, IInitSelf
         //register at the collection of all containers
         allRessourceContainersCollection.RegisterNewRessourceContainer(ressourceContainer);
     }
-
+    
     private void OnDestroy()
     {
         //unregister from the collection of all containers

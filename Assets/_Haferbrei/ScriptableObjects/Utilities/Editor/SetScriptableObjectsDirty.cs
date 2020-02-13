@@ -17,6 +17,7 @@ public class SetScriptableObjectsDirty : ScriptableObjectWithGuid
         foreach (var so in scriptableObjectsToSetDirty)
         {
             Debug.Log("Set dirty: " + so);
+            EditorUtility.SetDirty(so);
         }
     }
 }

@@ -13,6 +13,7 @@ public abstract class ScriptableObjectWithGuid : SerializedScriptableObject
     public void Awake()
     {
         if(guid == Guid.Empty) guid = Guid.NewGuid();
+        ScriptableObjectWithGuidCollection.Instance.RegisterScriptableObject(this);
     }
 }
 }

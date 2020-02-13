@@ -8,7 +8,7 @@ using UnityEngine;
 namespace Haferbrei {
 [ExecuteInEditMode]
 [HideMonoScript]
-public class SaveableComponent : MonoBehaviour, IStoreable
+public abstract class SaveableComponent : MonoBehaviour, IStoreable
 {
     [SerializeField, DisplayAsString] public string componentID;
     
@@ -16,16 +16,10 @@ public class SaveableComponent : MonoBehaviour, IStoreable
     private SaveableGameObject AssociatedSaveableGameObject => (GetComponent<SaveableGameObject>() != null)
         ? GetComponent<SaveableGameObject>()
         : GetComponentsInParent<SaveableGameObject>(true)[0];
-    
-    public virtual SaveableComponentData StoreData()
-    {
-        throw new NotImplementedException();
-    }
 
-    public virtual void RestoreData(SaveableComponentData _loadedData)
-    {
-        throw new NotImplementedException();
-    }
+    public abstract SaveableComponentData StoreData();
+
+    public abstract void RestoreData(SaveableComponentData _loadedData);
     
     public void OnDestroy()
     {
