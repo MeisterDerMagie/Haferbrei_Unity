@@ -21,17 +21,5 @@ public class SaveableScriptableObjectCollection : ScriptableObjectCollectionGene
         }
     }
     //--- ---
-    
-    public void RegisterSaveableScriptableObject(SaveableScriptableObject _saveableScriptableObject)
-    {
-        if(!scriptableObjectReferences.ContainsKey(_saveableScriptableObject.guid))
-            scriptableObjectReferences.Add(_saveableScriptableObject.guid, _saveableScriptableObject);
-    }
-
-    public void UnregisterSaveableScriptableObject(SaveableScriptableObject _saveableScriptableObject)
-    {
-        if(scriptableObjectReferences.ContainsKey(_saveableScriptableObject.guid))
-            scriptableObjectReferences.Remove(_saveableScriptableObject.guid);
-    }
 }
 }

@@ -11,12 +11,12 @@ public abstract class SaveableScriptableObject : ScriptableObjectWithGuid
     private new void Awake()
     {
         base.Awake();
-        SaveableScriptableObjectCollection.Instance.RegisterSaveableScriptableObject(this);
+        if (SaveableScriptableObjectCollection.Instance != null) SaveableScriptableObjectCollection.Instance.RegisterScriptableObject(this);
     }
     
     private void OnDestroy()
     {
-        SaveableScriptableObjectCollection.Instance.UnregisterSaveableScriptableObject(this);
+        if(SaveableScriptableObjectCollection.Instance != null) SaveableScriptableObjectCollection.Instance.UnregisterScriptableObject(this);
     }
 }
 }

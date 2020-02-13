@@ -13,19 +13,46 @@ public abstract class ScriptableObjectCollectionGeneric<T> : ScriptableObjectWit
 {
     [SerializeField, Delayed] protected string folder;
     [SerializeField, Delayed] protected List<string> foldersToIgnore;
-    [ReadOnly, SerializeField] protected Dictionary<Guid, T> scriptableObjectReferences = new Dictionary<Guid, T>();
+    [ReadOnly, SerializeField] protected Dictionary<Guid, T> scriptableObjects = new Dictionary<Guid, T>();
     
     #if UNITY_EDITOR
+    [ReadOnly, SerializeField, BoxGroup("Just for Info")] private Dictionary<Guid, T> scriptableObjectsOnDisk = new Dictionary<Guid, T>(); //just for the inspector / debugging
+    [ReadOnly, SerializeField, BoxGroup("Just for Info")] private Dictionary<Guid, T> scriptableObjectsInstantiatedAtRuntime = new Dictionary<Guid, T>(); //just for the inspector / debugging
+    #endif
+    
+    public void RegisterScriptableObject(T _scriptableObject)
+    {
+        if (scriptableObjects.ContainsKey(_scriptableObject.guid)) return;
+        
+        scriptableObjects.Add(_scriptableObject.guid, _scriptableObject);
+        #if UNITY_EDITOR
+        if(Application.isPlaying) scriptableObjectsInstantiatedAtRuntime.Add(_scriptableObject.guid, _scriptableObject);
+        #endif
+    }
+
+    public void UnregisterScriptableObject(T _scriptableObject)
+    {
+        if (!scriptableObjects.ContainsKey(_scriptableObject.guid)) return;
+        
+        scriptableObjects.Remove(_scriptableObject.guid);
+        #if UNITY_EDITOR
+        if (scriptableObjectsInstantiatedAtRuntime.ContainsKey(_scriptableObject.guid)) scriptableObjectsInstantiatedAtRuntime.Remove(_scriptableObject.guid);
+        #endif
+    }
+
+
+#if UNITY_EDITOR
     [Button]
     private void RefreshDictionary()
     {
         string[] foldersToSearch = {folder};
         
-        List<T> scriptableObjects = Wichtel.UT_ScriptableObjectsUtilities_W.GetScriptableObjectInstances<T>(foldersToSearch);
+        List<T> scriptableObjectsFoundInAssets = Wichtel.UT_ScriptableObjectsUtilities_W.GetScriptableObjectInstances<T>(foldersToSearch);
 
-        scriptableObjectReferences.Clear();
+        scriptableObjects.Clear();
+        scriptableObjectsOnDisk.Clear();
 
-        foreach(T so in scriptableObjects)
+        foreach(T so in scriptableObjectsFoundInAssets)
         {
             string assetPath = AssetDatabase.GetAssetPath(so);
             bool ignoreThisScriptableObject = false;
@@ -35,7 +62,11 @@ public abstract class ScriptableObjectCollectionGeneric<T> : ScriptableObjectWit
             }
             if(ignoreThisScriptableObject) continue;
 
-            if(!scriptableObjectReferences.ContainsKey(so.guid)) scriptableObjectReferences.Add(so.guid, so);
+            if (!scriptableObjects.ContainsKey(so.guid))
+            {
+                scriptableObjects.Add(so.guid, so);
+                scriptableObjectsOnDisk.Add(so.guid, so);
+            }
             else
             {
                 Debug.LogError("Achtung, es gibt zwei oder mehr ScriptableObjects mit demselben Namen! (" + so.name + ")");
