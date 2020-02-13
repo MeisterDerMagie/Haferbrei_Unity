@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_richterbank
   capacity: 0
   isUnique: 1
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: 9d4c25681faaf714fa9a2f1ba1340719, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

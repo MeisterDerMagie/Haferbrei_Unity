@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_zimmerei
   capacity: 0
   isUnique: 0
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: 004ab67dfbd4c744ea2385f360117651, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

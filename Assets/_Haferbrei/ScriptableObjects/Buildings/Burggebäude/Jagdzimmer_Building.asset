@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_jagdzimmer
   capacity: 0
   isUnique: 1
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: 8b8927e3b493a5e48b0c387becbda0cd, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

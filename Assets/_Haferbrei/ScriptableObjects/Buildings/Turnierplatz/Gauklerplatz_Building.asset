@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_gauklerplatz
   capacity: 0
   isUnique: 1
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: 59a61a343ab9d5d4ca0c5de71403c163, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_tribuneUberdacht
   capacity: 0
   isUnique: 0
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: a2ca90c425f352b479ba94d0ba946e51, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

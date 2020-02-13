@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_weberei
   capacity: 0
   isUnique: 0
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: b03a885aef77f4a43808d90d5bd5c66f, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

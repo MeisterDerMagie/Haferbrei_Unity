@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_geflugelhaus
   capacity: 0
   isUnique: 0
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: 255641e203bd28f48856671a96e10c98, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

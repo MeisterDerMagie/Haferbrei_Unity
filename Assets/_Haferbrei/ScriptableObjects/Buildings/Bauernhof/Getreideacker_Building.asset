@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_getreideacker
   capacity: 0
   isUnique: 0
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: 5d03b795779d619428c9fc2bf13fcbc5, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

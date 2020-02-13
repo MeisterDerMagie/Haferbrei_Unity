@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_krautergarten
   capacity: 0
   isUnique: 0
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: 05f13e13ba35c214a8498dfa24e904ad, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

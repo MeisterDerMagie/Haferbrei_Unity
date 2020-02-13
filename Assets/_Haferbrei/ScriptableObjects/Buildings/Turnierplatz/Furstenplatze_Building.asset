@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_furstenplatze
   capacity: 0
   isUnique: 1
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: 4f89806c7fb10d842b5fbf8ce728caae, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

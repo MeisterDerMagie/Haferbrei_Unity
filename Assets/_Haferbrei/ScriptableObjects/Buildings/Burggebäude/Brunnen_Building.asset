@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_brunnen
   capacity: 0
   isUnique: 1
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: 8efe248e3621ab842a71c800217da99b, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

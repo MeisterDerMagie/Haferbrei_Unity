@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_darre
   capacity: 0
   isUnique: 0
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: 00edd85bbcf2e9b438e217eab05e2fb7, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

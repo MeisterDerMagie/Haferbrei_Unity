@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_galgen
   capacity: 0
   isUnique: 0
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: 35e169fa47432cc4eb20c0f35c428d91, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

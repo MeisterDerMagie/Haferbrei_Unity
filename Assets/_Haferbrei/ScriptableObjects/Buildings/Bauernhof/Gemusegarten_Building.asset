@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_gemusegarten
   capacity: 0
   isUnique: 0
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: 7612ce3079b20994b9cce9e30b8e0dee, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

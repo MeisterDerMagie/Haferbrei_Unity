@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_stalle
   capacity: 0
   isUnique: 1
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: 9d5d387787e089c47abfe2805c6e7325, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

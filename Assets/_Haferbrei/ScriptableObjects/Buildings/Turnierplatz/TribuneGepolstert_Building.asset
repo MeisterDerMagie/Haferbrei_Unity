@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_tribuneGepolstert
   capacity: 0
   isUnique: 0
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: c2e78ccfe5e1bdd4da0c39bd78296ced, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

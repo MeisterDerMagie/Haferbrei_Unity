@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_zollhaus
   capacity: 0
   isUnique: 0
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: 9b731f2e7d28999488eb4deb46845186, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

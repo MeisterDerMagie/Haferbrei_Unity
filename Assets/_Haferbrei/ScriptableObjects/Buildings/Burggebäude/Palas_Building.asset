@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_palas
   capacity: 0
   isUnique: 1
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: 6a3076a15a1a7ca40a667f8c6fbaa020, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

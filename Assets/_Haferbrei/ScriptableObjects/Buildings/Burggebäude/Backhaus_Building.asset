@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_backhaus
   capacity: 0
   isUnique: 1
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: 44d8eb4b44508d143893e13ed1296253, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

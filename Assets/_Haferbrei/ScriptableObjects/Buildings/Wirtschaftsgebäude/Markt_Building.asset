@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_markt
   capacity: 0
   isUnique: 0
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: 1f3702cc37df332439e2936e789b6339, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_banner
   capacity: 0
   isUnique: 0
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: 225df235565a56e4e8513fa67871439b, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

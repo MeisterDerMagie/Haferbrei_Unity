@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_zehntscheune
   capacity: 0
   isUnique: 1
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: 824e5e7bea4d55746861b362cc9a380c, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

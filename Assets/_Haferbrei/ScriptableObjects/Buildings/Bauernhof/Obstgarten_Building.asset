@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_obstgarten
   capacity: 0
   isUnique: 0
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: 4ebf3b806aedeaa41b856a455296ab4d, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

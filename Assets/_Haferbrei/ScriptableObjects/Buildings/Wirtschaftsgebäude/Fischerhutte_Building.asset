@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_fischerhutte
   capacity: 0
   isUnique: 0
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: 74d7ec51be62b8845b1d9d9d16578fe9, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

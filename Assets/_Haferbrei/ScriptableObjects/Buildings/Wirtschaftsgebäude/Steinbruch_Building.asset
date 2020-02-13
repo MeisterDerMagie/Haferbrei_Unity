@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_steinbruch
   capacity: 0
   isUnique: 0
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: 2e3a72caae3bc6e46bb3b1dc9cd462fa, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

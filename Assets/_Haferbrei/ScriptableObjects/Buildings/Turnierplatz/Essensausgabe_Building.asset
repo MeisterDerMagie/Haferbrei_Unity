@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_essensausgabe
   capacity: 0
   isUnique: 1
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: 939fb8cab20741b4bbb0eadd010d2a88, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

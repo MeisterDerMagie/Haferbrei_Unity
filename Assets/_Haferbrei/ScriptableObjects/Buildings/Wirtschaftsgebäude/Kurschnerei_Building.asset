@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_kurschnerei
   capacity: 0
   isUnique: 0
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: 3a51e9fc0229aa047a50b011bea29372, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

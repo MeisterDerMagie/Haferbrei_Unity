@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_holzfallerlager
   capacity: 0
   isUnique: 0
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: 2306e895ad98264408a6d6a670eb26cd, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

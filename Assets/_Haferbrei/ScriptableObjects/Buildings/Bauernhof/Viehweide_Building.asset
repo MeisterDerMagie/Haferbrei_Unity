@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_viehweide
   capacity: 0
   isUnique: 0
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: 3e2744bccf604be46ba68a3bfd3ab114, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

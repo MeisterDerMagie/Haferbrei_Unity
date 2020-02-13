@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_rennwiese
   capacity: 0
   isUnique: 1
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: 4d69c804a753cde42bc30dadc5e6e0ab, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

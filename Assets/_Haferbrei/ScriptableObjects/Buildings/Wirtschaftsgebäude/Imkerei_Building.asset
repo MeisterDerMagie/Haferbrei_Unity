@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_imkerei
   capacity: 0
   isUnique: 0
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: 6780b270b46319b45b141ce624961970, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

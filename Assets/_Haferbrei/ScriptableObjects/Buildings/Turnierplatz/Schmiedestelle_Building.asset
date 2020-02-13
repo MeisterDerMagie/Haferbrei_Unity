@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_schmiedestelle
   capacity: 0
   isUnique: 1
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: 24fb39b4c21871f4bb174b28a46af742, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

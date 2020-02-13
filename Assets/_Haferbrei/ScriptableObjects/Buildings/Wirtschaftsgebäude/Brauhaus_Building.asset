@@ -28,6 +28,6 @@ MonoBehaviour:
   identifier: buildingSO_brauhaus
   capacity: 0
   isUnique: 0
-  cost: {fileID: 0}
+  cost: {fileID: 11400000, guid: 98cc2497c9f41354584ecceb600bc7c8, type: 2}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}
