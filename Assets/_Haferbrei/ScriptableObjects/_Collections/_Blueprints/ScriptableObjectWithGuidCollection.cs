@@ -5,8 +5,8 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Haferbrei {
-[CreateAssetMenu(fileName = "ScriptableObjectCollection", menuName = "Scriptable Objects/Collections/ScriptableObject Collection", order = 0)]
-public class ScriptableObjectCollection : ScriptableObjectCollectionGeneric<ScriptableObjectWithGuid>
+[CreateAssetMenu(fileName = "ScriptableObjectCollection", menuName = "Scriptable Objects/Collections/ScriptableObjectWithGuid Collection", order = 0)]
+public class ScriptableObjectWithGuidCollection : ScriptableObjectCollectionGeneric<ScriptableObjectWithGuid>
 {
     
 }
