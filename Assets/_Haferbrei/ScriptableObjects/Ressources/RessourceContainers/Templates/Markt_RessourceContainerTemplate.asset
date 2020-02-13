@@ -16,8 +16,8 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 11400000, guid: 6f1bf68cfd0e86e499bad74b81ff7956, type: 2}
-    - {fileID: 11400000, guid: 97ddc323c30fb3c44809e05bd8f7894c, type: 2}
+    - {fileID: 11400000, guid: baad3e5ea6bfc524e99bae07b6f37368, type: 2}
+    - {fileID: 11400000, guid: 0c208eccfc7b5864e8fdaae6378d9cff, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -48,7 +48,7 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 3
-      Data: 20
+      Data: 50
     - Name: 
       Entry: 8
       Data: 
@@ -60,7 +60,7 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 3
-      Data: 100
+      Data: 25
     - Name: 
       Entry: 8
       Data: 
@@ -71,47 +71,5 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: onRessourcesChanged
-      Entry: 7
-      Data: 2|System.Action, mscorlib
-    - Name: target
-      Entry: 7
-      Data: 3|Haferbrei.RessourceContainer+<>c, Assembly-CSharp
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: declaringType
-      Entry: 7
-      Data: 4|System.RuntimeType, mscorlib
-    - Name: 
-      Entry: 1
-      Data: Haferbrei.RessourceContainer+<>c, Assembly-CSharp
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: methodName
-      Entry: 1
-      Data: <.ctor>b__28_0
-    - Name: delegateType
-      Entry: 7
-      Data: 5|System.RuntimeType, mscorlib
-    - Name: 
-      Entry: 1
-      Data: System.Action, mscorlib
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: signature
-      Entry: 7
-      Data: 6|System.Type[], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 

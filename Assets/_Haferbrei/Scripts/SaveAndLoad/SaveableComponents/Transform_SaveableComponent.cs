@@ -40,7 +40,7 @@ public class Transform_SaveableComponent : SaveableComponent
         //Restore TransformData
         transform.localPosition   = saveableComponentData.localPosition;
         transform.localRotation   = saveableComponentData.localRotation;
-        transform.localScale = saveableComponentData.localScale;
+        transform.localScale      = saveableComponentData.localScale;
 
         if (RectTransform == null) return;
         

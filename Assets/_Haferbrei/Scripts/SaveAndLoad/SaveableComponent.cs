@@ -26,12 +26,7 @@ public class SaveableComponent : MonoBehaviour, IStoreable
     {
         throw new NotImplementedException();
     }
-
-    public void InitStoreable()
-    {
-        throw new NotImplementedException();
-    }
-
+    
     public void OnDestroy()
     {
         AssociatedSaveableGameObject.RemoveSaveableComponent(this);

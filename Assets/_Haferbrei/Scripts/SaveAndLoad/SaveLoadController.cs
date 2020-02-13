@@ -17,6 +17,8 @@ public class SaveLoadController : ScriptableObjectWithGuid
     
     public PrefabCollection allPrefabsCollection;
     public SceneCollection allScenesCollection;
+    public SaveableScriptableObjectCollection allSaveableScriptableObjects;
+    public ScriptableObjectWithGuidCollection allScriptableObjectsWithGuid;
     public GameObject initializerPrefab;
     
     public List<SaveableData> loadedData = new List<SaveableData>();
@@ -33,6 +35,7 @@ public class SaveLoadController : ScriptableObjectWithGuid
     {
         dataToSave.Clear();
         
+        //Save GameObjects
         List<ISaveable> emptySaveablesToRemove = new List<ISaveable>(); //anscheinend kann es selten passieren, dass leere Einträge übrig bleiben. Hier wird sich darum gekümmert.
         foreach (var saveableGameObject in saveableGameObjects)
         {
@@ -45,7 +48,14 @@ public class SaveLoadController : ScriptableObjectWithGuid
             dataToSave.Add(data);
         }
         foreach (var emptyEntry in emptySaveablesToRemove) saveableGameObjects.Remove(emptyEntry);
+
+        //Save ScriptableObjects
+        foreach (var scriptableObject in allSaveableScriptableObjects.scriptableObjects)
+        {
+            dataToSave.Add(scriptableObject.Value.Save());
+        }
         
+        //Write file
         SaveGame.Save(_saveGameFileName, dataToSave);
         Debug.Log("Game saved!");
     }
@@ -102,8 +112,7 @@ public class SaveLoadController : ScriptableObjectWithGuid
         var necessaryScenes = new List<string>();
         foreach (var data in loadedData)
         {
-            var gameObjectData = data as SaveableGameObjectData;
-            if(!necessaryScenes.Contains(gameObjectData.sceneName)) necessaryScenes.Add(gameObjectData.sceneName);
+            if(data is SaveableGameObjectData gameObjectData && !necessaryScenes.Contains(gameObjectData.sceneName)) necessaryScenes.Add(gameObjectData.sceneName);
         }
         
         //Lade diese Szenen
@@ -163,7 +172,18 @@ public class SaveLoadController : ScriptableObjectWithGuid
 
     private void LoadScriptableObject(SaveableData _loadedData)
     {
-        //hier wird das scriptableObject geladen
+        var data = _loadedData as SaveableScriptableObjectData;
+        
+        // 1. Nicht existierende SOs erstellen
+        if (!allScriptableObjectsWithGuid.scriptableObjects.ContainsKey(_loadedData.guid))
+        {
+            Type t = Type.GetType(data.scriptableObjectType);
+            var newSO = ScriptableObject.CreateInstance(t) as SaveableScriptableObject;
+            newSO.SetGuid(data.guid);
+        }
+        
+        // 2. Daten laden
+        allSaveableScriptableObjects.scriptableObjects[data.guid].Load(data);
     }
 
     public void RegisterSaveableGameObject(ISaveable _saveable)

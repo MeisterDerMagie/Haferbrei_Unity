@@ -13,10 +13,10 @@ public class AutoAssignCostsRecipes : ScriptableObject
     [Button]
     public void AutoAssign()
     {
-        var alleBuildings = UT_ScriptableObjectsUtilities_W.GetScriptableObjectInstances<Buildings>();
+        var alleBuildings = UT_ScriptableObjectsUtilities_W.GetScriptableObjectInstances<Building>();
         var alleRecipes = UT_ScriptableObjectsUtilities_W.GetScriptableObjectInstances<RessourceRecipe>();
 
-        var buildingsByName = new Dictionary<string, Buildings>();
+        var buildingsByName = new Dictionary<string, Building>();
         var recipesByName = new Dictionary<string, RessourceRecipe>();
         
         foreach (var building in alleBuildings)

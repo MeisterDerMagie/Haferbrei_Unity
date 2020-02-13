@@ -25,7 +25,7 @@ public class HasRessourceContainer : MonoBehaviour, IInitSelf
         if (ressourceContainer != null) return;
         
         //Create new container instance
-        ressourceContainer = (creationMode == CreationMode.CreateNewEmptyContainer) ? ScriptableObject.CreateInstance<RessourceContainer>() : Instantiate(template);
+        ressourceContainer = (creationMode == CreationMode.CreateNewEmptyContainer) ? ScriptableObject.CreateInstance<RessourceContainer>() : ScriptableObjectExtensions.InstantiateScriptableObjectWithGuid(template);
         ressourceContainer.name = (gameObject.name + "_RessourceContainer");
         
         //register at the collection of all containers

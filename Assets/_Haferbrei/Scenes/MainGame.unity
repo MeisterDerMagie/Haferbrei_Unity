@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2f0176375a126643a9f02d47361e6d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zuBauendesGebaeude: {fileID: 11400000, guid: 1c288a5bae88f654db678af6ce6c13ad, type: 2}
+  zuBauendesGebaeude: {fileID: 11400000, guid: f48f1c1685972c240895e61ee91b3d90, type: 2}
   toggleGroup: {fileID: 51523455}
   noBuilding: {fileID: 1579260216}
 --- !u!1 &68941127
@@ -861,7 +861,7 @@ MonoBehaviour:
   baumodusWindow: {fileID: 51523453}
   noGebaeude: {fileID: 0}
   bauauswahl: {fileID: 51523456}
-  zuBauendesGebaeude: {fileID: 11400000, guid: 1c288a5bae88f654db678af6ce6c13ad, type: 2}
+  zuBauendesGebaeude: {fileID: 0}
   onEnterBaumodus:
     m_PersistentCalls:
       m_Calls:
@@ -4605,7 +4605,7 @@ MonoBehaviour:
   mode: 2
   ressource: {fileID: 0}
   amount: 0
-  recipe: {fileID: 0}
+  recipe: {fileID: 11400000, guid: 2f6a9dd860411104986c384c3c2d8d9c, type: 2}
 --- !u!114 &1184597901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4805,7 +4805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbd0f10088694d3cbdc6dbbc48fc6ede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gebaeude: {fileID: 0}
+  gebaeude: {fileID: 11400000, guid: cb382ab93391f634e9fc1cc9f049bfe7, type: 2}
 --- !u!1 &1203021824
 GameObject:
   m_ObjectHideFlags: 0
@@ -4915,7 +4915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbd0f10088694d3cbdc6dbbc48fc6ede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gebaeude: {fileID: 0}
+  gebaeude: {fileID: 11400000, guid: f81fc8c381028d643a318da55913a0e8, type: 2}
 --- !u!1 &1207317758
 GameObject:
   m_ObjectHideFlags: 0
@@ -5199,7 +5199,7 @@ MonoBehaviour:
       Data: 
   containerToEdit: {fileID: 11400000, guid: f3e2b6cb15b3b1b488c247aeebf08013, type: 2}
   mode: 0
-  ressource: {fileID: 0}
+  ressource: {fileID: 11400000, guid: 9f3f9f91b4168cb4e9399d5b5c438b7f, type: 2}
   amount: 150
   recipe: {fileID: 0}
 --- !u!114 &1243853685
@@ -5216,7 +5216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   containerToCheck: {fileID: 11400000, guid: f3e2b6cb15b3b1b488c247aeebf08013, type: 2}
   mode: 0
-  ressource: {fileID: 0}
+  ressource: {fileID: 11400000, guid: 9f3f9f91b4168cb4e9399d5b5c438b7f, type: 2}
   amount: 150
   recipe: {fileID: 0}
   containerContainsRessources: 0
@@ -6562,7 +6562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbd0f10088694d3cbdc6dbbc48fc6ede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gebaeude: {fileID: 0}
+  gebaeude: {fileID: 11400000, guid: ad9eccf3fe19fac43a2d241d550b8925, type: 2}
 --- !u!114 &1579260216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6675,9 +6675,9 @@ MonoBehaviour:
   enoughRessourcesCheck: {fileID: 1649228160}
   playerRessourceContainer: {fileID: 11400000, guid: f3e2b6cb15b3b1b488c247aeebf08013,
     type: 2}
-  onZuBauendesGebaeudeChanged: {fileID: 11400000, guid: 68f136bd48bbd474faa29b5d4284ffe3,
+  onZuBauendesGebaeudeChanged: {fileID: 11400000, guid: 1d8288edb6d88df4fac6e8ccdd59924b,
     type: 2}
-  zuBauendesGebaeude: {fileID: 11400000, guid: 1c288a5bae88f654db678af6ce6c13ad, type: 2}
+  zuBauendesGebaeude: {fileID: 11400000, guid: f48f1c1685972c240895e61ee91b3d90, type: 2}
 --- !u!114 &1649228158
 MonoBehaviour:
   m_ObjectHideFlags: 0

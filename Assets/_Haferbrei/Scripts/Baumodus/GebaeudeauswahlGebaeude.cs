@@ -6,6 +6,6 @@ using UnityEngine;
 namespace Haferbrei {
 public class GebaeudeauswahlGebaeude : MonoBehaviour
 {
-    public Buildings gebaeude;
+    public Building gebaeude;
 }
 }

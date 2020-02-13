@@ -9,25 +9,20 @@ using UnityEditor;
 #endif
 
 namespace Haferbrei {
-public abstract class ScriptableObjectCollectionGeneric<T> : ScriptableObjectWithGuid where T : ScriptableObjectWithGuid
+public abstract class ScriptableObjectCollectionGeneric<T> : ScriptableObjectWithGuid, IResettable where T : ScriptableObjectWithGuid
 {
     [SerializeField, Delayed] protected string folder;
     [SerializeField, Delayed] protected List<string> foldersToIgnore;
     [ReadOnly, SerializeField] public Dictionary<Guid, T> scriptableObjects = new Dictionary<Guid, T>();
-    
-    #if UNITY_EDITOR
-    [ReadOnly, SerializeField, BoxGroup("Just for Info")] private Dictionary<Guid, T> scriptableObjectsOnDisk = new Dictionary<Guid, T>(); //just for the inspector / debugging
-    [ReadOnly, SerializeField, BoxGroup("Just for Info")] private Dictionary<Guid, T> scriptableObjectsInstantiatedAtRuntime = new Dictionary<Guid, T>(); //just for the inspector / debugging
-    #endif
-    
+    [ReadOnly, SerializeField] private Dictionary<Guid, T> scriptableObjectsOnDisk = new Dictionary<Guid, T>(); //just for the inspector / debugging
+    [ReadOnly, SerializeField] private Dictionary<Guid, T> scriptableObjectsInstantiatedAtRuntime = new Dictionary<Guid, T>(); //just for the inspector / debugging
+
     public void RegisterScriptableObject(T _scriptableObject)
     {
         if (scriptableObjects.ContainsKey(_scriptableObject.guid)) return;
         
         scriptableObjects.Add(_scriptableObject.guid, _scriptableObject);
-        #if UNITY_EDITOR
         if(Application.isPlaying) scriptableObjectsInstantiatedAtRuntime.Add(_scriptableObject.guid, _scriptableObject);
-        #endif
     }
 
     public void UnregisterScriptableObject(T _scriptableObject)
@@ -35,9 +30,18 @@ public abstract class ScriptableObjectCollectionGeneric<T> : ScriptableObjectWit
         if (!scriptableObjects.ContainsKey(_scriptableObject.guid)) return;
         
         scriptableObjects.Remove(_scriptableObject.guid);
-        #if UNITY_EDITOR
         if (scriptableObjectsInstantiatedAtRuntime.ContainsKey(_scriptableObject.guid)) scriptableObjectsInstantiatedAtRuntime.Remove(_scriptableObject.guid);
-        #endif
+    }
+    
+    public void ResetSelf()
+    {
+        foreach (var so in scriptableObjectsInstantiatedAtRuntime)
+        {
+            //Debug.Log("Destroy: " + so.Value.name);
+            Destroy(so.Value);
+            scriptableObjects = new Dictionary<Guid, T>(scriptableObjectsOnDisk);
+        }
+        scriptableObjectsInstantiatedAtRuntime.Clear();
     }
 
 

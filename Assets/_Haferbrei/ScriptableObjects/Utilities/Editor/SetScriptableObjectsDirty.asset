@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e56e9655afb2f0478d4b8fea6e2f4ac, type: 3}
-  m_Name: SetAllScriptableObjectsDirty
+  m_Name: SetScriptableObjectsDirty
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -24,5 +24,4 @@ MonoBehaviour:
     - Name: guid
       Entry: 2
       Data: d4f167cc56224410930105ecf8ca44cf
-  allScriptableObjects: {fileID: 11400000, guid: 890c3e85c169d784bbf153ae915055ee,
-    type: 2}
+  scriptableObjectsToSetDirty: []

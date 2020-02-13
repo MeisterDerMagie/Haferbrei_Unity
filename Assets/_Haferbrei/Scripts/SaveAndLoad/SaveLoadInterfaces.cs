@@ -12,7 +12,6 @@ public interface IStoreable
 {
     SaveableComponentData StoreData();
     void RestoreData(SaveableComponentData _loadedData);
-    void InitStoreable();
     void OnDestroy();
 }
 }

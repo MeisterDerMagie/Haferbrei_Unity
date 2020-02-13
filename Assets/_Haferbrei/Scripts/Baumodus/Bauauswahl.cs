@@ -10,7 +10,7 @@ using UnityEngine.UI;
 namespace Haferbrei {
 public class Bauauswahl : MonoBehaviour
 {
-    [SerializeField, BoxGroup("Atom Values"), Required] private BuildingsVariable zuBauendesGebaeude;
+    [SerializeField, BoxGroup("Atom Values"), Required] private BuildingVariable zuBauendesGebaeude;
     [SerializeField, FoldoutGroup("References"), Required] private ToggleGroup toggleGroup;
     [SerializeField, FoldoutGroup("References"), Required] private Toggle noBuilding;
 
