@@ -738,7 +738,7 @@ RectTransform:
   - {fileID: 891100640}
   - {fileID: 1965322601}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1689,7 +1689,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &389257093
 GameObject:
@@ -1874,7 +1874,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &422780349
 GameObject:
@@ -2894,22 +2894,9 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: saveableInits
-      Entry: 7
-      Data: 1|System.Collections.Generic.List`1[[Haferbrei.ISaveable, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: selfInits
       Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[IInitSelf, Assembly-CSharp]], mscorlib
+      Data: 1|System.Collections.Generic.List`1[[IInitSelf, Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
@@ -2924,7 +2911,7 @@ MonoBehaviour:
       Data: 
     - Name: dependentInits
       Entry: 7
-      Data: 3|System.Collections.Generic.List`1[[IInitDependencies, Assembly-CSharp]],
+      Data: 2|System.Collections.Generic.List`1[[IInitDependencies, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
@@ -2953,7 +2940,7 @@ Transform:
   m_Children:
   - {fileID: 769124851}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &761198453
 GameObject:
@@ -3097,9 +3084,7 @@ GameObject:
   m_Component:
   - component: {fileID: 769124851}
   - component: {fileID: 769124854}
-  - component: {fileID: 769124853}
   - component: {fileID: 769124850}
-  - component: {fileID: 769124852}
   m_Layer: 0
   m_Name: Markt
   m_TagString: Untagged
@@ -3138,37 +3123,6 @@ Transform:
   m_Father: {fileID: 737089942}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &769124852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 769124849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfcc6113202f49bb8e22c324ca762b44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  componentID: c39745a4-05e9-4e5c-91e6-f6d2c62e78e3
---- !u!114 &769124853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 769124849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52a5653b056a461daf2b9b95867dadc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabName: 
-  allPrefabsCollection: {fileID: 11400000, guid: 740091d4e49c6c7489b7b44ff400285a,
-    type: 2}
-  saveLoadController: {fileID: 11400000, guid: 5b1094697c808fa46ae0cf952d481a93, type: 2}
-  saveableComponents:
-  - {fileID: 769124852}
 --- !u!114 &769124854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5937,52 +5891,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1467543616}
   m_CullTransparentMesh: 0
---- !u!1 &1472361057
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1472361060}
-  - component: {fileID: 1472361059}
-  m_Layer: 0
-  m_Name: LoadSaveGame
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1472361059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1472361057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54841ca3706e122489c60ecf49d2fd73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  saveGameFileName: asdf
-  saveLoadController: {fileID: 11400000, guid: 5b1094697c808fa46ae0cf952d481a93, type: 2}
-  gameEnterScene: {fileID: 11400000, guid: 92efd976811dad244bdb414c9dd997b2, type: 2}
---- !u!4 &1472361060
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1472361057}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1494833797
 GameObject:
   m_ObjectHideFlags: 0
@@ -6165,7 +6073,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22457152, guid: 67117722a812a2e46ab8cb8eafbf5f5e, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 22457152, guid: 67117722a812a2e46ab8cb8eafbf5f5e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6702,7 +6610,7 @@ Transform:
   - {fileID: 123442395}
   - {fileID: 1229799734}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1649228157
 MonoBehaviour:
@@ -7606,7 +7514,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1472361059}
+      - m_Target: {fileID: 0}
         m_MethodName: LoadSaveGame
         m_Mode: 1
         m_Arguments:
@@ -8050,5 +7958,5 @@ Transform:
   - {fileID: 8460527}
   - {fileID: 773951329}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
