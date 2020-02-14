@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Haferbrei{
 [CreateAssetMenu(fileName = "RessourcePackage", menuName = "Scriptable Objects/Ressourcen/Ressource Container", order = 0)]
-public class RessourceContainer : SaveableScriptableObject
+public class RessourceContainer : ScriptableObjectWithGuid
 {
     [OdinSerialize] private Dictionary<Ressource, int> ressources = new Dictionary<Ressource, int>();
 
@@ -203,46 +203,5 @@ public class RessourceContainer : SaveableScriptableObject
             ressources.Remove(ressource);
         }
     }
-    
-    //--- Saveable ---
-    public override SaveableScriptableObjectData Save()
-    {
-        var data = new RessourceContainerData();
-
-        data.guid = guid;
-        data.saveableType = "ScriptableObject";
-        data.scriptableObjectName = name;
-        data.scriptableObjectType = typeof(RessourceContainer).FullName;
-        var ressourcesSerialized = new Dictionary<Guid, int>();
-        foreach (var ressource in ressources)
-        {
-            ressourcesSerialized.Add(ressource.Key.guid, ressource.Value);
-        }
-
-        data.ressources = ressourcesSerialized;
-
-        return data;
-    }
-
-    public override void Load(SaveableScriptableObjectData _loadedData)
-    {
-        var data = _loadedData as RessourceContainerData;
-
-        name = data.scriptableObjectName;
-        
-        EmptyContainer();
-        foreach (var ressource in data.ressources)
-        {
-            Ressource ressourceDeserialized = ScriptableObjectWithGuidCollection.Instance.scriptableObjects[ressource.Key] as Ressource;
-            AddRessource(ressourceDeserialized, ressource.Value);
-        }
-    }
-    //--- ---
-}
-
-[Serializable]
-public class RessourceContainerData : SaveableScriptableObjectData
-{
-    public Dictionary<Guid, int> ressources;
 }
 }

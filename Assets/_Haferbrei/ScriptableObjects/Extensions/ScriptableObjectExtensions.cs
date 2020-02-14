@@ -9,7 +9,7 @@ public class ScriptableObjectExtensions
     {
         var newSOWithGuid = Object.Instantiate(_template);
 
-        if (newSOWithGuid is SaveableScriptableObject) (newSOWithGuid as SaveableScriptableObject).SetGuid(Guid.NewGuid());
+        //if (newSOWithGuid is SaveableScriptableObject) (newSOWithGuid as SaveableScriptableObject).SetGuid(Guid.NewGuid());
         
         newSOWithGuid.guid = Guid.NewGuid();
         return newSOWithGuid;
