@@ -9,28 +9,28 @@ using UnityEditor;
 #endif
 
 namespace Haferbrei {
-public abstract class ScriptableObjectCollectionGeneric<T> : ScriptableObjectWithGuid, IResettable where T : ScriptableObjectWithGuid
+public abstract class ScriptableObjectCollectionGeneric<T> : ScriptableObject, IResettable where T : ScriptableObject
 {
     [SerializeField, Delayed] protected string folder;
     [SerializeField, Delayed] protected List<string> foldersToIgnore;
-    [ReadOnly, SerializeField] public Dictionary<Guid, T> scriptableObjects = new Dictionary<Guid, T>();
-    [ReadOnly, SerializeField] private Dictionary<Guid, T> scriptableObjectsOnDisk = new Dictionary<Guid, T>(); //just for the inspector / debugging
-    [ReadOnly, SerializeField] private Dictionary<Guid, T> scriptableObjectsInstantiatedAtRuntime = new Dictionary<Guid, T>(); //just for the inspector / debugging
+    [ReadOnly, SerializeField] public Dictionary<string, T> scriptableObjects = new Dictionary<string, T>();
+    [ReadOnly, SerializeField] private Dictionary<string, T> scriptableObjectsOnDisk = new Dictionary<string, T>(); //just for the inspector / debugging
+    [ReadOnly, SerializeField] private Dictionary<string, T> scriptableObjectsInstantiatedAtRuntime = new Dictionary<string, T>(); //just for the inspector / debugging
 
     public void RegisterScriptableObject(T _scriptableObject)
     {
-        if (scriptableObjects.ContainsKey(_scriptableObject.guid)) return;
+        if (scriptableObjects.ContainsKey(_scriptableObject.name)) return;
         
-        scriptableObjects.Add(_scriptableObject.guid, _scriptableObject);
-        if(Application.isPlaying) scriptableObjectsInstantiatedAtRuntime.Add(_scriptableObject.guid, _scriptableObject);
+        scriptableObjects.Add(_scriptableObject.name, _scriptableObject);
+        if(Application.isPlaying) scriptableObjectsInstantiatedAtRuntime.Add(_scriptableObject.name, _scriptableObject);
     }
 
     public void UnregisterScriptableObject(T _scriptableObject)
     {
-        if (!scriptableObjects.ContainsKey(_scriptableObject.guid)) return;
+        if (!scriptableObjects.ContainsKey(_scriptableObject.name)) return;
         
-        scriptableObjects.Remove(_scriptableObject.guid);
-        if (scriptableObjectsInstantiatedAtRuntime.ContainsKey(_scriptableObject.guid)) scriptableObjectsInstantiatedAtRuntime.Remove(_scriptableObject.guid);
+        scriptableObjects.Remove(_scriptableObject.name);
+        if (scriptableObjectsInstantiatedAtRuntime.ContainsKey(_scriptableObject.name)) scriptableObjectsInstantiatedAtRuntime.Remove(_scriptableObject.name);
     }
     
     public void ResetSelf()
@@ -39,7 +39,7 @@ public abstract class ScriptableObjectCollectionGeneric<T> : ScriptableObjectWit
         {
             //Debug.Log("Destroy: " + so.Value.name);
             Destroy(so.Value);
-            scriptableObjects = new Dictionary<Guid, T>(scriptableObjectsOnDisk);
+            scriptableObjects = new Dictionary<string, T>(scriptableObjectsOnDisk);
         }
         scriptableObjectsInstantiatedAtRuntime.Clear();
     }
@@ -66,10 +66,10 @@ public abstract class ScriptableObjectCollectionGeneric<T> : ScriptableObjectWit
             }
             if(ignoreThisScriptableObject) continue;
 
-            if (!scriptableObjects.ContainsKey(so.guid))
+            if (!scriptableObjects.ContainsKey(so.name))
             {
-                scriptableObjects.Add(so.guid, so);
-                scriptableObjectsOnDisk.Add(so.guid, so);
+                scriptableObjects.Add(so.name, so);
+                scriptableObjectsOnDisk.Add(so.name, so);
             }
             else
             {

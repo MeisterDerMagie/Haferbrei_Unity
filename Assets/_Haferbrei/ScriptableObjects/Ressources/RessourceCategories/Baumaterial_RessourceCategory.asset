@@ -20,8 +20,5 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: guid
-      Entry: 2
-      Data: 07a7f41e37be43f9a8dde1b93b56eb9b
-  identifier: baumaterial
+    SerializationNodes: []
+  identifier: 

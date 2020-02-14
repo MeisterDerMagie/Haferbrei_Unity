@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 namespace Haferbrei {
 [CreateAssetMenu(fileName = "SceneCollection", menuName = "Scriptable Objects/Collections/Scene Collection", order = 0)]
-public class SceneCollection : ScriptableObjectWithGuid
+public class SceneCollection : SerializedScriptableObject
 {
     [SerializeField, Delayed] private string folder;
     [ReadOnly, SerializeField] private Dictionary<string, SceneReference> sceneReferences = new Dictionary<string, SceneReference>();

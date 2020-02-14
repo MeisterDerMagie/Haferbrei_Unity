@@ -16,17 +16,14 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 11400000, guid: 97ddc323c30fb3c44809e05bd8f7894c, type: 2}
-    - {fileID: 11400000, guid: 6f1bf68cfd0e86e499bad74b81ff7956, type: 2}
-    - {fileID: 11400000, guid: d7db76645a4aa3b49b62a1f2e5f6618c, type: 2}
+    - {fileID: 11400000, guid: 3b4a0bb9ae737f547b2a29d2f416a6f1, type: 2}
+    - {fileID: 11400000, guid: 547818240ce816647a9c90c92fcc9fc9, type: 2}
+    - {fileID: 11400000, guid: 800d9f97cd73c8147b2f6d39728b5efe, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: guid
-      Entry: 2
-      Data: c5b3def530ef46ceab748de5832e1d5f
     - Name: recipe
       Entry: 7
       Data: 0|System.Collections.Generic.Dictionary`2[[Haferbrei.Ressource, Assembly-CSharp],[System.Int32,

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Haferbrei {
 [System.Serializable]
-public abstract class Item : ScriptableObjectWithGuid
+public abstract class Item : ScriptableObject
 {
     public string identifier;
     public Sprite icon;

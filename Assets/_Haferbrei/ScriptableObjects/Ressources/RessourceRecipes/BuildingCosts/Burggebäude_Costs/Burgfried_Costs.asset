@@ -16,18 +16,15 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 11400000, guid: 97ddc323c30fb3c44809e05bd8f7894c, type: 2}
-    - {fileID: 11400000, guid: 6f1bf68cfd0e86e499bad74b81ff7956, type: 2}
-    - {fileID: 11400000, guid: 18000e27c2d873543bf73096423f9567, type: 2}
-    - {fileID: 11400000, guid: 843c7aa3ee1cd1742a739d38ede09338, type: 2}
+    - {fileID: 11400000, guid: 3b4a0bb9ae737f547b2a29d2f416a6f1, type: 2}
+    - {fileID: 11400000, guid: 800d9f97cd73c8147b2f6d39728b5efe, type: 2}
+    - {fileID: 11400000, guid: a6bf655a4ddc425498d64e79ed03424e, type: 2}
+    - {fileID: 11400000, guid: 1797142f0704e7441b844c7d42120ea5, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: guid
-      Entry: 2
-      Data: d979561ada434066a17ff671033489df
     - Name: recipe
       Entry: 7
       Data: 0|System.Collections.Generic.Dictionary`2[[Haferbrei.Ressource, Assembly-CSharp],[System.Int32,
@@ -74,7 +71,7 @@ MonoBehaviour:
       Data: 2
     - Name: $v
       Entry: 3
-      Data: 10
+      Data: 20
     - Name: 
       Entry: 8
       Data: 
@@ -86,7 +83,7 @@ MonoBehaviour:
       Data: 3
     - Name: $v
       Entry: 3
-      Data: 200
+      Data: 10
     - Name: 
       Entry: 8
       Data: 

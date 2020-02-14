@@ -20,8 +20,5 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: guid
-      Entry: 2
-      Data: 7a9054ccd50f48bc946402288a6fb476
-  identifier: verpflegung
+    SerializationNodes: []
+  identifier: 

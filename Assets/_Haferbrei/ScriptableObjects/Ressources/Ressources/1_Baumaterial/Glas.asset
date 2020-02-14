@@ -20,10 +20,7 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: guid
-      Entry: 2
-      Data: ee20c3ce3af54ee68a08f398a3bd6f49
+    SerializationNodes: []
   identifier: glas
   goldwert: 0
-  category: {fileID: 11400000, guid: 46e40b3a83bb7da4e97dc596d369556e, type: 2}
+  category: {fileID: 11400000, guid: b0420bbe1867bd1409edd3fe3d891233, type: 2}

@@ -20,8 +20,5 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: guid
-      Entry: 2
-      Data: 6c82211e8da54cde9f1aa3df90987f2b
-  identifier: ausrustung
+    SerializationNodes: []
+  identifier: 

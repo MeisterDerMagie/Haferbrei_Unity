@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Haferbrei{
 [CreateAssetMenu(fileName = "RessourcePackage", menuName = "Scriptable Objects/Ressourcen/Ressource Container", order = 0)]
-public class RessourceContainer : ScriptableObjectWithGuid
+public class RessourceContainer : SerializedScriptableObject
 {
     [OdinSerialize] private Dictionary<Ressource, int> ressources = new Dictionary<Ressource, int>();
 

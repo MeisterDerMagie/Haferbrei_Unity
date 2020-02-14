@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Haferbrei {
 
 [CreateAssetMenu(fileName = "PrefabCollection", menuName = "Scriptable Objects/Collections/Prefab Collection", order = 0)]
-public class PrefabCollection : ScriptableObjectWithGuid
+public class PrefabCollection : SerializedScriptableObject
 {
     [SerializeField, Delayed] private string folder;
     [ReadOnly, SerializeField] private Dictionary<string, GameObject> prefabReferences = new Dictionary<string, GameObject>();
