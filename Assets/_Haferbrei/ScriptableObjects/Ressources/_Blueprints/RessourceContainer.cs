@@ -8,7 +8,7 @@ namespace Haferbrei{
 [CreateAssetMenu(fileName = "RessourcePackage", menuName = "Scriptable Objects/Ressourcen/Ressource Container", order = 0)]
 public class RessourceContainer : SerializedScriptableObject
 {
-    [OdinSerialize] private Dictionary<Ressource, int> ressources = new Dictionary<Ressource, int>();
+    [OdinSerialize] public Dictionary<Ressource, int> ressources = new Dictionary<Ressource, int>();
 
     [ReadOnly] public Action onRessourcesChanged = delegate { };
     

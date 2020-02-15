@@ -219,7 +219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &51523454
 RectTransform:
   m_ObjectHideFlags: 0
@@ -815,50 +815,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetFramerate: 100000
---- !u!1 &119238231
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 119238232}
-  - component: {fileID: 119238233}
-  m_Layer: 0
-  m_Name: SaveLoadController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &119238232
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 119238231}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1091495345}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &119238233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 119238231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc22da4dc5bc4664ab851ce6695795ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  saveFileName: Haferbrei.save
 --- !u!1 &123442394
 GameObject:
   m_ObjectHideFlags: 0
@@ -2862,6 +2818,55 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &725442977
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 725442979}
+  - component: {fileID: 725442978}
+  m_Layer: 0
+  m_Name: Auto Save Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &725442978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725442977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62204a1310415ab4dabc13b8542ebb25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identifier: autosave.dat
+  settingsPreset: {fileID: 11400000, guid: d3c9c02c463637a4ab594d3c9be94eeb, type: 2}
+  autoSaves:
+  - {fileID: 769124852}
+  saveEvent: 0
+  loadEvent: 0
+--- !u!4 &725442979
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725442977}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &730542042
 GameObject:
   m_ObjectHideFlags: 0
@@ -3167,6 +3172,7 @@ GameObject:
   - component: {fileID: 769124851}
   - component: {fileID: 769124850}
   - component: {fileID: 769124852}
+  - component: {fileID: 769124853}
   m_Layer: 0
   m_Name: Markt
   m_TagString: Untagged
@@ -3214,10 +3220,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 769124849}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d79d4722eace4e8e9c0aaf8d4a46be1b, type: 3}
+  m_Script: {fileID: 11500000, guid: 0851b0872d12d61429c65b19b671731d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  component: {fileID: 769124850}
+  serializeChildren: 0
+  serializeComponents: 1
+  serializeExcludedChildren: 0
+  serializeExcludedComponents: 0
+  excludedChildren: []
+  excludedComponents:
+  - {fileID: 769124853}
+  - {fileID: 769124852}
+--- !u!114 &769124853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769124849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 379bea3a8411dd648bfeb461e526eeb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testInt: 0
 --- !u!1 &771010683
 GameObject:
   m_ObjectHideFlags: 0
@@ -3628,6 +3654,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 857903155}
+  - component: {fileID: 857903156}
   m_Layer: 0
   m_Name: Initializer_UI
   m_TagString: Untagged
@@ -3650,6 +3677,71 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &857903156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 857903154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d20c809399636ab449fc2dffa522ee9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: singletonInits
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[IInitSingletons, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: selfInits
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[IInitSelf, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: dependentInits
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[IInitDependencies, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  initOnSceneStart: 1
+  initOnAwake: 1
+  onInitializeFinished:
+    m_PersistentCalls:
+      m_Calls: []
+  isInitialized: 0
 --- !u!1 &891100639
 GameObject:
   m_ObjectHideFlags: 0
@@ -3686,7 +3778,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 75.1, y: -14.1}
+  m_AnchoredPosition: {x: 75.099976, y: -14.099976}
   m_SizeDelta: {x: 150.2, y: 28.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &891100641
@@ -3732,7 +3824,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 119238233}
+      - m_Target: {fileID: 725442978}
         m_MethodName: Save
         m_Mode: 1
         m_Arguments:
@@ -4165,37 +4257,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1091495344
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1091495345}
-  m_Layer: 0
-  m_Name: Initializer_SaveLoadController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1091495345
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1091495344}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 119238232}
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1139914244
 GameObject:
   m_ObjectHideFlags: 0
@@ -4439,7 +4500,6 @@ MonoBehaviour:
   - eb981a931558414197984e0d9c4a263a
   - 28977c84568745f0bbd2e84804ebc080
   - d6f19093a2ff472983b4efe1df7cbbc7
-  - de7b48015e804268b237f6f7294bd149
   - 05e946f88fce463e9db18def6deebb52
   - df08b582d7e548219e6e1f88a8a1e2c8
   - 723fb044790f4456945593e35e84ec32
@@ -4600,6 +4660,41 @@ MonoBehaviour:
   - 854a398bc6104b18ba78962f8e28e90c
   - 8aa6aeb4d3364e20b337ed1e1f671380
   - cf918f343afc47128283e43d9896605e
+  - 1fce64c89a3e404d84b3c0e708069d1a
+  - 43b2be5e02e741e382b47ba022d1bc84
+  - 4679331c89e24abeae0eba5de2044f26
+  - c8084c53e32948f7a40de31e7646301a
+  - 0523786d91d94329aa9c602d00e0ae13
+  - d4f3ffd4391745ffbbcf866da0362d4d
+  - 194afcd8489d4aa18a68a7dda5f9cc4f
+  - b13eeb49459c461b8942f1435fe5b54f
+  - d7120fb7cd3c46c08e005db0334086e5
+  - cb4862b6f0b149c48765e28c9ebdf8bc
+  - c91e3cd40d964f6a9500e4904ecac2f4
+  - a33821b0843b4110a17a5179afdbfe64
+  - f74ac49de5ad4b48880589f70b915b46
+  - bbd3c51e9472435cb760a9513d3a44ca
+  - 5858de71694d442d8599c30e60456c1e
+  - b9ae89e42c0f48c19430e74160e88c62
+  - 632255a1b0a14f648f8280807f756d33
+  - 471f2225585e4f8fac76ad353182d023
+  - bceac5b9d5924b5581789da4316eae06
+  - 63f7da54b9a64237835dc49aa86e82a2
+  - c8ba3e42d8b74754bc8cf1e8e945a12f
+  - 9d2be67594d6487688c79cac61de2835
+  - 344995ff3b974c2a82ba4bf195780a73
+  - b7b16a326c44423b82cab1db9ed7f0ad
+  - b17f3045ef5141da9ea4180eec9c1f3e
+  - 59a79c39e9fc41578dfece2882860150
+  - f391390c318549778d44addeed832343
+  - b32eea05f36e4be482ebdb43fffeccce
+  - bf790366afb344738cf4ce79b7b79348
+  - 6e88bbc8803747c3a3ae287f642865d1
+  - fdee4608b4d84ac385146d9e84fab6a5
+  - 8e9c1071654845ea90bdc83bb8c507a4
+  - a3d8e14b3f07464a993caa708606b4e3
+  - 4dd6acbc3a51411b81e9f58eb16a04ca
+  - c8316d3349b74c8f95970faff64b7005
   sceneDependencies:
   - {fileID: 1140813232}
   - {fileID: 1140813234}
@@ -4733,7 +4828,6 @@ MonoBehaviour:
   - {fileID: 761198455}
   - {fileID: 773951328}
   - {fileID: 771010684}
-  - {fileID: 0}
   - {fileID: 771010683}
   - {fileID: 810230773}
   - {fileID: 785841839}
@@ -4894,11 +4988,42 @@ MonoBehaviour:
   - {fileID: 2092097300}
   - {fileID: 2047368790}
   - {fileID: 2092097301}
-  availableDependencies:
+  - {fileID: 857903155}
+  - {fileID: 150635339}
+  - {fileID: 150635340}
+  - {fileID: 251640866}
+  - {fileID: 251640867}
+  - {fileID: 1425404368}
+  - {fileID: 1940394732}
+  - {fileID: 1985385476}
+  - {fileID: 1209374820}
+  - {fileID: 857903154}
+  - {fileID: 857903156}
   - {fileID: 1484094525}
   - {fileID: 1484094524}
+  - {fileID: 1209374819}
+  - {fileID: 1985385475}
+  - {fileID: 1940394730}
+  - {fileID: 1940394731}
+  - {fileID: 1209374822}
+  - {fileID: 1209374821}
+  - {fileID: 1425404366}
+  - {fileID: 1940394729}
+  - {fileID: 1985385474}
+  - {fileID: 1985385473}
+  - {fileID: 251640869}
+  - {fileID: 251640868}
+  - {fileID: 369239548}
+  - {fileID: 369239549}
   - {fileID: 408070380}
   - {fileID: 408070381}
+  - {fileID: 1425404367}
+  - {fileID: 725442977}
+  - {fileID: 725442979}
+  - {fileID: 725442978}
+  - {fileID: 769124852}
+  - {fileID: 769124853}
+  availableDependencies: []
 --- !u!4 &1140813234
 Transform:
   m_ObjectHideFlags: 0
@@ -6472,6 +6597,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1425404367}
+  - component: {fileID: 1425404368}
   m_Layer: 0
   m_Name: Initializer_LocalMap
   m_TagString: Untagged
@@ -6495,6 +6621,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1425404368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425404366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d20c809399636ab449fc2dffa522ee9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 769124850}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: singletonInits
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[IInitSingletons, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: selfInits
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[IInitSelf, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: dependentInits
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[IInitDependencies, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  initOnSceneStart: 1
+  initOnAwake: 1
+  onInitializeFinished:
+    m_PersistentCalls:
+      m_Calls: []
+  isInitialized: 0
 --- !u!1 &1441797759
 GameObject:
   m_ObjectHideFlags: 0
@@ -8235,7 +8430,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 231.5, y: -14.1}
+  m_AnchoredPosition: {x: 231.5, y: -14.099976}
   m_SizeDelta: {x: 150.2, y: 28.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1965322602
@@ -8281,7 +8476,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 119238233}
+      - m_Target: {fileID: 725442978}
         m_MethodName: Load
         m_Mode: 1
         m_Arguments:

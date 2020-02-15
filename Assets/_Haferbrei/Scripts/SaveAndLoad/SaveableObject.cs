@@ -9,7 +9,7 @@ namespace Haferbrei {
 public class SaveableObject : MonoBehaviour, IInitSelf
 {
     [Button]
-    public void InitSelf() => SaveLoadController.registerSaveable(gameObject);
-    private void OnDestroy() => SaveLoadController.unregisterSaveable(gameObject);
+    public void InitSelf() => SaveLoadController.registerSaveableGameObject(gameObject);
+    private void OnDestroy() => SaveLoadController.unregisterSaveableGameObject(gameObject);
 }
 }

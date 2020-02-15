@@ -10,7 +10,7 @@ public class SaveableComponent : MonoBehaviour, IInitSelf
     public Component component;
     
     [Button]
-    public void InitSelf() => SaveLoadController.registerSaveable(component);
-    private void OnDestroy() => SaveLoadController.unregisterSaveable(component);
+    public void InitSelf() => SaveLoadController.registerSaveableComponent(component);
+    private void OnDestroy() => SaveLoadController.unregisterSaveableComponent(component);
 }
 }

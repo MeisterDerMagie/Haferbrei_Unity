@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Haferbrei/Scenes/InitializeGame.unity
+    guid: e70e4d0546babd44092ecaa57503ed5d
+  - enabled: 1
     path: Assets/_Haferbrei/Scenes/EnterGame.unity
     guid: 94911371d0d25874c8846b5f5b6e26a5
   - enabled: 1

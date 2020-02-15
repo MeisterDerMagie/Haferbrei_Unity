@@ -11,6 +11,7 @@ namespace Haferbrei{
 public class INIT001_Initialize : SerializedMonoBehaviour
 {
     [SerializeField, BoxGroup("Settings")] public bool initOnSceneStart = true;
+    [SerializeField, BoxGroup("Settings")] public bool initOnAwake = true;
     [SerializeField, ReadOnly] public List<IInitSingletons>   singletonInits = new List<IInitSingletons>();
     //[SerializeField, ReadOnly] public List<ISaveable>         saveableInits  = new List<ISaveable>();
     //[SerializeField, ReadOnly] public List<IStoreable>        storeableInits = new List<IStoreable>();
@@ -27,7 +28,8 @@ public class INIT001_Initialize : SerializedMonoBehaviour
             gameObject.SetActive(false); //wird der Initializer hier inaktiv gesetzt, wird kein Awake, Start, OnEnable der Kinder aufgerufen. Nichtmal OnDisable!
             //Man könnte also hier die Hierarchy inaktiv setzen, dann alles initialisieren (bei Spielstart) und dann erst zu einem späteren Zeitpunkt aktivieren.
         }
-        
+
+        if (initOnAwake) StartInitialization();
         //if(initOnSceneStart) StartInitialization();
     }
 

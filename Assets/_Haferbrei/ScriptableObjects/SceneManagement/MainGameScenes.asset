@@ -13,13 +13,8 @@ MonoBehaviour:
   m_Name: MainGameScenes
   m_EditorClassIdentifier: 
   loadAdditively: 0
-  loadingScreen: {fileID: 7054887534509017, guid: 84c456272dc885649a5c556341df40c1,
-    type: 3}
+  loadingScreen: {fileID: 0}
   newScene:
     sceneAsset: {fileID: 102900000, guid: 43bdf5d9ff415084bae1026c5ab14d11, type: 3}
     scenePath: Assets/_Haferbrei/Scenes/MainGame.unity
-  scenesToLoadAdditively:
-  - sceneAsset: {fileID: 102900000, guid: 8dc9d3b0036d9104a96cae14d785ebe3, type: 3}
-    scenePath: Assets/_Haferbrei/Scenes/TestScene.unity
-  optionalSaveGameToLoad: {fileID: 11400000, guid: 5b1094697c808fa46ae0cf952d481a93,
-    type: 2}
+  scenesToLoadAdditively: []

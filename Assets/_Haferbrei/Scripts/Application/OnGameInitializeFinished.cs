@@ -9,22 +9,16 @@ namespace Haferbrei{
 public class OnGameInitializeFinished : MonoBehaviour
 {
     [SerializeField, BoxGroup("Scene Loader"), Required] private SO_LoadScenes nextScenesToLoadInBuild;
-    [SerializeField, BoxGroup("Initialize state"), Required] private BoolVariable gameIsInitialized; 
     
     
     public void OnInitializeFinished()
     {
         #if UNITY_EDITOR
-        //if (!gameIsInitialized)
-        //{
-            //gameIsInitialized.Value = true;
-            Debug.Log("Successfully initialized game.");
-            Timing.RunCoroutine(LoadLastOpenedScenesInEditor());
-            return;
-        //}
-        #endif
         Debug.Log("Successfully initialized game.");
-        Timing.RunCoroutine(LoadNextScenes());
+            //Timing.RunCoroutine(LoadLastOpenedScenesInEditor());
+            Timing.RunCoroutine(LoadNextScenes());
+            return;
+        #endif
     }
 
     private IEnumerator<float> LoadNextScenes()
