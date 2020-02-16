@@ -1,4 +1,5 @@
-﻿//(c) copyright by Martin M. Klöckener
+﻿//https://breadcrumbsinteractive.com/two-unity-tricks-isometric-games/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

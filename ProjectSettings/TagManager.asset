@@ -38,12 +38,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Ground
     uniqueID: 2694703865
     locked: 0
-  - name: Buildings
-    uniqueID: 454803613
+  - name: GroundDecals
+    uniqueID: 109630475
+    locked: 0
+  - name: GroundFX
+    uniqueID: 4020473583
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Weather (?)
+    uniqueID: 3327023607
+    locked: 0
+  - name: UI
+    uniqueID: 3488576095
     locked: 0
