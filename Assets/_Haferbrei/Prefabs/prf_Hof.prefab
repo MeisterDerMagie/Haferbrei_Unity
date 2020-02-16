@@ -52,10 +52,10 @@ PolygonCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.11, y: 1.68}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5114301, y: 0.25596452}
+    pivot: {x: 0.5114301, y: 0.38}
     oldSize: {x: 13.333333, y: 13.974752}
     newSize: {x: 2.56, y: 2.56}
     adaptiveTilingThreshold: 0.5
@@ -98,11 +98,22 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6693115615061220939, guid: 5d6e697057589ba4c84bedc5a48849e5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7060760436674559732, guid: 5d6e697057589ba4c84bedc5a48849e5,
         type: 3}
       propertyPath: m_Name
       value: prf_Hof
       objectReference: {fileID: 0}
+    - target: {fileID: 7060760436674559732, guid: 5d6e697057589ba4c84bedc5a48849e5,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000,
+        type: 0}
     - target: {fileID: 7060760436674559734, guid: 5d6e697057589ba4c84bedc5a48849e5,
         type: 3}
       propertyPath: m_LocalPosition.x
