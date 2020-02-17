@@ -12,7 +12,7 @@ namespace Bayat.Json.Converters
 
         public override string[] GetObjectProperties()
         {
-            return new string[] { "template", "ressourceContainer", "useGUILayout", "runInEditMode", "enabled", "hideFlags" };
+            return new string[] { "template", "ressourceContainer", "useGUILayout", "enabled", "hideFlags" };
         }
 
         public override bool CanConvert(Type objectType)
@@ -26,7 +26,6 @@ namespace Bayat.Json.Converters
             internalWriter.SerializeProperty(writer, "template", instance.template);
             internalWriter.SerializeProperty(writer, "ressourceContainer", instance.ressourceContainer);
             writer.WriteProperty("useGUILayout", instance.useGUILayout);
-            writer.WriteProperty("runInEditMode", instance.runInEditMode);
             writer.WriteProperty("enabled", instance.enabled);
             internalWriter.SerializeProperty(writer, "hideFlags", instance.hideFlags);
 		}
@@ -44,9 +43,6 @@ namespace Bayat.Json.Converters
 				    break;
 				case "useGUILayout":
 				    instance.useGUILayout = reader.ReadProperty<System.Boolean>();
-                    break;
-				case "runInEditMode":
-				    instance.runInEditMode = reader.ReadProperty<System.Boolean>();
                     break;
 				case "enabled":
 				    instance.enabled = reader.ReadProperty<System.Boolean>();

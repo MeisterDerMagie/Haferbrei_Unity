@@ -21,7 +21,7 @@ public class Camera_Pan : MonoBehaviour
     {
         mousePositionDelta = mousePositionBefore - gameCamera.ScreenToWorldPoint(Input.mousePosition);
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
         {
             isDamping = false;
             mousePositionDelta = Vector3.zero;
@@ -29,13 +29,13 @@ public class Camera_Pan : MonoBehaviour
             isPanning = true;
         }
         
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1) || Input.GetMouseButton(2))
         {
             transform.position += mousePositionDelta;
             dampingDelta = mousePositionDelta;
         }
 
-        if (Input.GetMouseButtonUp(1))
+        if (Input.GetMouseButtonUp(1) || Input.GetMouseButtonUp(2))
         {
             isDamping = true;
             isPanning = false;
