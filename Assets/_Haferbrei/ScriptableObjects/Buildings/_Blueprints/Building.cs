@@ -11,7 +11,7 @@ public class Building : ScriptableObject
     public string identifier;
     public int capacity;
     public bool isUnique;
-    public RessourceRecipe cost;
+    public ModRessourceRecipe cost;
     public GameObject instancePrefab;
     public GameObject previewPrefab;
     

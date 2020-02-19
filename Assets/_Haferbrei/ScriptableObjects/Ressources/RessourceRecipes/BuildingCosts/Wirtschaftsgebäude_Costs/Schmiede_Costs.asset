@@ -9,13 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7a1e0740b4f4f59a4d58ac7d9a39424, type: 3}
+  m_Script: {fileID: 11500000, guid: df8729a22e9d442a80a040a7f45816ea, type: 3}
   m_Name: Schmiede_Costs
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 3b4a0bb9ae737f547b2a29d2f416a6f1, type: 2}
+    - {fileID: 11400000, guid: 547818240ce816647a9c90c92fcc9fc9, type: 2}
+    - {fileID: 11400000, guid: a6bf655a4ddc425498d64e79ed03424e, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -23,8 +26,8 @@ MonoBehaviour:
     SerializationNodes:
     - Name: recipe
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[Haferbrei.Ressource, Assembly-CSharp],[System.Int32,
-        mscorlib]], mscorlib
+      Data: 0|System.Collections.Generic.Dictionary`2[[Haferbrei.Ressource, Assembly-CSharp],[Haferbrei.ModFloat,
+        Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
       Data: 1|System.Collections.Generic.ObjectEqualityComparer`1[[Haferbrei.Ressource,
@@ -34,7 +37,121 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
       Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 2|Haferbrei.ModFloat, Assembly-CSharp
+    - Name: BaseValue
+      Entry: 4
+      Data: 55
+    - Name: FloatModifiers
+      Entry: 7
+      Data: 3|System.Collections.ObjectModel.ReadOnlyCollection`1[[Haferbrei.FloatModifier,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: floatModifiers
+      Entry: 7
+      Data: 4|System.Collections.Generic.List`1[[Haferbrei.FloatModifier, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 5|Haferbrei.ModFloat, Assembly-CSharp
+    - Name: BaseValue
+      Entry: 4
+      Data: 50
+    - Name: FloatModifiers
+      Entry: 7
+      Data: 6|System.Collections.ObjectModel.ReadOnlyCollection`1[[Haferbrei.FloatModifier,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: floatModifiers
+      Entry: 7
+      Data: 7|System.Collections.Generic.List`1[[Haferbrei.FloatModifier, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 2
+    - Name: $v
+      Entry: 7
+      Data: 8|Haferbrei.ModFloat, Assembly-CSharp
+    - Name: BaseValue
+      Entry: 4
+      Data: 20
+    - Name: FloatModifiers
+      Entry: 7
+      Data: 9|System.Collections.ObjectModel.ReadOnlyCollection`1[[Haferbrei.FloatModifier,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: floatModifiers
+      Entry: 7
+      Data: 10|System.Collections.Generic.List`1[[Haferbrei.FloatModifier, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 

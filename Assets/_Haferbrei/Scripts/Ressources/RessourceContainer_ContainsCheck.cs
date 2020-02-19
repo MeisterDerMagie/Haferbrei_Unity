@@ -15,15 +15,17 @@ public class RessourceContainer_ContainsCheck : MonoBehaviour
     [SerializeField, BoxGroup("Settings"), ShowIf("modeIsSingle")] private int amount;
     [SerializeField, BoxGroup("Settings"), ShowIf("modeIsMultiple")] private Dictionary<Ressource, int> ressources;
     [SerializeField, BoxGroup("Settings"), ShowIf("modeIsRecipe")] private RessourceRecipe recipe;
+    [SerializeField, BoxGroup("Settings"), ShowIf("modeIsModRecipe")] private ModRessourceRecipe modRecipe;
 
     [ReadOnly] public bool containerContainsRessources;
     private bool initialCheck = true;
     
     
-    private enum Mode{ Single, Multiple, Recipe }
+    private enum Mode{ Single, Multiple, Recipe, ModRecipe }
     private bool modeIsSingle => (mode == Mode.Single); //for Odin
     private bool modeIsMultiple => (mode == Mode.Multiple); //for Odin
     private bool modeIsRecipe => (mode == Mode.Recipe); //for Odin
+    private bool modeIsModRecipe => (mode == Mode.ModRecipe); //for Odin
     
     public UnityEvent onContainerContainsRessources;
     public UnityEvent onContainerDoesNotContainRessources;
@@ -70,6 +72,13 @@ public class RessourceContainer_ContainsCheck : MonoBehaviour
         recipe = _recipe;
         DoCheck();
     }
+
+    public void SetRessourcesToCheckFor(ModRessourceRecipe _recipe)
+    {
+        mode = Mode.ModRecipe;
+        modRecipe = _recipe;
+        DoCheck();
+    }
     
     private void SubscribeToChangedEvent()
     {
@@ -94,6 +103,9 @@ public class RessourceContainer_ContainsCheck : MonoBehaviour
                 break;
             case Mode.Recipe:
                 if(recipe != null) containerContainsRessourcesNew = containerToCheck.ContainsRessources(recipe);
+                break;
+            case Mode.ModRecipe:
+                if (modRecipe != null) containerContainsRessourcesNew = containerToCheck.ContainsRessources(modRecipe);
                 break;
         }
 

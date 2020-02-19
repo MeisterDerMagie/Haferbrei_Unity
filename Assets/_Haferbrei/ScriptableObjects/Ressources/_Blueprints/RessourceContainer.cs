@@ -27,7 +27,20 @@ public class RessourceContainer : SerializedScriptableObject
         if(_callOnChangedEvent) onRessourcesChanged();
     }
 
+    public void AddRessource(Ressource _ressource, ModFloat _amount, bool _callOnChangedEvent = true) => AddRessource(_ressource, _amount.ValueInt, _callOnChangedEvent);
+
     public void AddRessources(Dictionary<Ressource, int> _ressources, bool _callOnChangedEvent = true)
+    {
+        foreach (var ressource in _ressources)
+        {
+            AddRessource(ressource.Key, ressource.Value, false);
+        }
+        //---
+        RemoveEmptyRessourceEntries();
+        if(_callOnChangedEvent) onRessourcesChanged();
+    }
+    
+    public void AddRessources(Dictionary<Ressource, ModFloat> _ressources, bool _callOnChangedEvent = true)
     {
         foreach (var ressource in _ressources)
         {
@@ -39,6 +52,7 @@ public class RessourceContainer : SerializedScriptableObject
     }
 
     public void AddRessources(RessourceRecipe _recipe) => AddRessources(_recipe.recipe);
+    public void AddRessources(ModRessourceRecipe _recipe) => AddRessources(_recipe.recipe);
     //-- --
 
     //-- Subtract Ressources from the container --
@@ -50,6 +64,8 @@ public class RessourceContainer : SerializedScriptableObject
         RemoveEmptyRessourceEntries();
         if(_callOnChangedEvent) onRessourcesChanged();
     }
+
+    public void SubtractRessource(Ressource _ressource, ModFloat _amount, bool _callOnChangedEvent = true) => SubtractRessource(_ressource, _amount.ValueInt, _callOnChangedEvent); 
     
     public void SubtractRessources(Dictionary<Ressource, int> _ressources, bool _callOnChangedEvent = true)
     {
@@ -61,8 +77,20 @@ public class RessourceContainer : SerializedScriptableObject
         RemoveEmptyRessourceEntries();
         if(_callOnChangedEvent) onRessourcesChanged();
     }
+    
+    public void SubtractRessources(Dictionary<Ressource, ModFloat> _ressources, bool _callOnChangedEvent = true)
+    {
+        foreach (var ressource in _ressources)
+        {
+            SubtractRessource(ressource.Key, ressource.Value, false);
+        }
+        //---
+        RemoveEmptyRessourceEntries();
+        if(_callOnChangedEvent) onRessourcesChanged();
+    }
 
     public void SubtractRessources(RessourceRecipe _recipe) => SubtractRessources(_recipe.recipe);
+    public void SubtractRessources(ModRessourceRecipe _recipe) => SubtractRessources(_recipe.recipe);
     //-- --
 
     //-- Transfer Ressources from this container to another --
@@ -111,17 +139,28 @@ public class RessourceContainer : SerializedScriptableObject
         return (ressources.ContainsKey(_ressource) && ressources[_ressource] >= _amount);
     }
 
+    public bool ContainsRessource(Ressource _ressource, ModFloat _amount) => ContainsRessource(_ressource, _amount.ValueInt);
+    
     public bool ContainsRessources(Dictionary<Ressource, int> _ressources)
     {
         foreach (var ressource in _ressources)
         {
             if (!ContainsRessource(ressource.Key, ressource.Value)) return false;
         }
-
+        return true;
+    }
+    
+    public bool ContainsRessources(Dictionary<Ressource, ModFloat> _ressources)
+    {
+        foreach (var ressource in _ressources)
+        {
+            if (!ContainsRessource(ressource.Key, ressource.Value)) return false;
+        }
         return true;
     }
 
-    public bool ContainsRessources(RessourceRecipe _recipe) => ContainsRessources(_recipe.recipe); 
+    public bool ContainsRessources(RessourceRecipe _recipe) => ContainsRessources(_recipe.recipe);
+    public bool ContainsRessources(ModRessourceRecipe _recipe) => ContainsRessources(_recipe.recipe);
     //-- --
     
     //-- Get ressource difference (wenn kleiner als 0, bedeutet das, dass dieses Paket nicht so viele Ressourcen hat) --
@@ -130,6 +169,8 @@ public class RessourceContainer : SerializedScriptableObject
         if(!ressources.ContainsKey(_ressource)) return (0 - _amount);
         return ressources[_ressource] - _amount;
     }
+
+    public int GetRessourceDifference(Ressource _ressource, ModFloat _amount) => GetRessourceDifference(_ressource, _amount.ValueInt);
 
     public Dictionary<Ressource, int> GetRessourcesDifference(Dictionary<Ressource, int> _ressources)
     {
@@ -140,11 +181,24 @@ public class RessourceContainer : SerializedScriptableObject
             int ressourceDifference = GetRessourceDifference(ressource.Key, ressource.Value);
             difference.Add(ressource.Key, ressourceDifference);
         }
-
+        return difference;
+    }
+    
+    public Dictionary<Ressource, int> GetRessourcesDifference(Dictionary<Ressource, ModFloat> _ressources)
+    {
+        difference.Clear();
+        
+        foreach (var ressource in _ressources)
+        {
+            int ressourceDifference = GetRessourceDifference(ressource.Key, ressource.Value);
+            difference.Add(ressource.Key, ressourceDifference);
+        }
         return difference;
     }
 
     public Dictionary<Ressource, int> GetRessourcesDifference(RessourceRecipe _recipe) => GetRessourcesDifference(_recipe.recipe);
+    public Dictionary<Ressource, int> GetRessourcesDifference(ModRessourceRecipe _recipe) => GetRessourcesDifference(_recipe.recipe);
+    
     //-- --
 
     //-- Get infos about the ressources Dictionary --

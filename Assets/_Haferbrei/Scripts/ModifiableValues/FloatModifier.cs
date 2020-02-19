@@ -1,4 +1,7 @@
-﻿namespace Haferbrei{
+﻿using System;
+
+namespace Haferbrei{
+[Serializable]
 public class FloatModifier
 {
     public readonly float Value;

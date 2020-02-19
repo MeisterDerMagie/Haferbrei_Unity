@@ -16,7 +16,7 @@ MonoBehaviour:
   identifier: buildingSO_burgfried
   capacity: 0
   isUnique: 1
-  cost: {fileID: 11400000, guid: 765a99badb40abd45a510c47c00b21c1, type: 2}
+  cost: {fileID: 11400000, guid: 2cdccd6dd692c5b478f4290993abb205, type: 2}
   instancePrefab: {fileID: 4604666238020978129, guid: 010f17405f763af4ca405b49a1c3439b,
     type: 3}
   previewPrefab: {fileID: 4604666238020978129, guid: 38f2825ca1e1e3c4194170d03ed53761,

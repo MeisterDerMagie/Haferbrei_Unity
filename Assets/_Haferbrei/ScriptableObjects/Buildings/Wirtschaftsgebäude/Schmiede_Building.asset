@@ -16,7 +16,7 @@ MonoBehaviour:
   identifier: buildingSO_schmiede
   capacity: 0
   isUnique: 0
-  cost: {fileID: 11400000, guid: 714435d515c668140b7deb4521244bf8, type: 2}
+  cost: {fileID: 11400000, guid: f0570f7bec2342f4aa9d8c36b1dc9e8e, type: 2}
   instancePrefab: {fileID: 4604666238020978129, guid: cd288367b63e5724fa2066bca0030ae3,
     type: 3}
   previewPrefab: {fileID: 4604666238020978129, guid: 7e7e8b44439f68a4084b02635aa9240e,

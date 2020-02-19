@@ -2,33 +2,36 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Sirenix.OdinInspector;
+using UnityEngine;
 
 namespace Haferbrei{
 [Serializable]
-public class ModifiableFloat
+[InlineProperty]
+public class ModFloat
 {
     [OnValueChanged("CalculateFinalValue")]
     public float BaseValue;
-    public readonly ReadOnlyCollection<FloatModifier> FloatModifiers;
-    [ShowInInspector, ReadOnly] private readonly List<FloatModifier> floatModifiers;
+    [HideInInspector] public ReadOnlyCollection<FloatModifier> FloatModifiers;
+    [SerializeField, ReadOnly, PropertyOrder(2)] public List<FloatModifier> floatModifiers = new List<FloatModifier>();
     
     private bool isDirty = true;
-    [ShowInInspector, ReadOnly] private float value;
+    private float value;
     private float lastBaseValue = float.MinValue;
  
     //--- Constructors ---
-    public ModifiableFloat(float baseValue) : this()
+    public ModFloat(float baseValue) : this()
     {
         BaseValue = baseValue;
     }
-    public ModifiableFloat()
+    public ModFloat()
     {
         floatModifiers = new List<FloatModifier>();
         FloatModifiers = floatModifiers.AsReadOnly();
     }
     //--- ---
 
-    public float Value
+    [ShowInInspector, LabelText("Final Value"), PropertyOrder(1)]
+    public float ValueFloat
     {
         get {
             if (!isDirty && lastBaseValue == BaseValue) return value;
@@ -37,12 +40,14 @@ public class ModifiableFloat
         }
     }
 
+    public int ValueInt => Mathf.FloorToInt(ValueFloat);
+
     public void AddModifier(FloatModifier mod)
     {
         isDirty = true;
         floatModifiers.Add(mod);
         floatModifiers.Sort(CompareModifierOrder);
-        CalculateFinalValue();
+        //CalculateFinalValue();
     }
      
     public bool RemoveModifier(FloatModifier mod)
@@ -50,7 +55,7 @@ public class ModifiableFloat
         if (floatModifiers.Remove(mod))
         {
             isDirty = true;
-            CalculateFinalValue();
+            //CalculateFinalValue();
             return true;
         }
         return false;
@@ -69,7 +74,7 @@ public class ModifiableFloat
                 floatModifiers.RemoveAt(i);
             }
         }
-        CalculateFinalValue();
+        //CalculateFinalValue();
         return didRemove;
     }
      
