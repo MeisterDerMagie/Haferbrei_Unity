@@ -6,7 +6,7 @@ using UnityAtoms;
 using UnityEngine;
 
 namespace Haferbrei{
-public class INIT005_ResetAtomVariables : SerializedMonoBehaviour
+public class INIT006_ResetAtomVariables : SerializedMonoBehaviour
 {
     [SerializeField, BoxGroup("Settings")] private bool resetOnSceneStart = true;
     [SerializeField, BoxGroup("Settings"), Required] private List<AtomBaseVariable> atomVariablesToReset = new List<AtomBaseVariable>();

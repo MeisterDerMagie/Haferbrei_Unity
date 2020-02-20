@@ -11,8 +11,8 @@ public class ModFloat
 {
     [OnValueChanged("CalculateFinalValue")]
     public float BaseValue;
-    [HideInInspector] public ReadOnlyCollection<FloatModifier> FloatModifiers;
-    [SerializeField, ReadOnly, PropertyOrder(2)] public List<FloatModifier> floatModifiers = new List<FloatModifier>();
+    [SerializeField, HideInInspector] public ReadOnlyCollection<FloatModifier> FloatModifiers;
+    [SerializeField, ReadOnly, PropertyOrder(2)] private List<FloatModifier> floatModifiers = new List<FloatModifier>();
     
     private bool isDirty = true;
     private float value;
@@ -76,6 +76,14 @@ public class ModFloat
         }
         //CalculateFinalValue();
         return didRemove;
+    }
+
+    public void RemoveAllModifiers()
+    {
+        for (int i = floatModifiers.Count - 1; i >= 0; i--)
+        {
+            RemoveModifier(floatModifiers[i]);
+        }
     }
      
     private void CalculateFinalValue()

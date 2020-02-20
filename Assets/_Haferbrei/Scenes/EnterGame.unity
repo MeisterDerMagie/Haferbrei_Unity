@@ -175,7 +175,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1613874172}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd2e40222dbf86a4f9ed01c148599058, type: 3}
+  m_Script: {fileID: 11500000, guid: 20b572c13a704fd189813ada7e4fe012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
@@ -186,18 +186,7 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: scriptableObjectsToReset
-      Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[Haferbrei.IResettable, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+    SerializationNodes: []
   resetOnSceneStart: 1
+  allResettableScriptableObjectsCollection: {fileID: 11400000, guid: 91ba8a6d76bd25d41b5c0f0db1497425,
+    type: 2}

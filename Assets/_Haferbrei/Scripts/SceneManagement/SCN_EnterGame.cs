@@ -12,6 +12,13 @@ public class SCN_EnterGame : MonoBehaviour
     
     private void Start()
     {
+        Timing.RunCoroutine(LoadScenesDelayed());
+    }
+
+    private IEnumerator<float> LoadScenesDelayed()
+    {
+        yield return Timing.WaitForOneFrame;
+        
         mainGameScenes.LoadScenes();
     }
 }

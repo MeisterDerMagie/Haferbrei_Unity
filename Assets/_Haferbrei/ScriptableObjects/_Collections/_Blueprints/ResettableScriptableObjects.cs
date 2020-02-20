@@ -1,5 +1,4 @@
 ﻿//(c) copyright by Martin M. Klöckener
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
@@ -9,15 +8,24 @@ using UnityEditor;
 #endif
 
 namespace Haferbrei {
-public abstract class ScriptableObjectCollectionGeneric<T> : SerializedScriptableObject, IResettable where T : ScriptableObject
+[CreateAssetMenu(fileName = "ResettableScriptableObjects", menuName = "Scriptable Objects/Collections/Resettables", order = 0)]
+public class ResettableScriptableObjects : SerializedScriptableObject, IResettable
 {
     [SerializeField, Delayed] protected string folder;
     [SerializeField, Delayed] protected List<string> foldersToIgnore;
-    [ReadOnly, SerializeField] public Dictionary<string, T> collection = new Dictionary<string, T>();
-    [ReadOnly, SerializeField] private Dictionary<string, T> onDisk = new Dictionary<string, T>(); //just for the inspector / debugging
-    [ReadOnly, SerializeField] private Dictionary<string, T> instantiatedAtRuntime = new Dictionary<string, T>(); //just for the inspector / debugging
+    [ReadOnly, SerializeField] public Dictionary<string, ScriptableObject> collection = new Dictionary<string, ScriptableObject>();
+    [ReadOnly, SerializeField] private Dictionary<string, ScriptableObject> onDisk = new Dictionary<string, ScriptableObject>(); //just for the inspector / debugging
+    [ReadOnly, SerializeField] private Dictionary<string, ScriptableObject> instantiatedAtRuntime = new Dictionary<string, ScriptableObject>(); //just for the inspector / debugging
 
-    public void RegisterScriptableObject(T _scriptableObject)
+    public void ResetAll()
+    {
+        foreach (var resettable in collection)
+        {
+            (resettable.Value as IResettable).ResetSelf();
+        }
+    }
+    
+    public void RegisterScriptableObject(ScriptableObject _scriptableObject)
     {
         if (collection.ContainsKey(_scriptableObject.name)) return;
         
@@ -25,7 +33,7 @@ public abstract class ScriptableObjectCollectionGeneric<T> : SerializedScriptabl
         if(Application.isPlaying) instantiatedAtRuntime.Add(_scriptableObject.name, _scriptableObject);
     }
 
-    public void UnregisterScriptableObject(T _scriptableObject)
+    public void UnregisterScriptableObject(ScriptableObject _scriptableObject)
     {
         if (!collection.ContainsKey(_scriptableObject.name)) return;
         
@@ -39,7 +47,7 @@ public abstract class ScriptableObjectCollectionGeneric<T> : SerializedScriptabl
         {
             //Debug.Log("Destroy: " + so.Value.name);
             Destroy(so.Value);
-            collection = new Dictionary<string, T>(onDisk);
+            collection = new Dictionary<string, ScriptableObject>(onDisk);
         }
         instantiatedAtRuntime.Clear();
     }
@@ -51,12 +59,12 @@ public abstract class ScriptableObjectCollectionGeneric<T> : SerializedScriptabl
     {
         string[] foldersToSearch = {folder};
         
-        List<T> scriptableObjectsFoundInAssets = Wichtel.UT_ScriptableObjectsUtilities_W.GetScriptableObjectInstances<T>(foldersToSearch);
+        List<ScriptableObject> scriptableObjectsFoundInAssets = Wichtel.UT_ScriptableObjectsUtilities_W.GetScriptableObjectInstances<ScriptableObject>(foldersToSearch);
 
         collection.Clear();
         onDisk.Clear();
 
-        foreach(T so in scriptableObjectsFoundInAssets)
+        foreach(ScriptableObject so in scriptableObjectsFoundInAssets)
         {
             string assetPath = AssetDatabase.GetAssetPath(so);
             bool ignoreThisScriptableObject = false;
@@ -68,6 +76,7 @@ public abstract class ScriptableObjectCollectionGeneric<T> : SerializedScriptabl
 
             if (!collection.ContainsKey(so.name))
             {
+                if (!(so is IResettable)) continue;
                 collection.Add(so.name, so);
                 onDisk.Add(so.name, so);
             }
