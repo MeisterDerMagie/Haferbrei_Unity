@@ -9,15 +9,15 @@ namespace UnityAtoms
 {
 
     /// <summary>
-    /// Variable of type `Building`. Inherits from `AtomVariable&lt;Building, BuildingEvent, BuildingBuildingEvent&gt;`.
+    /// Variable of type `Building`. Inherits from `AtomVariable&lt;Building, BuildingEvent, BuildingBuildingEvent, BuildingBuildingFunction&gt;`.
     /// </summary>
     [EditorIcon("atom-icon-lush")]
     [CreateAssetMenu(menuName = "Unity Atoms/Variables/Building", fileName = "BuildingVariable")]
-    public sealed class BuildingVariable : AtomVariable<Building, BuildingEvent, BuildingBuildingEvent>
+    public sealed class BuildingVariable : AtomVariable<Building, BuildingEvent, BuildingBuildingEvent, BuildingBuildingFunction>
     {
-        protected override bool AreEqual(Building first, Building second)
+        protected override bool ValueEquals(Building other)
         {
-            return first == second;
+            throw new NotImplementedException();
         }
     }
 }

@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e147b5fca76772449960c2aabda961cb, type: 3}
-  m_Name: ZuBauendesGebaude
+  m_Name: zuBauendesGebaude
   m_EditorClassIdentifier: 
   _developerDescription: 
   _value: {fileID: 0}
-  _initialValue: {fileID: 11400000, guid: 8aa593d5d86c5a74bbab5c7ed4dc68b8, type: 2}
+  _initialValue: {fileID: 11400000, guid: 43888af87cfc54344b55ad03b2439706, type: 2}
   _oldValue: {fileID: 0}
-  Changed: {fileID: 11400000, guid: 1d8288edb6d88df4fac6e8ccdd59924b, type: 2}
+  Changed: {fileID: 0}
   ChangedWithHistory: {fileID: 0}
+  _preChangeTransformers: []

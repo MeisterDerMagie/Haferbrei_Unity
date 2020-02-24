@@ -13,6 +13,7 @@ public class ToggleBaumodus_Controller : MonoBehaviour
     [SerializeField, FoldoutGroup("References"), Required] private GameObject baumodusWindow;
     [SerializeField, FoldoutGroup("References"), Required] private Building noGebaeude;
     [SerializeField, FoldoutGroup("References"), Required] private Bauauswahl bauauswahl;
+    
     [SerializeField, BoxGroup("Atom Values"), Required] private BuildingVariable zuBauendesGebaeude;
 
     public UnityEvent onEnterBaumodus;

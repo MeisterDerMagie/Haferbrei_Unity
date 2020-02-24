@@ -15,12 +15,12 @@ public class GebaeudeBauen : MonoBehaviour
     [SerializeField, FoldoutGroup("References"), Required] private Transform previewParent;
     [SerializeField, FoldoutGroup("References"), Required] private RessourceContainer_ContainsCheck enoughRessourcesCheck;
     [SerializeField, FoldoutGroup("References"), Required] private RessourceContainer playerRessourceContainer;
-    [SerializeField, BoxGroup("Atom Events"), Required] private BuildingEvent onZuBauendesGebaeudeChanged;
+    [SerializeField, BoxGroup("Atom Events"), Required] private BuildingEventReference onZuBauendesGebaeudeChanged;
     [SerializeField, BoxGroup("Atom Values"), Required] private BuildingVariable zuBauendesGebaeude;
 
 
-    private void OnEnable() => onZuBauendesGebaeudeChanged.Register(OnZuBauendesGebaeudeChanged);
-    private void OnDisable() => onZuBauendesGebaeudeChanged.Unregister(OnZuBauendesGebaeudeChanged);
+    private void OnEnable() => onZuBauendesGebaeudeChanged.Event.Register(OnZuBauendesGebaeudeChanged);
+    private void OnDisable() => onZuBauendesGebaeudeChanged.Event.Unregister(OnZuBauendesGebaeudeChanged);
 
 
     private void OnZuBauendesGebaeudeChanged(Building _newBuilding)
