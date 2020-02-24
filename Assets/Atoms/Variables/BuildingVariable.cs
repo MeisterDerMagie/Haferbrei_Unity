@@ -17,7 +17,7 @@ namespace UnityAtoms
     {
         protected override bool ValueEquals(Building other)
         {
-            throw new NotImplementedException();
+            return Value == other;
         }
     }
 }
