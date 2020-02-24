@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Haferbrei{
 public class SaveScriptableObjects : MonoBehaviour
 {
-    //[InfoBox("Alle ScriptableObjects, die gespeichert werden sollen, müssen in dieser List referenziert werden.")]
+    [InfoBox("Alle ScriptableObjects, die gespeichert werden sollen, müssen in dieser List referenziert werden.")]
     public List<ScriptableObject> scriptableObjectsToSave = new List<ScriptableObject>();
 }
 }

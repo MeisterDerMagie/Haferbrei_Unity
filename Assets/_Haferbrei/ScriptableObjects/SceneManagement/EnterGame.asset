@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: EnterGame
   m_EditorClassIdentifier: 
   loadAdditively: 0
-  loadingScreen: {fileID: 7054887534509017, guid: 84c456272dc885649a5c556341df40c1,
-    type: 3}
+  loadingScreen: {fileID: 0}
   newScene:
     sceneAsset: {fileID: 102900000, guid: 94911371d0d25874c8846b5f5b6e26a5, type: 3}
     scenePath: Assets/_Haferbrei/Scenes/EnterGame.unity
   scenesToLoadAdditively: []
-  optionalSaveGameToLoad: {fileID: 0}
+  loadGame: {fileID: 0}

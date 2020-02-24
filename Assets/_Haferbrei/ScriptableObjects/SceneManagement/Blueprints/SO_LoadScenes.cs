@@ -2,9 +2,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Bayat.SaveSystem;
 using Doozy.Engine.Utils.ColorModels;
 using MEC;
 using Sirenix.OdinInspector;
+using UnityAtoms;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -20,7 +22,7 @@ public class SO_LoadScenes : ScriptableObject
     [SerializeField, BoxGroup("Scenes")] private SceneReference newScene;
     [SerializeField, BoxGroup("Scenes")] private List<SceneReference> scenesToLoadAdditively;
 
-    //[SerializeField, BoxGroup("SaveGame (optional)")] private SaveLoadController optionalSaveGameToLoad;
+    [SerializeField, BoxGroup("SaveGame (optional)")] private BoolVariable loadGame;
     
     
     public void LoadScenes()
@@ -53,10 +55,11 @@ public class SO_LoadScenes : ScriptableObject
         }
         
         //load save game data if there is any
-        //if (optionalSaveGameToLoad != null && optionalSaveGameToLoad.loadSaveGame)
-        //{
-        //    yield return Timing.WaitUntilDone(Timing.RunCoroutine(optionalSaveGameToLoad._LoadGameState()));
-        //}
+        if (loadGame != null && loadGame.Value)
+        {
+            FindObjectOfType<AutoSaveManager>().Load();
+            loadGame.Value = false;
+        }
 
         //after all scenes are loaded: search for all initializers and initialize all those who want to be initialized at the scene start
         InitializeScenes();
