@@ -16,161 +16,36 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
+    - {fileID: 11400000, guid: e4b744396c7f63c45bd2e5897416fae0, type: 2}
     - {fileID: 11400000, guid: 740091d4e49c6c7489b7b44ff400285a, type: 2}
+    - {fileID: 11400000, guid: 91ba8a6d76bd25d41b5c0f0db1497425, type: 2}
     - {fileID: 11400000, guid: 26abeb4779eb5114caa88ca6b0d989f2, type: 2}
-    - {fileID: 11400000, guid: 73cc9426d7140224690af573e2b37ad2, type: 2}
     - {fileID: 11400000, guid: 8367157c0a9c62a4c84c65a39baf612f, type: 2}
     - {fileID: 11400000}
-    - {fileID: 11400000, guid: 5149e6b8a8fad4a4c9d9dc6f25438d23, type: 2}
-    - {fileID: 11400000, guid: 8aa593d5d86c5a74bbab5c7ed4dc68b8, type: 2}
-    - {fileID: 11400000, guid: 313a2bf388f78bb4d964246673c100f9, type: 2}
-    - {fileID: 11400000, guid: b6db37d51163b40409abb9ee2155b5e2, type: 2}
-    - {fileID: 11400000, guid: 12aa85e777377c14388c000fc8c9eabd, type: 2}
-    - {fileID: 11400000, guid: cbe4bbcbf1849bd49b2c39d3928226fb, type: 2}
-    - {fileID: 11400000, guid: 40245336bbd4f014a812dcb4459744cf, type: 2}
-    - {fileID: 11400000, guid: a5b89143538c2f041a5fb11614030b38, type: 2}
-    - {fileID: 11400000, guid: ebc30e3ce54657a4ebca558f0fee197c, type: 2}
-    - {fileID: 11400000, guid: e15adf1351063c144ab9f46d24cc8d08, type: 2}
-    - {fileID: 11400000, guid: 02e7bf6529c9d52499db65272e1ca46b, type: 2}
-    - {fileID: 11400000, guid: ea2449571b200a34e9ede0c9fa2ca3ff, type: 2}
-    - {fileID: 11400000, guid: 6b6a32c3d6799a64eae7670189cc013e, type: 2}
-    - {fileID: 11400000, guid: 722d477025687e24fac39309fec13c37, type: 2}
-    - {fileID: 11400000, guid: 0355ddae6e3f69e45821bff1ac8f565e, type: 2}
-    - {fileID: 11400000, guid: d67267fbab471054b9ffdef344361522, type: 2}
-    - {fileID: 11400000, guid: 7f23213149f9ed54990127a1394df965, type: 2}
-    - {fileID: 11400000, guid: 7eac22e8301c2c741a803bceba1d2451, type: 2}
-    - {fileID: 11400000, guid: 64e3781000a6f3f489a10648668b40be, type: 2}
-    - {fileID: 11400000, guid: fc6995f256ef446429cbd859d21c7e09, type: 2}
-    - {fileID: 11400000, guid: 5357996ff3d761c43a045c8112a57854, type: 2}
-    - {fileID: 11400000, guid: 3a7ec7985a77fbc4c96be7415f4281ce, type: 2}
-    - {fileID: 11400000, guid: 2fd94b7cab0438a4fa583d3ebd98af5c, type: 2}
-    - {fileID: 11400000, guid: ae7a7796355dfba48bca252cc5e3d8a5, type: 2}
-    - {fileID: 11400000, guid: 04e945a9e3f3ce943bdc40999d9492de, type: 2}
-    - {fileID: 11400000, guid: 149d73226ae65b5409925a0e0a33c35c, type: 2}
-    - {fileID: 11400000, guid: c63bfffc746836a45b38902f8c78f360, type: 2}
-    - {fileID: 11400000, guid: 18b07a53f186b094ca74c0e09c0cb376, type: 2}
-    - {fileID: 11400000, guid: c09089311ebc3884a87cafc68c7d520b, type: 2}
-    - {fileID: 11400000, guid: 777f1c88294fbd147be8cc23d00b0f46, type: 2}
-    - {fileID: 11400000, guid: 916c328e51add9b4698d14f07b83cebf, type: 2}
-    - {fileID: 11400000, guid: 48186072be70db340a88c4e41d00fd28, type: 2}
-    - {fileID: 11400000, guid: 65d7e1bf649a6bc469ee9b9aed1be75a, type: 2}
-    - {fileID: 11400000, guid: 128a9d2df4c0e0b4c9c19a00d1375a3b, type: 2}
-    - {fileID: 11400000, guid: 45c4390dbcab8ab46825e6fd485c364c, type: 2}
-    - {fileID: 11400000, guid: 206d5f300902cfb42a777a475a87c962, type: 2}
-    - {fileID: 11400000, guid: ba0b467ee5268e145834d6820b2e584f, type: 2}
-    - {fileID: 11400000, guid: 26b2b6e67102c1543bfcaa2cb1a2b5ce, type: 2}
-    - {fileID: 11400000, guid: 360029292365da34398a8abd84650b6f, type: 2}
-    - {fileID: 11400000, guid: 33e77fe144133104bbc9233add055b9e, type: 2}
-    - {fileID: 11400000, guid: 58922a83ef3774f47ac2b012b5135c51, type: 2}
-    - {fileID: 11400000, guid: 5c912380673e1294d95aeff1692b13b1, type: 2}
-    - {fileID: 11400000, guid: 5898577d3f91f294385f6c4fd71776f8, type: 2}
-    - {fileID: 11400000, guid: 3759cbf51a0d09e4480cea90384cfa1e, type: 2}
-    - {fileID: 11400000, guid: 13cfe559631c6d944b2c27484f9a336e, type: 2}
-    - {fileID: 11400000, guid: ae5f85d7c92787942842c713da5b102a, type: 2}
-    - {fileID: 11400000, guid: 256330a80cb7847408c50805019750ff, type: 2}
-    - {fileID: 11400000, guid: 9fbc769295b8af24b876b00c97d9ac84, type: 2}
-    - {fileID: 11400000, guid: 3283d4f2b3aa18648a5dd6a6589838b2, type: 2}
-    - {fileID: 11400000, guid: 9f2188fc49d527c43b3fe6aee3d00436, type: 2}
-    - {fileID: 11400000, guid: 64037a5aa12d8e1449c10e253b7f796c, type: 2}
-    - {fileID: 11400000, guid: da32179681ba13f4393a52043e3cad24, type: 2}
-    - {fileID: 11400000, guid: 013b9cf637aec024390afa9579e4fb38, type: 2}
-    - {fileID: 11400000, guid: f1686e1069672fb4abf82fa465f9e247, type: 2}
-    - {fileID: 11400000, guid: 7cf2d60380d4e2948899f529c6b3a8a2, type: 2}
-    - {fileID: 11400000, guid: 3b222225091d6b54fbcdba1cca329c55, type: 2}
-    - {fileID: 11400000, guid: 1b4cfbe765c5e9f4d87ee383876a21a2, type: 2}
-    - {fileID: 11400000, guid: b593d2100d79bce418a83da2f0fe5f06, type: 2}
-    - {fileID: 11400000, guid: 62dd0944e838a2f4896adb9d9c08b89c, type: 2}
-    - {fileID: 11400000, guid: 56dfdfd295ac1ff4694f81452dc2f217, type: 2}
-    - {fileID: 11400000, guid: 46e40b3a83bb7da4e97dc596d369556e, type: 2}
-    - {fileID: 11400000, guid: 24eae431943e60c439b69c59bea5dbeb, type: 2}
-    - {fileID: 11400000, guid: 46897b6e3ff5b374d92d3a1be5f3eabf, type: 2}
+    - {fileID: 11400000, guid: 43888af87cfc54344b55ad03b2439706, type: 2}
+    - {fileID: 11400000, guid: 29d9143f5bc8fe444ad841b05467f467, type: 2}
+    - {fileID: 11400000, guid: 0f0538b011284d444bfc95bc7e8a1f8b, type: 2}
+    - {fileID: 11400000, guid: 345d829411589444f8d15a27c5c4c5cf, type: 2}
+    - {fileID: 11400000, guid: 70857ceb9ab64d74b90224e51a3d9096, type: 2}
+    - {fileID: 11400000, guid: 7dae4778321c4d045b82bbf0c3957830, type: 2}
+    - {fileID: 11400000, guid: b0420bbe1867bd1409edd3fe3d891233, type: 2}
+    - {fileID: 11400000, guid: 53d31cc396e7f1644a51f17fb993598f, type: 2}
+    - {fileID: 11400000, guid: 92c433585cddc2e4b92e222b0b40aece, type: 2}
     - {fileID: 11400000, guid: f3e2b6cb15b3b1b488c247aeebf08013, type: 2}
-    - {fileID: 11400000, guid: a93ebd29ed5e7f4429fe217c9e4796c9, type: 2}
-    - {fileID: 11400000, guid: 00edd85bbcf2e9b438e217eab05e2fb7, type: 2}
-    - {fileID: 11400000, guid: 58b2184a46b314f418a2a0e328d5e980, type: 2}
-    - {fileID: 11400000, guid: 255641e203bd28f48856671a96e10c98, type: 2}
-    - {fileID: 11400000, guid: 7612ce3079b20994b9cce9e30b8e0dee, type: 2}
-    - {fileID: 11400000, guid: 5d03b795779d619428c9fc2bf13fcbc5, type: 2}
-    - {fileID: 11400000, guid: 2f6a9dd860411104986c384c3c2d8d9c, type: 2}
-    - {fileID: 11400000, guid: 05f13e13ba35c214a8498dfa24e904ad, type: 2}
-    - {fileID: 11400000, guid: 4ebf3b806aedeaa41b856a455296ab4d, type: 2}
-    - {fileID: 11400000, guid: 2b2b7d450737412498a0598103456ab8, type: 2}
-    - {fileID: 11400000, guid: f52f17e9d2019084b9906c159f893d4c, type: 2}
-    - {fileID: 11400000, guid: 3e2744bccf604be46ba68a3bfd3ab114, type: 2}
-    - {fileID: 11400000, guid: 44d8eb4b44508d143893e13ed1296253, type: 2}
-    - {fileID: 11400000, guid: 8efe248e3621ab842a71c800217da99b, type: 2}
-    - {fileID: 11400000, guid: f8d8b166f96e09d47a139ec8d02f6f87, type: 2}
-    - {fileID: 11400000, guid: 802e3a5609f6bd443b28472bee7ffc4e, type: 2}
-    - {fileID: 11400000, guid: 8b8927e3b493a5e48b0c387becbda0cd, type: 2}
-    - {fileID: 11400000, guid: 2886d5c563cbd66429e1144823317a59, type: 2}
-    - {fileID: 11400000, guid: 6a3076a15a1a7ca40a667f8c6fbaa020, type: 2}
-    - {fileID: 11400000, guid: af328d0e8a0f79f42a2e9958a869ea68, type: 2}
-    - {fileID: 11400000, guid: b3877b9796d20bf4da667ec5e02d0e24, type: 2}
-    - {fileID: 11400000, guid: 8664ade44c2179640a76d09b133d5434, type: 2}
-    - {fileID: 11400000, guid: 824e5e7bea4d55746861b362cc9a380c, type: 2}
-    - {fileID: 11400000, guid: 35e169fa47432cc4eb20c0f35c428d91, type: 2}
-    - {fileID: 11400000, guid: 225df235565a56e4e8513fa67871439b, type: 2}
-    - {fileID: 11400000, guid: 939fb8cab20741b4bbb0eadd010d2a88, type: 2}
-    - {fileID: 11400000, guid: 4f89806c7fb10d842b5fbf8ce728caae, type: 2}
-    - {fileID: 11400000, guid: 59a61a343ab9d5d4ca0c5de71403c163, type: 2}
-    - {fileID: 11400000, guid: 3d465588112ee2c41af71215161e0028, type: 2}
-    - {fileID: 11400000, guid: 4d69c804a753cde42bc30dadc5e6e0ab, type: 2}
-    - {fileID: 11400000, guid: 9d4c25681faaf714fa9a2f1ba1340719, type: 2}
-    - {fileID: 11400000, guid: 24fb39b4c21871f4bb174b28a46af742, type: 2}
-    - {fileID: 11400000, guid: a15557ba6a2df904cbfe5e0e8780a476, type: 2}
-    - {fileID: 11400000, guid: 9d5d387787e089c47abfe2805c6e7325, type: 2}
-    - {fileID: 11400000, guid: da8e82b03fb133f4db4a196c697fda04, type: 2}
-    - {fileID: 11400000, guid: c2e78ccfe5e1bdd4da0c39bd78296ced, type: 2}
-    - {fileID: 11400000, guid: a2ca90c425f352b479ba94d0ba946e51, type: 2}
-    - {fileID: 11400000, guid: 35874a99e4576874fbf866a33c52a02a, type: 2}
-    - {fileID: 11400000, guid: 98cc2497c9f41354584ecceb600bc7c8, type: 2}
-    - {fileID: 11400000, guid: 74d7ec51be62b8845b1d9d9d16578fe9, type: 2}
-    - {fileID: 11400000, guid: aad777c1e314e98489f2d3bc93a79f2f, type: 2}
-    - {fileID: 11400000, guid: 474620250980ac34ebd932cdd55db49f, type: 2}
-    - {fileID: 11400000, guid: 2306e895ad98264408a6d6a670eb26cd, type: 2}
-    - {fileID: 11400000, guid: 6780b270b46319b45b141ce624961970, type: 2}
-    - {fileID: 11400000, guid: 5625fb545a3daa746a04da5f4612ccad, type: 2}
-    - {fileID: 11400000, guid: 3a51e9fc0229aa047a50b011bea29372, type: 2}
-    - {fileID: 11400000, guid: 7c8dd6ad7f8fce647a1706f881555cbb, type: 2}
-    - {fileID: 11400000, guid: 1f3702cc37df332439e2936e789b6339, type: 2}
-    - {fileID: 11400000, guid: 84757cd7ad4062b40b1690c1cb2600e1, type: 2}
-    - {fileID: 11400000, guid: deeeef07ae67b714a83700ec786b9f5c, type: 2}
-    - {fileID: 11400000, guid: 2e3a72caae3bc6e46bb3b1dc9cd462fa, type: 2}
-    - {fileID: 11400000, guid: b03a885aef77f4a43808d90d5bd5c66f, type: 2}
-    - {fileID: 11400000, guid: 004ab67dfbd4c744ea2385f360117651, type: 2}
-    - {fileID: 11400000, guid: 9b731f2e7d28999488eb4deb46845186, type: 2}
-    - {fileID: 11400000, guid: 1f0c7d707fd1c4a4ead5c2a7656caf25, type: 2}
-    - {fileID: 11400000, guid: f74868882f1e466419886946fdad554d, type: 2}
-    - {fileID: 11400000, guid: 9f3f9f91b4168cb4e9399d5b5c438b7f, type: 2}
-    - {fileID: 11400000, guid: aa2eda5ec25263c4bbd21e7fdc4b4807, type: 2}
-    - {fileID: 11400000, guid: 9dbcd284c6d57d549b07d466d19aa9aa, type: 2}
-    - {fileID: 11400000, guid: d266db65e9ae62e4887d8d8864b9494f, type: 2}
-    - {fileID: 11400000, guid: 0c208eccfc7b5864e8fdaae6378d9cff, type: 2}
-    - {fileID: 11400000, guid: baad3e5ea6bfc524e99bae07b6f37368, type: 2}
-    - {fileID: 11400000, guid: ed91577ae466cd6479549aea4089a42c, type: 2}
-    - {fileID: 11400000, guid: 1f69a0f631576b04ea601ff26892bdca, type: 2}
-    - {fileID: 11400000, guid: ec812c16d24766a41b9afab10d3a8607, type: 2}
-    - {fileID: 11400000, guid: a6b2d2514bac33849bd3d59c6bc05336, type: 2}
-    - {fileID: 11400000, guid: 2a4937204b27a9f4aadae73f6cc88b26, type: 2}
-    - {fileID: 11400000, guid: 40c1fda80f55e7045b1317fbcbf17860, type: 2}
-    - {fileID: 11400000, guid: b59bad9aedb08144b88e9ce042531755, type: 2}
-    - {fileID: 11400000, guid: 8e08ccb91a3a3a142a24be0714e7fb50, type: 2}
-    - {fileID: 11400000, guid: 2e8abb52d0d1a9344a675e5189c24692, type: 2}
-    - {fileID: 11400000, guid: 0cc2fdbcfb5e6ad4bae028b6536d94d6, type: 2}
-    - {fileID: 11400000, guid: a8ebde278c3f95d4e913b7c465a40e87, type: 2}
-    - {fileID: 11400000, guid: 25df673c5b7edb447b746de07aea0d03, type: 2}
-    - {fileID: 11400000, guid: c2fc6b50bf0336e4eaf208ac25f603b5, type: 2}
-    - {fileID: 11400000, guid: 1ed5ec9c17d48914f8850ca0443b6147, type: 2}
-    - {fileID: 11400000, guid: 21d90e72faa204544b07d1afd44ca948, type: 2}
-    - {fileID: 11400000, guid: 518bc81928b640c4cbf9ff0a4e3684fa, type: 2}
-    - {fileID: 11400000, guid: 3bebb10d03dd1a447bd95a1cfe335384, type: 2}
-    - {fileID: 11400000, guid: 679f090443d012d42bd066e28bce342b, type: 2}
-    - {fileID: 11400000, guid: 652cb9c4fed8f774b9e770701bdfff65, type: 2}
-    - {fileID: 11400000, guid: 592ea81d35da13649a2d3215b4f9a1d7, type: 2}
+    - {fileID: 11400000, guid: dc81147a7a912404b8a5b1966fcebd71, type: 2}
+    - {fileID: 11400000, guid: 1ed87efe14c3f094f96eebba00854f1f, type: 2}
+    - {fileID: 11400000, guid: 2cdccd6dd692c5b478f4290993abb205, type: 2}
+    - {fileID: 11400000, guid: f0570f7bec2342f4aa9d8c36b1dc9e8e, type: 2}
+    - {fileID: 11400000, guid: 1797142f0704e7441b844c7d42120ea5, type: 2}
+    - {fileID: 11400000, guid: d17e4a340f41c164c9a316bd442c114f, type: 2}
+    - {fileID: 11400000, guid: 3b4a0bb9ae737f547b2a29d2f416a6f1, type: 2}
+    - {fileID: 11400000, guid: 547818240ce816647a9c90c92fcc9fc9, type: 2}
+    - {fileID: 11400000, guid: a6bf655a4ddc425498d64e79ed03424e, type: 2}
+    - {fileID: 11400000, guid: 800d9f97cd73c8147b2f6d39728b5efe, type: 2}
+    - {fileID: 11400000, guid: 4cb43075cccbfc04888f48b9d9ae92d9, type: 2}
+    - {fileID: 11400000, guid: 768f813279910a642930e57ba13b698f, type: 2}
     - {fileID: 11400000, guid: 92efd976811dad244bdb414c9dd997b2, type: 2}
     - {fileID: 11400000, guid: c6b05a21147302347b04d30a02562be3, type: 2}
-    - {fileID: 11400000, guid: 3dc496237c94008488358bc05be3ebc2, type: 2}
-    - {fileID: 11400000, guid: 488f4dc9ab131074f8a6f7d2e7d50a96, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -189,13 +64,13 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 155
+      Data: 30
     - Name: 
       Entry: 7
       Data: 
     - Name: $k
       Entry: 1
-      Data: AllPrefabs
+      Data: AllBuildingCosts
     - Name: $v
       Entry: 10
       Data: 0
@@ -207,7 +82,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: AllRessourceContainers
+      Data: AllPrefabs
     - Name: $v
       Entry: 10
       Data: 1
@@ -219,7 +94,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: AllSaveableScriptableObjects
+      Data: AllResettableScriptableObjects
     - Name: $v
       Entry: 10
       Data: 2
@@ -231,7 +106,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: AllScenes
+      Data: AllRessourceContainers
     - Name: $v
       Entry: 10
       Data: 3
@@ -243,7 +118,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: AllScriptableObjectsOnDisk
+      Data: AllScenes
     - Name: $v
       Entry: 10
       Data: 4
@@ -255,7 +130,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: AllScriptableObjectsWithGuid
+      Data: AllScriptableObjectsOnDisk
     - Name: $v
       Entry: 10
       Data: 5
@@ -267,7 +142,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: _NONE
+      Data: _NONE_Building
     - Name: $v
       Entry: 10
       Data: 6
@@ -279,7 +154,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Darre_Building
+      Data: Hof_Building
     - Name: $v
       Entry: 10
       Data: 7
@@ -291,7 +166,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Flachsfeld_Building
+      Data: Burgfried_Building
     - Name: $v
       Entry: 10
       Data: 8
@@ -303,7 +178,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Geflugelhaus_Building
+      Data: Schmiede_Building
     - Name: $v
       Entry: 10
       Data: 9
@@ -315,7 +190,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Gemusegarten_Building
+      Data: Alltag_RessourceCategory
     - Name: $v
       Entry: 10
       Data: 10
@@ -327,7 +202,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Getreideacker_Building
+      Data: Ausrustung_RessourceCategory
     - Name: $v
       Entry: 10
       Data: 11
@@ -339,7 +214,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Hof_Building
+      Data: Baumaterial_RessourceCategory
     - Name: $v
       Entry: 10
       Data: 12
@@ -351,7 +226,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Krautergarten_Building
+      Data: Gold_RessourceCategory
     - Name: $v
       Entry: 10
       Data: 13
@@ -363,7 +238,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Obstgarten_Building
+      Data: Verpflegung_RessourceCategory
     - Name: $v
       Entry: 10
       Data: 14
@@ -375,7 +250,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Schafweide_Building
+      Data: PlayerRessources
     - Name: $v
       Entry: 10
       Data: 15
@@ -387,7 +262,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Speicher_Building
+      Data: Markt_Ressources_Template
     - Name: $v
       Entry: 10
       Data: 16
@@ -399,7 +274,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Viehweide_Building
+      Data: Hof_Costs
     - Name: $v
       Entry: 10
       Data: 17
@@ -411,7 +286,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Backhaus_Building
+      Data: Burgfried_Costs
     - Name: $v
       Entry: 10
       Data: 18
@@ -423,7 +298,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Brunnen_Building
+      Data: Schmiede_Costs
     - Name: $v
       Entry: 10
       Data: 19
@@ -435,7 +310,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Burgfried_Building
+      Data: Eisen
     - Name: $v
       Entry: 10
       Data: 20
@@ -447,7 +322,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Burgmauer_Building
+      Data: Glas
     - Name: $v
       Entry: 10
       Data: 21
@@ -459,7 +334,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Jagdzimmer_Building
+      Data: Holz
     - Name: $v
       Entry: 10
       Data: 22
@@ -471,7 +346,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Kapelle_Building
+      Data: Lehm
     - Name: $v
       Entry: 10
       Data: 23
@@ -483,7 +358,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Palas_Building
+      Data: Stein
     - Name: $v
       Entry: 10
       Data: 24
@@ -495,7 +370,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Rustkammer_Building
+      Data: Stroh
     - Name: $v
       Entry: 10
       Data: 25
@@ -507,7 +382,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Stallungen_Building
+      Data: _NONE_Ressource
     - Name: $v
       Entry: 10
       Data: 26
@@ -519,7 +394,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Wachstube_Building
+      Data: Gold
     - Name: $v
       Entry: 10
       Data: 27
@@ -531,7 +406,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Zehntscheune_Building
+      Data: EnterGame
     - Name: $v
       Entry: 10
       Data: 28
@@ -543,1510 +418,10 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: AutoAssignBuildingCostsRecipes
-    - Name: $v
-      Entry: 10
-      Data: 29
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Galgen_Building
-    - Name: $v
-      Entry: 10
-      Data: 30
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Banner_Building
-    - Name: $v
-      Entry: 10
-      Data: 31
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Essensausgabe_Building
-    - Name: $v
-      Entry: 10
-      Data: 32
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Furstenplatze_Building
-    - Name: $v
-      Entry: 10
-      Data: 33
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Gauklerplatz_Building
-    - Name: $v
-      Entry: 10
-      Data: 34
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Lagerzelte_Building
-    - Name: $v
-      Entry: 10
-      Data: 35
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Rennwiese_Building
-    - Name: $v
-      Entry: 10
-      Data: 36
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Richterbank_Building
-    - Name: $v
-      Entry: 10
-      Data: 37
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Schmiedestelle_Building
-    - Name: $v
-      Entry: 10
-      Data: 38
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Siegerpodest_Building
-    - Name: $v
-      Entry: 10
-      Data: 39
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Stalle_Building
-    - Name: $v
-      Entry: 10
-      Data: 40
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: TribuneEinfach_Building
-    - Name: $v
-      Entry: 10
-      Data: 41
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: TribuneGepolstert_Building
-    - Name: $v
-      Entry: 10
-      Data: 42
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: TribuneUberdacht_Building
-    - Name: $v
-      Entry: 10
-      Data: 43
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Badehaus_Building
-    - Name: $v
-      Entry: 10
-      Data: 44
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Brauhaus_Building
-    - Name: $v
-      Entry: 10
-      Data: 45
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Fischerhutte_Building
-    - Name: $v
-      Entry: 10
-      Data: 46
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Gerberei_Building
-    - Name: $v
-      Entry: 10
-      Data: 47
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Herberge_Building
-    - Name: $v
-      Entry: 10
-      Data: 48
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Holzfallerlager_Building
-    - Name: $v
-      Entry: 10
-      Data: 49
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Imkerei_Building
-    - Name: $v
-      Entry: 10
-      Data: 50
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Kohlenmeiler_Building
-    - Name: $v
-      Entry: 10
-      Data: 51
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Kurschnerei_Building
-    - Name: $v
-      Entry: 10
-      Data: 52
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Lehmgrube_Building
-    - Name: $v
-      Entry: 10
-      Data: 53
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Markt_Building
-    - Name: $v
-      Entry: 10
-      Data: 54
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Muhle_Building
-    - Name: $v
-      Entry: 10
-      Data: 55
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Schmiede_Building
-    - Name: $v
-      Entry: 10
-      Data: 56
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Steinbruch_Building
-    - Name: $v
-      Entry: 10
-      Data: 57
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Weberei_Building
-    - Name: $v
-      Entry: 10
-      Data: 58
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Zimmerei_Building
-    - Name: $v
-      Entry: 10
-      Data: 59
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Zollhaus_Building
-    - Name: $v
-      Entry: 10
-      Data: 60
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: IronArmor
-    - Name: $v
-      Entry: 10
-      Data: 61
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Ressource
-    - Name: $v
-      Entry: 10
-      Data: 62
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Alltag_RessourceCategory
-    - Name: $v
-      Entry: 10
-      Data: 63
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Ausrustung_RessourceCategory
-    - Name: $v
-      Entry: 10
-      Data: 64
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Baumaterial_RessourceCategory
-    - Name: $v
-      Entry: 10
-      Data: 65
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Gold_RessourceCategory
-    - Name: $v
-      Entry: 10
-      Data: 66
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Verpflegung_RessourceCategory
-    - Name: $v
-      Entry: 10
-      Data: 67
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: PlayerRessources
-    - Name: $v
-      Entry: 10
-      Data: 68
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Markt_RessourceContainerTemplate
-    - Name: $v
-      Entry: 10
-      Data: 69
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Darre_Costs
-    - Name: $v
-      Entry: 10
-      Data: 70
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Flachsfeld_Costs
-    - Name: $v
-      Entry: 10
-      Data: 71
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Geflugelhaus_Costs
-    - Name: $v
-      Entry: 10
-      Data: 72
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Gemusegarten_Costs
-    - Name: $v
-      Entry: 10
-      Data: 73
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Getreideacker_Costs
-    - Name: $v
-      Entry: 10
-      Data: 74
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Hof_Costs
-    - Name: $v
-      Entry: 10
-      Data: 75
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Krautergarten_Costs
-    - Name: $v
-      Entry: 10
-      Data: 76
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Obstgarten_Costs
-    - Name: $v
-      Entry: 10
-      Data: 77
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Schafweide_Costs
-    - Name: $v
-      Entry: 10
-      Data: 78
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Speicher_Costs
-    - Name: $v
-      Entry: 10
-      Data: 79
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Viehweide_Costs
-    - Name: $v
-      Entry: 10
-      Data: 80
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Backhaus_Costs
-    - Name: $v
-      Entry: 10
-      Data: 81
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Brunnen_Costs
-    - Name: $v
-      Entry: 10
-      Data: 82
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Burgfried_Costs
-    - Name: $v
-      Entry: 10
-      Data: 83
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Burgmauer_Costs
-    - Name: $v
-      Entry: 10
-      Data: 84
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Jagdzimmer_Costs
-    - Name: $v
-      Entry: 10
-      Data: 85
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Kapelle_Costs
-    - Name: $v
-      Entry: 10
-      Data: 86
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Palas_Costs
-    - Name: $v
-      Entry: 10
-      Data: 87
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Rustkammer_Costs
-    - Name: $v
-      Entry: 10
-      Data: 88
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Stallungen_Costs
-    - Name: $v
-      Entry: 10
-      Data: 89
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Wachstube_Costs
-    - Name: $v
-      Entry: 10
-      Data: 90
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Zehntscheune_Costs
-    - Name: $v
-      Entry: 10
-      Data: 91
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Galgen_Costs
-    - Name: $v
-      Entry: 10
-      Data: 92
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Banner_Costs
-    - Name: $v
-      Entry: 10
-      Data: 93
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Essensausgabe_Costs
-    - Name: $v
-      Entry: 10
-      Data: 94
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Furstenplatze_Costs
-    - Name: $v
-      Entry: 10
-      Data: 95
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Gauklerplatz_Costs
-    - Name: $v
-      Entry: 10
-      Data: 96
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Lagerzelte_Costs
-    - Name: $v
-      Entry: 10
-      Data: 97
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Rennwiese_Costs
-    - Name: $v
-      Entry: 10
-      Data: 98
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Richterbank_Costs
-    - Name: $v
-      Entry: 10
-      Data: 99
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Schmiedestelle_Costs
-    - Name: $v
-      Entry: 10
-      Data: 100
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Siegerpodest_Costs
-    - Name: $v
-      Entry: 10
-      Data: 101
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Stalle_Costs
-    - Name: $v
-      Entry: 10
-      Data: 102
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: TribuneEinfach_Costs
-    - Name: $v
-      Entry: 10
-      Data: 103
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: TribuneGepolstert_Costs
-    - Name: $v
-      Entry: 10
-      Data: 104
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: TribuneUberdacht_Costs
-    - Name: $v
-      Entry: 10
-      Data: 105
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Badehaus_Costs
-    - Name: $v
-      Entry: 10
-      Data: 106
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Brauhaus_Costs
-    - Name: $v
-      Entry: 10
-      Data: 107
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Fischerhutte_Costs
-    - Name: $v
-      Entry: 10
-      Data: 108
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Gerberei_Costs
-    - Name: $v
-      Entry: 10
-      Data: 109
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Herberge_Costs
-    - Name: $v
-      Entry: 10
-      Data: 110
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Holzfallerlager_Costs
-    - Name: $v
-      Entry: 10
-      Data: 111
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Imkerei_Costs
-    - Name: $v
-      Entry: 10
-      Data: 112
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Kohlenmeiler_Costs
-    - Name: $v
-      Entry: 10
-      Data: 113
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Kurschnerei_Costs
-    - Name: $v
-      Entry: 10
-      Data: 114
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Lehmgrube_Costs
-    - Name: $v
-      Entry: 10
-      Data: 115
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Markt_Costs
-    - Name: $v
-      Entry: 10
-      Data: 116
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Muhle_Costs
-    - Name: $v
-      Entry: 10
-      Data: 117
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Schmiede_Costs
-    - Name: $v
-      Entry: 10
-      Data: 118
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Steinbruch_Costs
-    - Name: $v
-      Entry: 10
-      Data: 119
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Weberei_Costs
-    - Name: $v
-      Entry: 10
-      Data: 120
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Zimmerei_Costs
-    - Name: $v
-      Entry: 10
-      Data: 121
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Zollhaus_Costs
-    - Name: $v
-      Entry: 10
-      Data: 122
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Eisenwaren
-    - Name: $v
-      Entry: 10
-      Data: 123
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Glas
-    - Name: $v
-      Entry: 10
-      Data: 124
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Holz
-    - Name: $v
-      Entry: 10
-      Data: 125
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Lehm
-    - Name: $v
-      Entry: 10
-      Data: 126
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Stein
-    - Name: $v
-      Entry: 10
-      Data: 127
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Stroh
-    - Name: $v
-      Entry: 10
-      Data: 128
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Bier
-    - Name: $v
-      Entry: 10
-      Data: 129
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Brot
-    - Name: $v
-      Entry: 10
-      Data: 130
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: EdleSpeisen
-    - Name: $v
-      Entry: 10
-      Data: 131
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Fisch
-    - Name: $v
-      Entry: 10
-      Data: 132
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Fleisch
-    - Name: $v
-      Entry: 10
-      Data: 133
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Gemuse
-    - Name: $v
-      Entry: 10
-      Data: 134
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Getreide
-    - Name: $v
-      Entry: 10
-      Data: 135
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Honig
-    - Name: $v
-      Entry: 10
-      Data: 136
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Obst
-    - Name: $v
-      Entry: 10
-      Data: 137
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Eisen
-    - Name: $v
-      Entry: 10
-      Data: 138
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Kleidung
-    - Name: $v
-      Entry: 10
-      Data: 139
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Leder
-    - Name: $v
-      Entry: 10
-      Data: 140
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Leinen
-    - Name: $v
-      Entry: 10
-      Data: 141
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Pelze
-    - Name: $v
-      Entry: 10
-      Data: 142
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Seide
-    - Name: $v
-      Entry: 10
-      Data: 143
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Vieh
-    - Name: $v
-      Entry: 10
-      Data: 144
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Werkzeug
-    - Name: $v
-      Entry: 10
-      Data: 145
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Wolle
-    - Name: $v
-      Entry: 10
-      Data: 146
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Pferde
-    - Name: $v
-      Entry: 10
-      Data: 147
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Rustungen
-    - Name: $v
-      Entry: 10
-      Data: 148
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Waffen
-    - Name: $v
-      Entry: 10
-      Data: 149
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Gold
-    - Name: $v
-      Entry: 10
-      Data: 150
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: EnterGame
-    - Name: $v
-      Entry: 10
-      Data: 151
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
       Data: MainGameScenes
     - Name: $v
       Entry: 10
-      Data: 152
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: testtest
-    - Name: $v
-      Entry: 10
-      Data: 153
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: SetAllScriptableObjectsDirty
-    - Name: $v
-      Entry: 10
-      Data: 154
+      Data: 29
     - Name: 
       Entry: 8
       Data: 

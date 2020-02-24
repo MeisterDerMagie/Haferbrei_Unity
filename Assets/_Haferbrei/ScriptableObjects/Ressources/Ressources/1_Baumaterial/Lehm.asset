@@ -22,5 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   identifier: lehm
+  order: 2
   goldwert: 0
   category: {fileID: 11400000, guid: b0420bbe1867bd1409edd3fe3d891233, type: 2}
+  icon: {fileID: 21300000, guid: c3c1a91cc786fe74ca1f650b0e6d2dbb, type: 3}

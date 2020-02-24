@@ -17,6 +17,7 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 102900000, guid: 94911371d0d25874c8846b5f5b6e26a5, type: 3}
+    - {fileID: 102900000, guid: e70e4d0546babd44092ecaa57503ed5d, type: 3}
     - {fileID: 102900000, guid: 43bdf5d9ff415084bae1026c5ab14d11, type: 3}
     - {fileID: 102900000, guid: 8dc9d3b0036d9104a96cae14d785ebe3, type: 3}
     SerializedBytesString: 
@@ -24,9 +25,6 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: guid
-      Entry: 2
-      Data: 4e0b5ab8988c491a9740296dcb10e448
     - Name: sceneReferences
       Entry: 7
       Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[SceneReference,
@@ -40,7 +38,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 3
+      Data: 4
     - Name: 
       Entry: 7
       Data: 
@@ -67,13 +65,34 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: MainGame
+      Data: InitializeGame
     - Name: $v
       Entry: 7
       Data: 3|SceneReference, UnitySceneReference
     - Name: sceneAsset
       Entry: 10
       Data: 1
+    - Name: scenePath
+      Entry: 1
+      Data: Assets/_Haferbrei/Scenes/InitializeGame.unity
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: MainGame
+    - Name: $v
+      Entry: 7
+      Data: 4|SceneReference, UnitySceneReference
+    - Name: sceneAsset
+      Entry: 10
+      Data: 2
     - Name: scenePath
       Entry: 1
       Data: Assets/_Haferbrei/Scenes/MainGame.unity
@@ -91,10 +110,10 @@ MonoBehaviour:
       Data: TestScene
     - Name: $v
       Entry: 7
-      Data: 4|SceneReference, UnitySceneReference
+      Data: 5|SceneReference, UnitySceneReference
     - Name: sceneAsset
       Entry: 10
-      Data: 2
+      Data: 3
     - Name: scenePath
       Entry: 1
       Data: Assets/_Haferbrei/Scenes/TestScene.unity

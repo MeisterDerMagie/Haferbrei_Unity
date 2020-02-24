@@ -15,8 +15,10 @@ namespace Haferbrei {
 public class Ressource : SerializedScriptableObject
 {
     public string identifier;
+    public int order;
     public float goldwert;
     public RessourceCategory category;
+    [PreviewField] public Sprite icon;
 }
 
 //wenn ein komplexer Typ (wie Ressource) als Key eines Dictionaries gespeichert wird, benötigt er einen TypeConverter, der festlegt,

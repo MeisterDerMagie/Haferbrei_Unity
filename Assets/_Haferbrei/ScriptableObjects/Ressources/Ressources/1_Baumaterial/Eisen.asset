@@ -22,5 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   identifier: eisen
+  order: 5
   goldwert: 0
   category: {fileID: 11400000, guid: b0420bbe1867bd1409edd3fe3d891233, type: 2}
+  icon: {fileID: 21300000, guid: 3dec5c394e7323d43a5529c33c47308b, type: 3}

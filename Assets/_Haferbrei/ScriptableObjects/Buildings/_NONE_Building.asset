@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 617dd29beb3b9d942a10ccb46f2406cf, type: 3}
-  m_Name: _NONE
+  m_Name: _NONE_Building
   m_EditorClassIdentifier: 
   canBeBuilt: 0
   identifier: buildingSO_NONE

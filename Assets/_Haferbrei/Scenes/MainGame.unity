@@ -741,6 +741,7 @@ RectTransform:
   - {fileID: 1649847302}
   - {fileID: 1649537445}
   - {fileID: 1084261690}
+  - {fileID: 90835709}
   m_Father: {fileID: 857903155}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -818,6 +819,139 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetFramerate: 100000
+--- !u!1 &90835708
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 90835709}
+  - component: {fileID: 90835710}
+  - component: {fileID: 90835711}
+  - component: {fileID: 90835712}
+  - component: {fileID: 90835714}
+  - component: {fileID: 90835713}
+  m_Layer: 5
+  m_Name: grp_RessourceBar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &90835709
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90835708}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 84595951}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 5, y: -5}
+  m_SizeDelta: {x: 0, y: 42}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &90835710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90835708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 5
+    m_Right: 5
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 3
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+--- !u!114 &90835711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90835708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 0
+--- !u!114 &90835712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90835708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8687a619ad5915a40a2edf3208e1895c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  container: {fileID: 11400000, guid: f3e2b6cb15b3b1b488c247aeebf08013, type: 2}
+  ressourceEntryPrefab: {fileID: 1491005157798401845, guid: c2e86e8c38035d840a9303104af61592,
+    type: 3}
+  ressourcesThatCanBeShownInRessourceBar: {fileID: 11400000, guid: 3cfac5e3f26e02c47b2c439154bbbfc6,
+    type: 2}
+  ressourcesToShow: []
+--- !u!114 &90835713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90835708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: f04e9b5eb315d564ab6a10401487a2d1, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &90835714
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90835708}
+  m_CullTransparentMesh: 0
 --- !u!1 &123442394
 GameObject:
   m_ObjectHideFlags: 0
@@ -3007,6 +3141,32 @@ MonoBehaviour:
   - {fileID: 769124852}
   - {fileID: 769124852}
   - {fileID: 769124852}
+  - {fileID: 769124852}
+  - {fileID: 769124852}
+  - {fileID: 769124852}
+  - {fileID: 769124852}
+  - {fileID: 769124852}
+  - {fileID: 769124852}
+  - {fileID: 769124852}
+  - {fileID: 769124852}
+  - {fileID: 769124852}
+  - {fileID: 769124852}
+  - {fileID: 769124852}
+  - {fileID: 769124852}
+  - {fileID: 769124852}
+  - {fileID: 769124852}
+  - {fileID: 769124852}
+  - {fileID: 769124852}
+  - {fileID: 769124852}
+  - {fileID: 769124852}
+  - {fileID: 769124852}
+  - {fileID: 769124852}
+  - {fileID: 769124852}
+  - {fileID: 769124852}
+  - {fileID: 769124852}
+  - {fileID: 769124852}
+  - {fileID: 769124852}
+  - {fileID: 769124852}
   saveEvent: 0
   loadEvent: 0
 --- !u!4 &725442979
@@ -3848,7 +4008,8 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 90835712}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -3872,6 +4033,9 @@ MonoBehaviour:
       Data: 1|System.Collections.Generic.List`1[[IInitSelf, Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
       Data: 0
     - Name: 
       Entry: 13
@@ -3980,10 +4144,10 @@ RectTransform:
   m_Father: {fileID: 84595951}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 75.099976, y: -14.099976}
-  m_SizeDelta: {x: 150.2, y: 28.2}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -75.1, y: -49}
+  m_SizeDelta: {x: 150.19995, y: 28.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &891100641
 MonoBehaviour:
@@ -4415,7 +4579,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -107.20001, y: -57}
+  m_AnchoredPosition: {x: -107.7, y: -115}
   m_SizeDelta: {x: 215.40002, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1084261691
@@ -5037,8 +5201,13 @@ MonoBehaviour:
   - c978f3aae4014dbea29892ecc777abb6
   - 59df6740f53a43f3bcf9141c7711931d
   - dc4f4cc8a0cf450f90e7abca4ea528bd
-  - 30b2c2c088584092a98c00f6d688c5eb
-  - 05559dcc6c034d8fa57fb2ccceaaed8c
+  - 5f6a2dcf8ac04055b2608e4c81390af1
+  - e0408d96df2546c9883750313d9b3b0a
+  - 3c5cd95b3c3b4417bad1bbd8a9f04131
+  - a78d701f5f004f4c9c25b512f1d08d8e
+  - 19079a7d56204062b3b9333224dbff32
+  - baec1f91cd1a40d28da63460e3de9ee0
+  - e1b8d1b158ab4b33a984a58029ed1d60
   sceneDependencies:
   - {fileID: 1140813232}
   - {fileID: 1140813234}
@@ -5409,8 +5578,13 @@ MonoBehaviour:
   - {fileID: 142678910}
   - {fileID: 142678909}
   - {fileID: 293878099}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 90835709}
+  - {fileID: 90835708}
+  - {fileID: 90835710}
+  - {fileID: 90835711}
+  - {fileID: 90835712}
+  - {fileID: 90835714}
+  - {fileID: 90835713}
   availableDependencies: []
 --- !u!4 &1140813234
 Transform:
@@ -5845,7 +6019,7 @@ GameObject:
   - component: {fileID: 1184597901}
   - component: {fileID: 1184597900}
   m_Layer: 5
-  m_Name: btn_GibRohstoffe
+  m_Name: btn_BekommeHolz
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5896,9 +6070,9 @@ MonoBehaviour:
       Entry: 6
       Data: 
   containerToEdit: {fileID: 11400000, guid: f3e2b6cb15b3b1b488c247aeebf08013, type: 2}
-  mode: 2
-  ressource: {fileID: 0}
-  amount: 0
+  mode: 0
+  ressource: {fileID: 11400000, guid: 3b4a0bb9ae737f547b2a29d2f416a6f1, type: 2}
+  amount: 150
   recipe: {fileID: 0}
 --- !u!114 &1184597901
 MonoBehaviour:
@@ -8353,7 +8527,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -44.31, y: -14.1}
+  m_AnchoredPosition: {x: -44.309998, y: -14.099976}
   m_SizeDelta: {x: 88.62, y: 28.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1649537446
@@ -8482,7 +8656,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -136.6, y: -14.1}
+  m_AnchoredPosition: {x: -136.59998, y: -14.099976}
   m_SizeDelta: {x: 88.62, y: 28.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1649847303
@@ -9270,7 +9444,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Gib Spieler Rohstoffe
+  m_text: Bekomme 150 Holz
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 28e6d422beb214444925fefc181a5e55, type: 2}
   m_sharedMaterial: {fileID: -2849943033346075, guid: 28e6d422beb214444925fefc181a5e55,
@@ -9340,7 +9514,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1960872572}
-    characterCount: 21
+    characterCount: 16
     spriteCount: 0
     spaceCount: 2
     wordCount: 3
@@ -9486,10 +9660,10 @@ RectTransform:
   m_Father: {fileID: 84595951}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 231.5, y: -14.099976}
-  m_SizeDelta: {x: 150.2, y: 28.2}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -75.099976, y: -83}
+  m_SizeDelta: {x: 150.19995, y: 28.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1965322602
 MonoBehaviour:

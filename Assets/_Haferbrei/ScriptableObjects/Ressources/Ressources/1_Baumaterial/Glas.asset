@@ -22,5 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   identifier: glas
+  order: 6
   goldwert: 0
   category: {fileID: 11400000, guid: b0420bbe1867bd1409edd3fe3d891233, type: 2}
+  icon: {fileID: 21300000, guid: 939c1abf68a5ef04a819f9cf70ca1af8, type: 3}
