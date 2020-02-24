@@ -11,7 +11,7 @@ namespace Haferbrei{
 public class INIT001_Initialize : SerializedMonoBehaviour
 {
     [SerializeField, BoxGroup("Settings")] public bool initOnSceneStart = true;
-    [SerializeField, BoxGroup("Settings")] public bool initOnAwake = true;
+    [SerializeField, BoxGroup("Settings")] public bool initOnAwake = false;
     [SerializeField, ReadOnly] public List<IInitSingletons>   singletonInits = new List<IInitSingletons>();
     //[SerializeField, ReadOnly] public List<ISaveable>         saveableInits  = new List<ISaveable>();
     //[SerializeField, ReadOnly] public List<IStoreable>        storeableInits = new List<IStoreable>();
@@ -30,7 +30,6 @@ public class INIT001_Initialize : SerializedMonoBehaviour
         }
 
         if (initOnAwake) StartInitialization();
-        //if(initOnSceneStart) StartInitialization();
     }
 
     [Button, DisableInEditorMode]
@@ -69,8 +68,6 @@ public class INIT001_Initialize : SerializedMonoBehaviour
         isInitialized = true;
         onInitializeFinished.Invoke();
 
-        gameObject.name += " (Initialization finished)";
-        
         Destroy(gameObject);
     }
     

@@ -13,12 +13,8 @@ public class OnGameInitializeFinished : MonoBehaviour
     
     public void OnInitializeFinished()
     {
-        #if UNITY_EDITOR
         Debug.Log("Successfully initialized game.");
-            //Timing.RunCoroutine(LoadLastOpenedScenesInEditor());
-            Timing.RunCoroutine(LoadNextScenes());
-            return;
-        #endif
+        Timing.RunCoroutine(LoadNextScenes());
     }
 
     private IEnumerator<float> LoadNextScenes()
@@ -27,14 +23,5 @@ public class OnGameInitializeFinished : MonoBehaviour
         //Debug.Log("LoadNextScenes");
         nextScenesToLoadInBuild.LoadScenes();
     }
-
-    #if UNITY_EDITOR
-    private IEnumerator<float> LoadLastOpenedScenesInEditor()
-    {
-        yield return Timing.WaitForOneFrame; //einen Frame warten, damit die Start und Awake Funktionen aller anderen GameObjekte aufgerufen werden
-        //Debug.Log("LoadLastOpenedScenes");
-        AutoPlayModeSceneSetup.LoadOpenedScenes();
-    }
-    #endif
 }
 }

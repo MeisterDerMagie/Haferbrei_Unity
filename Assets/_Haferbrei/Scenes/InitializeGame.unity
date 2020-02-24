@@ -458,6 +458,7 @@ MonoBehaviour:
       Entry: 8
       Data: 
   initOnSceneStart: 1
+  initOnAwake: 1
   onInitializeFinished:
     m_PersistentCalls:
       m_Calls:
