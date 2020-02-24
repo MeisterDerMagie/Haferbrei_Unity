@@ -690,6 +690,47 @@ namespace Bayat.Core.Reflection
             return defaultPrimitive;
         }
 
+#if UNITY_WSA && !UNITY_EDITOR
+        public static string GetFriendlyName(this Type type)
+        {
+            TypeInfo typeInfo = type.GetTypeInfo();
+            string name = type.FullName;
+            if (typeInfo.IsGenericType)
+            {
+                name = type.FullName.Split('`')[0] + "<" + string.Join(
+                    ", ",
+                    type.GetGenericArguments().Select(x => x.GetFriendlyName()).ToArray()) + ">";
+            }
+            else
+            {
+                name = type.FullName;
+            }
+            name = name.Replace("+", ".");
+            return name;
+        }
+#else
+        public static string GetFriendlyName(this Type type)
+        {
+            if (type.IsGenericParameter)
+            {
+                return type.Name;
+            }
+            string name = type.FullName;
+            if (type.IsGenericType)
+            {
+                name = type.FullName.Split('`')[0] + "<" + string.Join(
+                    ", ",
+                    type.GetGenericArguments().Select(x => x.GetFriendlyName()).ToArray()) + ">";
+            }
+            else
+            {
+                name = type.FullName;
+            }
+            name = name.Replace("+", ".");
+            return name;
+        }
+#endif
+
     }
 
 }

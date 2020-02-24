@@ -3164,13 +3164,8 @@ MonoBehaviour:
   identifier: autosave.dat
   settingsPreset: {fileID: 11400000, guid: d3c9c02c463637a4ab594d3c9be94eeb, type: 2}
   autoSaves:
-  - {fileID: 769124852}
-  - {fileID: 769124852}
   - {fileID: 1103016058}
   - {fileID: 769124852}
-  - {fileID: 1103016058}
-  - {fileID: 769124852}
-  - {fileID: 1103016058}
   saveEvent: 0
   loadEvent: 0
 --- !u!4 &725442979
@@ -3551,6 +3546,7 @@ MonoBehaviour:
   excludedComponents:
   - {fileID: 769124853}
   - {fileID: 769124852}
+  removeOnDisable: 1
 --- !u!114 &769124853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4737,7 +4733,7 @@ GameObject:
   - component: {fileID: 1103016057}
   - component: {fileID: 1103016058}
   m_Layer: 0
-  m_Name: FUNKTIONIERT NICHT SaveScriptableObjects
+  m_Name: SaveScriptableObjects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4790,6 +4786,7 @@ MonoBehaviour:
   excludedChildren: []
   excludedComponents:
   - {fileID: 1103016058}
+  removeOnDisable: 0
 --- !u!1 &1139914244
 GameObject:
   m_ObjectHideFlags: 0
@@ -5671,6 +5668,8 @@ MonoBehaviour:
   - {fileID: 1723543847}
   - {fileID: 1723543848}
   availableDependencies: []
+  updateOnSceneSaving: 1
+  updateOnEnteringPlayMode: 1
 --- !u!4 &1140813234
 Transform:
   m_ObjectHideFlags: 0

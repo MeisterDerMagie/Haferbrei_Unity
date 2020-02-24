@@ -33,6 +33,11 @@ namespace Bayat.Json.Converters
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializerWriter internalWriter)
         {
+            if (value == null || (value is UnityEngine.Object && value as UnityEngine.Object == null))
+            {
+                writer.WriteNull();
+                return;
+            }
             Type objectType = value.GetType();
             internalWriter._rootType = objectType;
             internalWriter._rootLevel = internalWriter._serializeStack.Count + 1;
@@ -93,6 +98,15 @@ namespace Bayat.Json.Converters
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializerReader internalReader)
         {
+            if (reader.TokenType == JsonToken.Null)
+            {
+                if (!ReflectionUtils.IsNullable(objectType))
+                {
+                    throw JsonSerializationException.Create(reader, "Cannot convert null value to {0}.".FormatWith(CultureInfo.InvariantCulture, objectType));
+                }
+
+                return null;
+            }
             if (objectType == null && existingValue != null)
             {
                 objectType = existingValue.GetType();

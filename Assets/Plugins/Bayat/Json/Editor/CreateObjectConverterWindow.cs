@@ -8,14 +8,17 @@ using UnityEngine;
 using UnityEditor;
 
 using Bayat.Core;
+using Bayat.Core.EditorWindows;
 using Bayat.Core.Reflection;
 using Bayat.Json.Serialization;
 
 namespace Bayat.Json
 {
 
-    public class CreateObjectConverterWindow : EditorWindow
+    public class CreateObjectConverterWindow : EditorWindowWrapper
     {
+
+        public const int TypesPerPage = 20;
 
         private static CreateObjectConverterWindow instance;
 
@@ -72,6 +75,11 @@ namespace Bayat.Json
         protected bool importScript = true;
         protected bool refreshAssetDatabase = true;
 
+        protected int typesCount = 0;
+        protected int typesPageCount = 0;
+        protected int typesPageIndex = 0;
+        protected int typesOffsetIndex = 0;
+
         //[InitializeOnLoadMethod]
         //private static void InitializeOnLoad()
         //{
@@ -98,12 +106,30 @@ namespace Bayat.Json
         [MenuItem("Window/Bayat/Json/Create Object Converter")]
         public static void InitWindow()
         {
-            var window = EditorWindow.GetWindow<CreateObjectConverterWindow>();
-            window.titleContent = new GUIContent("Create Object Converter");
+            var window = new CreateObjectConverterWindow();
             window.Show();
         }
 
-        private void OnEnable()
+        protected override void ConfigureWindow()
+        {
+            window.titleContent = new GUIContent("Create Object Converter");
+            window.minSize = window.maxSize = new Vector2(800, 500);
+        }
+
+        public new void Show()
+        {
+            if (window == null)
+            {
+                ShowUtility();
+                window.Center();
+            }
+            else
+            {
+                window.Focus();
+            }
+        }
+
+        public override void OnShow()
         {
             instance = this;
             this.converterFolderPath = EditorPrefs.GetString("bayat.json.createobjectconverter.containerfolderpath", "Assets/Scripts/Generated/Converters");
@@ -111,21 +137,21 @@ namespace Bayat.Json
             this.refreshAssetDatabase = EditorPrefs.GetBool("bayat.json.createobjectconverter.refreshassetdatabase");
         }
 
-        private void OnDisable()
+        public override void OnClose()
         {
             EditorPrefs.SetString("bayat.json.createobjectconverter.containerfolderpath", this.converterFolderPath);
             EditorPrefs.SetBool("bayat.json.createobjectconverter.importscript", this.importScript);
             EditorPrefs.SetBool("bayat.json.createobjectconverter.refreshassetdatabase", this.refreshAssetDatabase);
         }
 
-        private void OnGUI()
+        public override void OnGUI()
         {
             if (availableAssemblies == null || availableAssemblies.Length == 0)
             {
                 GetAssemblies();
             }
 
-            Rect position = this.position;
+            Rect position = this.window.position;
             EditorGUILayout.BeginHorizontal();
 
             EditorGUILayout.BeginVertical(GUILayout.MinWidth(position.width / 2), GUILayout.MaxWidth(position.width), GUILayout.ExpandWidth(true));
@@ -251,6 +277,8 @@ namespace Bayat.Json
             EditorGUILayout.EndVertical();
 
             EditorGUILayout.EndHorizontal();
+
+            GUILayout.Label("Made with ❤️ by Bayat", EditorStyles.centeredGreyMiniLabel);
         }
 
         private void OnAssembliesGUI()
@@ -266,11 +294,64 @@ namespace Bayat.Json
 
         private void OnTypesGUI()
         {
+            this.typesCount = this.typeNames.Length;
+            this.typesPageCount = (this.typesCount + TypesPerPage - 1) / TypesPerPage;
+            this.typesOffsetIndex = this.typesPageIndex * TypesPerPage;
+
+            for (int i = this.typesOffsetIndex; i - this.typesOffsetIndex < TypesPerPage; i++)
+            {
+                if (i < this.typeNames.Length)
+                {
+                    if (GUILayout.Toggle(i == this.selectedTypeIndex, this.typeNames[i], GUI.skin.button))
+                    {
+                        this.selectedTypeIndex = i;
+                        UpdateSelectedType();
+                    }
+                }
+            }
+
+            // Pagination
+            EditorGUILayout.BeginHorizontal();
+
+            GUILayout.FlexibleSpace();
+
+            bool hasPrevPage = this.typesPageIndex - 1 >= 0;
+            EditorGUI.BeginDisabledGroup(!hasPrevPage);
+            if (GUILayout.Button("< Prev", EditorStyles.miniButton, GUILayout.Width(150)))
+            {
+                this.typesPageIndex--;
+            }
+            EditorGUI.EndDisabledGroup();
+
+            GUI.SetNextControlName("PageIndex");
             EditorGUI.BeginChangeCheck();
-            this.selectedTypeIndex = GUILayout.SelectionGrid(this.selectedTypeIndex, this.typeNames, 1);
+            this.typesPageIndex = EditorGUILayout.IntField(this.typesPageIndex + 1, EditorStyles.numberField, GUILayout.Width(32)) - 1;
             if (EditorGUI.EndChangeCheck())
             {
-                UpdateSelectedType();
+                EditorGUI.FocusTextInControl("PageIndex");
+                GUI.FocusControl("PageIndex");
+            }
+            GUILayout.Label("/" + this.typesPageCount.ToString());
+
+            bool hasNextPage = this.typesPageIndex + 1 < this.typesPageCount;
+            EditorGUI.BeginDisabledGroup(!hasNextPage);
+            if (GUILayout.Button("Next >", EditorStyles.miniButton, GUILayout.Width(150)))
+            {
+                this.typesPageIndex++;
+            }
+            EditorGUI.EndDisabledGroup();
+
+            GUILayout.FlexibleSpace();
+
+            EditorGUILayout.EndHorizontal();
+
+            if (this.typesPageIndex < 0)
+            {
+                this.typesPageIndex = 0;
+            }
+            else if (this.typesPageIndex >= this.typesPageCount)
+            {
+                this.typesPageIndex = this.typesPageCount - 1;
             }
         }
 
@@ -534,7 +615,19 @@ namespace Bayat.Json
 
         public static string GetTypeFullName(Type type)
         {
-            return type.FullName.Replace("+", ".");
+            return type.GetFriendlyName();
+        }
+
+        public static class Styles
+        {
+            static Styles()
+            {
+                SelectedTypeButton = new GUIStyle(GUI.skin.button);
+                SelectedTypeButton.normal = SelectedTypeButton.active;
+            }
+
+            public static readonly GUIStyle SelectedTypeButton;
+
         }
 
     }

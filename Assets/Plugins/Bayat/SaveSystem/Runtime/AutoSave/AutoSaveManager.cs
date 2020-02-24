@@ -152,11 +152,19 @@ namespace Bayat.SaveSystem
 
         public virtual void AddAutoSave(AutoSave autoSave)
         {
+            if (this.autoSaves.Contains(autoSave))
+            {
+                return;
+            }
             this.autoSaves.Add(autoSave);
         }
 
         public virtual void RemoveAutoSave(AutoSave autoSave)
         {
+            if (!this.autoSaves.Contains(autoSave))
+            {
+                return;
+            }
             this.autoSaves.Remove(autoSave);
         }
 

@@ -90,6 +90,8 @@ namespace Bayat.Json
         [SerializeField]
         protected int maxDepth = 0;
 
+        protected JsonSerializerSettings customSettings;
+
         /// <summary>
         /// Creates a new instance of <see cref="JsonSerializerSettings"/> and applies the settings to it.
         /// </summary>
@@ -100,6 +102,21 @@ namespace Bayat.Json
                 JsonSerializerSettings settings = new JsonSerializerSettings();
                 ApplyTo(settings);
                 return settings;
+            }
+        }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="JsonSerializerSettings"/> and applies the settings to it if the custom settings is null otherwise returns the existing instance.
+        /// </summary>
+        public virtual JsonSerializerSettings CustomSettings
+        {
+            get
+            {
+                if (this.customSettings == null)
+                {
+                    this.customSettings = this.NewSettings;
+                }
+                return this.customSettings;
             }
         }
 

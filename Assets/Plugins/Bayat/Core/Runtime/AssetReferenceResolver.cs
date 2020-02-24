@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 #if UNITY_EDITOR
+using System.IO;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 #endif
@@ -47,6 +48,7 @@ namespace Bayat.Core
                     }
                     else if (instanceGuids.Length == 0)
                     {
+                        Debug.Log("No Asset Reference Resolver instance found, creating a new one at 'Assets/Resources/Bayat/Core'.");
                         instance = ScriptableObject.CreateInstance<AssetReferenceResolver>();
                         instance.CollectProjectDependencies();
                         System.IO.Directory.CreateDirectory("Assets/Resources/Bayat/Core");
@@ -97,6 +99,7 @@ namespace Bayat.Core
         public virtual void Reset()
         {
 #if UNITY_EDITOR
+            Debug.Log("Resetting Asset Reference Resolver");
             CollectProjectDependencies();
 #endif
         }
@@ -140,7 +143,7 @@ namespace Bayat.Core
 
             foreach (var asset in allAssets)
             {
-                if (asset == null)
+                if (asset == null || !CanBeSaved(asset))
                 {
                     continue;
                 }
@@ -210,7 +213,7 @@ namespace Bayat.Core
 
             foreach (var asset in allAssets)
             {
-                if (asset == null)
+                if (asset == null || !CanBeSaved(asset))
                 {
                     continue;
                 }
@@ -264,7 +267,7 @@ namespace Bayat.Core
 
             foreach (var asset in allAssets)
             {
-                if (asset == null)
+                if (asset == null || !CanBeSaved(asset))
                 {
                     continue;
                 }
@@ -323,7 +326,7 @@ namespace Bayat.Core
 
             foreach (var asset in allAssets)
             {
-                if (asset == null)
+                if (asset == null || !CanBeSaved(asset))
                 {
                     continue;
                 }
@@ -497,6 +500,68 @@ namespace Bayat.Core
             this.dependencies.Add(obj);
             return guid.ToString("N");
         }
+
+#if UNITY_EDITOR
+        /// <summary>
+        /// Checks whether the object can be saved or not.
+        /// </summary>
+        /// <param name="obj">The object</param>
+        /// <returns>True if can be saved otherwise false</returns>
+        public static bool CanBeSaved(UnityEngine.Object obj)
+        {
+            // Check if any of the hide flags determine that it should not be saved.
+            if ((((obj.hideFlags & HideFlags.DontSave) == HideFlags.DontSave) ||
+                 ((obj.hideFlags & HideFlags.DontSaveInBuild) == HideFlags.DontSaveInBuild) ||
+                 ((obj.hideFlags & HideFlags.DontSaveInEditor) == HideFlags.DontSaveInEditor) ||
+                 ((obj.hideFlags & HideFlags.HideAndDontSave) == HideFlags.HideAndDontSave)))
+            {
+                var type = obj.GetType();
+                // Meshes are marked with HideAndDontSave, but shouldn't be ignored.
+                if (type != typeof(Mesh) && type != typeof(Material))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+#endif
+
+#if UNITY_EDITOR
+        [InitializeOnLoadMethod]
+        public static void UpdateLocation()
+        {
+            string path = AssetDatabase.GetAssetPath(AssetReferenceResolver.Current);
+            if (path.StartsWith("Assets/Plugins/Bayat"))
+            {
+                if (EditorUtility.DisplayDialog("Updating AssetReferenceResolver Location",
+                    "The save system requires the AssetReferenceResolver to reside at Assets/Resources/Bayat/Core folder, " +
+                    "press Update to update and move the AssetReferenceResolver to the desired folder.", "Update", "Cancel"))
+                {
+                    if (!Directory.Exists("Assets/Resources"))
+                    {
+                        AssetDatabase.CreateFolder("Assets", "Resources");
+                    }
+                    if (!Directory.Exists("Assets/Resources/Bayat"))
+                    {
+                        AssetDatabase.CreateFolder("Assets/Resources", "Bayat");
+                    }
+                    if (!Directory.Exists("Assets/Resources/Bayat/Core"))
+                    {
+                        AssetDatabase.CreateFolder("Assets/Resources/Bayat", "Core");
+                    }
+                    string message = AssetDatabase.MoveAsset(path, "Assets/Resources/Bayat/Core/AssetReferenceResolver.asset");
+                    if (string.IsNullOrEmpty(message))
+                    {
+                        Debug.Log("The Asset Reference Resolver has been moved to 'Assets/Resources/Bayat/Core' successfully");
+                    }
+                    else
+                    {
+                        Debug.LogError(message);
+                    }
+                }
+            }
+        }
+#endif
 
     }
 

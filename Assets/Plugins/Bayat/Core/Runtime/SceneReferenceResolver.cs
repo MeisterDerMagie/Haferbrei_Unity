@@ -14,7 +14,7 @@ namespace Bayat.Core
     /// </summary>
     [AddComponentMenu("Bayat/Core/Scene Reference Resolver")]
     [DisallowMultipleComponent]
-    public class SceneReferenceResolver : MonoBehaviour
+    public class SceneReferenceResolver : MonoBehaviour, ISerializationCallbackReceiver
     {
 
         private static SceneReferenceResolver current;
@@ -55,6 +55,10 @@ namespace Bayat.Core
 #if UNITY_EDITOR
         [SerializeField]
         protected List<UnityEngine.Object> availableDependencies = new List<UnityEngine.Object>();
+        [SerializeField]
+        protected bool updateOnSceneSaving = true;
+        [SerializeField]
+        protected bool updateOnEnteringPlayMode = true;
 #endif
 
         /// <summary>
@@ -90,7 +94,36 @@ namespace Bayat.Core
                 return this.availableDependencies;
             }
         }
+
+        public virtual bool UpdateOnSceneSaving
+        {
+            get
+            {
+                return this.updateOnSceneSaving;
+            }
+        }
+
+        public virtual bool UpdateOnEnteringPlayMode
+        {
+            get
+            {
+                return this.updateOnEnteringPlayMode;
+            }
+        }
 #endif
+
+        public void OnBeforeSerialize()
+        {
+#if UNITY_EDITOR
+            // This is called before building or when things are being serialised before pressing play.
+            if (BuildPipeline.isBuildingPlayer || (EditorApplication.isPlayingOrWillChangePlaymode && !EditorApplication.isPlaying))
+            {
+                RemoveNullReferences();
+            }
+#endif
+        }
+
+        public void OnAfterDeserialize() { }
 
         public virtual void Reset()
         {
@@ -100,6 +133,43 @@ namespace Bayat.Core
         }
 
 #if UNITY_EDITOR
+        /// <summary>
+        /// Adds the specified objects and their dependencies to the reference resolver.
+        /// </summary>
+        /// <param name="objs"></param>
+        public void AddDependencies(UnityEngine.Object[] objs)
+        {
+            bool assetsModified = false;
+            foreach (var obj in objs)
+            {
+                var dependencies = EditorUtility.CollectDependencies(new UnityEngine.Object[] { obj });
+
+                foreach (var dependency in dependencies)
+                {
+                    if (EditorUtility.IsPersistent(dependency))
+                    {
+                        if (!AssetReferenceResolver.Current.Contains(dependency))
+                        {
+                            AssetReferenceResolver.Current.Add(dependency);
+                        }
+                        continue;
+                    }
+
+                    if (dependency == null || !CanBeSaved(dependency) || AssetReferenceResolver.Current.Contains(dependency))
+                    {
+                        continue;
+                    }
+
+                    Add(dependency);
+                }
+            }
+            if (assetsModified)
+            {
+                AssetDatabase.SaveAssets();
+            }
+            Undo.RecordObject(this, "Update SceneReferenceResolver List");
+        }
+
         /// <summary>
         /// Collects the scene dependencies.
         /// </summary>
@@ -117,6 +187,7 @@ namespace Bayat.Core
             var sceneObjects = this.gameObject.scene.GetRootGameObjects();
             var dependencies = EditorUtility.CollectDependencies(sceneObjects);
             //var deepHierarchy = new List<UnityEngine.Object>(EditorUtility.CollectDeepHierarchy(sceneObjects));
+            bool assetsModified = false;
 
             for (int i = 0; i < dependencies.Length; i++)
             {
@@ -127,7 +198,7 @@ namespace Bayat.Core
                     if (!AssetReferenceResolver.Current.Contains(obj))
                     {
                         AssetReferenceResolver.Current.Add(obj);
-                        AssetDatabase.SaveAssets();
+                        assetsModified = true;
                     }
                     continue;
                 }
@@ -150,6 +221,10 @@ namespace Bayat.Core
             }
 
             MaterialPropertiesResolver.Current.CollectMaterials();
+            if (assetsModified)
+            {
+                AssetDatabase.SaveAssets();
+            }
             GetAvailableDependencies();
         }
 
