@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Lean.Pool;
 using MEC;
 using Sirenix.OdinInspector;
 using TMPro;
@@ -15,7 +16,9 @@ public class Tooltip : MonoBehaviour, IInitSingletons
     [SerializeField, BoxGroup("References"), Required] private GameObject tooltipObject, titleObject, bodyObject, dividerObject;
     [SerializeField, BoxGroup("References"), Required] private Image icon;
     [SerializeField, BoxGroup("References"), Required] private TextMeshProUGUI title;
-    [SerializeField, BoxGroup("References"), Required, AssetsOnly] private GameObject bodyElementPrefab_Text, bodyElementPrefab_Ressources;
+    [SerializeField, BoxGroup("References"), Required] private LeanGameObjectPool bodyElementSpanwer_Text, bodyElementSpanwer_Ressources;
+    [SerializeField, BoxGroup("References"), Required] private RessourceContainer defaultContainer;
+    [SerializeField, BoxGroup("References"), Required] private TooltipPosition positionScript;
 
     [SerializeField, BoxGroup("Info"), ReadOnly] private bool isEnabled;
     [SerializeField, BoxGroup("Info"), ReadOnly] private bool hasTitle;
@@ -58,7 +61,7 @@ public class Tooltip : MonoBehaviour, IInitSingletons
     {
         tooltipObject.SetActive(true);
         ClearTooltip();
-
+        
         //Title
         SetTitle();
         
@@ -68,6 +71,9 @@ public class Tooltip : MonoBehaviour, IInitSingletons
         //Divider
         dividerObject.SetActive(hasTitle && hasBody);
 
+        //Position
+        positionScript.UpdatePosition(currentTooltipSource);
+        
         isEnabled = true;
     }
 
@@ -85,6 +91,13 @@ public class Tooltip : MonoBehaviour, IInitSingletons
         hasBody = false;
         titleObject.SetActive(false);
         bodyObject.SetActive(false);
+
+        //clear body elements
+        for (int i = bodyElements.Count-1; i >= 0; i--)
+        {
+            LeanPool.Despawn(bodyElements[i]);
+            bodyElements.RemoveAt(i);
+        }
     }
     
     private void SetTitle()
@@ -127,7 +140,7 @@ public class Tooltip : MonoBehaviour, IInitSingletons
 
     private void AddBodyElement(string _text)
     {
-        var newElement = Instantiate(bodyElementPrefab_Text, bodyObject.transform);
+        var newElement = bodyElementSpanwer_Text.Spawn(bodyObject.transform.position, Quaternion.identity, bodyObject.transform);
         bodyElements.Add(newElement);
         newElement.GetComponent<TextMeshProUGUI>().text = _text;
         
@@ -136,24 +149,37 @@ public class Tooltip : MonoBehaviour, IInitSingletons
 
     private void AddBodyElement(RessourceContainer _container)
     {
+        var newElement = bodyElementSpanwer_Ressources.Spawn(bodyObject.transform.position, Quaternion.identity, bodyObject.transform);
+        bodyElements.Add(newElement);
+        newElement.GetComponent<RessourceBar>().SetContainer(_container);
 
         hasBody = true;
     }
 
     private void AddBodyElement(RessourceRecipe _recipe)
     {
+        var newElement = bodyElementSpanwer_Ressources.Spawn(bodyObject.transform.position, Quaternion.identity, bodyObject.transform);
+        bodyElements.Add(newElement);
+        defaultContainer.SetRessources(_recipe);
+        newElement.GetComponent<RessourceBar>().SetContainer(defaultContainer);
         
         hasBody = true;
     }
 
     private void AddBodyElement(ModRessourceRecipe _recipe)
     {
+        var newElement = bodyElementSpanwer_Ressources.Spawn(bodyObject.transform.position, Quaternion.identity, bodyObject.transform);
+        bodyElements.Add(newElement);
+        defaultContainer.SetRessources(_recipe);
+        newElement.GetComponent<RessourceBar>().SetContainer(defaultContainer);
         
         hasBody = true;
     }
 
     private void AddBodyElement(GameObject _prefab)
     {
+        var newElement = LeanPool.Spawn(_prefab, bodyObject.transform);
+        bodyElements.Add(newElement);
         
         hasBody = true;
     }

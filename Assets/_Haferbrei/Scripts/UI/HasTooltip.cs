@@ -13,8 +13,8 @@ public class HasTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 {
     [SerializeField, BoxGroup("Settings")] public Sprite tooltipIcon;
     [SerializeField, BoxGroup("Settings")] public LocalizedString tooltipTitle;
-    [SerializeField, BoxGroup("Settings")] public float delay;
     [SerializeField, BoxGroup("Settings"), Required] public List<TooltipBodyElement> bodyElements;
+    public bool isRectTransform;
 
     private CoroutineHandle countdown;
     
@@ -27,5 +27,12 @@ public class HasTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public void OnPointerExit(PointerEventData eventData) => OnLeaveTooltipArea();
     private void OnMouseExit() => OnLeaveTooltipArea();
     private void OnMouseEnter() => OnEnterTooltipArea();
+    
+    #if UNITY_EDITOR
+    private void OnValidate()
+    {
+        isRectTransform = (GetComponent<RectTransform>() != null);
+    }
+    #endif
 }
 }

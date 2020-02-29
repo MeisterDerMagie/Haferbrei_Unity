@@ -81,6 +81,30 @@ MonoBehaviour:
       - Erhalte 150 Holz
       Flags: 0000
       Languages_Touch: []
+    - Term: Buildings/hof
+      TermType: 0
+      Description: 
+      Languages:
+      - farm
+      - Hof
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Buildings/burgfried
+      TermType: 0
+      Description: 
+      Languages:
+      - keep
+      - Burgfried
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Buildings/schmiede
+      TermType: 0
+      Description: 
+      Languages:
+      - blacksmith
+      - Schmiede
+      Flags: 0000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: 

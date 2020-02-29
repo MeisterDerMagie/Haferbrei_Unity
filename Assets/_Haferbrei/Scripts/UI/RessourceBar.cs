@@ -22,11 +22,29 @@ public class RessourceBar : MonoBehaviour, IInitSelf
     
     public void InitSelf()
     {
-        UpdateRessourceBar();
         container.onRessourcesChanged += UpdateRessourceBar;
+        UpdateRessourceBar();
     }
 
-    private void OnDestroy() => container.onRessourcesChanged -= UpdateRessourceBar;
+    private void OnDisable() => container.onRessourcesChanged -= UpdateRessourceBar;
+
+    public void SetContainer(RessourceContainer _container)
+    {
+        ResetRessourceBar();
+        container.onRessourcesChanged -= UpdateRessourceBar;
+        container = _container;
+        
+        InitSelf();
+    }
+
+    private void ResetRessourceBar()
+    {
+        ressourcesToShow.Clear();
+        List<GameObject> entriesToDelete = new List<GameObject>();
+        foreach (var entry in ressourceBarEntries) { entriesToDelete.Add(entry.Value.gameObject); }
+        for (int i = entriesToDelete.Count-1; i >= 0; i--) { Destroy(entriesToDelete[i]); }
+        ressourceBarEntries.Clear();
+    }
 
     private void UpdateRessourceBar()
     {

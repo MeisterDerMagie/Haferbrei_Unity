@@ -24,7 +24,7 @@ public class RessourceContainer : SerializedScriptableObject
         else                                      ressources[_ressource] += _amount;
         //---
         RemoveEmptyRessourceEntries();
-        if(_callOnChangedEvent) onRessourcesChanged();
+        if(_callOnChangedEvent) onRessourcesChanged?.Invoke();
     }
 
     public void AddRessource(Ressource _ressource, ModFloat _amount, bool _callOnChangedEvent = true) => AddRessource(_ressource, _amount.ValueInt, _callOnChangedEvent);
@@ -37,7 +37,7 @@ public class RessourceContainer : SerializedScriptableObject
         }
         //---
         RemoveEmptyRessourceEntries();
-        if(_callOnChangedEvent) onRessourcesChanged();
+        if(_callOnChangedEvent) onRessourcesChanged?.Invoke();
     }
     
     public void AddRessources(Dictionary<Ressource, ModFloat> _ressources, bool _callOnChangedEvent = true)
@@ -48,7 +48,7 @@ public class RessourceContainer : SerializedScriptableObject
         }
         //---
         RemoveEmptyRessourceEntries();
-        if(_callOnChangedEvent) onRessourcesChanged();
+        if(_callOnChangedEvent) onRessourcesChanged?.Invoke();
     }
 
     public void AddRessources(RessourceRecipe _recipe) => AddRessources(_recipe.recipe);
@@ -62,7 +62,7 @@ public class RessourceContainer : SerializedScriptableObject
         else                                      ressources[_ressource] -= _amount;
         //---
         RemoveEmptyRessourceEntries();
-        if(_callOnChangedEvent) onRessourcesChanged();
+        if(_callOnChangedEvent) onRessourcesChanged?.Invoke();
     }
 
     public void SubtractRessource(Ressource _ressource, ModFloat _amount, bool _callOnChangedEvent = true) => SubtractRessource(_ressource, _amount.ValueInt, _callOnChangedEvent); 
@@ -75,7 +75,7 @@ public class RessourceContainer : SerializedScriptableObject
         }
         //---
         RemoveEmptyRessourceEntries();
-        if(_callOnChangedEvent) onRessourcesChanged();
+        if(_callOnChangedEvent) onRessourcesChanged?.Invoke();
     }
     
     public void SubtractRessources(Dictionary<Ressource, ModFloat> _ressources, bool _callOnChangedEvent = true)
@@ -86,7 +86,7 @@ public class RessourceContainer : SerializedScriptableObject
         }
         //---
         RemoveEmptyRessourceEntries();
-        if(_callOnChangedEvent) onRessourcesChanged();
+        if(_callOnChangedEvent) onRessourcesChanged?.Invoke();
     }
 
     public void SubtractRessources(RessourceRecipe _recipe) => SubtractRessources(_recipe.recipe);
@@ -100,7 +100,7 @@ public class RessourceContainer : SerializedScriptableObject
         SubtractRessource(_ressourceToGive, _amount, false);
         //---
         RemoveEmptyRessourceEntries();
-        if(_callOnChangedEvent) onRessourcesChanged();
+        if(_callOnChangedEvent) onRessourcesChanged?.Invoke();
     }
 
     public void GiveAllOfOneRessource(ref RessourceContainer _receiver, Ressource _ressourceToGive, bool _callOnChangedEvent = true)
@@ -110,7 +110,7 @@ public class RessourceContainer : SerializedScriptableObject
         EmptyRessource(_ressourceToGive, false);
         //---
         RemoveEmptyRessourceEntries();
-        if(_callOnChangedEvent) onRessourcesChanged();
+        if(_callOnChangedEvent) onRessourcesChanged?.Invoke();
     }
     
     public void GiveRessources(ref RessourceContainer _receiver, Dictionary<Ressource, int> _ressourcesToGive, bool _callOnChangedEvent = true)
@@ -119,7 +119,7 @@ public class RessourceContainer : SerializedScriptableObject
         SubtractRessources(_ressourcesToGive, false);
         //---
         RemoveEmptyRessourceEntries();
-        if(_callOnChangedEvent) onRessourcesChanged();
+        if(_callOnChangedEvent) onRessourcesChanged?.Invoke();
     }
 
     public void GiveRessources(ref RessourceContainer _receiver, RessourceRecipe _recipe) => GiveRessources(ref _receiver, _recipe.recipe);
@@ -129,7 +129,7 @@ public class RessourceContainer : SerializedScriptableObject
         _receiver.AddRessources(ressources);
         EmptyContainer(false);
         //---
-        if(_callOnChangedEvent) onRessourcesChanged();
+        if(_callOnChangedEvent) onRessourcesChanged?.Invoke();
     }
     //-- --
     
@@ -221,10 +221,21 @@ public class RessourceContainer : SerializedScriptableObject
         {
             AddRessource(ressource.Key, ressource.Value, false);
         }
-        if(_callOnChangedEvent) onRessourcesChanged();
+        if(_callOnChangedEvent) onRessourcesChanged?.Invoke();
+    }
+    
+    public void SetRessources(Dictionary<Ressource, ModFloat> _ressources, bool _callOnChangedEvent = true)
+    {
+        EmptyContainer(false);
+        foreach (var ressource in _ressources)
+        {
+            AddRessource(ressource.Key, ressource.Value, false);
+        }
+        if(_callOnChangedEvent) onRessourcesChanged?.Invoke();
     }
 
     public void SetRessources(RessourceRecipe _recipe) => SetRessources(_recipe.recipe);
+    public void SetRessources(ModRessourceRecipe _recipe) => SetRessources(_recipe.recipe);
     //-- --
     
     //-- Empty the whole container or a specific ressource --
@@ -232,14 +243,14 @@ public class RessourceContainer : SerializedScriptableObject
     {
         if (ressources.ContainsKey(_ressource)) ressources.Remove(_ressource);
         //---
-        if(_callOnChangedEvent) onRessourcesChanged();
+        if(_callOnChangedEvent) onRessourcesChanged?.Invoke();
     }
     
     public void EmptyContainer(bool _callOnChangedEvent = true)
     {
         ressources.Clear();
         //---
-        if(_callOnChangedEvent) onRessourcesChanged();
+        if(_callOnChangedEvent) onRessourcesChanged?.Invoke();
     }
     //-- --
 
