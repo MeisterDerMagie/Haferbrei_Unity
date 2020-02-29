@@ -81,8 +81,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edec64284d1f4782bd9a931dbba9d148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountText: {fileID: 1491005158017639409}
   ressourceIcon: {fileID: 1491005159272847518}
+  amountText: {fileID: 1491005158017639409}
   ressource: {fileID: 11400000, guid: 4cb43075cccbfc04888f48b9d9ae92d9, type: 2}
   container: {fileID: 0}
 --- !u!222 &8948789688524169027
@@ -133,7 +133,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 573c3d1d2b024d53bfa02e211deab12c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: Title
+  tooltipIcon: {fileID: 0}
+  tooltipTitle:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
   delay: 0.4
 --- !u!1 &1491005158017639415
 GameObject:

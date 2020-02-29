@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using I2.Loc;
 using MEC;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -10,38 +11,21 @@ using UnityEngine.EventSystems;
 namespace Haferbrei{
 public class HasTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField, BoxGroup("Settings")] private string title;
-    [SerializeField, BoxGroup("Settings"), Required] private float delay;
+    [SerializeField, BoxGroup("Settings")] public Sprite tooltipIcon;
+    [SerializeField, BoxGroup("Settings")] public LocalizedString tooltipTitle;
+    [SerializeField, BoxGroup("Settings")] public float delay;
+    [SerializeField, BoxGroup("Settings"), Required] public List<TooltipBodyElement> bodyElements;
 
     private CoroutineHandle countdown;
     
-    private void OnEnterTooltipArea()
-    {
-        countdown = Timing.CallDelayed(delay, ShowTooltip);
-    }
-
-    private void OnLeaveTooltipArea()
-    {
-        Timing.KillCoroutines(countdown);
-    }
-
-    private void ShowTooltip()
-    {
-        Debug.Log("Show tooltip!");
-    }
-
-    private void HideTooltip()
-    {
-        Debug.Log("Hide tooltip!");
-    }
+    //--- Show and Hide ---
+    private void OnEnterTooltipArea() => Tooltip.Instance.ShowTooltip(this);
+    private void OnLeaveTooltipArea() => Tooltip.Instance.HideTooltip();
     
-    #region MouseEvents
-
+    //--- Mouse Events ---
     public void OnPointerEnter(PointerEventData eventData) => OnEnterTooltipArea();
     public void OnPointerExit(PointerEventData eventData) => OnLeaveTooltipArea();
     private void OnMouseExit() => OnLeaveTooltipArea();
     private void OnMouseEnter() => OnEnterTooltipArea();
-    
-    #endregion
 }
 }
