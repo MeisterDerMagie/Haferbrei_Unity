@@ -762,7 +762,7 @@ namespace Bayat.Json.Serialization
                     if (unityObject == null && AssetReferenceResolver.Current != null)
                     {
                         unityObject = AssetReferenceResolver.Current.ResolveReference(unityGuid);
-                        if (unityObject != null && !(unityObject is UnityEngine.ScriptableObject))
+                        if (unityObject != null)
                         {
                             reader.Skip();
                             newValue = unityObject;
@@ -944,7 +944,7 @@ namespace Bayat.Json.Serialization
                             if (unityObject == null && AssetReferenceResolver.Current != null)
                             {
                                 unityObject = AssetReferenceResolver.Current.ResolveReference(unityGuid);
-                                if (unityObject != null && !(unityObject is UnityEngine.ScriptableObject))
+                                if (unityObject != null)
                                 {
                                     reader.ReadAndAssert();
                                     newValue = unityObject;

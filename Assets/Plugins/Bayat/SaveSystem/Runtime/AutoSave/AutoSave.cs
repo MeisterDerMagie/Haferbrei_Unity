@@ -14,9 +14,6 @@ namespace Bayat.SaveSystem
     public class AutoSave : GameObjectSerializationHandler
     {
 
-        [SerializeField]
-        protected bool removeOnDisable = true;
-
         protected virtual void OnEnable()
         {
             AutoSaveManager.Current.AddAutoSave(this);
@@ -24,10 +21,7 @@ namespace Bayat.SaveSystem
 
         protected virtual void OnDisable()
         {
-            if (this.removeOnDisable)
-            {
-                AutoSaveManager.Current.RemoveAutoSave(this);
-            }
+            AutoSaveManager.Current.RemoveAutoSave(this);
         }
 
         protected virtual void OnDestroy()

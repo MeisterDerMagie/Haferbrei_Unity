@@ -3276,6 +3276,11 @@ MonoBehaviour:
   autoSaves:
   - {fileID: 1103016058}
   - {fileID: 769124852}
+  - {fileID: 1103016058}
+  - {fileID: 769124852}
+  - {fileID: 1103016058}
+  - {fileID: 769124852}
+  - {fileID: 1103016058}
   saveEvent: 0
   loadEvent: 0
 --- !u!4 &725442979
@@ -3829,7 +3834,6 @@ MonoBehaviour:
   excludedComponents:
   - {fileID: 769124853}
   - {fileID: 769124852}
-  removeOnDisable: 1
 --- !u!114 &769124853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5389,7 +5393,6 @@ MonoBehaviour:
   excludedChildren: []
   excludedComponents:
   - {fileID: 1103016058}
-  removeOnDisable: 0
 --- !u!1 &1139914244
 GameObject:
   m_ObjectHideFlags: 0
@@ -6421,8 +6424,6 @@ MonoBehaviour:
   - {fileID: 1209374823}
   - {fileID: 766321949}
   availableDependencies: []
-  updateOnSceneSaving: 1
-  updateOnEnteringPlayMode: 1
 --- !u!4 &1140813234
 Transform:
   m_ObjectHideFlags: 0

@@ -143,7 +143,7 @@ namespace Bayat.Core
 
             foreach (var asset in allAssets)
             {
-                if (asset == null || !CanBeSaved(asset))
+                if (asset == null)
                 {
                     continue;
                 }
@@ -213,7 +213,7 @@ namespace Bayat.Core
 
             foreach (var asset in allAssets)
             {
-                if (asset == null || !CanBeSaved(asset))
+                if (asset == null)
                 {
                     continue;
                 }
@@ -267,7 +267,7 @@ namespace Bayat.Core
 
             foreach (var asset in allAssets)
             {
-                if (asset == null || !CanBeSaved(asset))
+                if (asset == null)
                 {
                     continue;
                 }
@@ -326,7 +326,7 @@ namespace Bayat.Core
 
             foreach (var asset in allAssets)
             {
-                if (asset == null || !CanBeSaved(asset))
+                if (asset == null)
                 {
                     continue;
                 }
@@ -500,31 +500,6 @@ namespace Bayat.Core
             this.dependencies.Add(obj);
             return guid.ToString("N");
         }
-
-#if UNITY_EDITOR
-        /// <summary>
-        /// Checks whether the object can be saved or not.
-        /// </summary>
-        /// <param name="obj">The object</param>
-        /// <returns>True if can be saved otherwise false</returns>
-        public static bool CanBeSaved(UnityEngine.Object obj)
-        {
-            // Check if any of the hide flags determine that it should not be saved.
-            if ((((obj.hideFlags & HideFlags.DontSave) == HideFlags.DontSave) ||
-                 ((obj.hideFlags & HideFlags.DontSaveInBuild) == HideFlags.DontSaveInBuild) ||
-                 ((obj.hideFlags & HideFlags.DontSaveInEditor) == HideFlags.DontSaveInEditor) ||
-                 ((obj.hideFlags & HideFlags.HideAndDontSave) == HideFlags.HideAndDontSave)))
-            {
-                var type = obj.GetType();
-                // Meshes are marked with HideAndDontSave, but shouldn't be ignored.
-                if (type != typeof(Mesh) && type != typeof(Material))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-#endif
 
 #if UNITY_EDITOR
         [InitializeOnLoadMethod]

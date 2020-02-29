@@ -177,21 +177,14 @@ namespace Bayat.SaveSystem
                 DefaultUseEncryption = false;
                 DefaultEncryptionAlgorithm = new SaveSystemSymmetricEncryption();
                 DefaultPassword = "s@veg@me!12:59";
-                if (SaveSystemSettingsPreset.DefaultPreset != null)
+                DefaultSettings = new SaveSystemSettings()
                 {
-                    DefaultSettings = SaveSystemSettingsPreset.DefaultPreset.CustomSettings;
-                }
-                else
-                {
-                    DefaultSettings = new SaveSystemSettings()
-                    {
-                        Storage = DefaultStorage,
-                        Serializer = DefaultSerializer,
-                        UseEncryption = DefaultUseEncryption,
-                        EncryptionAlgorithm = DefaultEncryptionAlgorithm,
-                        Password = DefaultPassword
-                    };
-                }
+                    Storage = DefaultStorage,
+                    Serializer = DefaultSerializer,
+                    UseEncryption = DefaultUseEncryption,
+                    EncryptionAlgorithm = DefaultEncryptionAlgorithm,
+                    Password = DefaultPassword
+                };
             }
         }
 

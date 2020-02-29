@@ -711,10 +711,6 @@ namespace Bayat.Core.Reflection
 #else
         public static string GetFriendlyName(this Type type)
         {
-            if (type.IsGenericParameter)
-            {
-                return type.Name;
-            }
             string name = type.FullName;
             if (type.IsGenericType)
             {
