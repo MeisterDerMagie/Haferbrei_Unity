@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 573c3d1d2b024d53bfa02e211deab12c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  optionalAdditionalTooltipYOffset: 0
   tooltipIcon: {fileID: 0}
   tooltipTitle:
     mTerm: 
@@ -140,7 +141,8 @@ MonoBehaviour:
     mRTL_MaxLineLength: 0
     mRTL_ConvertNumbers: 0
     m_DontLocalizeParameters: 0
-  delay: 0.4
+  bodyElements: []
+  isRectTransform: 1
 --- !u!1 &1491005158017639415
 GameObject:
   m_ObjectHideFlags: 0

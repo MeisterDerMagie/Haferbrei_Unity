@@ -14,15 +14,19 @@ public class RessourceBar : MonoBehaviour, IInitSelf
 
     [SerializeField, BoxGroup("References"), Required] private RessourceValueList ressourcesThatCanBeShownInRessourceBar;
     [SerializeField, BoxGroup("Info"), LabelText("Ressources to show (even if the value is 0)"), ReadOnly] public List<Ressource> ressourcesToShow = new List<Ressource>(); //einziges Field, das gespeichert werden muss
-    [SerializeField, BoxGroup("Info"), ReadOnly] private Dictionary<Ressource, RessourceBarEntry> ressourceBarEntries = new Dictionary<Ressource, RessourceBarEntry>();
+
+    [HideInInspector] public bool compareToPlayerRessources;
+    
+    private Dictionary<Ressource, RessourceBarEntry> ressourceBarEntries = new Dictionary<Ressource, RessourceBarEntry>();
     
     private List<Ressource> entriesToCreate = new List<Ressource>();
     private List<Ressource> ressourcesToShowOrdered = new List<Ressource>();
-    
+    private RessourceBarCompareToPlayerRessources ressourceBarCompareToPlayerRessources;
     
     public void InitSelf()
     {
         container.onRessourcesChanged += UpdateRessourceBar;
+        ressourceBarCompareToPlayerRessources = GetComponent<RessourceBarCompareToPlayerRessources>();
         UpdateRessourceBar();
     }
 
@@ -71,6 +75,8 @@ public class RessourceBar : MonoBehaviour, IInitSelf
             CreateNewEntry(ressource);
         }
         OrderEntries();
+        
+        if(ressourceBarCompareToPlayerRessources != null && compareToPlayerRessources) ressourceBarCompareToPlayerRessources.UpdateComparison(container, ressourceBarEntries);
     }
 
     private void CreateNewEntry(Ressource _ressource)

@@ -59,7 +59,7 @@ public class Camera_Boundaries : MonoBehaviour
     }
 
 
-#if UNITY_EDITOR
+    #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         //hard boundaries gizmos
@@ -96,6 +96,6 @@ public class Camera_Boundaries : MonoBehaviour
         elasticBoundaryUpper = upperBoundary - elasticBoundarySize;
         elasticBoundaryLower = lowerBoundary + elasticBoundarySize;
     }
-#endif
+    #endif
 }
 }

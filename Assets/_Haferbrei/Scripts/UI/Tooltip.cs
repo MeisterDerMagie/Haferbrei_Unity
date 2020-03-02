@@ -26,7 +26,7 @@ public class Tooltip : MonoBehaviour, IInitSingletons
     [SerializeField, BoxGroup("Info"), ReadOnly] private CoroutineHandle showCountdown, hideCountdown;
     [SerializeField, BoxGroup("Info"), ReadOnly] private HasTooltip currentTooltipSource;
     [SerializeField, BoxGroup("Info"), ReadOnly] private List<GameObject> bodyElements = new List<GameObject>();
-
+    
     //--- Singleton Behaviour ---
     #region Singleton
     private static Tooltip instance_;
@@ -121,13 +121,13 @@ public class Tooltip : MonoBehaviour, IInitSingletons
                     AddBodyElement(element.text);
                     break;
                 case TooltipBodyElement.ElementType.RessourceContainer:
-                    AddBodyElement(element.ressourceContainer);
+                    AddBodyElement(element.ressourceContainer, element.compareToPlayerRessources);
                     break;
                 case TooltipBodyElement.ElementType.Recipe:
-                    AddBodyElement(element.recipe);
+                    AddBodyElement(element.recipe, element.compareToPlayerRessources);
                     break;
                 case TooltipBodyElement.ElementType.ModRecipe:
-                    AddBodyElement(element.modRecipe);
+                    AddBodyElement(element.modRecipe, element.compareToPlayerRessources);
                     break;
                 case TooltipBodyElement.ElementType.Prefab:
                     AddBodyElement(element.prefab);
@@ -147,31 +147,37 @@ public class Tooltip : MonoBehaviour, IInitSingletons
         hasBody = true;
     }
 
-    private void AddBodyElement(RessourceContainer _container)
+    private void AddBodyElement(RessourceContainer _container, bool _compareToPlayerRessources)
     {
         var newElement = bodyElementSpanwer_Ressources.Spawn(bodyObject.transform.position, Quaternion.identity, bodyObject.transform);
         bodyElements.Add(newElement);
-        newElement.GetComponent<RessourceBar>().SetContainer(_container);
+        var ressourceBar = newElement.GetComponent<RessourceBar>();
+        ressourceBar.compareToPlayerRessources = _compareToPlayerRessources;
+        ressourceBar.SetContainer(_container);
 
         hasBody = true;
     }
 
-    private void AddBodyElement(RessourceRecipe _recipe)
+    private void AddBodyElement(RessourceRecipe _recipe, bool _compareToPlayerRessources)
     {
         var newElement = bodyElementSpanwer_Ressources.Spawn(bodyObject.transform.position, Quaternion.identity, bodyObject.transform);
         bodyElements.Add(newElement);
         defaultContainer.SetRessources(_recipe);
-        newElement.GetComponent<RessourceBar>().SetContainer(defaultContainer);
+        var ressourceBar = newElement.GetComponent<RessourceBar>();
+        ressourceBar.compareToPlayerRessources = _compareToPlayerRessources;
+        ressourceBar.SetContainer(defaultContainer);
         
         hasBody = true;
     }
 
-    private void AddBodyElement(ModRessourceRecipe _recipe)
+    private void AddBodyElement(ModRessourceRecipe _recipe, bool _compareToPlayerRessources)
     {
         var newElement = bodyElementSpanwer_Ressources.Spawn(bodyObject.transform.position, Quaternion.identity, bodyObject.transform);
         bodyElements.Add(newElement);
         defaultContainer.SetRessources(_recipe);
-        newElement.GetComponent<RessourceBar>().SetContainer(defaultContainer);
+        var ressourceBar = newElement.GetComponent<RessourceBar>();
+        ressourceBar.compareToPlayerRessources = _compareToPlayerRessources;
+        ressourceBar.SetContainer(defaultContainer);
         
         hasBody = true;
     }

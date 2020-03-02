@@ -159,6 +159,7 @@ public class RessourceContainer : SerializedScriptableObject
         return true;
     }
 
+    public bool ContainsRessources(RessourceContainer _container) => ContainsRessources(_container.ressources);
     public bool ContainsRessources(RessourceRecipe _recipe) => ContainsRessources(_recipe.recipe);
     public bool ContainsRessources(ModRessourceRecipe _recipe) => ContainsRessources(_recipe.recipe);
     //-- --

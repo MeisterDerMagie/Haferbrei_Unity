@@ -11,7 +11,7 @@ namespace Haferbrei {
 public class RessourceBarEntry : MonoBehaviour
 {
     [SerializeField, BoxGroup("References"), Required] private Image ressourceIcon;
-    [SerializeField, BoxGroup("References"), Required] private TextMeshProUGUI amountText;
+    [SerializeField, BoxGroup("References"), Required] public TextMeshProUGUI amountText;
     [SerializeField, BoxGroup("Info"), ReadOnly] public Ressource ressource;
     [SerializeField, BoxGroup("Info"), ReadOnly] public RessourceContainer container;
 

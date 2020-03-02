@@ -16,6 +16,7 @@ public class TooltipBodyElement
     [ShowIf("typeIsRecipe")] public RessourceRecipe recipe;
     [ShowIf("typeIsModRecipe")] public ModRessourceRecipe modRecipe;
     [ShowIf("typeIsPrefab")] public GameObject prefab;
+    [ShowIf("typeIsRessources")] public bool compareToPlayerRessources = true;
     
     //-- for Odin --
     private bool typeIsText => (elementType == ElementType.Text);
@@ -23,6 +24,7 @@ public class TooltipBodyElement
     private bool typeIsRecipe => (elementType == ElementType.Recipe);
     private bool typeIsModRecipe => (elementType == ElementType.ModRecipe);
     private bool typeIsPrefab => (elementType == ElementType.Prefab);
+    private bool typeIsRessources => (elementType == ElementType.RessourceContainer || elementType == ElementType.Recipe || elementType == ElementType.ModRecipe);
     //-- --
 }
 }

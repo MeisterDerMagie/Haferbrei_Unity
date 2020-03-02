@@ -2,13 +2,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using MEC;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Haferbrei {
-public class Camera_Pan : MonoBehaviour
+public class Camera_Pan : MonoBehaviour, IPauseable
 {
+    [SerializeField] private bool isEnabled = true;
     [SerializeField] private Camera gameCamera;
     [SerializeField, Range(0f, 1f)] private float dampingAmount;
     [SerializeField, ReadOnly] private Vector3 mousePositionBefore;
@@ -17,8 +17,12 @@ public class Camera_Pan : MonoBehaviour
     [SerializeField, ReadOnly] private bool isDamping;
     [SerializeField, ReadOnly] public bool isPanning;
 
+    private bool isPaused;
+    
     private void Update()
     {
+        if (isPaused || !isEnabled) return;
+        
         mousePositionDelta = mousePositionBefore - gameCamera.ScreenToWorldPoint(Input.mousePosition);
 
         if (Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
@@ -60,5 +64,10 @@ public class Camera_Pan : MonoBehaviour
             isDamping = false;
         }
     }
+
+    //Pauseable
+    public void OnPause() => isPaused = true;
+
+    public void OnUnpause() => isPaused = false;
 }
 }

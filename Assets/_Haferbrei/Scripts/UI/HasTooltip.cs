@@ -11,6 +11,7 @@ using UnityEngine.EventSystems;
 namespace Haferbrei{
 public class HasTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    [SerializeField, BoxGroup("Settings"), Required] public float optionalAdditionalTooltipYOffset = 0f;
     [SerializeField, BoxGroup("Settings")] public Sprite tooltipIcon;
     [SerializeField, BoxGroup("Settings")] public LocalizedString tooltipTitle;
     [SerializeField, BoxGroup("Settings"), Required] public List<TooltipBodyElement> bodyElements;
