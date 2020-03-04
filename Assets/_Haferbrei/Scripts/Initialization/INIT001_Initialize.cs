@@ -13,7 +13,7 @@ public class INIT001_Initialize : SerializedMonoBehaviour
     [SerializeField, BoxGroup("Settings")] public bool initOnSceneStart = true;
     [SerializeField, BoxGroup("Settings")] public bool initOnAwake = false;
     [SerializeField, ReadOnly] public List<IInitSingletons>   singletonInits = new List<IInitSingletons>();
-    //[SerializeField, ReadOnly] public List<ISaveable>         saveableInits  = new List<ISaveable>();
+    [SerializeField, ReadOnly] public List<ISaveable>         saveableInits  = new List<ISaveable>();
     //[SerializeField, ReadOnly] public List<IStoreable>        storeableInits = new List<IStoreable>();
     [SerializeField, ReadOnly] public List<IInitSelf>         selfInits      = new List<IInitSelf>();
     [SerializeField, ReadOnly] public List<IInitDependencies> dependentInits = new List<IInitDependencies>();
@@ -48,8 +48,8 @@ public class INIT001_Initialize : SerializedMonoBehaviour
 
         yield return Timing.WaitForOneFrame;
         
-        //GetSaveables(transform, saveableInits);
-        //InitSaveables(saveableInits);
+        GetSaveables(transform, saveableInits);
+        InitSaveables(saveableInits);
         
         yield return Timing.WaitForOneFrame;
         
@@ -95,26 +95,26 @@ public class INIT001_Initialize : SerializedMonoBehaviour
     //--- ---
     
     //--- Init Saveables ---
-    //#region Init Saveables
-    //private static void GetSaveables(Transform _root, List<ISaveable> _saveablesList, bool _getRoot = false)
-    //{
-    //    ISaveable[] _saveable  = _root.GetComponents<ISaveable>();
-    //    _saveablesList.AddRange(_saveable);
-//
-    //    foreach(Transform t in _root)
-    //    {
-    //        if(t == _root && !_getRoot) continue;      //make sure you don't initialize the existing transform
-    //        GetSaveables(t, _saveablesList, _getRoot); //get this Transform's children recursively
-    //    }
-    //}    
-    //private static void InitSaveables(List<ISaveable> _saveablesList)
-    //{
-    //    foreach(ISaveable _saveable in _saveablesList)
-    //    {
-    //        _saveable.InitSaveable();
-    //    }
-    //}
-    //#endregion
+    #region Init Saveables
+    private static void GetSaveables(Transform _root, List<ISaveable> _saveablesList, bool _getRoot = false)
+    {
+        ISaveable[] _saveable  = _root.GetComponents<ISaveable>();
+        _saveablesList.AddRange(_saveable);
+
+        foreach(Transform t in _root)
+        {
+            if(t == _root && !_getRoot) continue;      //make sure you don't initialize the existing transform
+            GetSaveables(t, _saveablesList, _getRoot); //get this Transform's children recursively
+        }
+    }    
+    private static void InitSaveables(List<ISaveable> _saveablesList)
+    {
+        foreach(ISaveable _saveable in _saveablesList)
+        {
+            _saveable.InitSaveable();
+        }
+    }
+    #endregion
     //--- ---
 
     //--- Init Self and Dependents ---
@@ -150,12 +150,12 @@ public class INIT001_Initialize : SerializedMonoBehaviour
     //--- Initialize newly generated Prefab ---
     public static void InitializePrefab(Transform _gameObjectToInitialize)
     {
-        //var saveableInitsInPrefab = new List<ISaveable>();
+        var saveableInitsInPrefab = new List<ISaveable>();
         var selfInitsInPrefab = new List<IInitSelf>();
         var dependentInitsInPrefab = new List<IInitDependencies>();
 
-        //GetSaveables(_gameObjectToInitialize, saveableInitsInPrefab, true);
-        //InitSaveables(saveableInitsInPrefab);
+        GetSaveables(_gameObjectToInitialize, saveableInitsInPrefab, true);
+        InitSaveables(saveableInitsInPrefab);
         
         GetSelfAndDependent(_gameObjectToInitialize, selfInitsInPrefab, dependentInitsInPrefab, true);
         InitSelfAndDepentents(selfInitsInPrefab, dependentInitsInPrefab);
@@ -167,7 +167,7 @@ public class INIT001_Initialize : SerializedMonoBehaviour
         singletonInits.Clear();
         selfInits.Clear();
         dependentInits.Clear();
-        //saveableInits.Clear();
+        saveableInits.Clear();
     }
     
     #if UNITY_EDITOR

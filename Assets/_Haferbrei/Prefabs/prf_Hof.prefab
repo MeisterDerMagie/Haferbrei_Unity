@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1be76f73b67a93f408dcc6fca785f78f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5635877604643558137
+--- !u!114 &1731284659586459813
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,15 +197,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 4604666238020978129}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0851b0872d12d61429c65b19b671731d, type: 3}
+  m_Script: {fileID: 11500000, guid: 52a5653b056a461daf2b9b95867dadc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializeChildren: 1
-  serializeComponents: 1
-  serializeExcludedChildren: 0
-  serializeExcludedComponents: 0
-  excludedChildren: []
-  excludedComponents: []
+  prefabName: prf_Hof
+  saveLoadController: {fileID: 11400000, guid: 5b1094697c808fa46ae0cf952d481a93, type: 2}
+  saveableComponents:
+  - {fileID: -6697683519663017831}
+--- !u!114 &-6697683519663017831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4604666238020978129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9633ebf3cab0a940aaba981b512d0f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  componentID: 305fdfea-9a4a-4993-8e61-85e25b671f6b
 --- !u!50 &7688622984602201327
 Rigidbody2D:
   serializedVersion: 4

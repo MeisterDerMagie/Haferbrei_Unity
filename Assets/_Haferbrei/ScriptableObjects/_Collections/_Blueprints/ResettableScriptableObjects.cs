@@ -24,23 +24,7 @@ public class ResettableScriptableObjects : SerializedScriptableObject, IResettab
             (resettable.Value as IResettable).ResetSelf();
         }
     }
-    
-    public void RegisterScriptableObject(ScriptableObject _scriptableObject)
-    {
-        if (collection.ContainsKey(_scriptableObject.name)) return;
-        
-        collection.Add(_scriptableObject.name, _scriptableObject);
-        if(Application.isPlaying) instantiatedAtRuntime.Add(_scriptableObject.name, _scriptableObject);
-    }
 
-    public void UnregisterScriptableObject(ScriptableObject _scriptableObject)
-    {
-        if (!collection.ContainsKey(_scriptableObject.name)) return;
-        
-        collection.Remove(_scriptableObject.name);
-        if (instantiatedAtRuntime.ContainsKey(_scriptableObject.name)) instantiatedAtRuntime.Remove(_scriptableObject.name);
-    }
-    
     public void ResetSelf()
     {
         foreach (var so in instantiatedAtRuntime)
@@ -51,8 +35,7 @@ public class ResettableScriptableObjects : SerializedScriptableObject, IResettab
         }
         instantiatedAtRuntime.Clear();
     }
-
-
+    
     #if UNITY_EDITOR
     [Button]
     private void RefreshDictionary()

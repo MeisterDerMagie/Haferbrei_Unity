@@ -22,7 +22,7 @@ public class SO_LoadScenes : ScriptableObject
     [SerializeField, BoxGroup("Scenes")] private SceneReference newScene;
     [SerializeField, BoxGroup("Scenes")] private List<SceneReference> scenesToLoadAdditively;
 
-    [SerializeField, BoxGroup("SaveGame (optional)")] private BoolVariable loadGame;
+    [SerializeField, BoxGroup("SaveGame (optional)")] private SaveLoadController saveLoadController;
     
     
     public void LoadScenes()
@@ -55,10 +55,10 @@ public class SO_LoadScenes : ScriptableObject
         }
         
         //load save game data if there is any
-        if (loadGame != null && loadGame.Value)
+        if (saveLoadController != null && saveLoadController.loadSaveGame)
         {
-            FindObjectOfType<AutoSaveManager>().Load();
-            loadGame.Value = false;
+            saveLoadController.loadSaveGame = false;
+            Timing.RunCoroutine(saveLoadController._LoadGameState());
         }
 
         //after all scenes are loaded: search for all initializers and initialize all those who want to be initialized at the scene start

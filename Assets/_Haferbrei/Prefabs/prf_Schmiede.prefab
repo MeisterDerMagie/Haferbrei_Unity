@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &2553173609090966682
+--- !u!114 &814854858420912815
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,15 +9,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 4604666238020978129}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0851b0872d12d61429c65b19b671731d, type: 3}
+  m_Script: {fileID: 11500000, guid: 52a5653b056a461daf2b9b95867dadc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializeChildren: 1
-  serializeComponents: 1
-  serializeExcludedChildren: 0
-  serializeExcludedComponents: 0
-  excludedChildren: []
-  excludedComponents: []
+  prefabName: prf_Schmiede
+  saveLoadController: {fileID: 11400000, guid: 5b1094697c808fa46ae0cf952d481a93, type: 2}
+  saveableComponents:
+  - {fileID: 4921660895980187880}
+--- !u!114 &4921660895980187880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4604666238020978129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9633ebf3cab0a940aaba981b512d0f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  componentID: b6ca4375-7c60-4e04-8782-e565b039a1dc
 --- !u!50 &7688622984602201327
 Rigidbody2D:
   serializedVersion: 4
