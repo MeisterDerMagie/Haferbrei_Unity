@@ -13,22 +13,35 @@ public abstract class SaveableComponent : MonoBehaviour, IStoreable
     [SerializeField, DisplayAsString] public string componentID;
     
     //holt sich das dazugehörige SaveableObject (entweder auf demselben GameObject oder im nächsten Parent, das ein SaveableObject besitzt)
-    private SaveableGameObject AssociatedSaveableGameObject => (GetComponent<SaveableGameObject>() != null)
-        ? GetComponent<SaveableGameObject>()
-        : GetComponentsInParent<SaveableGameObject>(true)[0];
+    private SaveableGameObject AssociatedSaveableGameObject => GetAssociatedSaveableGameObject();
 
     public abstract SaveableComponentData StoreData();
 
     public abstract void RestoreData(SaveableComponentData _loadedData);
+
+    private SaveableGameObject GetAssociatedSaveableGameObject()
+    {
+        var onOwnObject = GetComponent<SaveableGameObject>();
+        var inParents = GetComponentsInParent<SaveableGameObject>(true);
+
+        if (onOwnObject == null && inParents.Length == 0)
+        {
+            Debug.LogWarning("Achtung, jede SaveableComponent benötigt ein dazugehöriges SaveableObject! (Entweder auf dem selben Object oder im Parent)", this);
+            componentID = "Error: Missing SaveableObject!";
+            return null;
+        }
+
+        return (onOwnObject != null) ? onOwnObject : inParents[0];
+    }
     
     public void OnDestroy()
     {
-        AssociatedSaveableGameObject.RemoveSaveableComponent(this);
+        if(AssociatedSaveableGameObject != null) AssociatedSaveableGameObject.RemoveSaveableComponent(this);
     }
 
-    private void OnValidate()
+    public void OnValidate()
     {
-        AssociatedSaveableGameObject.AddSaveableComponent(this);
+        if(AssociatedSaveableGameObject != null) AssociatedSaveableGameObject.AddSaveableComponent(this);
     }
 }
 

@@ -9,6 +9,7 @@ using UnityEditor.Experimental.SceneManagement;
 using UnityEditor.SceneManagement;
 #endif
 using UnityEngine;
+using Wichtel.Extensions;
 
 namespace Haferbrei {
 [RequireComponent(typeof(GuidComponent))]
@@ -85,39 +86,22 @@ public class SaveableGameObject : MonoBehaviour, ISaveable
     #region SetPrefabNameForReference
     private void OnValidate()
     {
-        if (IsAssetOnDisk())
+        if (this.IsAssetOnDisk())
         {
             prefabName = gameObject.name;
         }
+
+        CallOnValidateForSaveableComponentsInChildren();
+        
+        this.MoveComponentAtIndex(2);
     }
-    
-    private bool IsAssetOnDisk()
+
+    private void CallOnValidateForSaveableComponentsInChildren()
     {
-        return PrefabUtility.IsPartOfPrefabAsset(this) || IsEditingInPrefabMode();
-    }
-    
-    private bool IsEditingInPrefabMode()
-    {
-        if (EditorUtility.IsPersistent(this))
+        foreach (var sc in GetComponentsInChildren<SaveableComponent>(true))
         {
-            // if the game object is stored on disk, it is a prefab of some kind, despite not returning true for IsPartOfPrefabAsset =/
-            return true;
+            sc.OnValidate();
         }
-        else
-        {
-            // If the GameObject is not persistent let's determine which stage we are in first because getting Prefab info depends on it
-            var mainStage = StageUtility.GetMainStageHandle();
-            var currentStage = StageUtility.GetStageHandle(gameObject);
-            if (currentStage != mainStage)
-            {
-                var prefabStage = PrefabStageUtility.GetPrefabStage(gameObject);
-                if (prefabStage != null)
-                {
-                    return true;
-                }
-            }
-        }
-        return false;
     }
     #endregion
     #endif

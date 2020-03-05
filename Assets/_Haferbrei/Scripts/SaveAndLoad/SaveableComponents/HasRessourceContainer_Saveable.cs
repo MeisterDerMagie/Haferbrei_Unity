@@ -2,17 +2,21 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Haferbrei {
 public class HasRessourceContainer_Saveable : SaveableComponent
 {
+    [SerializeField, BoxGroup("References"), Required] private SaveableScriptableObjects saveableScriptableObjects;
+    
     public override SaveableComponentData StoreData()
     {
         var data = new HasRessourceContainerData();
+        var component = GetComponent<HasRessourceContainer>();
 
         data.componentID = componentID;
-        data.ressourceContainerAsGuid = GetComponent<HasRessourceContainer>().ressourceContainer.guid;
+        data.ressourceContainerAsGuid = saveableScriptableObjects.ResolveReference(component.ressourceContainer);
 
         return data;
     }
@@ -20,8 +24,9 @@ public class HasRessourceContainer_Saveable : SaveableComponent
     public override void RestoreData(SaveableComponentData _loadedData)
     {
         var data = _loadedData as HasRessourceContainerData;
-
-        GetComponent<HasRessourceContainer>().ressourceContainer = ScriptableObjectWithGuidCollection.Instance.scriptableObjects[data.ressourceContainerAsGuid] as RessourceContainer;
+        var component = GetComponent<HasRessourceContainer>();
+        
+        component.ressourceContainer = saveableScriptableObjects.ResolveGuid(data.ressourceContainerAsGuid) as RessourceContainer;
     }
 }
 

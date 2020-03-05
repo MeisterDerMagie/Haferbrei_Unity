@@ -275,7 +275,8 @@ public class RessourceContainer : SerializedScriptableObject, ISaveableScriptabl
     {
         var data = new RessourceContainer_SaveableSOData
         {
-            ressources = ressources
+            name = this.name,
+            ressources = this.ressources
         };
 
         return data;
@@ -285,11 +286,11 @@ public class RessourceContainer : SerializedScriptableObject, ISaveableScriptabl
     {
         var data = _loadedData as RessourceContainer_SaveableSOData;
 
+        name = data.name;
         ressources.Clear();
         foreach (var ressource in data.ressources)
         {
             ressources.Add(ressource.Key, ressource.Value);
-            Debug.Log(ressource.Key.identifier);
         }
     }
 
@@ -301,6 +302,7 @@ public class RessourceContainer : SerializedScriptableObject, ISaveableScriptabl
 
 public class RessourceContainer_SaveableSOData : SaveableSOData
 {
+    public string name;
     [OdinSerialize] public Dictionary<Ressource, int> ressources = new Dictionary<Ressource, int>();
 
 }

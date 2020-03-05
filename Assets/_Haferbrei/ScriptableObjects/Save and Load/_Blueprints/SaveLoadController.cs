@@ -17,7 +17,9 @@ public class SaveLoadController : SerializedScriptableObject
     
     public PrefabCollection allPrefabsCollection;
     public SceneCollection allScenesCollection;
+    public SaveableScriptableObjects saveableScriptableObjects;
     public GameObject initializerPrefab;
+    public GameObject loadingScreenPrefab;
     
     public List<SaveableData> loadedData = new List<SaveableData>();
     public List<SaveableData> dataToSave = new List<SaveableData>();
@@ -34,10 +36,10 @@ public class SaveLoadController : SerializedScriptableObject
         dataToSave.Clear();
         
         // 1. Collect SaveableScriptableObjects
-        SaveableScriptableObjects.CollectAllRuntimeInstantiatedSOs();
+        saveableScriptableObjects.CollectAllRuntimeInstantiatedSOs();
         
         // 2. Save ScriptableObjects
-        var scriptableObjectsData = SaveableScriptableObjects.SaveScriptableObjects();
+        var scriptableObjectsData = saveableScriptableObjects.SaveScriptableObjects();
         dataToSave.AddRange(scriptableObjectsData);
         
         // 3. Save GameObjects
@@ -71,6 +73,9 @@ public class SaveLoadController : SerializedScriptableObject
     {
         Debug.Log("Start loading game @ frame #" + Time.frameCount + " / time: " + DateTime.Now.TimeOfDay );
 
+        var loadingScreen = Instantiate(loadingScreenPrefab);
+        DontDestroyOnLoad(loadingScreen);
+        
         loadSaveGame = false;
         loadedData.Clear();
         SaveSystemAPI.LoadIntoAsync<List<SaveableData>>(saveGameFileName, loadedData);
@@ -79,7 +84,7 @@ public class SaveLoadController : SerializedScriptableObject
         
         // 1. Load all necessary scenes
         yield return Timing.WaitUntilDone(Timing.RunCoroutine(_LoadNecessaryScenes()));
-
+        yield return Timing.WaitForSeconds(3); //Äh ja, wenn ich diesen Wait wegnehme, bekomme ich Fehler beim Laden. Anscheinend sind dann noch nicht alle Szenen sauber geladen...
         Debug.Log("Loaded all scenes @ frame #" + Time.frameCount + " / time: " + DateTime.Now.TimeOfDay);
         
         // 2. Create ScriptableObject Instances and load data into them
@@ -97,6 +102,7 @@ public class SaveLoadController : SerializedScriptableObject
         // 4. Set parents
         SetParents();
         
+        Destroy(loadingScreen);
         Debug.Log("Loading complete @ frame #" + Time.frameCount + " / time: " + DateTime.Now.TimeOfDay);
     }
 
@@ -175,7 +181,7 @@ public class SaveLoadController : SerializedScriptableObject
 
     private void LoadScriptableObject(SaveableData _loadedData)
     {
-        SaveableScriptableObjects.LoadScriptableObject(_loadedData as SaveableSOData);
+        saveableScriptableObjects.LoadScriptableObject(_loadedData as SaveableSOData);
     }
 
     public void RegisterSaveableGameObject(ISaveable _saveable)
