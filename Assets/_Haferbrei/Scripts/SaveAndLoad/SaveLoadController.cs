@@ -33,7 +33,14 @@ public class SaveLoadController : SerializedScriptableObject
     {
         dataToSave.Clear();
         
-        //Save GameObjects
+        // 1. Collect SaveableScriptableObjects
+        SaveableScriptableObjects.CollectAllRuntimeInstantiatedSOs();
+        
+        // 2. Save ScriptableObjects
+        var scriptableObjectsData = SaveableScriptableObjects.SaveScriptableObjects();
+        dataToSave.AddRange(scriptableObjectsData);
+        
+        // 3. Save GameObjects
         List<ISaveable> emptySaveablesToRemove = new List<ISaveable>(); //anscheinend kann es selten passieren, dass leere Einträge übrig bleiben. Hier wird sich darum gekümmert.
         foreach (var saveableGameObject in saveableGameObjects)
         {
@@ -46,11 +53,8 @@ public class SaveLoadController : SerializedScriptableObject
             dataToSave.Add(data);
         }
         foreach (var emptyEntry in emptySaveablesToRemove) saveableGameObjects.Remove(emptyEntry);
-
-        //Save ScriptableObjects
         
-        
-        //Write file
+        // 4. Write file
         SaveSystemAPI.SaveAsync(_saveGameFileName, dataToSave);
         Debug.Log("Game saved!");
     }
@@ -73,20 +77,24 @@ public class SaveLoadController : SerializedScriptableObject
         parents.Clear();
         initializers.Clear();
         
-        //load all necessary scenes
+        // 1. Load all necessary scenes
         yield return Timing.WaitUntilDone(Timing.RunCoroutine(_LoadNecessaryScenes()));
 
         Debug.Log("Loaded all scenes @ frame #" + Time.frameCount + " / time: " + DateTime.Now.TimeOfDay);
         
-        //load data
+        // 2. Create ScriptableObject Instances and load data into them
         foreach (var data in loadedData)
         {
-            if      (data.saveableType == "ScriptableObject") LoadScriptableObject(data);
-            else if (data.saveableType == "GameObject")       LoadGameObject(data); //yield return Timing.WaitUntilDone(Timing.RunCoroutine(_LoadGameObject(data)));
-            else Debug.LogError("Can't load object of type: \"" + data.saveableType + "\"");
+            if (data.saveableType == "ScriptableObject") LoadScriptableObject(data);
         }
         
-        //set parents
+        // 3. Load GameObject data and create GameObjects
+        foreach (var data in loadedData)
+        {
+            if (data.saveableType == "GameObject") LoadGameObject(data); //yield return Timing.WaitUntilDone(Timing.RunCoroutine(_LoadGameObject(data)));
+        }
+        
+        // 4. Set parents
         SetParents();
         
         Debug.Log("Loading complete @ frame #" + Time.frameCount + " / time: " + DateTime.Now.TimeOfDay);
@@ -167,11 +175,7 @@ public class SaveLoadController : SerializedScriptableObject
 
     private void LoadScriptableObject(SaveableData _loadedData)
     {
-        // 1. Nicht existierende SOs erstellen
-        
-        
-        // 2. Daten laden
-        
+        SaveableScriptableObjects.LoadScriptableObject(_loadedData as SaveableSOData);
     }
 
     public void RegisterSaveableGameObject(ISaveable _saveable)

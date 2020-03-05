@@ -6,7 +6,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Haferbrei {
-public class Camera_Pan : MonoBehaviour, IPauseable
+public class Camera_Pan : MonoBehaviour
 {
     [SerializeField] private bool isEnabled = true;
     [SerializeField] private Camera gameCamera;
@@ -16,12 +16,10 @@ public class Camera_Pan : MonoBehaviour, IPauseable
     [SerializeField, ReadOnly] private Vector3 dampingDelta;
     [SerializeField, ReadOnly] private bool isDamping;
     [SerializeField, ReadOnly] public bool isPanning;
-
-    private bool isPaused;
     
     private void Update()
     {
-        if (isPaused || !isEnabled) return;
+        if (GameTime.GameIsPaused || !isEnabled) return;
         
         mousePositionDelta = mousePositionBefore - gameCamera.ScreenToWorldPoint(Input.mousePosition);
 
@@ -64,10 +62,5 @@ public class Camera_Pan : MonoBehaviour, IPauseable
             isDamping = false;
         }
     }
-
-    //Pauseable
-    public void OnPause() => isPaused = true;
-
-    public void OnUnpause() => isPaused = false;
 }
 }

@@ -8,7 +8,7 @@ using UnityEngine;
 using Wichtel.Extensions;
 
 namespace Haferbrei {
-public class Camera_PanScreenEdge : MonoBehaviour, IPauseable
+public class Camera_PanScreenEdge : MonoBehaviour
 {
     [SerializeField] private bool isEnabled = true;
     [SerializeField] private float edgeThreshold;
@@ -21,13 +21,12 @@ public class Camera_PanScreenEdge : MonoBehaviour, IPauseable
     [SerializeField, ReadOnly] private bool isDamping;
     
     private Tween dampTween;
-    private bool isPaused;
 
     [SerializeField, Required] Camera_Zoom zoomScript; 
     
     private void Update()
     {
-        if (isPaused || !isEnabled) return;
+        if (GameTime.GameIsPaused || !isEnabled) return;
         
         Vector3 mousePos = Input.mousePosition;
         deltaPos = Vector3.zero;
@@ -101,10 +100,5 @@ public class Camera_PanScreenEdge : MonoBehaviour, IPauseable
             deltaPos = Vector3.zero;
         } 
     }
-    
-    //Pauseable
-    public void OnPause() => isPaused = true;
-
-    public void OnUnpause() => isPaused = false;
 }
 }

@@ -271,19 +271,26 @@ public class RessourceContainer : SerializedScriptableObject, ISaveableScriptabl
     }
     
     //Saveable
-    public SaveableData SaveData()
+    public SaveableSOData SaveData()
     {
-        var data = new RessourceContainer_SaveableSOData();
+        var data = new RessourceContainer_SaveableSOData
+        {
+            ressources = ressources
+        };
 
-        data.ressources = ressources;
         return data;
     }
 
-    public void LoadData(SaveableData _loadedData)
+    public void LoadData(SaveableSOData _loadedData)
     {
         var data = _loadedData as RessourceContainer_SaveableSOData;
 
-        ressources = data.ressources;
+        ressources.Clear();
+        foreach (var ressource in data.ressources)
+        {
+            ressources.Add(ressource.Key, ressource.Value);
+            Debug.Log(ressource.Key.identifier);
+        }
     }
 
     public void InitSaveable()

@@ -13,14 +13,14 @@ namespace Haferbrei {
 public class GameTime : SerializedMonoBehaviour
 {
     [ShowInInspector] public static float TimeScale = 1f;
-    [ShowInInspector, ReadOnly] private static bool gameIsPaused;
+    [ShowInInspector, ReadOnly] public static bool GameIsPaused;
 
     private IEnumerable<IPauseable> allPauseables;
     
     [Button, DisableInEditorMode]
     public void PauseGame()
     {
-        gameIsPaused = true;
+        GameIsPaused = true;
         FindAllIPauseables();
         foreach (var iPauseable in allPauseables) { iPauseable.OnPause(); }
     }
@@ -28,7 +28,7 @@ public class GameTime : SerializedMonoBehaviour
     [Button, DisableInEditorMode]
     public void UnpauseGame()
     {
-        gameIsPaused = false;
+        GameIsPaused = false;
         foreach (var iPauseable in allPauseables) { iPauseable.OnUnpause(); }
     }
 

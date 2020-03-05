@@ -15,44 +15,92 @@ public class SaveableScriptableObjects : SerializedScriptableObject, IResettable
 {
     [SerializeField, Delayed] protected string folder;
     [SerializeField, Delayed] protected List<string> foldersToIgnore;
-    [ShowInInspector, ReadOnly] public static List<Guid> guids = new List<Guid>();
-    [ShowInInspector, ReadOnly] public static List<ScriptableObject> scriptableObjects = new List<ScriptableObject>();
 
     [ShowInInspector, ReadOnly] private static List<Guid> guidsOnDisk = new List<Guid>();
-    [ShowInInspector, ReadOnly] private static List<ScriptableObject> scriptableObjectsOnDisk = new List<ScriptableObject>();
+    [ShowInInspector, ReadOnly] private static List<ScriptableObject> SOsOnDisk = new List<ScriptableObject>();
     [ShowInInspector, ReadOnly] private static List<Guid> guidsInstantiatedAtRuntime = new List<Guid>();
-    [ShowInInspector, ReadOnly] private static List<ScriptableObject> scriptableInstantiatedAtRuntime = new List<ScriptableObject>();
-
-    /*
-    public void LoadAllScriptableObjects()
-    {
-        foreach (var resettable in collection)
-        {
-            (resettable.Value as ISaveableScriptableObject).LoadData();
-        }
-    }*/
+    [ShowInInspector, ReadOnly] private static List<ScriptableObject> SOsInstantiatedAtRuntime = new List<ScriptableObject>();
     
-    public SaveableData SaveDiskSOs()
+    //Muss aufgerufen werden, bevor GameObjects gespeichert werden!
+    public static void CollectAllRuntimeInstantiatedSOs()
     {
-        throw new NotImplementedException();
-    }
+        var allSaveableScriptableObjects = FindObjectsOfType<ScriptableObject>();
 
-    public void ResetSelf()
-    {
-        foreach (var so in scriptableInstantiatedAtRuntime)
+        foreach (var so in allSaveableScriptableObjects)
         {
-            //Debug.Log("Destroy: " + so.Value.name);
-            Destroy(so);
-            guids = new List<Guid>(guidsOnDisk);
-            scriptableObjects = new List<ScriptableObject>(scriptableObjectsOnDisk);
+            if(!(so is ISaveableScriptableObject) || SOsOnDisk.Contains(so) || SOsInstantiatedAtRuntime.Contains(so)) continue;
+            RegisterNewSoCreatedAtRuntime(so);
         }
-        guidsInstantiatedAtRuntime.Clear();
-        scriptableInstantiatedAtRuntime.Clear();
+    }
+    
+    //--- Save Data ---
+    public static List<SaveableData> SaveScriptableObjects()
+    {
+        var data = new List<SaveableData>();
+        //Disc
+        for (int i = 0; i < SOsOnDisk.Count; i++)
+        {
+            var soData = GetSoSaveableData(i, true);
+            data.Add(soData);
+        }
+        //Runtime
+        for (int i = 0; i < SOsInstantiatedAtRuntime.Count; i++)
+        {
+            var soData = GetSoSaveableData(i, false);
+            data.Add(soData);
+        }
+
+        return data;
     }
 
+    private static SaveableSOData GetSoSaveableData(int i, bool isDiskSO)
+    {
+        var so = isDiskSO ? SOsOnDisk[i] : SOsInstantiatedAtRuntime[i];
+        var soAsSaveable = so as ISaveableScriptableObject;
+        var soData = soAsSaveable.SaveData();
+        soData.guid = isDiskSO ? guidsOnDisk[i] : guidsInstantiatedAtRuntime[i];
+        soData.saveableType = "ScriptableObject";
+        soData.scriptableObjectName = so.name;
+        soData.scriptableObjectType = so.GetType().FullName;
+        return soData;
+    }
+    //--- ---
+    
+    //--- Load Data ---
+    public static void LoadScriptableObject(SaveableSOData _data)
+    {
+        if (guidsOnDisk.Contains(_data.guid))
+        {
+            Debug.Log("SO instance already exists: " + _data.scriptableObjectName);
+            int index = guidsOnDisk.IndexOf(_data.guid);
+            var so = SOsOnDisk[index];
+            (so as ISaveableScriptableObject).LoadData(_data);
+            return;
+        }
+
+        Debug.Log("Create new SO Instance: " + _data.scriptableObjectName);
+        Type soType = Type.GetType(_data.scriptableObjectType);
+        var newSo = ScriptableObject.CreateInstance(soType);
+        
+        SOsInstantiatedAtRuntime.Add(newSo);
+        guidsInstantiatedAtRuntime.Add(_data.guid);
+        
+        (newSo as ISaveableScriptableObject).LoadData(_data);
+    }
+    //--- ---
+    
+    private static Guid RegisterNewSoCreatedAtRuntime(ScriptableObject _scriptableObject)
+    {
+        SOsInstantiatedAtRuntime.Add(_scriptableObject);
+        var newGuid = Guid.NewGuid();
+        guidsInstantiatedAtRuntime.Add(newGuid);
+        return newGuid;
+    }
+    
     public static ScriptableObject ResolveGuid(Guid _guid)
     {
-        if (guids.Contains(_guid)) return scriptableObjects[guids.IndexOf(_guid)];
+        if (guidsOnDisk.Contains(_guid)) return SOsOnDisk[guidsOnDisk.IndexOf(_guid)];
+        if (guidsInstantiatedAtRuntime.Contains(_guid)) return SOsInstantiatedAtRuntime[guidsInstantiatedAtRuntime.IndexOf(_guid)];
         else
         {
             Debug.LogError("Can't resolve Guid: " + _guid);
@@ -62,7 +110,8 @@ public class SaveableScriptableObjects : SerializedScriptableObject, IResettable
 
     public static Guid ResolveReference(ScriptableObject _scriptableObject)
     {
-        if (scriptableObjects.Contains(_scriptableObject)) return guids[scriptableObjects.IndexOf(_scriptableObject)];
+        if (SOsOnDisk.Contains(_scriptableObject)) return guidsOnDisk[SOsOnDisk.IndexOf(_scriptableObject)];
+        if (SOsInstantiatedAtRuntime.Contains(_scriptableObject)) return guidsInstantiatedAtRuntime[SOsInstantiatedAtRuntime.IndexOf(_scriptableObject)];
         else
         {
             Debug.LogError("Can't resolve ScriptableObjectReference: " + _scriptableObject);
@@ -70,6 +119,19 @@ public class SaveableScriptableObjects : SerializedScriptableObject, IResettable
         }
     }
     
+    //IResettable
+    public void ResetSelf()
+    {
+        foreach (var so in SOsInstantiatedAtRuntime)
+        {
+            //Debug.Log("Destroy: " + so.Value.name);
+            Destroy(so);
+        }
+        guidsInstantiatedAtRuntime.Clear();
+        SOsInstantiatedAtRuntime.Clear();
+    }
+    
+    //Collect all prebuilt SaveableScriptableObjects on disk 
     #if UNITY_EDITOR
     [Button]
     private void RefreshDictionary()
@@ -88,19 +150,19 @@ public class SaveableScriptableObjects : SerializedScriptableObject, IResettable
             }
             if(ignoreThisScriptableObject) continue;
 
-            if (!scriptableObjectsOnDisk.Contains(so))
+            if (!SOsOnDisk.Contains(so))
             {
                 if (!(so is ISaveableScriptableObject)) continue;
                 guidsOnDisk.Add(Guid.NewGuid());
-                scriptableObjectsOnDisk.Add(so);
+                SOsOnDisk.Add(so);
             }
         }
         
         //Remove empty occurences
-        for (int i = scriptableObjectsOnDisk.Count -1; i >= 0; i--)
+        for (int i = SOsOnDisk.Count -1; i >= 0; i--)
         {
-            if(scriptableObjectsOnDisk[i] != null) continue;
-            scriptableObjectsOnDisk.RemoveAt(i);
+            if(SOsOnDisk[i] != null) continue;
+            SOsOnDisk.RemoveAt(i);
             guidsOnDisk.RemoveAt(i);
         }
     }

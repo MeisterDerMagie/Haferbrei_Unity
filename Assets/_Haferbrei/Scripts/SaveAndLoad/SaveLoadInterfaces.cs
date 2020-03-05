@@ -16,8 +16,8 @@ public interface IStoreable
 
 public interface ISaveableScriptableObject
 {
-    SaveableData SaveData();
-    void LoadData(SaveableData _loadedData);
+    SaveableSOData SaveData();
+    void LoadData(SaveableSOData _loadedData);
     void InitSaveable();
 }
 }

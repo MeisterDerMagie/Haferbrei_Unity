@@ -11,6 +11,7 @@ public abstract class SaveableData //base class for all classes that can be save
 
 public abstract class SaveableSOData : SaveableData
 {
-    
+    public string scriptableObjectName;
+    public string scriptableObjectType;
 }
 }

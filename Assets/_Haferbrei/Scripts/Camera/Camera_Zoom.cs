@@ -9,7 +9,7 @@ using UnityEditor;
 using UnityEngine;
 
 namespace Haferbrei {
-public class Camera_Zoom : MonoBehaviour, IPauseable
+public class Camera_Zoom : MonoBehaviour
 {
     [SerializeField, BoxGroup("Settings"), Required] private bool isEnabled = true;
     [SerializeField, BoxGroup("Settings")] public bool invertScrollDirection;
@@ -24,13 +24,12 @@ public class Camera_Zoom : MonoBehaviour, IPauseable
     [SerializeField, BoxGroup("Info"), ReadOnly] private float newSize;
     
     private Tween zoomTween;
-    private bool isPaused;
 
     private void OnEnable() => newSize = mainCamera.orthographicSize;
 
     private void Update()
     {
-        if(isPaused || !isEnabled) return;
+        if(GameTime.GameIsPaused || !isEnabled) return;
 
         relativeZoom = Wichtel.MathW.Remap(newSize, minZoomValue, maxZoomValue, 0f, 1f);
 
@@ -46,10 +45,5 @@ public class Camera_Zoom : MonoBehaviour, IPauseable
             zoomTween = mainCamera.DOOrthoSize(newSize, zoomSpeed).SetEase(Ease.OutExpo);
         }
     }
-    
-    //Pauseable
-    public void OnPause() => isPaused = true;
-
-    public void OnUnpause() => isPaused = false;
 }
 }
