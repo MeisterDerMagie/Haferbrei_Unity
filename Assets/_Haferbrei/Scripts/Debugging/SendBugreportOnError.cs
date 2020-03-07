@@ -84,6 +84,7 @@ public class SendBugreportOnError : MonoBehaviour
         float elapsedTime = 0f;
         while (!File.Exists(screenshotPath) && elapsedTime < 3f) //wenn der Screenshot nach 3s noch nicht gespeichert wurde, wird die Mail ohne Screenshot verschickt
         {
+            elapsedTime += Time.deltaTime;
             yield return Timing.WaitForOneFrame;
         }
         if(File.Exists(screenshotPath)) attachments.Add(new Attachment(screenshotPath));
