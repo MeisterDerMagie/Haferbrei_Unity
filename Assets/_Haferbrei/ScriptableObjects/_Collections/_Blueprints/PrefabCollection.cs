@@ -14,6 +14,8 @@ public class PrefabCollection : SerializedScriptableObject
 
     public GameObject GetPrefab(string _name)
     {
+        Debug.Log("GetPrefab of name: " + _name);
+        Debug.Log("PrefabReferences contains this Prefab? : " + prefabReferences.ContainsKey(_name));
         var prefab = (prefabReferences.ContainsKey(_name)) ? prefabReferences[_name] : null;
         return prefab;
     }

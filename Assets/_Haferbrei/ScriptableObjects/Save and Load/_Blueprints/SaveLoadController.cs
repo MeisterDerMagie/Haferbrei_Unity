@@ -84,7 +84,6 @@ public class SaveLoadController : SerializedScriptableObject
         
         // 1. Load all necessary scenes
         yield return Timing.WaitUntilDone(Timing.RunCoroutine(_LoadNecessaryScenes()));
-        //yield return Timing.WaitForSeconds(3); //Äh ja, wenn ich diesen Wait wegnehme, bekomme ich Fehler beim Laden. Anscheinend sind dann noch nicht alle Szenen sauber geladen...
         Debug.Log("Loaded all scenes @ frame #" + Time.frameCount + " / time: " + DateTime.Now.TimeOfDay);
         
         // 2. Create ScriptableObject Instances and load data into them
@@ -92,14 +91,21 @@ public class SaveLoadController : SerializedScriptableObject
         {
             if (data.saveableType == "ScriptableObject") LoadScriptableObject(data);
         }
+        Debug.Log("Loaded all scriptableObjects @ frame #" + Time.frameCount + " / time: " + DateTime.Now.TimeOfDay);
         
-        // 3. Load GameObject data and create GameObjects
+        // 3 All Guids auf bestehenden Objekten initialisieren
+        GuidManager.InitializeGuidComponents();
+        Debug.Log("Initialized all GuidComponents @ frame #" + Time.frameCount + " / time: " + DateTime.Now.TimeOfDay);
+
+        // 4. Load GameObject data and create GameObjects
         foreach (var data in loadedData)
         {
             if (data.saveableType == "GameObject") LoadGameObject(data); //yield return Timing.WaitUntilDone(Timing.RunCoroutine(_LoadGameObject(data)));
         }
+        Debug.Log("Loaded all GameObjects @ frame #" + Time.frameCount + " / time: " + DateTime.Now.TimeOfDay);
+
         
-        // 4. Set parents
+        // 5. Set parents
         SetParents();
         
         Destroy(loadingScreen);
@@ -161,6 +167,7 @@ public class SaveLoadController : SerializedScriptableObject
             {
                 var newInitializer = Instantiate(initializerPrefab);
                 newInitializer.SetActive(false);
+                newInitializer.name = $"Initializer of scene {targetScene.name}"; //um mögliches Debugging zu vereinfachen, damit nicht alle Initializer "Initializer(Clone)" heißen
                 var newGuid = Guid.NewGuid();
                 var guidComponent = newInitializer.GetComponent<GuidComponent>();
                 guidComponent.SetGuid(newGuid);
@@ -182,7 +189,7 @@ public class SaveLoadController : SerializedScriptableObject
             //Setze die Guid auf dem neu erstellten GameObjekt.
             newGameObject.GetComponent<GuidComponent>().SetGuid(_data.guid);
         }
-        else Debug.LogError("Konnte Prefab nicht finden, das beim Laden instantiiert werden sollte! (" + _data.prefabName + ")");
+        else Debug.LogError("Konnte Prefab nicht finden, das beim Laden instantiiert werden sollte! (" + _data.prefabName + ") Beim GameObject: " + _data.gameObjectName);
 
         return newGameObject;
     }

@@ -68,7 +68,7 @@ public class INIT001_Initialize : SerializedMonoBehaviour
         isInitialized = true;
         onInitializeFinished.Invoke();
 
-        //Destroy(gameObject);
+        Destroy(gameObject);
     }
     
     //--- Init Singletons ---
@@ -106,7 +106,7 @@ public class INIT001_Initialize : SerializedMonoBehaviour
             if(t == _root && !_getRoot) continue;      //make sure you don't initialize the existing transform
             GetSaveables(t, _saveablesList, _getRoot); //get this Transform's children recursively
         }
-    }    
+    }
     private static void InitSaveables(List<ISaveable> _saveablesList)
     {
         foreach(ISaveable _saveable in _saveablesList)
