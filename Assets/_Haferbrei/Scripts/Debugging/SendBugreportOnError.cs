@@ -69,13 +69,13 @@ public class SendBugreportOnError : MonoBehaviour
         Debug.Log("Path: " + Path.Combine(paths));
         
         string logFilePathS = Path.Combine(paths);
-        string logFilePathD = Path.Combine(userFolder, $@"AppData\LocalLow\{companyName}\{productName}\Bugreport_{DateTime.Now:MM-dd-yyyy_HH-mm-ss}.log");
+        string logFilePathD = Path.Combine(userFolder, $@"AppData\LocalLow\{companyName}\{productName}\Bugreport_{DateTime.Now:yyyyMMdd-HHmm-ss}.log");
         File.Copy(logFilePathS, logFilePathD, true);
 
         attachments.Add(new Attachment(logFilePathD));
         
         //screenshot
-        string screenshotFileName = $"BugreportScreenshot_{DateTime.Now:MM-dd-yyyy_HH-mm-ss}.png";
+        string screenshotFileName = $"BugreportScreenshot_{DateTime.Now:yyyyMMdd-HHmm-ss}.png";
         string screenshotPath = Path.Combine(userFolder, $@"AppData\LocalLow\{companyName}\{productName}", screenshotFileName);
         ScreenCapture.CaptureScreenshot(screenshotPath);
 
