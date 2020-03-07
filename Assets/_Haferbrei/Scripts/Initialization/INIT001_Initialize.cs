@@ -35,7 +35,7 @@ public class INIT001_Initialize : SerializedMonoBehaviour
     [Button, DisableInEditorMode]
     public void StartInitialization()
     {
-        Debug.Log("start initializing in scene " + gameObject.scene.name, gameObject);
+        Debug.Log("start initializing in scene " + gameObject.scene.name + ", goName: " + gameObject.name, gameObject);
         Timing.RunCoroutine(_Initialize());
     }
     
@@ -68,7 +68,7 @@ public class INIT001_Initialize : SerializedMonoBehaviour
         isInitialized = true;
         onInitializeFinished.Invoke();
 
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
     
     //--- Init Singletons ---

@@ -30,9 +30,6 @@ public class SaveableScriptableObjects : SerializedScriptableObject, IResettable
         {
             if(!(so is ISaveableScriptableObject) || SOsOnDisk.Contains(so) || SOsInstantiatedAtRuntime.Contains(so)) continue;
             RegisterNewSoCreatedAtRuntime(so);
-
-            Debug.Log("Register: " + so.name);
-            Debug.Log("SosListe.Count = " + SOsInstantiatedAtRuntime.Count);
         }
     }
     
@@ -58,17 +55,11 @@ public class SaveableScriptableObjects : SerializedScriptableObject, IResettable
 
     private SaveableSOData GetSoSaveableData(int i, bool isDiskSO)
     {
-        Debug.Log("in der Methode");
         var so = isDiskSO ? SOsOnDisk[i] : SOsInstantiatedAtRuntime[i];
-        Debug.Log("so == null: " + (so == null));
-        Debug.Log("1");
         var soAsSaveable = so as ISaveableScriptableObject;
-        Debug.Log("2");
         Debug.Log(so.name);
         var soData = soAsSaveable.SaveData();
-        Debug.Log("3");
         soData.guid = isDiskSO ? guidsOnDisk[i] : guidsInstantiatedAtRuntime[i];
-        Debug.Log("4");
         soData.saveableType = "ScriptableObject";
         soData.scriptableObjectName = so.name;
         soData.scriptableObjectType = so.GetType().FullName;
@@ -81,14 +72,12 @@ public class SaveableScriptableObjects : SerializedScriptableObject, IResettable
     {
         if (guidsOnDisk.Contains(_data.guid))
         {
-            Debug.Log("SO instance already exists: " + _data.scriptableObjectName);
             int index = guidsOnDisk.IndexOf(_data.guid);
             var so = SOsOnDisk[index];
             (so as ISaveableScriptableObject).LoadData(_data);
             return;
         }
-
-        Debug.Log("Create new SO Instance: " + _data.scriptableObjectName);
+        
         Type soType = Type.GetType(_data.scriptableObjectType);
         var newSo = ScriptableObject.CreateInstance(soType);
         
@@ -101,8 +90,6 @@ public class SaveableScriptableObjects : SerializedScriptableObject, IResettable
     
     private Guid RegisterNewSoCreatedAtRuntime(ScriptableObject _scriptableObject)
     {
-        Debug.Log("In RegisterMethode.");
-        Debug.Log("_scriptableObject.name = " + _scriptableObject.name);
         SOsInstantiatedAtRuntime.Add(_scriptableObject);
         var newGuid = Guid.NewGuid();
         guidsInstantiatedAtRuntime.Add(newGuid);
@@ -134,7 +121,6 @@ public class SaveableScriptableObjects : SerializedScriptableObject, IResettable
     //IResettable
     public void ResetSelf()
     {
-        Debug.Log("Reset jetzzz");
         foreach (var so in SOsInstantiatedAtRuntime)
         {
             //Debug.Log("Destroy: " + so.Value.name);

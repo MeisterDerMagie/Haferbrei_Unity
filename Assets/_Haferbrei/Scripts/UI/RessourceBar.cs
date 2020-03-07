@@ -31,6 +31,7 @@ public class RessourceBar : MonoBehaviour, IInitSelf
     }
 
     private void OnDisable() => container.onRessourcesChanged -= UpdateRessourceBar;
+    private void OnDestroy() => container.onRessourcesChanged -= UpdateRessourceBar;
 
     public void SetContainer(RessourceContainer _container)
     {

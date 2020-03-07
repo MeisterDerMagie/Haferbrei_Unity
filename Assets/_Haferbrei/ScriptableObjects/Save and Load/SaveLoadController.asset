@@ -34,7 +34,7 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 5
+      Data: 4
     - Name: 
       Entry: 7
       Data: 1|Haferbrei.RessourceContainer_SaveableSOData, Assembly-CSharp
@@ -111,7 +111,7 @@ MonoBehaviour:
       Data: 3
     - Name: $v
       Entry: 3
-      Data: 97860
+      Data: 97800
     - Name: 
       Entry: 8
       Data: 
@@ -135,7 +135,7 @@ MonoBehaviour:
       Data: 5
     - Name: $v
       Entry: 3
-      Data: 97240
+      Data: 97180
     - Name: 
       Entry: 8
       Data: 
@@ -147,7 +147,7 @@ MonoBehaviour:
       Data: 6
     - Name: $v
       Entry: 3
-      Data: 2180
+      Data: 80
     - Name: 
       Entry: 8
       Data: 
@@ -250,7 +250,7 @@ MonoBehaviour:
       Data: 6|Haferbrei.RessourceContainer_SaveableSOData, Assembly-CSharp
     - Name: guid
       Entry: 2
-      Data: f827d59605004746af25de3b028707ae
+      Data: 344516ee0d7c453a95fdaf5ec09be02d
     - Name: saveableType
       Entry: 1
       Data: ScriptableObject
@@ -318,200 +318,7 @@ MonoBehaviour:
       Data: 3ce4580b-d788-41df-a6fc-47f1d82c090f
     - Name: ressourceContainerAsGuid
       Entry: 2
-      Data: f827d59605004746af25de3b028707ae
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 11|Haferbrei.SaveableGameObjectData, Assembly-CSharp
-    - Name: guid
-      Entry: 2
-      Data: 05ba9678b2e84b6e9bb151f3fbe2216a
-    - Name: saveableType
-      Entry: 1
-      Data: GameObject
-    - Name: sceneName
-      Entry: 1
-      Data: MainGame
-    - Name: parentGuid
-      Entry: 2
-      Data: 00000000000000000000000000000000
-    - Name: prefabName
-      Entry: 1
-      Data: 
-    - Name: gameObjectName
-      Entry: 1
-      Data: SaveableTest
-    - Name: componentDatas
-      Entry: 7
-      Data: 12|System.Collections.Generic.List`1[[Haferbrei.SaveableComponentData,
-        Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 13|Haferbrei.Transform_SaveableComponentData, Assembly-CSharp
-    - Name: componentID
-      Entry: 1
-      Data: 52f170f6-b60f-4585-8ca4-c35c55f5d139
-    - Name: localPosition
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: localRotation
-      Entry: 7
-      Data: UnityEngine.Quaternion, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: localScale
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: anchoredPosition
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: anchoredPosition3D
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: anchorMax
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: anchorMin
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: offsetMax
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: offsetMin
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: pivot
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: sizeDelta
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
+      Data: 344516ee0d7c453a95fdaf5ec09be02d
     - Name: 
       Entry: 8
       Data: 
@@ -532,14 +339,14 @@ MonoBehaviour:
       Data: 
     - Name: dataToSave
       Entry: 7
-      Data: 14|System.Collections.Generic.List`1[[Haferbrei.SaveableData, Assembly-CSharp]],
+      Data: 11|System.Collections.Generic.List`1[[Haferbrei.SaveableData, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
-      Data: 5
+      Data: 4
     - Name: 
       Entry: 7
-      Data: 15|Haferbrei.RessourceContainer_SaveableSOData, Assembly-CSharp
+      Data: 12|Haferbrei.RessourceContainer_SaveableSOData, Assembly-CSharp
     - Name: guid
       Entry: 2
       Data: c49844cdc37646f5999e06c129dd36ef
@@ -557,11 +364,11 @@ MonoBehaviour:
       Data: PlayerRessources
     - Name: ressources
       Entry: 7
-      Data: 16|System.Collections.Generic.Dictionary`2[[Haferbrei.Ressource, Assembly-CSharp],[System.Int32,
+      Data: 13|System.Collections.Generic.Dictionary`2[[Haferbrei.Ressource, Assembly-CSharp],[System.Int32,
         mscorlib]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 17|System.Collections.Generic.ObjectEqualityComparer`1[[Haferbrei.Ressource,
+      Data: 14|System.Collections.Generic.ObjectEqualityComparer`1[[Haferbrei.Ressource,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 8
@@ -613,7 +420,7 @@ MonoBehaviour:
       Data: 3
     - Name: $v
       Entry: 3
-      Data: 97860
+      Data: 97800
     - Name: 
       Entry: 8
       Data: 
@@ -637,7 +444,7 @@ MonoBehaviour:
       Data: 5
     - Name: $v
       Entry: 3
-      Data: 97240
+      Data: 97180
     - Name: 
       Entry: 8
       Data: 
@@ -649,7 +456,7 @@ MonoBehaviour:
       Data: 6
     - Name: $v
       Entry: 3
-      Data: 2180
+      Data: 80
     - Name: 
       Entry: 8
       Data: 
@@ -664,7 +471,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 18|Haferbrei.RessourceContainer_SaveableSOData, Assembly-CSharp
+      Data: 15|Haferbrei.RessourceContainer_SaveableSOData, Assembly-CSharp
     - Name: guid
       Entry: 2
       Data: 371f73426b384f938fc04a76fc402102
@@ -682,11 +489,11 @@ MonoBehaviour:
       Data: TooltipRessources
     - Name: ressources
       Entry: 7
-      Data: 19|System.Collections.Generic.Dictionary`2[[Haferbrei.Ressource, Assembly-CSharp],[System.Int32,
+      Data: 16|System.Collections.Generic.Dictionary`2[[Haferbrei.Ressource, Assembly-CSharp],[System.Int32,
         mscorlib]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 20|System.Collections.Generic.ObjectEqualityComparer`1[[Haferbrei.Ressource,
+      Data: 17|System.Collections.Generic.ObjectEqualityComparer`1[[Haferbrei.Ressource,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 8
@@ -753,10 +560,10 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 21|Haferbrei.RessourceContainer_SaveableSOData, Assembly-CSharp
+      Data: 18|Haferbrei.RessourceContainer_SaveableSOData, Assembly-CSharp
     - Name: guid
       Entry: 2
-      Data: f827d59605004746af25de3b028707ae
+      Data: 344516ee0d7c453a95fdaf5ec09be02d
     - Name: saveableType
       Entry: 1
       Data: ScriptableObject
@@ -771,11 +578,11 @@ MonoBehaviour:
       Data: Markt_RessourceContainer
     - Name: ressources
       Entry: 7
-      Data: 22|System.Collections.Generic.Dictionary`2[[Haferbrei.Ressource, Assembly-CSharp],[System.Int32,
+      Data: 19|System.Collections.Generic.Dictionary`2[[Haferbrei.Ressource, Assembly-CSharp],[System.Int32,
         mscorlib]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 23|System.Collections.Generic.ObjectEqualityComparer`1[[Haferbrei.Ressource,
+      Data: 20|System.Collections.Generic.ObjectEqualityComparer`1[[Haferbrei.Ressource,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 8
@@ -794,7 +601,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 24|Haferbrei.SaveableGameObjectData, Assembly-CSharp
+      Data: 21|Haferbrei.SaveableGameObjectData, Assembly-CSharp
     - Name: guid
       Entry: 2
       Data: ccdf00e8269d45d0b6cd4687b03cc765
@@ -815,213 +622,20 @@ MonoBehaviour:
       Data: Markt
     - Name: componentDatas
       Entry: 7
-      Data: 25|System.Collections.Generic.List`1[[Haferbrei.SaveableComponentData,
+      Data: 22|System.Collections.Generic.List`1[[Haferbrei.SaveableComponentData,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 26|Haferbrei.HasRessourceContainerData, Assembly-CSharp
+      Data: 23|Haferbrei.HasRessourceContainerData, Assembly-CSharp
     - Name: componentID
       Entry: 1
       Data: 3ce4580b-d788-41df-a6fc-47f1d82c090f
     - Name: ressourceContainerAsGuid
       Entry: 2
-      Data: f827d59605004746af25de3b028707ae
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 27|Haferbrei.SaveableGameObjectData, Assembly-CSharp
-    - Name: guid
-      Entry: 2
-      Data: 05ba9678b2e84b6e9bb151f3fbe2216a
-    - Name: saveableType
-      Entry: 1
-      Data: GameObject
-    - Name: sceneName
-      Entry: 1
-      Data: MainGame
-    - Name: parentGuid
-      Entry: 2
-      Data: 00000000000000000000000000000000
-    - Name: prefabName
-      Entry: 1
-      Data: 
-    - Name: gameObjectName
-      Entry: 1
-      Data: SaveableTest
-    - Name: componentDatas
-      Entry: 7
-      Data: 28|System.Collections.Generic.List`1[[Haferbrei.SaveableComponentData,
-        Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 29|Haferbrei.Transform_SaveableComponentData, Assembly-CSharp
-    - Name: componentID
-      Entry: 1
-      Data: 52f170f6-b60f-4585-8ca4-c35c55f5d139
-    - Name: localPosition
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: localRotation
-      Entry: 7
-      Data: UnityEngine.Quaternion, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: localScale
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: anchoredPosition
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: anchoredPosition3D
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: anchorMax
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: anchorMin
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: offsetMax
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: offsetMin
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: pivot
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: sizeDelta
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
+      Data: 344516ee0d7c453a95fdaf5ec09be02d
     - Name: 
       Entry: 8
       Data: 
@@ -1042,7 +656,7 @@ MonoBehaviour:
       Data: 
     - Name: saveableGameObjects
       Entry: 7
-      Data: 30|System.Collections.Generic.List`1[[Haferbrei.ISaveable, Assembly-CSharp]],
+      Data: 24|System.Collections.Generic.List`1[[Haferbrei.ISaveable, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12

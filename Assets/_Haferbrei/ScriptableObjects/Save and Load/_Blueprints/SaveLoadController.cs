@@ -26,7 +26,7 @@ public class SaveLoadController : SerializedScriptableObject
 
     public List<ISaveable> saveableGameObjects = new List<ISaveable>();
     
-    private Dictionary<Transform, Guid> parents = new Dictionary<Transform, Guid>();
+    [ShowInInspector] private Dictionary<Transform, Guid> parents = new Dictionary<Transform, Guid>();
     private Dictionary<Scene, Guid> initializers = new Dictionary<Scene, Guid>();
     private string saveGameFileName;
     
@@ -84,7 +84,7 @@ public class SaveLoadController : SerializedScriptableObject
         
         // 1. Load all necessary scenes
         yield return Timing.WaitUntilDone(Timing.RunCoroutine(_LoadNecessaryScenes()));
-        yield return Timing.WaitForSeconds(3); //Äh ja, wenn ich diesen Wait wegnehme, bekomme ich Fehler beim Laden. Anscheinend sind dann noch nicht alle Szenen sauber geladen...
+        //yield return Timing.WaitForSeconds(3); //Äh ja, wenn ich diesen Wait wegnehme, bekomme ich Fehler beim Laden. Anscheinend sind dann noch nicht alle Szenen sauber geladen...
         Debug.Log("Loaded all scenes @ frame #" + Time.frameCount + " / time: " + DateTime.Now.TimeOfDay);
         
         // 2. Create ScriptableObject Instances and load data into them
@@ -111,7 +111,7 @@ public class SaveLoadController : SerializedScriptableObject
         foreach (var pair in parents)
         {
             var parent = GuidManager.ResolveGuid(pair.Value);
-            if (parent == null) { Debug.LogError("Parent doesn't exist! Guid: " + pair.Key); continue; }
+            if (parent == null) { Debug.LogError("Parent doesn't exist! Guid: " + pair.Value); continue; }
             pair.Key.SetParent(parent.transform, false);
         }
     }
@@ -153,11 +153,19 @@ public class SaveLoadController : SerializedScriptableObject
         
         // 3. Falls das GameObject einen Parent hatte, wird der hier vermerkt, damit es den später bekommt
         // Falls es keinen Parent hatte, wird es einem Initializer zugeordnet, damit der es dann korrekt initialisieren kann
-        if (data.parentGuid != Guid.Empty) parents.Add(gameObjectToLoad.transform, data.parentGuid); 
+        if (data.parentGuid != Guid.Empty) parents.Add(gameObjectToLoad.transform, data.parentGuid);
         else
         {
-            Guid initializerParent = new Guid();
-            if (!initializers.ContainsKey(targetScene)) initializers.Add(targetScene, Instantiate(initializerPrefab).GetComponent<GuidComponent>().GetGuid()); //if this scene doesn't already have an initializer, create one
+            Guid initializerParent;
+            if (!initializers.ContainsKey(targetScene)) //if this scene doesn't already have an initializer, create one
+            {
+                var newInitializer = Instantiate(initializerPrefab);
+                newInitializer.SetActive(false);
+                var newGuid = Guid.NewGuid();
+                var guidComponent = newInitializer.GetComponent<GuidComponent>();
+                guidComponent.SetGuid(newGuid);
+                initializers.Add(targetScene, guidComponent.GetGuid());
+            }
             initializerParent = initializers[targetScene];
             parents.Add(gameObjectToLoad.transform, initializerParent);
         }

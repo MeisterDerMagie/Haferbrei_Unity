@@ -33,14 +33,17 @@ public class SO_LoadScenes : ScriptableObject
     private IEnumerator<float> _LoadScenes()
     {
         //Show loading screen
+        int debugLogCounter = 1; //Kann gelöscht werden, wenn die ganzen ---- 1. Show Loading Screen ---- Debug.Logs entfernt werden
         GameObject loadingScreenInstance = null;
         if (loadingScreen != null)
         {
+            Debug.Log($"---- {(debugLogCounter++)}. Show Loading Screen ----");
             loadingScreenInstance = Instantiate(loadingScreen);
             DontDestroyOnLoad(loadingScreenInstance);
         }
         
         //load single scene if not additively
+        Debug.Log($"---- {(debugLogCounter++)}. Load Scenes ----");
         if (!loadAdditively)
         {
             Debug.Log("load Scene: " + newScene.ScenePath);
@@ -57,14 +60,17 @@ public class SO_LoadScenes : ScriptableObject
         //load save game data if there is any
         if (saveLoadController != null && saveLoadController.loadSaveGame)
         {
+            Debug.Log($"---- {(debugLogCounter++)}. Load SaveGameData ----");
             saveLoadController.loadSaveGame = false;
-            Timing.RunCoroutine(saveLoadController._LoadGameState());
+            yield return Timing.WaitUntilDone(Timing.RunCoroutine(saveLoadController._LoadGameState()));
         }
 
         //after all scenes are loaded: search for all initializers and initialize all those who want to be initialized at the scene start
+        Debug.Log($"---- {(debugLogCounter++)}. Initialize Scene ----");
         InitializeScenes();
 
         //hide and clean up loading screen
+        Debug.Log($"---- {(debugLogCounter++)}. Hide LoadingScreen ----");
         if(loadingScreenInstance != null) Destroy(loadingScreenInstance);
         loadingScreen = null;
     }
