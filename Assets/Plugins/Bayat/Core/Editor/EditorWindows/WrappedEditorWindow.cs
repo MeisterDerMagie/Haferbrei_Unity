@@ -83,6 +83,54 @@ namespace Bayat.Core.EditorWindows
             }
         }
 
+        private void OnHierarchyChange()
+        {
+            try
+            {
+                wrapper?.OnHierarchyChange();
+            }
+            catch (WindowClose)
+            {
+                Close();
+            }
+        }
+
+        private void OnInspectorUpdate()
+        {
+            try
+            {
+                wrapper?.OnInspectorUpdate();
+            }
+            catch (WindowClose)
+            {
+                Close();
+            }
+        }
+
+        private void OnProjectChange()
+        {
+            try
+            {
+                wrapper?.OnProjectChange();
+            }
+            catch (WindowClose)
+            {
+                Close();
+            }
+        }
+
+        private void OnSelectionChange()
+        {
+            try
+            {
+                wrapper?.OnSelectionChange();
+            }
+            catch (WindowClose)
+            {
+                Close();
+            }
+        }
+
     }
 
 }

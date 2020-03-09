@@ -3362,6 +3362,8 @@ MonoBehaviour:
   - {fileID: 2111428978}
   - {fileID: 2120650034}
   availableDependencies: []
+  updateOnSceneSaving: 0
+  updateOnEnteringPlayMode: 0
 --- !u!4 &416218052
 Transform:
   m_ObjectHideFlags: 0
@@ -3596,6 +3598,7 @@ MonoBehaviour:
   ressourceTest: {fileID: 0}
   container: {fileID: 0}
   gameObjectReference: {fileID: 0}
+  ownTransform: {fileID: 0}
 --- !u!4 &464379102
 Transform:
   m_ObjectHideFlags: 0

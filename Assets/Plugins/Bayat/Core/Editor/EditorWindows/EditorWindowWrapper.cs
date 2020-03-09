@@ -49,6 +49,10 @@ namespace Bayat.Core.EditorWindows
         public virtual void OnClose() { }
         public virtual void OnFocus() { }
         public virtual void OnLostFocus() { }
+        public virtual void OnHierarchyChange() { }
+        public virtual void OnInspectorUpdate() { }
+        public virtual void OnProjectChange() { }
+        public virtual void OnSelectionChange() { }
 
         protected void Show()
         {

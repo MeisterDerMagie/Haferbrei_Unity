@@ -20,9 +20,9 @@ namespace Bayat.Json
         [SerializeField]
         protected bool serializeExcludedComponents = false;
         [SerializeField]
-        protected List<Transform> excludedChildren;
+        protected List<Transform> excludedChildren = new List<Transform>();
         [SerializeField]
-        protected List<Component> excludedComponents;
+        protected List<Component> excludedComponents = new List<Component>();
 
         /// <summary>
         /// Gets whether serialize children or not.

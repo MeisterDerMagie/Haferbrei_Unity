@@ -281,7 +281,10 @@ namespace Bayat.Json.Serialization
                 return false;
             }
 
-            if (typeof(UnityEngine.Object).IsAssignableFrom(value.GetType()))
+            Type objectType = value.GetType();
+
+            // ScriptableObjects data should be serialized too
+            if (typeof(UnityEngine.Object).IsAssignableFrom(objectType) && !typeof(UnityEngine.ScriptableObject).IsAssignableFrom(objectType))
             {
                 UnityEngine.Object unityObject = (UnityEngine.Object)value;
                 if (AssetReferenceResolver.Current != null)

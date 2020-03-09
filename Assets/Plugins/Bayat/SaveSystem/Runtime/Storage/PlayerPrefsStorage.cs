@@ -38,7 +38,7 @@ namespace Bayat.SaveSystem.Storage
             }
             else
             {
-                this.TextEncoding.GetString(((MemoryStream)memoryStream.UnderlyingStream).ToArray());
+                data = this.TextEncoding.GetString(((MemoryStream)memoryStream.UnderlyingStream).ToArray());
             }
             PlayerPrefs.SetString(memoryStream.Identifier, data);
             return Task.CompletedTask;

@@ -41,12 +41,12 @@ namespace Bayat.Json.Converters
             else if (objectType == typeof(Vector2Int))
             {
                 var vector = (Vector2Int)value;
-                WriteVector(writer, vector.x, vector.y, null, null);
+                WriteVectorInt(writer, vector.x, vector.y, null);
             }
             else if (objectType == typeof(Vector3Int))
             {
                 var vector = (Vector3Int)value;
-                WriteVector(writer, vector.x, vector.y, vector.z, null);
+                WriteVectorInt(writer, vector.x, vector.y, vector.z);
             }
 #endif
         }
@@ -69,6 +69,21 @@ namespace Bayat.Json.Converters
                 }
             }
         }
+
+#if UNITY_2017_2_OR_NEWER
+        protected virtual void WriteVectorInt(JsonWriter writer, int x, int y, int? z)
+        {
+            writer.WritePropertyName("x");
+            writer.WriteValue(x);
+            writer.WritePropertyName("y");
+            writer.WriteValue(y);
+            if (z.HasValue)
+            {
+                writer.WritePropertyName("z");
+                writer.WriteValue(z.Value);
+            }
+        }
+#endif
 
         public override object PopulateMember(string memberName, JsonContract contract, JsonReader reader, Type objectType, object targetObject, JsonSerializerReader internalReader)
         {
