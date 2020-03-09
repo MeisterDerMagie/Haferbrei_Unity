@@ -4,39 +4,32 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Bayat.SaveSystem;
 using FullscreenEditor;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Haferbrei {
-public class ReflectOtherComponent : SerializedMonoBehaviour
+public class SaveOtherComponent : SerializedMonoBehaviour
 {
-    public Component componentToReflect;
-    public const BindingFlags FULL_BINDING = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
-
-    public List<SerializedField> serializedFields = new List<SerializedField>();
+    public Component componentToSave;
 
     [Button]
-    public void GetFieldValueByReflection()
+    public void Save()
     {
-        var componentType = componentToReflect.GetType();
+        var saveData = new SaveableComponentTest(componentToSave);
         
-        //get all public, private and static fields marked with SaveableAttribute
-        var fields = componentType.GetFields(FULL_BINDING).Where(f => f.GetCustomAttributes(typeof(SaveableAttribute)).Any());
-        
-        serializedFields.Clear();
-        foreach (var field in fields)
-        {
-            var fieldValue = field.GetValue(componentToReflect);
-            var fieldType = field.FieldType.FullName;
+        SaveSystemSettings settings = SaveSystemSettings.DefaultSettings.Clone();
+        SaveSystemAPI.SaveAsync("ReflectionTest.hsave", saveData, settings);
+    }
 
-            var type = typeof(SerializedField<>).MakeGenericType(field.FieldType);
-            var serializedField = Activator.CreateInstance(type);
-            (serializedField as ISerializedField)?.SetValues(fieldType, field.Name, fieldValue);
-            
-            
-            Debug.Log($"Public field: {field.Name}, Value: {fieldValue}, Type: {fieldType}");
-        }
+    [Button]
+    public void Load()
+    {
+        var loadedData = new SaveableComponentTest(componentToSave);
+        SaveSystemAPI.LoadIntoAsync<List<SaveableData>>("ReflectionTest.hsave", loadedData);
+        
+        loadedData.LoadIntoComponent(componentToSave);
     }
 }
 
@@ -51,23 +44,26 @@ public struct SaveableComponentTest
         componentType = _component.GetType();
         componentVariables = new Dictionary<string, object>();
         
-        FieldInfo[] foundFields = _component.GetType().GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-        foreach(FieldInfo field in foundFields)
+        var saveableFields = _component.GetType().
+                                        GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
+                                        .Where(f => f.GetCustomAttributes(typeof(SaveableAttribute)).Any());
+        
+        foreach(FieldInfo field in saveableFields)
         {
-            if (field.FieldType.IsSerializable) componentVariables.Add(field.Name, field.GetValue(_component));
+            /*if (field.FieldType.IsSerializable)*/ componentVariables.Add(field.Name, field.GetValue(_component));
         }
     }
     
     public void LoadIntoComponent(object _targetComponent)
     {
-        if (_targetComponent.GetType() != componentType) Debug.LogError("Tried to load the save data of a different script");
+        if (_targetComponent.GetType() != componentType) Debug.LogError($"Tried to load the save data of a different script. Tried to load type: {_targetComponent.GetType()} into: {componentType}");
         else
         {
             foreach (KeyValuePair<string, object> field in componentVariables)
             {
                 _targetComponent.GetType()
-                    .GetField(field.Key, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
-                    ?.SetValue(_targetComponent, field.Value);
+                                .GetField(field.Key, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
+                                ?.SetValue(_targetComponent, field.Value);
             }
         }
     }
