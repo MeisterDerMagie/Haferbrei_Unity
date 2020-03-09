@@ -12,7 +12,7 @@ using UnityEngine;
 using Wichtel.Extensions;
 
 namespace Haferbrei {
-[RequireComponent(typeof(GuidComponent))]
+[RequireComponent(typeof(GuidComponent)), DisallowMultipleComponent]
 public class SaveableGameObject : MonoBehaviour, ISaveable
 {
     [SerializeField, ReadOnly] private string prefabName;
@@ -86,6 +86,7 @@ public class SaveableGameObject : MonoBehaviour, ISaveable
     #region SetPrefabNameForReference
     private void OnValidate()
     {
+        saveableComponents.Clear();
         if (this.IsAssetOnDisk())
         {
             prefabName = gameObject.name;

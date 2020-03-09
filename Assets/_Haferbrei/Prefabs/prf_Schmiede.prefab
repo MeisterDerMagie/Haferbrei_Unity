@@ -28,7 +28,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9633ebf3cab0a940aaba981b512d0f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  componentID: b6ca4375-7c60-4e04-8782-e565b039a1dc
+  componentID: a54eaff6-2c81-42fa-a70f-e8d5fbb1b955
+  componentToSave: {fileID: 4921660895980187880}
 --- !u!50 &7688622984602201327
 Rigidbody2D:
   serializedVersion: 4

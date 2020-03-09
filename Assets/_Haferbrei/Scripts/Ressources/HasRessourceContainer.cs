@@ -13,7 +13,7 @@ public class HasRessourceContainer : MonoBehaviour, IInitSelf
     [SerializeField, BoxGroup("Settings"), DisableInPlayMode] private CreationMode creationMode;
     [SerializeField, BoxGroup("Settings"), ShowIf("creationModeIsTemplate"), DisableInPlayMode, Required]  public RessourceContainer template;
     
-    [InlineEditor, DisableInEditorMode]
+    [InlineEditor, DisableInEditorMode][Saveable]
     public RessourceContainer ressourceContainer;
     
     private enum CreationMode {CreateNewEmptyContainer, CreateNewContainerFromTemplate}
