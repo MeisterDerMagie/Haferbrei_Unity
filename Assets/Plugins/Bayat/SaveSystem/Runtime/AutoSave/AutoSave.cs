@@ -28,7 +28,5 @@ namespace Bayat.SaveSystem
         {
             AutoSaveManager.Current.RemoveAutoSave(this);
         }
-
     }
-
 }

@@ -2604,7 +2604,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d643e9474654162a9d50e38783cae25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  componentToReflect: {fileID: 464379101}
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  componentToSave: {fileID: 464379101}
 --- !u!114 &464379101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2617,10 +2626,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2bce2dafd3085c45a3d386e82ddb66d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatWithAttribute: 0
+  privateFloatWithAttribute: 0
+  saveableString: 
   floatWithoutAttribute: 0
   vector3Test: {x: 0, y: 0, z: 0}
   ressourceTest: {fileID: 0}
+  container: {fileID: 0}
 --- !u!4 &464379102
 Transform:
   m_ObjectHideFlags: 0
