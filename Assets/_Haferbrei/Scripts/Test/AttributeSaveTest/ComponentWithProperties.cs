@@ -8,15 +8,24 @@ using UnityEngine;
 namespace Haferbrei{
 public class ComponentWithProperties : MonoBehaviour
 {
-    [Saveable, SerializeField] private float privateFloatWithAttribute;
+    //[Saveable, SerializeField] private float privateFloatWithAttribute;
     [Saveable, SerializeField] private string saveableString;
     public float floatWithoutAttribute;
     [Saveable] public Vector3 vector3Test;
     [Saveable] public Ressource ressourceTest;
-    [Saveable] public RessourceContainer container;
-    
-    [Saveable] public float propertyTest { get; set; }
+    [Saveable, InlineEditor] public RessourceContainer container;
+    [Saveable] public GameObject gameObjectReference;
 
+    [Saveable] public Transform ownTransform;
+    
+    //[Saveable] public Vector3 propertyBridge
+    //{
+    //    get => transform.position;
+    //    set => transform.position = value;
+    //}
+
+    
+    
     private void OnEnable()
     {
         container = ScriptableObject.CreateInstance<RessourceContainer>();

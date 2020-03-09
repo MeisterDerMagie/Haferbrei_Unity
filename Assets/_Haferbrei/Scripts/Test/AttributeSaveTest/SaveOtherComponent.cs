@@ -17,7 +17,7 @@ public class SaveOtherComponent : SerializedMonoBehaviour
     [Button]
     public void Save()
     {
-        var saveData = new SaveableComponentTest(componentToSave);
+        var saveData = new SaveableComponentDataTest(componentToSave);
         
         SaveSystemSettings settings = SaveSystemSettings.DefaultSettings.Clone();
         SaveSystemAPI.SaveAsync("ReflectionTest.hsave", saveData, settings);
@@ -26,7 +26,7 @@ public class SaveOtherComponent : SerializedMonoBehaviour
     [Button]
     public void Load()
     {
-        var loadedData = new SaveableComponentTest(componentToSave);
+        var loadedData = new SaveableComponentDataTest(componentToSave);
         SaveSystemAPI.LoadIntoAsync<List<SaveableData>>("ReflectionTest.hsave", loadedData);
         
         loadedData.LoadIntoComponent(componentToSave);
@@ -34,23 +34,34 @@ public class SaveOtherComponent : SerializedMonoBehaviour
 }
 
 [Serializable]
-public struct SaveableComponentTest
+public struct SaveableComponentDataTest
 {
     public Type componentType;
-    public Dictionary<string, object> componentVariables;
+    public Dictionary<string, object> componentFields;
+    public Dictionary<string, object> componentProperties;
 
-    public SaveableComponentTest(object _component)
+    public SaveableComponentDataTest(object _component)
     {
         componentType = _component.GetType();
-        componentVariables = new Dictionary<string, object>();
+        componentFields = new Dictionary<string, object>();
+        componentProperties = new Dictionary<string, object>();
         
         var saveableFields = _component.GetType().
                                         GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
                                         .Where(f => f.GetCustomAttributes(typeof(SaveableAttribute)).Any());
         
+        var saveableProperties = _component.GetType()
+                                           .GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
+                                           .Where(f => f.GetCustomAttributes(typeof(SaveableAttribute)).Any());
+        
         foreach(FieldInfo field in saveableFields)
         {
-            /*if (field.FieldType.IsSerializable)*/ componentVariables.Add(field.Name, field.GetValue(_component));
+            /*if (field.FieldType.IsSerializable)*/ componentFields.Add(field.Name, field.GetValue(_component));
+        }
+
+        foreach (var property in saveableProperties)
+        {
+            componentProperties.Add(property.Name, property.GetValue(_component));
         }
     }
     
@@ -59,11 +70,18 @@ public struct SaveableComponentTest
         if (_targetComponent.GetType() != componentType) Debug.LogError($"Tried to load the save data of a different script. Tried to load type: {_targetComponent.GetType()} into: {componentType}");
         else
         {
-            foreach (KeyValuePair<string, object> field in componentVariables)
+            foreach (KeyValuePair<string, object> field in componentFields)
             {
                 _targetComponent.GetType()
                                 .GetField(field.Key, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
                                 ?.SetValue(_targetComponent, field.Value);
+            }
+            
+            foreach (KeyValuePair<string, object> field in componentProperties)
+            {
+                _targetComponent.GetType()
+                    .GetProperty(field.Key, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
+                    ?.SetValue(_targetComponent, field.Value);
             }
         }
     }
