@@ -92,8 +92,11 @@ public struct SaveableComponentData
         {
             foreach (KeyValuePair<string, object> field in componentFields)
             {
+                Debug.Log("FIELDNAME: " + field.Key);
+                
                 object fieldValue = field.Value;
                 if (field.Value is double) fieldValue = Convert.ToSingle(field.Value);
+                if (field.Value is long) fieldValue = Convert.ToInt32(field.Value);
 
                 _targetComponent.GetType()
                     .GetField(field.Key, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
@@ -104,6 +107,7 @@ public struct SaveableComponentData
             {
                 object fieldValue = field.Value;
                 if (field.Value is double) fieldValue = Convert.ToSingle(field.Value);
+                if (field.Value is long) fieldValue = Convert.ToInt32(field.Value);
 
                 _targetComponent.GetType()
                     .GetProperty(field.Key, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)

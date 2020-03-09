@@ -29,7 +29,9 @@ public class SaveableGameObject : MonoBehaviour, ISaveable
         data.saveableType = "GameObject";
         data.prefabName = prefabName;
         data.gameObjectName = gameObject.name;
-        data.parentGuid = (transform.parent != null) ? transform.parent.GetComponent<GuidComponent>().GetGuid() : Guid.Empty;
+        
+        //IN DIESER ZEILE IST EIN BUG: beim Laden
+        data.parentGuid = (transform.parent == null) ? Guid.Empty : transform.parent.GetComponent<GuidComponent>().GetGuid();
 
         //save component data
         var componentDatas = new List<SaveableComponentData>();

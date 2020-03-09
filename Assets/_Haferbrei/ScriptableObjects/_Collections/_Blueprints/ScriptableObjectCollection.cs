@@ -40,7 +40,7 @@ public class ScriptableObjectCollection : SerializedScriptableObject
             }
             else
             {
-                Debug.LogError("Achtung, es gibt zwei oder mehr ScriptableObjects mit demselben Namen! (" + so.name + ")");
+                Debug.LogError("Achtung, es gibt zwei oder mehr ScriptableObjects mit demselben Namen! (" + so.name + ")", this);
             }
         }
     }
