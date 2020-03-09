@@ -32,9 +32,5 @@ public class ComponentWithProperties : MonoBehaviour
     }
 }
 
-[AttributeUsage(AttributeTargets.Field|AttributeTargets.Property)]
-public class SaveableAttribute : Attribute
-{
-    
-}
+
 }

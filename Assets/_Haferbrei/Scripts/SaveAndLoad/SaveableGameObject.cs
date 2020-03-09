@@ -19,7 +19,6 @@ public class SaveableGameObject : MonoBehaviour, ISaveable
     [SerializeField, Required] private SaveLoadController saveLoadController;
     [SerializeField, InlineEditor, ReadOnly] public List<SaveableComponent> saveableComponents = new List<SaveableComponent>();
     
-    [Button]
     public SaveableData SaveData()
     {
         SaveableGameObjectData data = new SaveableGameObjectData();
@@ -57,7 +56,6 @@ public class SaveableGameObject : MonoBehaviour, ISaveable
         }
     }
 
-    [Button]
     public void InitSaveable()
     {
         saveLoadController.RegisterSaveableGameObject(this);
