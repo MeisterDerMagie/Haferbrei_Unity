@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Haferbrei{
 [RequireComponent(typeof(RectTransform)), DisallowMultipleComponent]
-public class RectTransform_SaveableBridge : MonoBehaviour
+public class RectTransform_SaveableBridge : SaveableComponent
 { 
     private RectTransform rectTransform;
 
@@ -22,7 +22,12 @@ public class RectTransform_SaveableBridge : MonoBehaviour
     [Saveable] private Vector2 sizeDelta { get => rectTransform.sizeDelta; set => rectTransform.sizeDelta = value; }
 
     #if UNITY_EDITOR
-    private void OnValidate() => rectTransform = GetComponent<RectTransform>();
+    public override void OnValidate()
+    {
+        base.OnValidate();
+        rectTransform = GetComponent<RectTransform>();
+        componentToSave = this;
+    }
     #endif
 }
 }

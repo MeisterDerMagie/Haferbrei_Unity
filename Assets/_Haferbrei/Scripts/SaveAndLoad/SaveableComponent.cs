@@ -43,7 +43,7 @@ public class SaveableComponent : MonoBehaviour, IStoreable
         if(AssociatedSaveableGameObject != null) AssociatedSaveableGameObject.RemoveSaveableComponent(this);
     }
 
-    public void OnValidate()
+    public virtual void OnValidate()
     {
         if(AssociatedSaveableGameObject != null) AssociatedSaveableGameObject.AddSaveableComponent(this);
     }

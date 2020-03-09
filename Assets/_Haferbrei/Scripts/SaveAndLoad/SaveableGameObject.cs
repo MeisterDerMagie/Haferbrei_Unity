@@ -86,7 +86,6 @@ public class SaveableGameObject : MonoBehaviour, ISaveable
     #region SetPrefabNameForReference
     private void OnValidate()
     {
-        saveableComponents.Clear();
         if (this.IsAssetOnDisk())
         {
             prefabName = gameObject.name;
