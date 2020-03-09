@@ -72,16 +72,22 @@ public struct SaveableComponentDataTest
         {
             foreach (KeyValuePair<string, object> field in componentFields)
             {
+                object fieldValue = field.Value;
+                if (field.Value is double) fieldValue = Convert.ToSingle(field.Value);
+                
                 _targetComponent.GetType()
                                 .GetField(field.Key, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
-                                ?.SetValue(_targetComponent, field.Value);
+                                ?.SetValue(_targetComponent, fieldValue);
             }
             
             foreach (KeyValuePair<string, object> field in componentProperties)
             {
+                object fieldValue = field.Value;
+                if (field.Value is double) fieldValue = Convert.ToSingle(field.Value);
+                
                 _targetComponent.GetType()
                     .GetProperty(field.Key, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
-                    ?.SetValue(_targetComponent, field.Value);
+                    ?.SetValue(_targetComponent, fieldValue);
             }
         }
     }

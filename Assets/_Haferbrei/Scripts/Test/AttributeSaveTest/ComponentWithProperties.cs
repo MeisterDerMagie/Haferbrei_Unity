@@ -8,7 +8,7 @@ using UnityEngine;
 namespace Haferbrei{
 public class ComponentWithProperties : MonoBehaviour
 {
-    //[Saveable, SerializeField] private float privateFloatWithAttribute;
+    [Saveable, SerializeField] private float privateFloatWithAttribute;
     [Saveable, SerializeField] private string saveableString;
     public float floatWithoutAttribute;
     [Saveable] public Vector3 vector3Test;
