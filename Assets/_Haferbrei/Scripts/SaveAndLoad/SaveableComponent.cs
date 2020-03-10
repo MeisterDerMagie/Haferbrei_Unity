@@ -13,12 +13,14 @@ namespace Haferbrei {
 [HideMonoScript]
 public class SaveableComponent : MonoBehaviour, IStoreable
 {
+    [InfoBox("Missing SaveableObject!", InfoMessageType.Error, "missingSaveableObject")]
     [SerializeField, DisplayAsString] public string componentID;
     [SerializeField] protected Component componentToSave;
     
     //holt sich das dazugehörige SaveableObject (entweder auf demselben GameObject oder im nächsten Parent, das ein SaveableObject besitzt)
     private SaveableGameObject AssociatedSaveableGameObject => GetAssociatedSaveableGameObject();
-
+    private bool missingSaveableObject; //für Odin
+    
     public SaveableComponentData StoreData() => new SaveableComponentData(componentToSave, componentID);
 
     public void RestoreData(SaveableComponentData _loadedData) => _loadedData.LoadIntoComponent(componentToSave);
@@ -31,10 +33,11 @@ public class SaveableComponent : MonoBehaviour, IStoreable
         if (onOwnObject == null && inParents.Length == 0)
         {
             Debug.LogWarning("Achtung, jede SaveableComponent benötigt ein dazugehöriges SaveableObject! (Entweder auf dem selben Object oder im Parent)", this);
-            componentID = "Error: Missing SaveableObject!";
+            missingSaveableObject = true;
             return null;
         }
 
+        missingSaveableObject = false;
         return (onOwnObject != null) ? onOwnObject : inParents[0];
     }
     

@@ -12,12 +12,14 @@ using UnityEngine;
 using Wichtel.Extensions;
 
 namespace Haferbrei {
-[RequireComponent(typeof(GuidComponent)), DisallowMultipleComponent]
+[RequireComponent(typeof(GuidComponent)), DisallowMultipleComponent, HideMonoScript]
 public class SaveableGameObject : MonoBehaviour, ISaveable
 {
-    [SerializeField, ReadOnly] private string prefabName;
+    [SerializeField, ReadOnly, ShowIf("prefabNameIsNotNullOrEmpty")] private string prefabName;
     [SerializeField, Required] private SaveLoadController saveLoadController;
     [SerializeField, InlineEditor, ReadOnly] public List<SaveableComponent> saveableComponents = new List<SaveableComponent>();
+
+    private bool prefabNameIsNotNullOrEmpty => !string.IsNullOrEmpty(prefabName); //für Odin
     
     public SaveableData SaveData()
     {
@@ -31,7 +33,7 @@ public class SaveableGameObject : MonoBehaviour, ISaveable
         data.gameObjectName = gameObject.name;
         
         //IN DIESER ZEILE IST EIN BUG: beim Laden
-        data.parentGuid = (transform.parent == null) ? Guid.Empty : transform.parent.GetComponent<GuidComponent>().GetGuid();
+        data.parentGuid = (transform.parent == null || transform.parent.GetComponent<GuidComponent>() == null) ? Guid.Empty : transform.parent.GetComponent<GuidComponent>().GetGuid();
 
         //save component data
         var componentDatas = new List<SaveableComponentData>();
@@ -71,8 +73,18 @@ public class SaveableGameObject : MonoBehaviour, ISaveable
     public void AddSaveableComponent(SaveableComponent _component)
     {
         if(saveableComponents.Contains(_component)) return;
+
+        //wenn die SaveableComponent bereits eine Guid hat, wird die nicht überschrieben, um bestehende SaveGames nicht kaputt zu machen.
+        if (Guid.TryParse(_component.componentID, out Guid guid))
+        {
+            if (guid == Guid.Empty) guid = Guid.NewGuid();
+        }
+        else
+        {
+            guid = Guid.NewGuid();
+        }
         
-        _component.componentID = Guid.NewGuid().ToString();
+        _component.componentID = guid.ToString();
         saveableComponents.Add(_component);
     }
 
