@@ -39,8 +39,8 @@ public class SaveLoadController : SerializedScriptableObject
         saveableScriptableObjects.CollectAllRuntimeInstantiatedSOs();
         
         // 2. Save ScriptableObjects
-        //var scriptableObjectsData = saveableScriptableObjects.SaveScriptableObjects();
-        //dataToSave.AddRange(scriptableObjectsData);
+        var scriptableObjectsData = saveableScriptableObjects.SaveScriptableObjects();
+        dataToSave.AddRange(scriptableObjectsData);
         
         // 3. Save GameObjects
         List<ISaveable> emptySaveablesToRemove = new List<ISaveable>(); //anscheinend kann es selten passieren, dass leere Einträge übrig bleiben. Hier wird sich darum gekümmert.
@@ -86,12 +86,12 @@ public class SaveLoadController : SerializedScriptableObject
         yield return Timing.WaitUntilDone(Timing.RunCoroutine(_LoadNecessaryScenes()));
         Debug.Log("Loaded all scenes @ frame #" + Time.frameCount + " / time: " + DateTime.Now.TimeOfDay);
         
-        //// 2. Create ScriptableObject Instances and load data into them
-        //foreach (var data in loadedData)
-        //{
-        //    if (data.saveableType == "ScriptableObject") LoadScriptableObject(data);
-        //}
-        //Debug.Log("Loaded all scriptableObjects @ frame #" + Time.frameCount + " / time: " + DateTime.Now.TimeOfDay);
+        // 2. Create ScriptableObject Instances and load data into them
+        foreach (var data in loadedData)
+        {
+            if (data.saveableType == "ScriptableObject") LoadScriptableObject(data);
+        }
+        Debug.Log("Loaded all scriptableObjects @ frame #" + Time.frameCount + " / time: " + DateTime.Now.TimeOfDay);
         
         // 3 All Guids auf bestehenden Objekten initialisieren
         GuidManager.InitializeGuidComponents();
