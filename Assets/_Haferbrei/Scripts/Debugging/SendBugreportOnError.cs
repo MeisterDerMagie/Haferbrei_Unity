@@ -6,11 +6,13 @@ using System.Globalization;
 using System.IO;
 using System.Net.Mail;
 using MEC;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Haferbrei {
 public class SendBugreportOnError : MonoBehaviour
 {
+    [SerializeField, BoxGroup("Settings")] private bool isEnabled = true;
     private bool receivedErrors = false;
     private List<string> errorLogs = new List<string>();
     private CoroutineHandle sendCountdown;
@@ -18,6 +20,7 @@ public class SendBugreportOnError : MonoBehaviour
     
     private void Awake()
     {
+        if (!isEnabled) return;
         #if UNITY_EDITOR
         return;
         #endif
