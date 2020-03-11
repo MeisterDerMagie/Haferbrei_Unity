@@ -2376,7 +2376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testInt: 0
-  testGameObject: {fileID: 1592528224}
+  testGameObject: []
 --- !u!114 &359636069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7010,7 +7010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testInt: 0
-  testGameObject: {fileID: 0}
+  testGameObject: []
 --- !u!114 &1163931540
 MonoBehaviour:
   m_ObjectHideFlags: 0
