@@ -7,43 +7,39 @@ using UnityEngine;
 namespace Bayat.Json.Converters
 {
 
-    public class HaferbreiRessource_Generated_Converter : ObjectJsonConverter
+    public class UnityEngineScriptableObject_Generated_Converter : ObjectJsonConverter
     {
 
         public override string[] GetObjectProperties()
         {
-            return new string[] { "identifier", "goldwert", "category", "name", "hideFlags" };
+	        Debug.Log("ScriptableObjectConverter GetProperties");
+            return new string[] { "name", "hideFlags" };
         }
 
         public override bool CanConvert(Type objectType)
         {
-            return objectType == typeof(Haferbrei.Ressource);
+	        Debug.Log("Is type: " + objectType.ToString());
+	        Debug.Log("CanConvert ScriptableObject: " + (objectType == typeof(UnityEngine.ScriptableObject)));
+            return objectType == typeof(UnityEngine.ScriptableObject);
         }
 
         public override void WriteProperties(JsonObjectContract contract, JsonWriter writer, object value, Type objectType, JsonSerializerWriter internalWriter)
 		{
-			var instance = (Haferbrei.Ressource)value;
-            writer.WriteProperty("identifier", instance.identifier);
-            writer.WriteProperty("goldwert", instance.goldwert);
-            internalWriter.SerializeProperty(writer, "category", instance.category);
+			Debug.Log("ScriptableObjectConverter WriteProperties");
+
+			var instance = (UnityEngine.ScriptableObject)value;
             writer.WriteProperty("name", instance.name);
             internalWriter.SerializeProperty(writer, "hideFlags", instance.hideFlags);
 		}
 
 		public override object PopulateMember(string memberName, JsonContract contract, JsonReader reader, Type objectType, object targetObject, JsonSerializerReader internalReader)
 		{
-			var instance = (Haferbrei.Ressource)targetObject;
+			Debug.Log("ScriptableObjectConverter PopulateMember");
+
+			
+			var instance = (UnityEngine.ScriptableObject)targetObject;
 			switch (memberName)
 			{
-				case "identifier":
-				    instance.identifier = reader.ReadProperty<System.String>();
-                    break;
-				case "goldwert":
-				    instance.goldwert = reader.ReadProperty<System.Single>();
-                    break;
-				case "category":
-				    instance.category = internalReader.DeserializeProperty<Haferbrei.RessourceCategory>(reader);
-				    break;
 				case "name":
 				    instance.name = reader.ReadProperty<System.String>();
                     break;

@@ -25,6 +25,6 @@ public class ScriptableObjectReferences : MonoBehaviour
     #endregion
     //--- ---
 
-    public SaveableScriptableObjects saveableScriptableObjects;
+    public SaveableScriptableObjectReferences saveableScriptableObjectsReferences;
 }
 }

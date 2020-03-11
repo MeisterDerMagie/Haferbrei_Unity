@@ -16,7 +16,7 @@ public static class HaferbreiSerializationHandler
         //-- Convert to other type --
         if (_objectToSerialize is ScriptableObject scriptableObject)
         {
-            var scriptableObjectGuid = ScriptableObjectReferences.Instance.saveableScriptableObjects.ResolveReference(scriptableObject);
+            var scriptableObjectGuid = ScriptableObjectReferences.Instance.saveableScriptableObjectsReferences.ResolveReference(scriptableObject);
             return new SerializedScriptableObjectReference(scriptableObjectGuid);
         }
 
@@ -40,7 +40,7 @@ public static class HaferbreiSerializationHandler
 
         if (_objectToDeserialize is SerializedScriptableObjectReference serializedScriptableObjectReference)
         {
-            return ScriptableObjectReferences.Instance.saveableScriptableObjects.ResolveGuid(serializedScriptableObjectReference.guid);
+            return ScriptableObjectReferences.Instance.saveableScriptableObjectsReferences.ResolveGuid(serializedScriptableObjectReference.guid);
         }
         //-- --
 

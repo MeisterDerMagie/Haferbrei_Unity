@@ -7,4 +7,7 @@ public class TEST_SimpleComponent : MonoBehaviour
 {
     [Saveable] public int testInt;
     [Saveable] public List<GameObject> testGameObject;
+
+    [Saveable] public Ressource ressource;
+    [Saveable] public List<Ressource> ressourceList;
 }

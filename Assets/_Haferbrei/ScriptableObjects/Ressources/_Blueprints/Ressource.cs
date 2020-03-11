@@ -31,6 +31,8 @@ public class RessourceTypeConverter : TypeConverter
     }
     public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType)
     {
+        Debug.Log("ConvertTo");
+        
         if (destinationType == typeof(string))
         {
             return AssetReferenceResolver.Current.ResolveGuid(value as Ressource); //save the Guid
@@ -39,6 +41,8 @@ public class RessourceTypeConverter : TypeConverter
     }
     public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value)
     {
+        Debug.Log("ConvertFrom");
+        
         if (value is string)
         {
             return AssetReferenceResolver.Current.ResolveReference(value as string); //restore the Guid
