@@ -39,8 +39,8 @@ public class SaveLoadController : SerializedScriptableObject
         saveableScriptableObjects.CollectAllRuntimeInstantiatedSOs();
         
         // 2. Save ScriptableObjects
-        var scriptableObjectsData = saveableScriptableObjects.SaveScriptableObjects();
-        dataToSave.AddRange(scriptableObjectsData);
+        //var scriptableObjectsData = saveableScriptableObjects.SaveScriptableObjects();
+        //dataToSave.AddRange(scriptableObjectsData);
         
         // 3. Save GameObjects
         List<ISaveable> emptySaveablesToRemove = new List<ISaveable>(); //anscheinend kann es selten passieren, dass leere Einträge übrig bleiben. Hier wird sich darum gekümmert.

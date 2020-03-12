@@ -653,7 +653,6 @@ GameObject:
   m_Component:
   - component: {fileID: 84595951}
   - component: {fileID: 84595955}
-  - component: {fileID: 84595954}
   - component: {fileID: 84595950}
   - component: {fileID: 84595949}
   - component: {fileID: 84595948}
@@ -782,21 +781,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates: []
---- !u!114 &84595954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 84595947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52a5653b056a461daf2b9b95867dadc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabName: 
-  saveLoadController: {fileID: 11400000, guid: 5b1094697c808fa46ae0cf952d481a93, type: 2}
-  saveableComponents: []
 --- !u!114 &84595955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1934,7 +1918,7 @@ GameObject:
   - component: {fileID: 290814645}
   - component: {fileID: 290814644}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: Test_Initializer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2328,7 +2312,7 @@ GameObject:
   - component: {fileID: 359636068}
   - component: {fileID: 359636067}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: SaveTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2375,10 +2359,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379bea3a8411dd648bfeb461e526eeb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allRessources: {fileID: 11400000, guid: 7ea0d0d2af1da2c4ab59bef43bf5f2b7, type: 2}
   testInt: 0
-  testGameObject: []
-  ressource: {fileID: 0}
-  ressourceList: []
+  testIntList: 
 --- !u!114 &359636069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3321,7 +3304,7 @@ MonoBehaviour:
   - {fileID: 773951329}
   - {fileID: 785841838}
   - {fileID: 810230773}
-  - {fileID: 769124853}
+  - {fileID: 0}
   - {fileID: 769124850}
   - {fileID: 1425404367}
   - {fileID: 771010684}
@@ -3586,7 +3569,7 @@ MonoBehaviour:
   - {fileID: 2111428975}
   - {fileID: 2111428978}
   - {fileID: 2120650034}
-  - {fileID: 769124852}
+  - {fileID: 0}
   availableDependencies: []
   updateOnSceneSaving: 0
   updateOnEnteringPlayMode: 0
@@ -4887,9 +4870,7 @@ GameObject:
   m_Component:
   - component: {fileID: 769124851}
   - component: {fileID: 769124854}
-  - component: {fileID: 769124853}
   - component: {fileID: 769124850}
-  - component: {fileID: 769124852}
   m_Layer: 0
   m_Name: Markt
   m_TagString: Untagged
@@ -4928,36 +4909,6 @@ Transform:
   m_Father: {fileID: 1425404367}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &769124852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 769124849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14a639a007cf413b8367b181c93269a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  componentID: b204b570-e61c-4f01-8970-898238bdc3e5
-  componentToSave: {fileID: 769124850}
---- !u!114 &769124853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 769124849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52a5653b056a461daf2b9b95867dadc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabName: 
-  saveLoadController: {fileID: 11400000, guid: 5b1094697c808fa46ae0cf952d481a93, type: 2}
-  saveableComponents:
-  - {fileID: 769124852}
 --- !u!114 &769124854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6951,99 +6902,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1163931536
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1163931537}
-  - component: {fileID: 1163931541}
-  - component: {fileID: 1163931540}
-  - component: {fileID: 1163931539}
-  - component: {fileID: 1163931538}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1163931537
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1163931536}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1285178109}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1163931538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1163931536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14a639a007cf413b8367b181c93269a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  componentID: bfff8446-4444-4ddd-a599-b0e466a38dd0
-  componentToSave: {fileID: 1163931539}
---- !u!114 &1163931539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1163931536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 379bea3a8411dd648bfeb461e526eeb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  testInt: 0
-  testGameObject: []
-  ressource: {fileID: 0}
-  ressourceList: []
---- !u!114 &1163931540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1163931536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52a5653b056a461daf2b9b95867dadc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabName: 
-  saveLoadController: {fileID: 11400000, guid: 5b1094697c808fa46ae0cf952d481a93, type: 2}
-  saveableComponents:
-  - {fileID: 1163931538}
---- !u!114 &1163931541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1163931536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98bbc2c1e63e98543830eec78d976795, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializedGuid: 964e816d1d98724ca142a50006e25626
 --- !u!1 &1184597898
 GameObject:
   m_ObjectHideFlags: 0
@@ -8379,8 +8237,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1163931537}
+  m_Children: []
   m_Father: {fileID: 359636066}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

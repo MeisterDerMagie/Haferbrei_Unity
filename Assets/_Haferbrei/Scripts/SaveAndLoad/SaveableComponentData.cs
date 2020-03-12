@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Bayat.Json;
+using Bayat.Json.Serialization;
 using UnityEngine;
 
 namespace Haferbrei{
@@ -31,13 +33,13 @@ public struct SaveableComponentData
         
         foreach(FieldInfo field in saveableFields)
         {
-            object fieldValue = HaferbreiSerializationHandler.HandleSpecialSerialization(field.GetValue(_component));
+            object fieldValue = field.GetValue(_component);
             componentFields.Add(field.Name, fieldValue);
         }
 
         foreach (var property in saveableProperties)
         {
-            object propertyValue = HaferbreiSerializationHandler.HandleSpecialSerialization(property.GetValue(_component));
+            object propertyValue = property.GetValue(_component);
             componentProperties.Add(property.Name, propertyValue);
         }
     }
@@ -52,7 +54,8 @@ public struct SaveableComponentData
                 Debug.Log("FIELDNAME: " + field.Key);
                 
                 object fieldValue = field.Value;
-                HaferbreiSerializationHandler.HandleSpecialDeserialization(fieldValue);
+                if (fieldValue is double) fieldValue = Convert.ToSingle(fieldValue);
+                if (fieldValue is long)   fieldValue = Convert.ToInt32(fieldValue);
 
                 _targetComponent.GetType()
                     .GetField(field.Key, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
@@ -62,7 +65,6 @@ public struct SaveableComponentData
             foreach (KeyValuePair<string, object> field in componentProperties)
             {
                 object fieldValue = field.Value;
-                HaferbreiSerializationHandler.HandleSpecialDeserialization(fieldValue);
 
                 _targetComponent.GetType()
                     .GetProperty(field.Key, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
