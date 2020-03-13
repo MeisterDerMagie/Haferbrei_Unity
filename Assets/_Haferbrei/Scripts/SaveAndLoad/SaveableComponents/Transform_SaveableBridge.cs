@@ -13,7 +13,7 @@ public class Transform_SaveableBridge : SaveableComponent
     public override void OnValidate()
     {
         base.OnValidate();
-        componentToSave = this;
+        componentToSave = transform;
     }
     #endif
 }

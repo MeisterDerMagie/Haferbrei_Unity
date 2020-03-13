@@ -9,51 +9,59 @@ using UnityEngine;
 
 public class TEST_SimpleComponent : MonoBehaviour
 {
-    public RessourceValueList allRessources;
+    [ReadOnly] public RessourceValueList allRessources;
     
-    //[Saveable] public int testInt;
-    //[Saveable] public List<int> testIntList;
+    [Title("Integers")]
+    [Saveable] public int testInt;
+    [Saveable] public List<int> testIntList;
 
-    //[Saveable] public float testFloat;
-    //[Saveable] public List<float> testFloatList;
+    [Title("Floats")]
+    [Saveable] public float testFloat;
+    [Saveable] public List<float> testFloatList;
 
-    //[Saveable] public GameObject testGameObject;
-    //[Saveable] public List<GameObject> testGameObjectList;
+    [Title("GameObjects (not saveable but should throw an error!)")]
+    [Saveable] public GameObject testGameObject;
+    [Saveable] public List<GameObject> testGameObjectList;
 
+    [Title("GuidReferences")]
     [Saveable] public GuidReference guidReference;
     [Saveable] public List<GuidReference> guidReferenceList;
 
-    //[Saveable] public Ressource ressource;
-    //[Saveable] public List<Ressource> ressourceList;
+    [Title("ScriptableObjects")]
+    [Saveable] public Ressource ressource;
+    [Saveable] public List<Ressource> ressourceList;
 
-    //[Saveable, InlineEditor] public RessourceContainer ressourceContainer;
+    [Title("Runtime instantiated ScriptableObjects")]
+    [Saveable, InlineEditor] public RessourceContainer ressourceContainer;
 
     [Button, DisableInEditorMode]
-    public void SetValues()
+    public void SetDummyValues()
     {
-        //testInt = 5;
-        //testIntList.Add(6);
-        //testIntList.Add(7);
+        //just set any dummy values to check if save/load works
         
-        //testFloat = 8.9f;
-        //testFloatList.Add(1.2f);
-        //testFloatList.Add(3.4f);
+        testInt = 5;
+        testIntList.Add(6);
+        testIntList.Add(7);
+        
+        testFloat = 8.9f;
+        testFloatList.Add(1.2f);
+        testFloatList.Add(3.4f);
 
         
-        //testGameObject = Camera.main.gameObject;
-        //testGameObjectList.Add(FindObjectOfType<GameObject>());
-        //testGameObjectList.Add(FindObjectOfType<SaveableGameObject>().gameObject);
+        testGameObject = Camera.main.gameObject;
+        testGameObjectList.Add(FindObjectOfType<GameObject>());
+        testGameObjectList.Add(FindObjectOfType<SaveableGameObject>().gameObject);
 
         guidReference = new GuidReference(FindObjectOfType<GuidComponent>().GetGuid());
         guidReferenceList.Add(new GuidReference(FindObjectOfType<GuidComponent>().GetGuid()));
 
-        //ressource = allRessources[1];
-        //ressourceList.Add(allRessources[2]);
-        //ressourceList.Add(allRessources[3]);
+        ressource = allRessources[1];
+        ressourceList.Add(allRessources[2]);
+        ressourceList.Add(allRessources[3]);
         
-        //ressourceContainer = ScriptableObject.CreateInstance<RessourceContainer>();
-        //ressourceContainer.AddRessource(allRessources[4], 10);
-        //ressourceContainer.AddRessource(allRessources[5], 20);
+        ressourceContainer = ScriptableObject.CreateInstance<RessourceContainer>();
+        ressourceContainer.AddRessource(allRessources[4], 10);
+        ressourceContainer.AddRessource(allRessources[5], 20);
         
     }
 }

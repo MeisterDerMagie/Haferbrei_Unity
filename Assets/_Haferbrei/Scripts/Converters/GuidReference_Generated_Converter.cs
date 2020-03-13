@@ -12,7 +12,7 @@ namespace Bayat.Json.Converters
 
         public override string[] GetObjectProperties()
         {
-            return new string[] { "serializedGuid", "cachedName", "cachedScene", "gameObject" };
+            return new string[] { };
         }
 
         public override bool CanConvert(Type objectType)
