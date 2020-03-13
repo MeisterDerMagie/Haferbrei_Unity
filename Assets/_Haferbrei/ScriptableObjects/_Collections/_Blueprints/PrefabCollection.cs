@@ -30,12 +30,12 @@ public class PrefabCollection : SerializedScriptableObject
 
         prefabReferences.Clear();
 
-        foreach(GameObject so in prefabs)
+        foreach(GameObject prefab in prefabs)
         {
-            if(!prefabReferences.ContainsKey(so.name)) prefabReferences.Add(so.name, so);
+            if(!prefabReferences.ContainsKey(prefab.name)) prefabReferences.Add(prefab.name, prefab);
             else
             {
-                Debug.LogError("Achtung, es gibt zwei oder mehr Prefabs mit demselben Namen! (" + so.name + ")");
+                Debug.LogError("Achtung, es gibt zwei oder mehr Prefabs mit demselben Namen! (" + prefab.name + ")");
             }
         }
     }
