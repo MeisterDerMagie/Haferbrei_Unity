@@ -46,7 +46,6 @@ public class RessourceBar : MonoBehaviour, IInitSelf
 
     private void ResetRessourceBar()
     {
-        Debug.Log("RESET!");
         ressourcesToShow.Clear();
         List<GameObject> entriesToDelete = new List<GameObject>();
         foreach (var entry in ressourceBarEntries) { entriesToDelete.Add(entry.Value.gameObject); }

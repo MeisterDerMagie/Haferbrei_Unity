@@ -20,10 +20,10 @@ public class TEST_SimpleComponent : MonoBehaviour
     //[Saveable] public GameObject testGameObject;
     //[Saveable] public List<GameObject> testGameObjectList;
 
-    //[Saveable] public GuidReference guidReference;
-    //[Saveable] public List<GuidReference> guidReferenceList;
+    [Saveable] public GuidReference guidReference;
+    [Saveable] public List<GuidReference> guidReferenceList;
 
-    [Saveable] public Ressource ressource;
+    //[Saveable] public Ressource ressource;
     //[Saveable] public List<Ressource> ressourceList;
 
     //[Saveable, InlineEditor] public RessourceContainer ressourceContainer;
@@ -44,9 +44,10 @@ public class TEST_SimpleComponent : MonoBehaviour
         //testGameObjectList.Add(FindObjectOfType<GameObject>());
         //testGameObjectList.Add(FindObjectOfType<SaveableGameObject>().gameObject);
 
-        //guidReference = new GuidReference(FindObjectOfType<GuidComponent>());
+        guidReference = new GuidReference(FindObjectOfType<GuidComponent>().GetGuid());
+        guidReferenceList.Add(new GuidReference(FindObjectOfType<GuidComponent>().GetGuid()));
 
-        ressource = allRessources[1];
+        //ressource = allRessources[1];
         //ressourceList.Add(allRessources[2]);
         //ressourceList.Add(allRessources[3]);
         

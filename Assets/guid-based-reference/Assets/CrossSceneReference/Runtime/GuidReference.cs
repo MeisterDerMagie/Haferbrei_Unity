@@ -57,6 +57,8 @@ public class GuidReference : ISerializationCallbackReceiver
 
         private set {}
     }
+
+    public Guid GetReferenceGuid() => guid;
     
     public GuidReference() { }
 
