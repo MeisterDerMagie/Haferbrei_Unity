@@ -1,23 +1,23 @@
 ﻿namespace Haferbrei{
 public interface ISaveable
 {
-    SaveableData SaveData();
-    void LoadData(SaveableData _loadedData);
+    SaveableObjectData SaveData();
+    void LoadData(SaveableObjectData _loadedObjectData);
     void InitSaveable();
     void OnDestroy();
 }
 
 public interface IStoreable
 {
-    SaveableComponentData StoreData();
-    void RestoreData(SaveableComponentData _loadedData);
+    SaveableData StoreData();
+    void RestoreData(SaveableData _loadedData);
     void OnDestroy();
 }
 
 public interface ISaveableScriptableObject
 {
-    SaveableSOData SaveData();
-    void LoadData(SaveableSOData _loadedData);
+    SaveableScriptableObjectData SaveData();
+    void LoadData(SaveableScriptableObjectData _loadedObjectData);
     void InitSaveable();
 }
 }

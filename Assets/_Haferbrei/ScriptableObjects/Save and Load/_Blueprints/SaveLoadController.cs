@@ -21,8 +21,8 @@ public class SaveLoadController : SerializedScriptableObject
     public GameObject initializerPrefab;
     public GameObject loadingScreenPrefab;
     
-    public List<SaveableData> loadedData = new List<SaveableData>();
-    public List<SaveableData> dataToSave = new List<SaveableData>();
+    public List<SaveableObjectData> loadedData = new List<SaveableObjectData>();
+    public List<SaveableObjectData> dataToSave = new List<SaveableObjectData>();
 
     public List<ISaveable> saveableGameObjects = new List<ISaveable>();
     
@@ -51,8 +51,8 @@ public class SaveLoadController : SerializedScriptableObject
                 emptySaveablesToRemove.Add(saveableGameObject);
                 continue;
             }
-            SaveableData data = saveableGameObject.SaveData();
-            dataToSave.Add(data);
+            SaveableObjectData objectData = saveableGameObject.SaveData();
+            dataToSave.Add(objectData);
         }
         foreach (var emptyEntry in emptySaveablesToRemove) saveableGameObjects.Remove(emptyEntry);
         
@@ -78,7 +78,7 @@ public class SaveLoadController : SerializedScriptableObject
         
         loadSaveGame = false;
         loadedData.Clear();
-        SaveSystemAPI.LoadIntoAsync<List<SaveableData>>(saveGameFileName, loadedData);
+        SaveSystemAPI.LoadIntoAsync<List<SaveableObjectData>>(saveGameFileName, loadedData);
         parents.Clear();
         initializers.Clear();
         
@@ -144,9 +144,9 @@ public class SaveLoadController : SerializedScriptableObject
         }
     }
 
-    private void LoadGameObject(SaveableData _loadedData)
+    private void LoadGameObject(SaveableObjectData _loadedObjectData)
     {
-        var data = _loadedData as SaveableGameObjectData;
+        var data = _loadedObjectData as SaveableGameObjectData;
         var targetScene = SceneManager.GetSceneByName(data.sceneName);
         SceneManager.SetActiveScene(targetScene);
         
@@ -178,25 +178,25 @@ public class SaveLoadController : SerializedScriptableObject
         }
     }
 
-    private GameObject InstantiatePrefab(SaveableGameObjectData _data)
+    private GameObject InstantiatePrefab(SaveableGameObjectData _objectData)
     {
         GameObject newGameObject = null;
-        var prefabToInstantiate = allPrefabsCollection.GetPrefab(_data.prefabName);
+        var prefabToInstantiate = allPrefabsCollection.GetPrefab(_objectData.prefabName);
         if (prefabToInstantiate != null)
         {
             //instantiiere Prefab
             newGameObject = Instantiate(prefabToInstantiate);
             //Setze die Guid auf dem neu erstellten GameObjekt.
-            newGameObject.GetComponent<GuidComponent>().SetGuid(_data.guid);
+            newGameObject.GetComponent<GuidComponent>().SetGuid(_objectData.guid);
         }
-        else Debug.LogError("Konnte Prefab nicht finden, das beim Laden instantiiert werden sollte! (" + _data.prefabName + ") Beim GameObject: " + _data.gameObjectName);
+        else Debug.LogError("Konnte Prefab nicht finden, das beim Laden instantiiert werden sollte! (" + _objectData.prefabName + ") Beim GameObject: " + _objectData.gameObjectName);
 
         return newGameObject;
     }
 
-    private void LoadScriptableObject(SaveableData _loadedData)
+    private void LoadScriptableObject(SaveableObjectData _loadedObjectData)
     {
-        saveableScriptableObjects.LoadScriptableObject(_loadedData as SaveableSOData);
+        saveableScriptableObjects.LoadScriptableObject(_loadedObjectData as SaveableScriptableObjectData);
     }
 
     public void RegisterSaveableGameObject(ISaveable _saveable)

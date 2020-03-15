@@ -8,45 +8,45 @@ using UnityEngine;
 
 namespace Haferbrei{
 [Serializable]
-public struct SaveableComponentData
+public struct SaveableData
 {
-    public string componentID;
+    public string objectId;
     
     public Type componentType;
     public Dictionary<string, object> componentFields;
     public Dictionary<string, object> componentProperties;
 
-    public SaveableComponentData(object _component, string _componentID)
+    public SaveableData(object _objectToSave, string _objectID)
     {
-        componentID = _componentID;
-        componentType = _component.GetType();
+        objectId = _objectID;
+        componentType = _objectToSave.GetType();
         componentFields = new Dictionary<string, object>();
         componentProperties = new Dictionary<string, object>();
         
-        var saveableFields = _component.GetType()
+        var saveableFields = _objectToSave.GetType()
                                        .GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
                                        .Where(f => f.GetCustomAttributes(typeof(SaveableAttribute)).Any());
         
-        var saveableProperties = _component.GetType()
+        var saveableProperties = _objectToSave.GetType()
                                            .GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
                                            .Where(f => f.GetCustomAttributes(typeof(SaveableAttribute)).Any());
         
         foreach(FieldInfo field in saveableFields)
         {
-            object fieldValue = field.GetValue(_component);
+            object fieldValue = field.GetValue(_objectToSave);
             componentFields.Add(field.Name, fieldValue);
         }
 
         foreach (var property in saveableProperties)
         {
-            object propertyValue = property.GetValue(_component);
+            object propertyValue = property.GetValue(_objectToSave);
             componentProperties.Add(property.Name, propertyValue);
         }
     }
 
-    public void LoadIntoComponent(object _targetComponent)
+    public void LoadIntoComponent(object _objectToPopulate)
     {
-        if (_targetComponent.GetType() != componentType) Debug.LogError($"Tried to load the save data of a different script. Tried to load type: {_targetComponent.GetType()} into: {componentType}");
+        if (_objectToPopulate.GetType() != componentType) Debug.LogError($"Tried to load the save data of a different script. Tried to load type: {_objectToPopulate.GetType()} into: {componentType}");
         else
         {
             foreach (KeyValuePair<string, object> field in componentFields)
@@ -57,18 +57,18 @@ public struct SaveableComponentData
                 if (fieldValue is double) fieldValue = Convert.ToSingle(fieldValue);
                 if (fieldValue is long)   fieldValue = Convert.ToInt32(fieldValue);
 
-                _targetComponent.GetType()
+                _objectToPopulate.GetType()
                     .GetField(field.Key, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
-                    ?.SetValue(_targetComponent, fieldValue);
+                    ?.SetValue(_objectToPopulate, fieldValue);
             }
 
             foreach (KeyValuePair<string, object> field in componentProperties)
             {
                 object fieldValue = field.Value;
 
-                _targetComponent.GetType()
+                _objectToPopulate.GetType()
                     .GetProperty(field.Key, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
-                    ?.SetValue(_targetComponent, fieldValue);
+                    ?.SetValue(_objectToPopulate, fieldValue);
             }
         }
     }

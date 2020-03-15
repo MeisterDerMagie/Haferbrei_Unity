@@ -21,9 +21,9 @@ public class SaveableComponent : MonoBehaviour, IStoreable
     private SaveableGameObject AssociatedSaveableGameObject => GetAssociatedSaveableGameObject();
     private bool missingSaveableObject; //für Odin
     
-    public SaveableComponentData StoreData() => new SaveableComponentData(componentToSave, componentID);
+    public SaveableData StoreData() => new SaveableData(componentToSave, componentID);
 
-    public void RestoreData(SaveableComponentData _loadedData) => _loadedData.LoadIntoComponent(componentToSave);
+    public void RestoreData(SaveableData _loadedData) => _loadedData.LoadIntoComponent(componentToSave);
 
     private SaveableGameObject GetAssociatedSaveableGameObject()
     {

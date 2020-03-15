@@ -21,31 +21,31 @@ public class SaveableGameObject : MonoBehaviour, ISaveable
 
     private bool prefabNameIsNotNullOrEmpty => !string.IsNullOrEmpty(prefabName); //für Odin
     
-    public SaveableData SaveData()
+    public SaveableObjectData SaveData()
     {
-        SaveableGameObjectData data = new SaveableGameObjectData();
+        SaveableGameObjectData objectData = new SaveableGameObjectData();
 
         //save own data
-        data.sceneName = gameObject.scene.name;
-        data.guid = GetComponent<GuidComponent>().GetGuid();
-        data.saveableType = "GameObject";
-        data.prefabName = prefabName;
-        data.gameObjectName = gameObject.name;
+        objectData.sceneName = gameObject.scene.name;
+        objectData.guid = GetComponent<GuidComponent>().GetGuid();
+        objectData.saveableType = "GameObject";
+        objectData.prefabName = prefabName;
+        objectData.gameObjectName = gameObject.name;
         
         //IN DIESER ZEILE IST EIN BUG: beim Laden
-        data.parentGuid = (transform.parent == null || transform.parent.GetComponent<GuidComponent>() == null) ? Guid.Empty : transform.parent.GetComponent<GuidComponent>().GetGuid();
+        objectData.parentGuid = (transform.parent == null || transform.parent.GetComponent<GuidComponent>() == null) ? Guid.Empty : transform.parent.GetComponent<GuidComponent>().GetGuid();
 
         //save component data
-        var componentDatas = new List<SaveableComponentData>();
+        var componentDatas = new List<SaveableData>();
         foreach (var component in saveableComponents) componentDatas.Add(component.StoreData());
-        data.componentDatas = componentDatas;
+        objectData.componentDatas = componentDatas;
         
-        return data;
+        return objectData;
     }
 
-    public void LoadData(SaveableData _loadedData)
+    public void LoadData(SaveableObjectData _loadedObjectData)
     {
-        var data = _loadedData as SaveableGameObjectData;
+        var data = _loadedObjectData as SaveableGameObjectData;
         
         //load own data
         gameObject.name = data.gameObjectName;
@@ -55,7 +55,7 @@ public class SaveableGameObject : MonoBehaviour, ISaveable
         {
             foreach (var component in saveableComponents)
             {
-                if(component.componentID == componentData.componentID) component.RestoreData(componentData);
+                if(component.componentID == componentData.objectId) component.RestoreData(componentData);
             }
         }
     }
@@ -121,12 +121,12 @@ public class SaveableGameObject : MonoBehaviour, ISaveable
 
 
 [Serializable]
-public class SaveableGameObjectData : SaveableData
+public class SaveableGameObjectData : SaveableObjectData
 {
     public string sceneName;
     public Guid parentGuid;
     public string prefabName;
     public string gameObjectName;
-    public List<SaveableComponentData> componentDatas;
+    public List<SaveableData> componentDatas;
 }
 }

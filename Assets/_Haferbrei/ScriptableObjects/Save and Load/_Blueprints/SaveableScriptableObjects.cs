@@ -34,9 +34,9 @@ public class SaveableScriptableObjects : SerializedScriptableObject, IResettable
     }
     
     //--- Save Data ---
-    public List<SaveableData> SaveScriptableObjects()
+    public List<SaveableObjectData> SaveScriptableObjects()
     {
-        var data = new List<SaveableData>();
+        var data = new List<SaveableObjectData>();
         //Disc
         for (int i = 0; i < SOsOnDisk.Count; i++)
         {
@@ -53,7 +53,7 @@ public class SaveableScriptableObjects : SerializedScriptableObject, IResettable
         return data;
     }
 
-    private SaveableSOData GetSoSaveableData(int i, bool isDiskSO)
+    private SaveableScriptableObjectData GetSoSaveableData(int i, bool isDiskSO)
     {
         var so = isDiskSO ? SOsOnDisk[i] : SOsInstantiatedAtRuntime[i];
         var soAsSaveable = so as ISaveableScriptableObject;
@@ -68,23 +68,23 @@ public class SaveableScriptableObjects : SerializedScriptableObject, IResettable
     //--- ---
     
     //--- Load Data ---
-    public void LoadScriptableObject(SaveableSOData _data)
+    public void LoadScriptableObject(SaveableScriptableObjectData _objectData)
     {
-        if (guidsOnDisk.Contains(_data.guid))
+        if (guidsOnDisk.Contains(_objectData.guid))
         {
-            int index = guidsOnDisk.IndexOf(_data.guid);
+            int index = guidsOnDisk.IndexOf(_objectData.guid);
             var so = SOsOnDisk[index];
-            (so as ISaveableScriptableObject).LoadData(_data);
+            (so as ISaveableScriptableObject).LoadData(_objectData);
             return;
         }
         
-        Type soType = Type.GetType(_data.scriptableObjectType);
+        Type soType = Type.GetType(_objectData.scriptableObjectType);
         var newSo = ScriptableObject.CreateInstance(soType);
         
         SOsInstantiatedAtRuntime.Add(newSo);
-        guidsInstantiatedAtRuntime.Add(_data.guid);
+        guidsInstantiatedAtRuntime.Add(_objectData.guid);
         
-        (newSo as ISaveableScriptableObject).LoadData(_data);
+        (newSo as ISaveableScriptableObject).LoadData(_objectData);
     }
     //--- ---
     
