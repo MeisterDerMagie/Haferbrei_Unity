@@ -56,13 +56,16 @@ public class SaveableScriptableObjects : SerializedScriptableObject, IResettable
     private SaveableScriptableObjectData GetSoSaveableData(int i, bool isDiskSO)
     {
         var so = isDiskSO ? SOsOnDisk[i] : SOsInstantiatedAtRuntime[i];
-        var soAsSaveable = so as ISaveableScriptableObject;
         Debug.Log(so.name);
-        var soData = soAsSaveable.SaveData();
-        soData.guid = isDiskSO ? guidsOnDisk[i] : guidsInstantiatedAtRuntime[i];
-        soData.saveableType = "ScriptableObject";
-        soData.scriptableObjectName = so.name;
-        soData.scriptableObjectType = so.GetType().FullName;
+        var guid = isDiskSO ? guidsOnDisk[i] : guidsInstantiatedAtRuntime[i];
+        SaveableScriptableObjectData soData = new SaveableScriptableObjectData
+        {
+            guid = guid,
+            saveableType = "ScriptableObject",
+            scriptableObjectName = so.name,
+            scriptableObjectType = so.GetType().FullName,
+            data = new SaveableData(so, guid.ToString())
+        };
         return soData;
     }
     //--- ---
@@ -74,17 +77,20 @@ public class SaveableScriptableObjects : SerializedScriptableObject, IResettable
         {
             int index = guidsOnDisk.IndexOf(_objectData.guid);
             var so = SOsOnDisk[index];
-            (so as ISaveableScriptableObject).LoadData(_objectData);
+            _objectData.data.PopulateObject(so);
+            //(so as ISaveableScriptableObject).LoadData(_objectData);
             return;
         }
         
         Type soType = Type.GetType(_objectData.scriptableObjectType);
         var newSo = ScriptableObject.CreateInstance(soType);
+        newSo.name = _objectData.scriptableObjectName;
         
         SOsInstantiatedAtRuntime.Add(newSo);
         guidsInstantiatedAtRuntime.Add(_objectData.guid);
         
-        (newSo as ISaveableScriptableObject).LoadData(_objectData);
+        _objectData.data.PopulateObject(newSo);
+        //(newSo as ISaveableScriptableObject).LoadData(_objectData);
     }
     //--- ---
     

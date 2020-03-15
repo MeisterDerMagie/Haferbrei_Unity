@@ -46,7 +46,6 @@ public class TEST_SimpleComponent : MonoBehaviour
         testFloat = 8.9f;
         testFloatList.Add(1.2f);
         testFloatList.Add(3.4f);
-
         
         testGameObject = Camera.main.gameObject;
         testGameObjectList.Add(FindObjectOfType<GameObject>());

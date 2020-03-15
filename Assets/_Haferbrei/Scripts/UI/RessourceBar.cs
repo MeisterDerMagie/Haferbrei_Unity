@@ -14,7 +14,8 @@ public class RessourceBar : MonoBehaviour, IInitSelf
 
     [SerializeField, BoxGroup("References"), Required] private RessourceValueList ressourcesThatCanBeShownInRessourceBar;
     
-    [SerializeField, BoxGroup("Info"), LabelText("Ressources to show (even if the value is 0)"), ReadOnly][Saveable]
+    [SerializeField, BoxGroup("Info"), LabelText("Ressources to show (even if the value is 0)"), ReadOnly]
+    [Saveable]
     public List<Ressource> ressourcesToShow = new List<Ressource>(); //einziges Field, das gespeichert werden muss
 
     [HideInInspector] public bool compareToPlayerRessources;

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Haferbrei{
@@ -9,9 +10,10 @@ public abstract class SaveableObjectData //base class for all classes that can b
     public string saveableType;
 }
 
-public abstract class SaveableScriptableObjectData : SaveableObjectData
+public class SaveableScriptableObjectData : SaveableObjectData
 {
     public string scriptableObjectName;
     public string scriptableObjectType;
+    public SaveableData data;
 }
 }

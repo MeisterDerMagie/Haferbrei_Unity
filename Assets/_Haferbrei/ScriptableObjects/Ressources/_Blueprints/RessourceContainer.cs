@@ -8,7 +8,7 @@ namespace Haferbrei{
 [CreateAssetMenu(fileName = "RessourcePackage", menuName = "Scriptable Objects/Ressourcen/Ressource Container", order = 0)]
 public class RessourceContainer : SerializedScriptableObject, ISaveableScriptableObject
 {
-    [OdinSerialize] public Dictionary<Ressource, int> ressources = new Dictionary<Ressource, int>();
+    [OdinSerialize][Saveable] public Dictionary<Ressource, int> ressources = new Dictionary<Ressource, int>();
 
     [ReadOnly] public Action onRessourcesChanged = delegate { };
     
@@ -269,41 +269,5 @@ public class RessourceContainer : SerializedScriptableObject, ISaveableScriptabl
             ressources.Remove(ressource);
         }
     }
-    
-    //Saveable
-    public SaveableScriptableObjectData SaveData()
-    {
-        var data = new RessourceContainer_SaveableScriptableObjectData
-        {
-            name = this.name,
-            ressources = this.ressources
-        };
-
-        return data;
-    }
-
-    public void LoadData(SaveableScriptableObjectData _loadedObjectData)
-    {
-        var data = _loadedObjectData as RessourceContainer_SaveableScriptableObjectData;
-
-        name = data.name;
-        ressources.Clear();
-        foreach (var ressource in data.ressources)
-        {
-            ressources.Add(ressource.Key, ressource.Value);
-        }
-    }
-
-    public void InitSaveable()
-    {
-        throw new NotImplementedException();
-    }
-}
-
-public class RessourceContainer_SaveableScriptableObjectData : SaveableScriptableObjectData
-{
-    public string name;
-    [OdinSerialize] public Dictionary<Ressource, int> ressources = new Dictionary<Ressource, int>();
-
 }
 }

@@ -23,7 +23,7 @@ public class SaveableComponent : MonoBehaviour, IStoreable
     
     public SaveableData StoreData() => new SaveableData(componentToSave, componentID);
 
-    public void RestoreData(SaveableData _loadedData) => _loadedData.LoadIntoComponent(componentToSave);
+    public void RestoreData(SaveableData _loadedData) => _loadedData.PopulateObject(componentToSave);
 
     private SaveableGameObject GetAssociatedSaveableGameObject()
     {

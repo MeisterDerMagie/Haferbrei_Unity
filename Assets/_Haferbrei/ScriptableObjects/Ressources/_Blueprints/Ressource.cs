@@ -35,7 +35,8 @@ public class RessourceTypeConverter : TypeConverter
         
         if (destinationType == typeof(string))
         {
-            return AssetReferenceResolver.Current.ResolveGuid(value as Ressource); //save the Guid
+            //return AssetReferenceResolver.Current.ResolveGuid(value as Ressource); //save the Guid
+            return ScriptableObjectReferences.Instance.saveableScriptableObjectsReferences.ResolveReference((value as Ressource)).ToString(); //save the Guid
         }
         return base.ConvertTo(context, culture, value, destinationType);
     }
@@ -43,9 +44,11 @@ public class RessourceTypeConverter : TypeConverter
     {
         Debug.Log("ConvertFrom");
         
-        if (value is string)
+        if (value is string valueAsString)
         {
-            return AssetReferenceResolver.Current.ResolveReference(value as string); //restore the Guid
+            //return AssetReferenceResolver.Current.ResolveReference(value as string); //restore the Guid
+            return ScriptableObjectReferences.Instance.saveableScriptableObjectsReferences.ResolveGuid(Guid.Parse(valueAsString)); //restore the Guid
+
         }
         return base.ConvertFrom(context, culture, value);
     }
