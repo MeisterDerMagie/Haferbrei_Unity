@@ -14,6 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBeBuilt: 1
   identifier: buildingSO_schmiede
+  buildingName:
+    mTerm: Buildings/schmiede
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
   capacity: 0
   isUnique: 0
   cost: {fileID: 11400000, guid: f0570f7bec2342f4aa9d8c36b1dc9e8e, type: 2}
@@ -21,3 +27,4 @@ MonoBehaviour:
     type: 3}
   previewPrefab: {fileID: 4604666238020978129, guid: 7e7e8b44439f68a4084b02635aa9240e,
     type: 3}
+  icon: {fileID: 21300000, guid: 7c7ee1b8469b91048884c10383ee0624, type: 3}

@@ -14,8 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBeBuilt: 0
   identifier: buildingSO_NONE
+  buildingName:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
   capacity: 0
   isUnique: 0
   cost: {fileID: 0}
   instancePrefab: {fileID: 0}
   previewPrefab: {fileID: 0}
+  icon: {fileID: 21300000, guid: d962e5681d038c64c9e35aee8d88cb49, type: 3}
