@@ -6245,7 +6245,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1229799734}
   - component: {fileID: 1229799735}
-  - component: {fileID: 1229799736}
   m_Layer: 0
   m_Name: GebaeudePreview
   m_TagString: Untagged
@@ -6281,19 +6280,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gebaeudePreviewIsColliding: 0
   previewCollider: {fileID: 0}
---- !u!114 &1229799736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1229799733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a961c3b7a9514d549555ad7c0576e279, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bauPreview: {fileID: 1229799733}
 --- !u!1 &1243853679
 GameObject:
   m_ObjectHideFlags: 0
@@ -8086,6 +8072,7 @@ GameObject:
   - component: {fileID: 1649228156}
   - component: {fileID: 1649228157}
   - component: {fileID: 1649228160}
+  - component: {fileID: 1649228158}
   - component: {fileID: 1649228159}
   m_Layer: 0
   m_Name: Baumodus
@@ -8134,6 +8121,19 @@ MonoBehaviour:
     _variable: {fileID: 11400000, guid: f48f1c1685972c240895e61ee91b3d90, type: 2}
     _variableInstancer: {fileID: 0}
   zuBauendesGebaeude: {fileID: 11400000, guid: f48f1c1685972c240895e61ee91b3d90, type: 2}
+--- !u!114 &1649228158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649228155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a961c3b7a9514d549555ad7c0576e279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bauPreview: {fileID: 1229799733}
 --- !u!114 &1649228159
 MonoBehaviour:
   m_ObjectHideFlags: 0
