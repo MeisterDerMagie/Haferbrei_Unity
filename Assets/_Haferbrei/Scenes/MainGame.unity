@@ -509,8 +509,8 @@ MonoBehaviour:
   invertScrollDirection: 0
   zoomSpeed: 1
   sensitivity: 3
-  minZoomValue: 5
-  maxZoomValue: 20
+  minZoomValue: 10
+  maxZoomValue: 25
   zoomSensitivityCurve:
     serializedVersion: 2
     m_Curve:
