@@ -8,8 +8,10 @@ using UnityEngine;
 using Wichtel.Extensions;
 
 namespace Haferbrei {
-public class GebaeudeBauen : MonoBehaviour
+public class Baumodus : MonoBehaviour
 {
+    [SerializeField, BoxGroup("Info"), ReadOnly] public bool buildingModeIsActive;
+    
     [SerializeField, BoxGroup("Info"), ReadOnly] private GameObject gebaeudePreview;
     [SerializeField, BoxGroup("Info"), ReadOnly] private bool buildingIsAllowed;
     [SerializeField, FoldoutGroup("References"), Required] private Transform previewParent;
@@ -56,7 +58,7 @@ public class GebaeudeBauen : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && buildingIsAllowed)
+        if (Input.GetMouseButtonDown(0) && buildingModeIsActive && buildingIsAllowed)
         {
             BuildBuilding();
         }

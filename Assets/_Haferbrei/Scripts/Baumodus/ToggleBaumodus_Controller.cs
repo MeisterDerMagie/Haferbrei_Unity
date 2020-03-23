@@ -13,6 +13,7 @@ public class ToggleBaumodus_Controller : MonoBehaviour
     [SerializeField, FoldoutGroup("References"), Required] private GameObject baumodusWindow;
     [SerializeField, FoldoutGroup("References"), Required] private Building noGebaeude;
     [SerializeField, FoldoutGroup("References"), Required] private Bauauswahl bauauswahl;
+    [SerializeField, FoldoutGroup("References"), Required] private Baumodus baumodusScript;
     
     [SerializeField, BoxGroup("Atom Values"), Required] private BuildingVariable zuBauendesGebaeude;
 
@@ -29,6 +30,7 @@ public class ToggleBaumodus_Controller : MonoBehaviour
     {
         if (baumodusIsActive) return;
         baumodusIsActive = true;
+        baumodusScript.buildingModeIsActive = true;
         
         onEnterBaumodus.Invoke();
     }
@@ -37,6 +39,7 @@ public class ToggleBaumodus_Controller : MonoBehaviour
     {
         if (!baumodusIsActive) return;
         baumodusIsActive = false;
+        baumodusScript.buildingModeIsActive = false;
         
         onLeaveBaumodus.Invoke();
     }
