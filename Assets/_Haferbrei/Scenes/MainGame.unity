@@ -2226,16 +2226,6 @@ MonoBehaviour:
   testIntList: 
   testFloat: 0
   testFloatList: []
-  testGameObject: {fileID: 0}
-  testGameObjectList: []
-  guidReference:
-    serializedGuid: 00000000000000000000000000000000
-    cachedName: 
-    cachedScene: {fileID: 0}
-  guidReferenceList: []
-  ressource: {fileID: 0}
-  ressourceList: []
-  ressourceContainer: {fileID: 0}
 --- !u!114 &359636069
 MonoBehaviour:
   m_ObjectHideFlags: 0

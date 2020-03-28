@@ -2,8 +2,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Bayat.SaveSystem;
+//using Bayat.SaveSystem;
 using MEC;
+using Newtonsoft.Json;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -57,7 +58,14 @@ public class SaveLoadController : SerializedScriptableObject
         foreach (var emptyEntry in emptySaveablesToRemove) saveableGameObjects.Remove(emptyEntry);
         
         // 4. Write file
-        SaveSystemAPI.SaveAsync(_saveGameFileName, dataToSave);
+        //
+        // SAVE FILE HERE
+        //SaveSystemAPI.SaveAsync(_saveGameFileName, dataToSave);
+        var settings = new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Serialize};
+        string json = JsonConvert.SerializeObject(dataToSave, Formatting.Indented, settings);
+        System.IO.File.WriteAllText(Application.persistentDataPath + "/SaveFile.json", json);
+        //
+        
         Debug.Log("Game saved!");
     }
 
@@ -78,7 +86,11 @@ public class SaveLoadController : SerializedScriptableObject
         
         loadSaveGame = false;
         loadedData.Clear();
-        SaveSystemAPI.LoadIntoAsync<List<SaveableObjectData>>(saveGameFileName, loadedData);
+        //
+        // LOAD FILE HERE
+        //SaveSystemAPI.LoadIntoAsync<List<SaveableObjectData>>(saveGameFileName, loadedData);
+        //
+        
         parents.Clear();
         initializers.Clear();
         

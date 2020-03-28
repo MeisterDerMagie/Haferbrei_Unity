@@ -1,7 +1,15 @@
 {
-  "dependencies": {
+    "scopedRegistries": [
+      {
+        "name": "Packages from jillejr",
+        "url": "https://npm.cloudsmith.io/jillejr/newtonsoft-json-for-unity/",
+        "scopes": ["jillejr"]
+      }
+    ],
+    "dependencies": {
+    "com.mambojambostudios.unity-atoms": "https://github.com/AdamRamberg/unity-atoms.git#canary", 
     "com.johannesmp.unityscenereference": "https://github.com/starikcetin/unity-scene-reference.git#upm",
-    "com.mambojambostudios.unity-atoms": "https://github.com/AdamRamberg/unity-atoms.git#canary",
+    "jillejr.newtonsoft.json-for-unity": "12.0.301",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.2d.tilemap": "1.0.0",
     "com.unity.collab-proxy": "1.2.16",

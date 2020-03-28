@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Bayat.Json;
 using Haferbrei;
 using Sirenix.OdinInspector;
 using UnityAtoms;
@@ -19,20 +18,20 @@ public class TEST_SimpleComponent : MonoBehaviour
     [Saveable] public float testFloat;
     [Saveable] public List<float> testFloatList;
 
-    [Title("GameObjects (not saveable but should throw an error!)")]
-    [Saveable] public GameObject testGameObject;
-    [Saveable] public List<GameObject> testGameObjectList;
+    //[Title("GameObjects (not saveable but should throw an error!)")]
+    //[Saveable] public GameObject testGameObject;
+    //[Saveable] public List<GameObject> testGameObjectList;
 
-    [Title("GuidReferences")]
-    [Saveable] public GuidReference guidReference;
-    [Saveable] public List<GuidReference> guidReferenceList;
+    //[Title("GuidReferences")]
+    //[Saveable] public GuidReference guidReference;
+    //[Saveable] public List<GuidReference> guidReferenceList;
 
-    [Title("ScriptableObjects")]
-    [Saveable] public Ressource ressource;
-    [Saveable] public List<Ressource> ressourceList;
+    //[Title("ScriptableObjects")]
+    //[Saveable] public Ressource ressource;
+    //[Saveable] public List<Ressource> ressourceList;
 
-    [Title("Runtime instantiated ScriptableObjects")]
-    [Saveable, InlineEditor] public RessourceContainer ressourceContainer;
+    //[Title("Runtime instantiated ScriptableObjects")]
+    //[Saveable, InlineEditor] public RessourceContainer ressourceContainer;
 
     [Button, DisableInEditorMode]
     public void SetDummyValues()
@@ -47,6 +46,7 @@ public class TEST_SimpleComponent : MonoBehaviour
         testFloatList.Add(1.2f);
         testFloatList.Add(3.4f);
         
+        /*
         testGameObject = Camera.main.gameObject;
         testGameObjectList.Add(FindObjectOfType<GameObject>());
         testGameObjectList.Add(FindObjectOfType<SaveableGameObject>().gameObject);
@@ -61,6 +61,6 @@ public class TEST_SimpleComponent : MonoBehaviour
         ressourceContainer = ScriptableObject.CreateInstance<RessourceContainer>();
         ressourceContainer.AddRessource(allRessources[4], 10);
         ressourceContainer.AddRessource(allRessources[5], 20);
-        
+        */
     }
 }
