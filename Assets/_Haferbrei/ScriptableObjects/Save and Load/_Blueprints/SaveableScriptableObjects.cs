@@ -56,7 +56,7 @@ public class SaveableScriptableObjects : SerializedScriptableObject, IResettable
     private SaveableScriptableObjectData GetSoSaveableData(int i, bool isDiskSO)
     {
         var so = isDiskSO ? SOsOnDisk[i] : SOsInstantiatedAtRuntime[i];
-        Debug.Log(so.name);
+        //Debug.Log(so.name);
         var guid = isDiskSO ? guidsOnDisk[i] : guidsInstantiatedAtRuntime[i];
         SaveableScriptableObjectData soData = new SaveableScriptableObjectData
         {

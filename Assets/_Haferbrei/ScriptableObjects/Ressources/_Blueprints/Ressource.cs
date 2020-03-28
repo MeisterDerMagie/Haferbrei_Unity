@@ -30,7 +30,7 @@ public class RessourceTypeConverter : TypeConverter
     }
     public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType)
     {
-        Debug.Log("ConvertTo");
+        //Debug.Log("ConvertTo");
         
         if (destinationType == typeof(string))
         {
@@ -41,7 +41,7 @@ public class RessourceTypeConverter : TypeConverter
     }
     public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value)
     {
-        Debug.Log("ConvertFrom");
+        //Debug.Log("ConvertFrom");
         
         if (value is string valueAsString)
         {

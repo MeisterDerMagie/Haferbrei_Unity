@@ -7,6 +7,8 @@ public class VectorConverter : JsonConverter
 {
     public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
     {
+        Debug.Log("Write Vector of type: " + value.GetType());
+        
         if (value is Vector2 vector2)
         {
             WriteVector(writer, vector2.x, vector2.y, null, null);
@@ -36,6 +38,16 @@ public class VectorConverter : JsonConverter
 
     public override bool CanConvert(Type objectType)
     {
+        Debug.Log(objectType);
+        
+        bool canConvert = objectType == typeof(Vector2) ||
+                          objectType == typeof(Vector3) ||
+                          objectType == typeof(Vector4) ||
+                          objectType == typeof(Vector2Int) ||
+                          objectType == typeof(Vector3Int);
+        
+        if(canConvert) Debug.Log("CanConvert Vector!");
+        
         return objectType == typeof(Vector2) ||
                objectType == typeof(Vector3) ||
                objectType == typeof(Vector4) ||
