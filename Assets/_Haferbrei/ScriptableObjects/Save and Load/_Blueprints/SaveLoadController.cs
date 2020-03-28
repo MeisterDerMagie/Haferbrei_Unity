@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Haferbrei.JsonConverters;
 //using Bayat.SaveSystem;
 using MEC;
 using Newtonsoft.Json;
@@ -61,7 +62,8 @@ public class SaveLoadController : SerializedScriptableObject
         //
         // SAVE FILE HERE
         //SaveSystemAPI.SaveAsync(_saveGameFileName, dataToSave);
-        var settings = new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore, TypeNameHandling = TypeNameHandling.All};
+        JsonConverter[] converters = {new VectorConverter()};
+        var settings = new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore, TypeNameHandling = TypeNameHandling.All, Converters = converters};
         string json = JsonConvert.SerializeObject(dataToSave, Formatting.Indented, settings);
         System.IO.File.WriteAllText(Application.persistentDataPath + "/SaveFile.json", json);
         //

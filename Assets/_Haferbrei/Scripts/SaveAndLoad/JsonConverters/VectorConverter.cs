@@ -54,8 +54,8 @@ public class VectorConverter : JsonConverter
                objectType == typeof(Vector2Int) ||
                objectType == typeof(Vector3Int);
     }
-    
-    protected virtual void WriteVector(JsonWriter writer, float x, float y, float? z, float? w)
+
+    private void WriteVector(JsonWriter writer, float x, float y, float? z, float? w)
     {
         writer.WritePropertyName("x");
         writer.WriteValue(x);
@@ -71,7 +71,7 @@ public class VectorConverter : JsonConverter
         writer.WriteValue(w.Value);
     }
     
-    protected virtual void WriteVectorInt(JsonWriter writer, int x, int y, int? z)
+    private void WriteVectorInt(JsonWriter writer, int x, int y, int? z)
     {
         writer.WritePropertyName("x");
         writer.WriteValue(x);
