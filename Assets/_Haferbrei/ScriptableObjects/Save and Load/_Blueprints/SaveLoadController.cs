@@ -35,6 +35,7 @@ public class SaveLoadController : SerializedScriptableObject
     [Button, DisableInEditorMode]
     public void SaveGameState(string _saveGameFileName)
     {
+        if(dataToSave == null) dataToSave = new List<SaveableObjectData>();
         dataToSave.Clear();
         
         // 1. Collect SaveableScriptableObjects
@@ -61,7 +62,6 @@ public class SaveLoadController : SerializedScriptableObject
         // 4. Write file
         //
         // SAVE FILE HERE
-        //SaveSystemAPI.SaveAsync(_saveGameFileName, dataToSave);
         JsonConverter[] converters = AllJsonConverters.GetAllJsonConverters(); //ToDo: cache converters for improved performance
         var settings = new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore, TypeNameHandling = TypeNameHandling.All, Converters = converters};
         string json = JsonConvert.SerializeObject(dataToSave, Formatting.Indented, settings);
@@ -87,10 +87,10 @@ public class SaveLoadController : SerializedScriptableObject
         DontDestroyOnLoad(loadingScreen);
         
         loadSaveGame = false;
+        if(loadedData == null) loadedData = new List<SaveableObjectData>();
         loadedData.Clear();
         //
         // LOAD FILE HERE
-        //SaveSystemAPI.LoadIntoAsync<List<SaveableObjectData>>(saveGameFileName, loadedData);
         string json = System.IO.File.ReadAllText(Application.persistentDataPath + "/SaveFile.json");
         JsonConverter[] converters = AllJsonConverters.GetAllJsonConverters(); //ToDo: cache converters for improved performance
         var settings = new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore, TypeNameHandling = TypeNameHandling.All, Converters = converters};

@@ -2237,8 +2237,8 @@ MonoBehaviour:
   testFloatList: []
   vector3: {x: 0, y: 0, z: 0}
   vector2: {x: 0, y: 0}
-  testGameObject: {fileID: 0}
-  testGameObjectList: []
+  ressource: {fileID: 0}
+  ressourceList: []
 --- !u!114 &359636069
 MonoBehaviour:
   m_ObjectHideFlags: 0
