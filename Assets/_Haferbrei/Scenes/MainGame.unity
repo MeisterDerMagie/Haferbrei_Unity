@@ -2221,11 +2221,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379bea3a8411dd648bfeb461e526eeb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   allRessources: {fileID: 11400000, guid: 7ea0d0d2af1da2c4ab59bef43bf5f2b7, type: 2}
   testInt: 0
   testIntList: 
   testFloat: 0
   testFloatList: []
+  vector3: {x: 0, y: 0, z: 0}
+  vector2: {x: 0, y: 0}
+  testGameObject: {fileID: 0}
+  testGameObjectList: []
 --- !u!114 &359636069
 MonoBehaviour:
   m_ObjectHideFlags: 0

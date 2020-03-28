@@ -49,8 +49,6 @@ public struct SaveableData
         {
             foreach (KeyValuePair<string, object> field in objectFields)
             {
-                Debug.Log("FIELDNAME: " + field.Key);
-                
                 object fieldValue = field.Value;
                 if (fieldValue is double) fieldValue = Convert.ToSingle(fieldValue);
                 if (fieldValue is long)   fieldValue = Convert.ToInt32(fieldValue);

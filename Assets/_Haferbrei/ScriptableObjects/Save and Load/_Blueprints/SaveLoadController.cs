@@ -62,7 +62,7 @@ public class SaveLoadController : SerializedScriptableObject
         //
         // SAVE FILE HERE
         //SaveSystemAPI.SaveAsync(_saveGameFileName, dataToSave);
-        JsonConverter[] converters = {new VectorConverter()};
+        JsonConverter[] converters = AllJsonConverters.GetAllJsonConverters(); //ToDo: cache converters for improved performance
         var settings = new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore, TypeNameHandling = TypeNameHandling.All, Converters = converters};
         string json = JsonConvert.SerializeObject(dataToSave, Formatting.Indented, settings);
         System.IO.File.WriteAllText(Application.persistentDataPath + "/SaveFile.json", json);
@@ -92,7 +92,8 @@ public class SaveLoadController : SerializedScriptableObject
         // LOAD FILE HERE
         //SaveSystemAPI.LoadIntoAsync<List<SaveableObjectData>>(saveGameFileName, loadedData);
         string json = System.IO.File.ReadAllText(Application.persistentDataPath + "/SaveFile.json");
-        var settings = new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore, TypeNameHandling = TypeNameHandling.All};
+        JsonConverter[] converters = AllJsonConverters.GetAllJsonConverters(); //ToDo: cache converters for improved performance
+        var settings = new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore, TypeNameHandling = TypeNameHandling.All, Converters = converters};
         loadedData = JsonConvert.DeserializeObject<List<SaveableObjectData>>(json, settings);
         //
         

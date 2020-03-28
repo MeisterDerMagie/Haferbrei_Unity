@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Reflection;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using UnityEngine;
 
 namespace Haferbrei.JsonConverters{
@@ -10,7 +13,8 @@ public class VectorConverter : JsonConverter
         //Start writing
         writer.WriteStartObject();
         writer.WritePropertyName("$type");
-        writer.WriteValue(value.GetType().FullName);
+        string typeAndAssembly = value.GetType().FullName + ", " + Assembly.GetAssembly(value.GetType()).GetName().Name;
+        writer.WriteValue(typeAndAssembly);
         
         //write custom values here:
         if (value is Vector2 vector2)
@@ -40,7 +44,8 @@ public class VectorConverter : JsonConverter
 
     public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
     {
-        throw new NotImplementedException();
+        JObject obj = JObject.Load(reader);
+        return ReadVector(obj, objectType);
     }
 
     public override bool CanConvert(Type objectType)
@@ -80,5 +85,60 @@ public class VectorConverter : JsonConverter
         writer.WriteValue(z.Value);
     }
 
+    private object ReadVector(JObject obj, Type objectType)
+    {
+        if (objectType == typeof(Vector2))
+        {
+            var vector = new Vector2
+            {
+                x = (float) obj["x"],
+                y = (float) obj["y"]
+            };
+            return vector;
+        }
+        if(objectType == typeof(Vector3))
+        {
+            var vector = new Vector3()
+            {
+                x = (float) obj["x"],
+                y = (float) obj["y"],
+                z = (float) obj["z"]
+            };
+            return vector;
+        }
+        if(objectType == typeof(Vector4))
+        {
+            var vector = new Vector4()
+            {
+                x = (float) obj["x"],
+                y = (float) obj["y"],
+                z = (float) obj["z"],
+                w = (float) obj["w"]
+            };
+            return vector;
+        }
+        if(objectType == typeof(Vector2Int))
+        {
+            var vector = new Vector2Int()
+            {
+                x = (int) obj["x"],
+                y = (int) obj["y"]
+            };
+            return vector;
+        }
+        if(objectType == typeof(Vector3Int))
+        {
+            var vector = new Vector3Int()
+            {
+                x = (int) obj["x"],
+                y = (int) obj["y"],
+                z = (int) obj["z"]
+            };
+            return vector;
+        }
+        
+        Debug.LogError("Can't read Vector!");
+        return null;
+    }
 }
 }
