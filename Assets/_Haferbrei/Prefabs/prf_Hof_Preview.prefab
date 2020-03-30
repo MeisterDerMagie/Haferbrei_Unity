@@ -28,6 +28,21 @@ MonoBehaviour:
   buildingPreview: {fileID: 214319596574860654}
   colorBuildingAllowed: {r: 0.67058825, g: 1, b: 0.53333336, a: 1}
   colorBuildingDisallowed: {r: 1, g: 0.58687764, b: 0.53333336, a: 1}
+--- !u!114 &6426904089880061270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4791732261475806334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3570dca9cf8f40ac9731ef4082c9a4ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tags:
+  - {fileID: 11400000, guid: 8f03ac93ad52f45418e95fa8b17a8984, type: 2}
+  - {fileID: 0}
 --- !u!50 &6773257733934659111
 Rigidbody2D:
   serializedVersion: 4
@@ -461,6 +476,12 @@ PrefabInstance:
 --- !u!1 &4604666238020978129 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7060760436674559732, guid: 5d6e697057589ba4c84bedc5a48849e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 6781246456170281765}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4791732261475806334 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2045888376349693787, guid: 5d6e697057589ba4c84bedc5a48849e5,
     type: 3}
   m_PrefabInstance: {fileID: 6781246456170281765}
   m_PrefabAsset: {fileID: 0}
