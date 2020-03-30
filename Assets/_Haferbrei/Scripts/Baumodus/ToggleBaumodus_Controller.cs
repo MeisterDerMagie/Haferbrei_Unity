@@ -9,7 +9,7 @@ using UnityEngine.Events;
 namespace Haferbrei {
 public class ToggleBaumodus_Controller : MonoBehaviour
 {
-    [SerializeField, BoxGroup("Info"), ReadOnly] private bool baumodusIsActive;
+    [SerializeField, BoxGroup("Info"), Sirenix.OdinInspector.ReadOnly] private bool baumodusIsActive;
     [SerializeField, FoldoutGroup("References"), Required] private GameObject baumodusWindow;
     [SerializeField, FoldoutGroup("References"), Required] private Building noGebaeude;
     [SerializeField, FoldoutGroup("References"), Required] private Bauauswahl bauauswahl;

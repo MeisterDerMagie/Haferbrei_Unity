@@ -1,5 +1,5 @@
 using System;
-
+using UnityAtoms.BaseAtoms;
 using Haferbrei;
 
 
@@ -7,15 +7,16 @@ namespace UnityAtoms
 {
 
     /// <summary>
-    /// Reference of type `Building`. Inherits from `AtomReference&lt;Building, BuildingConstant, BuildingVariable, BuildingEvent, BuildingBuildingEvent, BuildingBuildingFunction, BuildingVariableInstancer&gt;`.
+    /// Reference of type `Building`. Inherits from `AtomReference&lt;Building, BuildingPair, BuildingConstant, BuildingVariable, BuildingEvent, BuildingPairEvent, BuildingBuildingFunction, BuildingVariableInstancer, AtomCollection, AtomList&gt;`.
     /// </summary>
     [Serializable]
     public sealed class BuildingReference : AtomReference<
         Building,
+        BuildingPair,
         BuildingConstant,
         BuildingVariable,
         BuildingEvent,
-        BuildingBuildingEvent,
+        BuildingPairEvent,
         BuildingBuildingFunction,
         BuildingVariableInstancer>, IEquatable<BuildingReference>
     {

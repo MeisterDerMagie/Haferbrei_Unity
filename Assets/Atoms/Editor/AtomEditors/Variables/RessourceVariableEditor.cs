@@ -1,6 +1,5 @@
-// generated file
 using UnityEditor;
-
+using UnityAtoms.Editor;
 using Haferbrei;
 
 
@@ -10,7 +9,5 @@ namespace UnityAtoms.Editor
     /// Variable Inspector of type `Ressource`. Inherits from `AtomVariableEditor`
     /// </summary>
     [CustomEditor(typeof(RessourceVariable))]
-    public sealed class RessourceVariableEditor : AtomVariableEditor
-    {
-    }
+    public sealed class RessourceVariableEditor : AtomVariableEditor<Ressource, RessourcePair> { }
 }

@@ -1,5 +1,5 @@
 using System;
-
+using UnityAtoms.BaseAtoms;
 using Haferbrei;
 
 
@@ -7,15 +7,16 @@ namespace UnityAtoms
 {
 
     /// <summary>
-    /// Reference of type `Ressource`. Inherits from `AtomReference&lt;Ressource, RessourceConstant, RessourceVariable, RessourceEvent, RessourceRessourceEvent, RessourceRessourceFunction, RessourceVariableInstancer&gt;`.
+    /// Reference of type `Ressource`. Inherits from `AtomReference&lt;Ressource, RessourcePair, RessourceConstant, RessourceVariable, RessourceEvent, RessourcePairEvent, RessourceRessourceFunction, RessourceVariableInstancer, AtomCollection, AtomList&gt;`.
     /// </summary>
     [Serializable]
     public sealed class RessourceReference : AtomReference<
         Ressource,
+        RessourcePair,
         RessourceConstant,
         RessourceVariable,
         RessourceEvent,
-        RessourceRessourceEvent,
+        RessourcePairEvent,
         RessourceRessourceFunction,
         RessourceVariableInstancer>, IEquatable<RessourceReference>
     {

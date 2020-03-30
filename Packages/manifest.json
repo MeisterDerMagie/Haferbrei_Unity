@@ -1,15 +1,16 @@
 {
-    "scopedRegistries": [
-      {
-        "name": "Packages from jillejr",
-        "url": "https://npm.cloudsmith.io/jillejr/newtonsoft-json-for-unity/",
-        "scopes": ["jillejr"]
-      }
-    ],
-    "dependencies": {
-    "com.mambojambostudios.unity-atoms": "https://github.com/AdamRamberg/unity-atoms.git#canary", 
+  "scopedRegistries": [
+    {
+      "name": "Packages from jillejr",
+      "url": "https://npm.cloudsmith.io/jillejr/newtonsoft-json-for-unity/",
+      "scopes": [
+        "jillejr"
+      ]
+    }
+  ],
+  "dependencies": {
     "com.johannesmp.unityscenereference": "https://github.com/starikcetin/unity-scene-reference.git#upm",
-    "jillejr.newtonsoft.json-for-unity": "12.0.301",
+    "com.mambojambostudios.unity-atoms": "https://github.com/AdamRamberg/unity-atoms.git#canary",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.2d.tilemap": "1.0.0",
     "com.unity.collab-proxy": "1.2.16",
@@ -19,6 +20,7 @@
     "com.unity.textmeshpro": "2.0.1",
     "com.unity.timeline": "1.2.10",
     "com.unity.ugui": "1.0.0",
+    "jillejr.newtonsoft.json-for-unity": "12.0.301",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
@@ -52,13 +54,13 @@
     "com.unity.modules.xr": "1.0.0"
   },
   "lock": {
+    "com.mambojambostudios.unity-atoms": {
+      "revision": "canary",
+      "hash": "ce0082df790f2cae24cc4bf8d321e3ad63676b1c"
+    },
     "com.johannesmp.unityscenereference": {
       "revision": "upm",
       "hash": "6b3bbf3b68b23aa88de628095a4656585aaa60df"
-    },
-    "com.mambojambostudios.unity-atoms": {
-      "revision": "canary",
-      "hash": "3613e32c347c3ec48aee170088397a58a69122aa"
     }
   }
 }

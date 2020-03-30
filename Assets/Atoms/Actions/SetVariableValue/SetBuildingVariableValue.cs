@@ -1,22 +1,23 @@
 using UnityEngine;
-
+using UnityAtoms.BaseAtoms;
 using Haferbrei;
 
 
 namespace UnityAtoms
 {
     /// <summary>
-    /// Set variable value Action of type `Building`. Inherits from `SetVariableValue&lt;Building, BuildingVariable, BuildingConstant, BuildingReference, BuildingEvent, BuildingBuildingEvent, BuildingVariableInstancer&gt;`.
+    /// Set variable value Action of type `Building`. Inherits from `SetVariableValue&lt;Building, BuildingPair, BuildingVariable, BuildingConstant, BuildingReference, BuildingEvent, BuildingPairEvent, BuildingVariableInstancer&gt;`.
     /// </summary>
     [EditorIcon("atom-icon-purple")]
     [CreateAssetMenu(menuName = "Unity Atoms/Actions/Set Variable Value/Building", fileName = "SetBuildingVariableValue")]
     public sealed class SetBuildingVariableValue : SetVariableValue<
         Building,
+        BuildingPair,
         BuildingVariable,
         BuildingConstant,
         BuildingReference,
         BuildingEvent,
-        BuildingBuildingEvent,
+        BuildingPairEvent,
         BuildingBuildingFunction,
         BuildingVariableInstancer>
     { }

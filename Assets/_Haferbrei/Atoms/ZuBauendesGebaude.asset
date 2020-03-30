@@ -9,13 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e147b5fca76772449960c2aabda961cb, type: 3}
-  m_Name: ZuBauendesGebaude
+  m_Script: {fileID: 11500000, guid: a79f86129ff1d224081f15fa58796a98, type: 3}
+  m_Name: zuBauendesGebaude
   m_EditorClassIdentifier: 
   _developerDescription: 
-  _value: {fileID: 11400000, guid: 43888af87cfc54344b55ad03b2439706, type: 2}
-  _initialValue: {fileID: 11400000, guid: 43888af87cfc54344b55ad03b2439706, type: 2}
-  _oldValue: {fileID: 11400000, guid: 43888af87cfc54344b55ad03b2439706, type: 2}
+  _id: 
+  _value: {fileID: 0}
   Changed: {fileID: 11400000, guid: 1d8288edb6d88df4fac6e8ccdd59924b, type: 2}
   ChangedWithHistory: {fileID: 0}
+  _oldValue: {fileID: 0}
+  _initialValue: {fileID: 11400000, guid: 43888af87cfc54344b55ad03b2439706, type: 2}
   _preChangeTransformers: []

@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class TEST_SimpleComponent : SerializedMonoBehaviour
 {
+    /*
     [ReadOnly] public RessourceValueList allRessources;
     
     [Title("Integers")]
@@ -50,15 +51,15 @@ public class TEST_SimpleComponent : SerializedMonoBehaviour
         /*
         guidReference = new GuidReference(FindObjectOfType<GuidComponent>().GetGuid());
         guidReferenceList.Add(new GuidReference(FindObjectOfType<GuidComponent>().GetGuid()));
-*/
+
 
         ressource = allRessources[1];
         ressourceList.Add(allRessources[2]);
         ressourceList.Add(allRessources[3]);
-        /*
+        
         ressourceContainer = ScriptableObject.CreateInstance<RessourceContainer>();
         ressourceContainer.AddRessource(allRessources[4], 10);
         ressourceContainer.AddRessource(allRessources[5], 20);
-        */
-    }
+        
+    }*/
 }
