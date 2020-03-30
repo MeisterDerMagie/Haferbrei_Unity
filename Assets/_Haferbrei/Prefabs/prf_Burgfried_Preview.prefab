@@ -28,14 +28,14 @@ MonoBehaviour:
   buildingPreview: {fileID: 214319596574860654}
   colorBuildingAllowed: {r: 0.67058825, g: 1, b: 0.53333336, a: 1}
   colorBuildingDisallowed: {r: 1, g: 0.58687764, b: 0.53333336, a: 1}
---- !u!50 &7688622984602201327
+--- !u!50 &7626946789605089830
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5961217462807940412}
+  m_GameObject: {fileID: 4791732261475806334}
   m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -49,13 +49,13 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &6394299973613299299
+--- !u!60 &5558948983169133266
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5961217462807940412}
+  m_GameObject: {fileID: 4791732261475806334}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -66,7 +66,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.505, y: 0.33912742}
-    oldSize: {x: 13.33336, y: 14.046667}
+    oldSize: {x: 20.00004, y: 21.070002}
     newSize: {x: 2.56, y: 2.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -74,12 +74,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 2.1521204, y: -2.6904898}
-      - {x: 2.9309232, y: -2.2510386}
-      - {x: 0.16725987, y: -0.52662957}
-      - {x: -2.7734354, y: -2.4211478}
-      - {x: 0.01568842, y: -3.898792}
-      - {x: 0.9077518, y: -3.386343}
+    - - {x: 2.5142915, y: -3.2198172}
+      - {x: 4.1499133, y: -2.2510386}
+      - {x: -0.029510915, y: 0.20570135}
+      - {x: -4.209653, y: -2.497323}
+      - {x: -0.012171149, y: -4.6788535}
+      - {x: 1.589429, y: -3.7411106}
 --- !u!1001 &6781246456170281765
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -176,9 +176,9 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6781246456170281765}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &5961217462807940412 stripped
+--- !u!1 &4791732261475806334 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 910197767142520345, guid: 5d6e697057589ba4c84bedc5a48849e5,
+  m_CorrespondingSourceObject: {fileID: 2045888376349693787, guid: 5d6e697057589ba4c84bedc5a48849e5,
     type: 3}
   m_PrefabInstance: {fileID: 6781246456170281765}
   m_PrefabAsset: {fileID: 0}
