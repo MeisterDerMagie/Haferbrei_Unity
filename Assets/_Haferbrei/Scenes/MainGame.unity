@@ -2229,7 +2229,19 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: guidTest
+      Entry: 2
+      Data: 00000000000000000000000000000000
+  allRessources: {fileID: 11400000, guid: 7ea0d0d2af1da2c4ab59bef43bf5f2b7, type: 2}
+  testInt: 0
+  testIntList: 
+  testFloat: 0
+  testFloatList: []
+  vector3: {x: 0, y: 0, z: 0}
+  vector2: {x: 0, y: 0}
+  ressource: {fileID: 0}
+  ressourceList: []
 --- !u!114 &359636069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4394,7 +4406,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: HaferbreiSave.hsave
+          m_StringArgument: SaveFile
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &891100642
@@ -9815,7 +9827,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: HaferbreiSave.hsave
+          m_StringArgument: SaveFile
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 11400000, guid: 92efd976811dad244bdb414c9dd997b2, type: 2}

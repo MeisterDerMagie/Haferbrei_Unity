@@ -6,6 +6,8 @@ using UnityEngine;
 namespace Haferbrei {
 public class ScriptableObjectReferences : MonoBehaviour
 {
+    public SaveableScriptableObjectReferences saveableScriptableObjectsReferences;
+    
     //--- Singleton Behaviour ---
     #region Singleton
     private static ScriptableObjectReferences instance_;
@@ -24,7 +26,5 @@ public class ScriptableObjectReferences : MonoBehaviour
     }
     #endregion
     //--- ---
-
-    public SaveableScriptableObjectReferences saveableScriptableObjectsReferences;
 }
 }

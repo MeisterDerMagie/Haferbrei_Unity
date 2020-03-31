@@ -8,8 +8,8 @@ using UnityEngine;
 
 public class TEST_SimpleComponent : SerializedMonoBehaviour
 {
-    /*
-    [ReadOnly] public RessourceValueList allRessources;
+    
+    public RessourceValueList allRessources;
     
     [Title("Integers")]
     [Saveable] public int testInt;
@@ -22,7 +22,7 @@ public class TEST_SimpleComponent : SerializedMonoBehaviour
     [Saveable] public Vector3 vector3;
     [Saveable] public Vector2 vector2;
 
-    //[Saveable] public Guid guidTest;
+    [Saveable] public Guid guidTest;
 
     //[Title("GuidReferences")]
     //[Saveable] public GuidReference guidReference;
@@ -52,14 +52,16 @@ public class TEST_SimpleComponent : SerializedMonoBehaviour
         guidReference = new GuidReference(FindObjectOfType<GuidComponent>().GetGuid());
         guidReferenceList.Add(new GuidReference(FindObjectOfType<GuidComponent>().GetGuid()));
 
-
+*/
+        guidTest = Guid.NewGuid();
+        
         ressource = allRessources[1];
         ressourceList.Add(allRessources[2]);
         ressourceList.Add(allRessources[3]);
-        
+        /*
         ressourceContainer = ScriptableObject.CreateInstance<RessourceContainer>();
         ressourceContainer.AddRessource(allRessources[4], 10);
-        ressourceContainer.AddRessource(allRessources[5], 20);
+        ressourceContainer.AddRessource(allRessources[5], 20);*/
         
-    }*/
+    }
 }

@@ -40,9 +40,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3570dca9cf8f40ac9731ef4082c9a4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tags:
-  - {fileID: 11400000, guid: 8f03ac93ad52f45418e95fa8b17a8984, type: 2}
-  - {fileID: 0}
+  _tags: []
 --- !u!50 &7688622984602201327
 Rigidbody2D:
   serializedVersion: 4

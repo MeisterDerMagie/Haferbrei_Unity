@@ -8,18 +8,18 @@ namespace Haferbrei{
 [Serializable]
 public struct SaveableData
 {
-    public string objectId;
+    public string Id;
     
-    public Type componentType;
-    public Dictionary<string, object> objectFields;
-    public Dictionary<string, object> objectProperties;
-
-    public SaveableData(object _objectToSave, string _objectID)
+    public Type type;
+    public Dictionary<string, object> fields;
+    public Dictionary<string, object> properties;
+    
+    public SaveableData(object _objectToSave, string _id)
     {
-        objectId = _objectID;
-        componentType = _objectToSave.GetType();
-        objectFields = new Dictionary<string, object>();
-        objectProperties = new Dictionary<string, object>();
+        Id = _id;
+        type = _objectToSave.GetType();
+        fields = new Dictionary<string, object>();
+        properties = new Dictionary<string, object>();
         
         var saveableFields = _objectToSave.GetType()
                                        .GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
@@ -32,33 +32,31 @@ public struct SaveableData
         foreach(FieldInfo field in saveableFields)
         {
             object fieldValue = field.GetValue(_objectToSave);
-            objectFields.Add(field.Name, fieldValue);
+            fields.Add(field.Name, fieldValue);
         }
 
         foreach (var property in saveableProperties)
         {
             object propertyValue = property.GetValue(_objectToSave);
-            objectProperties.Add(property.Name, propertyValue);
+            properties.Add(property.Name, propertyValue);
         }
     }
 
     public void PopulateObject(object _objectToPopulate)
     {
-        if (_objectToPopulate.GetType() != componentType) Debug.LogError($"Tried to load the save data of a different script. Tried to load type: {_objectToPopulate.GetType()} into: {componentType}");
+        if (_objectToPopulate.GetType() != type) Debug.LogError($"Tried to load the save data of a different script. Tried to load type: {_objectToPopulate.GetType()} into: {type}");
         else
         {
-            foreach (KeyValuePair<string, object> field in objectFields)
+            foreach (KeyValuePair<string, object> field in fields)
             {
                 object fieldValue = field.Value;
-                if (fieldValue is double) fieldValue = Convert.ToSingle(fieldValue);
-                if (fieldValue is long)   fieldValue = Convert.ToInt32(fieldValue);
 
                 _objectToPopulate.GetType()
                     .GetField(field.Key, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
                     ?.SetValue(_objectToPopulate, fieldValue);
             }
 
-            foreach (KeyValuePair<string, object> field in objectProperties)
+            foreach (KeyValuePair<string, object> field in properties)
             {
                 object fieldValue = field.Value;
 

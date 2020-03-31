@@ -55,7 +55,7 @@ public class SaveableGameObject : MonoBehaviour, ISaveable
         {
             foreach (var component in saveableComponents)
             {
-                if(component.componentID == componentData.objectId) component.RestoreData(componentData);
+                if(component.componentID == componentData.Id) component.RestoreData(componentData);
             }
         }
     }
