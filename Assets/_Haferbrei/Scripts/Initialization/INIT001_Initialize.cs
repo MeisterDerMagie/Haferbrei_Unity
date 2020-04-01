@@ -12,10 +12,9 @@ public class INIT001_Initialize : SerializedMonoBehaviour
 {
     [SerializeField, BoxGroup("Settings")] public bool initOnSceneStart = true;
     [SerializeField, BoxGroup("Settings")] public bool initOnAwake = false;
-    [SerializeField, ReadOnly] public List<IInitSingletons>   singletonInits = new List<IInitSingletons>();
-    [SerializeField, ReadOnly] public List<ISaveable>         saveableInits  = new List<ISaveable>();
-    //[SerializeField, ReadOnly] public List<IStoreable>        storeableInits = new List<IStoreable>();
-    [SerializeField, ReadOnly] public List<IInitSelf>         selfInits      = new List<IInitSelf>();
+    [SerializeField, ReadOnly] public List<IInitSingletons> singletonInits = new List<IInitSingletons>();
+    [SerializeField, ReadOnly] public List<SaveablePrefab> saveablePrefabs  = new List<SaveablePrefab>();
+    [SerializeField, ReadOnly] public List<IInitSelf> selfInits = new List<IInitSelf>();
     [SerializeField, ReadOnly] public List<IInitDependencies> dependentInits = new List<IInitDependencies>();
 
     [SerializeField, BoxGroup("OnInitializeFinished"), Required] private UnityEvent onInitializeFinished;
@@ -48,8 +47,8 @@ public class INIT001_Initialize : SerializedMonoBehaviour
 
         yield return Timing.WaitForOneFrame;
         
-        GetSaveables(transform, saveableInits);
-        InitSaveables(saveableInits);
+        GetSaveablePrefabs(transform, saveablePrefabs);
+        InitSaveablePrefabs(saveablePrefabs);
         
         yield return Timing.WaitForOneFrame;
         
@@ -96,22 +95,22 @@ public class INIT001_Initialize : SerializedMonoBehaviour
     
     //--- Init Saveables ---
     #region Init Saveables
-    private static void GetSaveables(Transform _root, List<ISaveable> _saveablesList, bool _getRoot = false)
+    private static void GetSaveablePrefabs(Transform _root, List<SaveablePrefab> _saveablesList, bool _getRoot = false)
     {
-        ISaveable[] _saveable  = _root.GetComponents<ISaveable>();
+        SaveablePrefab[] _saveable  = _root.GetComponents<SaveablePrefab>();
         _saveablesList.AddRange(_saveable);
 
         foreach(Transform t in _root)
         {
             if(t == _root && !_getRoot) continue;      //make sure you don't initialize the existing transform
-            GetSaveables(t, _saveablesList, _getRoot); //get this Transform's children recursively
+            GetSaveablePrefabs(t, _saveablesList, _getRoot); //get this Transform's children recursively
         }
     }
-    private static void InitSaveables(List<ISaveable> _saveablesList)
+    private static void InitSaveablePrefabs(List<SaveablePrefab> _saveablesList)
     {
-        foreach(ISaveable _saveable in _saveablesList)
+        foreach(SaveablePrefab saveablePrefab in _saveablesList)
         {
-            _saveable.InitSaveable();
+            saveablePrefab.InitSaveablePrefab();
         }
     }
     #endregion
@@ -150,12 +149,12 @@ public class INIT001_Initialize : SerializedMonoBehaviour
     //--- Initialize newly generated Prefab ---
     public static void InitializePrefab(Transform _gameObjectToInitialize)
     {
-        var saveableInitsInPrefab = new List<ISaveable>();
+        var saveableInitsInPrefab = new List<SaveablePrefab>();
         var selfInitsInPrefab = new List<IInitSelf>();
         var dependentInitsInPrefab = new List<IInitDependencies>();
 
-        GetSaveables(_gameObjectToInitialize, saveableInitsInPrefab, true);
-        InitSaveables(saveableInitsInPrefab);
+        GetSaveablePrefabs(_gameObjectToInitialize, saveableInitsInPrefab, true);
+        InitSaveablePrefabs(saveableInitsInPrefab);
         
         GetSelfAndDependent(_gameObjectToInitialize, selfInitsInPrefab, dependentInitsInPrefab, true);
         InitSelfAndDepentents(selfInitsInPrefab, dependentInitsInPrefab);
@@ -167,7 +166,7 @@ public class INIT001_Initialize : SerializedMonoBehaviour
         singletonInits.Clear();
         selfInits.Clear();
         dependentInits.Clear();
-        saveableInits.Clear();
+        saveablePrefabs.Clear();
     }
     
     #if UNITY_EDITOR

@@ -3,18 +3,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
 using FullSerializer;
 using Haferbrei.JsonConverter;
-//using Haferbrei.JsonConverters;
-//using Bayat.SaveSystem;
 using MEC;
 using Sirenix.OdinInspector;
-using Sirenix.Utilities;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Wichtel;
+using Wichtel.Extensions;
 
 namespace Haferbrei {
 [CreateAssetMenu(fileName = "SaveLoadController", menuName = "Scriptable Objects/SaveLoadController", order = 0)]
@@ -34,7 +30,8 @@ public class SaveLoadController : SerializedScriptableObject
     public SaveFileData loadedData = new SaveFileData();
     public SaveFileData dataToSave = new SaveFileData();
 
-    public List<ISaveable> saveableGameObjects = new List<ISaveable>();
+    public List<SaveablePrefab> saveablePrefabs = new List<SaveablePrefab>();
+    public List<SaveableComponent> saveableComponents = new List<SaveableComponent>();
 
     [ShowInInspector] private Dictionary<Transform, Guid> parents = new Dictionary<Transform, Guid>();
     private Dictionary<Scene, Guid> initializers = new Dictionary<Scene, Guid>();
@@ -56,38 +53,35 @@ public class SaveLoadController : SerializedScriptableObject
 
         // 2. Save ScriptableObjects
         var scriptableObjectsData = saveableScriptableObjects.SaveScriptableObjects();
-        dataToSave.saveableDatas.AddRange(scriptableObjectsData);
+        dataToSave.scriptableObjectDatas.AddRange(scriptableObjectsData);
 
-        // 3. Save GameObjects
-        List<ISaveable>
-            emptySaveablesToRemove =
-                new List<ISaveable>(); //anscheinend kann es selten passieren, dass leere Einträge übrig bleiben. Hier wird sich darum gekümmert.
-        foreach (var saveableGameObject in saveableGameObjects)
+        // 3. Save Prefabs
+        saveablePrefabs = ComponentExtensions.FindAllComponentsOfType<SaveablePrefab>();
+        foreach (var saveablePrefab in saveablePrefabs)
         {
-            if (saveableGameObject == null)
-            {
-                emptySaveablesToRemove.Add(saveableGameObject);
-                continue;
-            }
-
-            SaveableObjectData objectData = saveableGameObject.SaveData();
-            dataToSave.saveableDatas.Add(objectData);
+            SaveablePrefabData objectData = saveablePrefab.SaveData();
+            dataToSave.prefabDatas.Add(objectData);
         }
-
-        foreach (var emptyEntry in emptySaveablesToRemove) saveableGameObjects.Remove(emptyEntry);
-
-        // 4. Write file
+        
+        // 4. Save Components
+        saveableComponents = ComponentExtensions.FindAllComponentsOfType<SaveableComponent>();
+        foreach (var saveableComponent in saveableComponents)
+        {
+            dataToSave.componentDatas.Add(saveableComponent.StoreData());
+        }
+        
+        // 5. Write file
         var serializer = new fsSerializer();
         fsData data;
         GetJsonConverters(ref serializer);
 
-        serializer.TrySerialize(typeof(SaveFileData), dataToSave, out data).AssertSuccessWithoutWarnings();     // 4.1 Serialize data
-        string json = (encryptSaveFile) ? fsJsonPrinter.CompressedJson(data) : fsJsonPrinter.PrettyJson(data);  // 4.2 Create Json string
-        if(encryptSaveFile) json = StringCipher.Encrypt(json, encryptionPassword);          // 4.3 Encrpyt Json string
-        System.IO.Directory.CreateDirectory(saveGameDirectoryPath);                                             // 4.4 Create save game directory path if it doesn't already exists
-        System.IO.File.WriteAllText(saveGameFilePath, json);                                           // 4.5 Write file to disk
+        serializer.TrySerialize(typeof(SaveFileData), dataToSave, out data).AssertSuccessWithoutWarnings();     // 5.1 Serialize data
+        string json = (encryptSaveFile) ? fsJsonPrinter.CompressedJson(data) : fsJsonPrinter.PrettyJson(data);  // 5.2 Create Json string
+        if(encryptSaveFile) json = StringCipher.Encrypt(json, encryptionPassword);          // 5.3 Encrpyt Json string
+        System.IO.Directory.CreateDirectory(saveGameDirectoryPath);                                             // 5.4 Create save game directory path if it doesn't already exists
+        System.IO.File.WriteAllText(saveGameFilePath, json);                                           // 5.5 Write file to disk
         
-        //5. Finished saving
+        //6. Finished saving
         Debug.Log("Game saved!");
     }
 
@@ -128,30 +122,37 @@ public class SaveLoadController : SerializedScriptableObject
         Debug.Log("Loaded all scenes @ frame #" + Time.frameCount + " / time: " + DateTime.Now.TimeOfDay);
 
         // 2. Create ScriptableObject Instances and load data into them
-        foreach (var data in loadedData.saveableDatas)
+        foreach (var data in loadedData.scriptableObjectDatas)
         {
-            if (data.saveableType == "ScriptableObject") LoadScriptableObject(data);
+            LoadScriptableObject(data);
         }
 
         Debug.Log("Loaded all scriptableObjects @ frame #" + Time.frameCount + " / time: " + DateTime.Now.TimeOfDay);
 
-        // 3 All Guids auf bestehenden Objekten initialisieren
+        // 3. All Guids auf bestehenden Objekten initialisieren
         GuidManager.InitializeGuidComponents();
         Debug.Log("Initialized all GuidComponents @ frame #" + Time.frameCount + " / time: " + DateTime.Now.TimeOfDay);
 
         // 4. Load GameObject data and create GameObjects
-        foreach (var data in loadedData.saveableDatas)
+        foreach (var data in loadedData.prefabDatas)
         {
-            if (data.saveableType == "GameObject")
-                LoadGameObject(data); //yield return Timing.WaitUntilDone(Timing.RunCoroutine(_LoadGameObject(data)));
+            LoadPrefab(data); //yield return Timing.WaitUntilDone(Timing.RunCoroutine(_LoadGameObject(data)));
         }
 
         Debug.Log("Loaded all GameObjects @ frame #" + Time.frameCount + " / time: " + DateTime.Now.TimeOfDay);
 
-
-        // 5. Set parents
+        // 5. Load Components
+        List<SaveableComponent> components = ComponentExtensions.FindAllComponentsOfType<SaveableComponent>();
+        foreach (var componentData in loadedData.componentDatas)
+        {
+            var component = FindSaveableComponentByGuid(componentData.Id, components);
+            if(component != null) component.RestoreData(componentData);
+        }
+        
+        // 6. Set parents
         SetParents();
 
+        // 7. Loading complete
         Destroy(loadingScreen);
         Debug.Log("Loading complete @ frame #" + Time.frameCount + " / time: " + DateTime.Now.TimeOfDay);
     }
@@ -175,9 +176,9 @@ public class SaveLoadController : SerializedScriptableObject
     {
         //Welche Szenen müssen geladen werden?
         var necessaryScenes = new List<string>();
-        foreach (var data in loadedData.saveableDatas)
+        foreach (var data in loadedData.prefabDatas)
         {
-            if (data is SaveableGameObjectData gameObjectData && !necessaryScenes.Contains(gameObjectData.sceneName))
+            if (data is SaveablePrefabData gameObjectData && !necessaryScenes.Contains(gameObjectData.sceneName))
                 necessaryScenes.Add(gameObjectData.sceneName);
         }
 
@@ -195,9 +196,9 @@ public class SaveLoadController : SerializedScriptableObject
         }
     }
 
-    private void LoadGameObject(SaveableObjectData _loadedObjectData)
+    private void LoadPrefab(SaveableObjectData _loadedObjectData)
     {
-        var data = _loadedObjectData as SaveableGameObjectData;
+        var data = _loadedObjectData as SaveablePrefabData;
         var targetScene = SceneManager.GetSceneByName(data.sceneName);
         SceneManager.SetActiveScene(targetScene);
 
@@ -206,7 +207,7 @@ public class SaveLoadController : SerializedScriptableObject
         if (gameObjectToLoad == null) gameObjectToLoad = InstantiatePrefab(data);
 
         // 2. Lade Daten in das GameObject
-        gameObjectToLoad.GetComponent<SaveableGameObject>().LoadData(data);
+        gameObjectToLoad.GetComponent<SaveablePrefab>().LoadData(data);
 
         // 3. Falls das GameObject einen Parent hatte, wird der hier vermerkt, damit es den später bekommt
         // Falls es keinen Parent hatte, wird es einem Initializer zugeordnet, damit der es dann korrekt initialisieren kann
@@ -231,7 +232,7 @@ public class SaveLoadController : SerializedScriptableObject
         }
     }
 
-    private GameObject InstantiatePrefab(SaveableGameObjectData _objectData)
+    private GameObject InstantiatePrefab(SaveablePrefabData _objectData)
     {
         GameObject newGameObject = null;
         var prefabToInstantiate = allPrefabsCollection.GetPrefab(_objectData.prefabName);
@@ -254,16 +255,13 @@ public class SaveLoadController : SerializedScriptableObject
         saveableScriptableObjects.LoadScriptableObject(_loadedObjectData as SaveableScriptableObjectData);
     }
 
-    public void RegisterSaveableGameObject(ISaveable _saveable)
+    private SaveableComponent FindSaveableComponentByGuid(string _guid, List<SaveableComponent> _saveableComponents)
     {
-        if (!saveableGameObjects.Contains(_saveable))
-            saveableGameObjects.Add(_saveable);
-    }
-
-    public void UnregisterSaveableGameObject(ISaveable _saveable)
-    {
-        if (saveableGameObjects.Contains(_saveable))
-            saveableGameObjects.Remove(_saveable);
+        foreach (var saveableComponent in _saveableComponents)
+        {
+            if (saveableComponent.componentGuid.ToString() == _guid) return saveableComponent;
+        }
+        return null;
     }
 
     private void GetJsonConverters(ref fsSerializer _serializer)

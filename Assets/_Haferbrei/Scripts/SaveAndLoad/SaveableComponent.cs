@@ -6,49 +6,58 @@ using System.Linq;
 using System.Reflection;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Wichtel.Extensions;
 using BindingFlags = System.Reflection.BindingFlags;
 
 namespace Haferbrei {
 [ExecuteInEditMode]
 [HideMonoScript]
-public class SaveableComponent : MonoBehaviour, IStoreable
+public class SaveableComponent : MonoBehaviour, ISaveableComponent
 {
-    [InfoBox("Missing SaveableObject!", InfoMessageType.Error, "missingSaveableObject")]
-    [SerializeField, DisplayAsString] public string componentID;
+    [InfoBox("Missing Initializer in Parent!", InfoMessageType.Error, "missingInitializer")]
+    [InfoBox("Missing SaveablePrefab in Parent!", InfoMessageType.Error, "missingSaveablePrefab")]
+    [SerializeField, DisplayAsString, LabelText("Guid")] private string guidAsString;
+    public Guid componentGuid { get; private set; }
+
     [SerializeField] protected Component componentToSave;
     
-    //holt sich das dazugehörige SaveableObject (entweder auf demselben GameObject oder im nächsten Parent, das ein SaveableObject besitzt)
-    private SaveableGameObject AssociatedSaveableGameObject => GetAssociatedSaveableGameObject();
-    private bool missingSaveableObject; //für Odin
+    private bool missingInitializer => (!this.IsAssetOnDisk()) && !Application.isPlaying && (GetComponentsInParent<INIT001_Initialize>(true).Length == 0); //für Odin
+    private bool missingSaveablePrefab => ( this.IsAssetOnDisk() && GetSaveablePrefab() == null); //für Odin
     
-    public SaveableData StoreData() => new SaveableData(componentToSave, componentID);
+    public SaveableData StoreData() => new SaveableData(componentToSave, guidAsString, "on gameObject: " + gameObject.name);
 
     public void RestoreData(SaveableData _loadedData) => _loadedData.PopulateObject(componentToSave);
 
-    private SaveableGameObject GetAssociatedSaveableGameObject()
+    public void SetComponentGuid(Guid _guid)
     {
-        var onOwnObject = GetComponent<SaveableGameObject>();
-        var inParents = GetComponentsInParent<SaveableGameObject>(true);
+        componentGuid = _guid;
+        guidAsString = _guid.ToString();
+    }
 
-        if (onOwnObject == null && inParents.Length == 0)
+    private SaveablePrefab GetSaveablePrefab()
+    {
+        SaveablePrefab saveablePrefab = null;
+
+        if (GetComponent<SaveablePrefab>() != null)
         {
-            Debug.LogWarning("Achtung, jede SaveableComponent benötigt ein dazugehöriges SaveableObject! (Entweder auf dem selben Object oder im Parent)", this);
-            missingSaveableObject = true;
-            return null;
+            return GetComponent<SaveablePrefab>();
+        }
+        if(GetComponentsInParent<SaveablePrefab>().Length > 0)
+        {
+            return GetComponentsInParent<SaveablePrefab>()[0];
         }
 
-        missingSaveableObject = false;
-        return (onOwnObject != null) ? onOwnObject : inParents[0];
+        return null;
     }
     
-    public void OnDestroy()
-    {
-        if(AssociatedSaveableGameObject != null) AssociatedSaveableGameObject.RemoveSaveableComponent(this);
-    }
-
+    #if UNITY_EDITOR
     public virtual void OnValidate()
     {
-        if(AssociatedSaveableGameObject != null) AssociatedSaveableGameObject.AddSaveableComponent(this);
+        if (Application.isPlaying) return;
+        if (componentGuid != Guid.Empty) return;
+        Guid newGuid = (this.IsAssetOnDisk()) ? Guid.Empty : Guid.NewGuid();
+        SetComponentGuid(newGuid);
     }
+    #endif
 }
 }

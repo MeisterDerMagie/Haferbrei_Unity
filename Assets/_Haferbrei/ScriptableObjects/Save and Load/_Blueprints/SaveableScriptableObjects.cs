@@ -35,9 +35,9 @@ public class SaveableScriptableObjects : SerializedScriptableObject, IResettable
     }
     
     //--- Save Data ---
-    public List<SaveableObjectData> SaveScriptableObjects()
+    public List<SaveableScriptableObjectData> SaveScriptableObjects()
     {
-        var data = new List<SaveableObjectData>();
+        var data = new List<SaveableScriptableObjectData>();
         //Disc
         for (int i = 0; i < SOsOnDisk.Count; i++)
         {
@@ -66,7 +66,6 @@ public class SaveableScriptableObjects : SerializedScriptableObject, IResettable
         SaveableScriptableObjectData soData = new SaveableScriptableObjectData
         {
             guid = guid,
-            saveableType = "ScriptableObject",
             scriptableObjectName = so.name,
             scriptableObjectType = so.GetType().FullName,
             data = new SaveableData(so, guid.ToString())

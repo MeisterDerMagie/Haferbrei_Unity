@@ -9,14 +9,15 @@ namespace Haferbrei{
 public struct SaveableData
 {
     public string Id;
-    
+    public string info;
     public Type type;
     public Dictionary<string, object> fields;
     public Dictionary<string, object> properties;
     
-    public SaveableData(object _objectToSave, string _id)
+    public SaveableData(object _objectToSave, string _id, string _info = "-")
     {
         Id = _id;
+        info = _info;
         type = _objectToSave.GetType();
         fields = new Dictionary<string, object>();
         properties = new Dictionary<string, object>();

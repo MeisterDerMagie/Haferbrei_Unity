@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
+using Wichtel.Extensions;
 
 // Class to handle registering and accessing objects by GUID
 public class GuidManager
@@ -188,39 +189,13 @@ public class GuidManager
     //Wird benötigt um beim Laden eines Spielstands schon alle GuidComponents zu haben
     public static void InitializeGuidComponents()
     {
-        var guidComponents = new List<GuidComponent>();
-        
-        //get all root objects
-        var allRootObjects = new List<GameObject>();
-        for (int i = 0; i < SceneManager.sceneCount; i++)
-        {
-            var scene = SceneManager.GetSceneAt(i);
-            allRootObjects.AddRange(scene.GetRootGameObjects());
-        }
-        
-        //get all GuidComponents
-        foreach (var rootObject in allRootObjects)
-        {
-            GetGuidComponents(rootObject.transform, guidComponents, true);
-        }
+        var guidComponents = ComponentExtensions.FindAllComponentsOfType<GuidComponent>();
         
         //initialize GuidComponents
         foreach (var guidComponent in guidComponents)
         {
             guidComponent.Initialize();
             Debug.Log("Initialized " + guidComponent.gameObject.name + " with Guid " + guidComponent.GetGuid());
-        }
-    }
-    
-    private static void GetGuidComponents(Transform _root, List<GuidComponent> _guidComponents, bool _getRoot = false)
-    {
-        GuidComponent[] guidComponent  = _root.GetComponents<GuidComponent>();
-        _guidComponents.AddRange(guidComponent);
-
-        foreach(Transform t in _root)
-        {
-            if(t == _root && !_getRoot) continue;            //make sure you don't initialize the existing transform
-            GetGuidComponents(t, _guidComponents, _getRoot); //get this Transform's children recursively
         }
     }
 }

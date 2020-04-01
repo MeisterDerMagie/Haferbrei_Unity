@@ -594,8 +594,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 84595951}
-  - component: {fileID: 84595955}
-  - component: {fileID: 84595954}
   - component: {fileID: 84595950}
   - component: {fileID: 84595949}
   - component: {fileID: 84595948}
@@ -724,35 +722,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates: []
---- !u!114 &84595954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 84595947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52a5653b056a461daf2b9b95867dadc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabName: 
-  saveLoadController: {fileID: 11400000, guid: 5b1094697c808fa46ae0cf952d481a93, type: 2}
-  saveableComponents:
-  - {fileID: 90835715}
---- !u!114 &84595955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 84595947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98bbc2c1e63e98543830eec78d976795, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializedGuid: 5877938e7c8362499de749412460b900
 --- !u!1 &90282887
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,7 +913,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a639a007cf413b8367b181c93269a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  componentID: 984a686b-6dcc-4985-afac-7190f0c10960
+  guidAsString: eddf5a6a-3ff9-4d2e-972a-58f918e8fe42
   componentToSave: {fileID: 90835712}
 --- !u!1 &101002589
 GameObject:
@@ -2207,7 +2176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a639a007cf413b8367b181c93269a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  componentID: b159a7a5-6886-4170-8993-dba1156a9b45
+  guidAsString: ae193eb7-1f96-472b-a280-fca7398b07bb
   componentToSave: {fileID: 359636068}
 --- !u!114 &359636068
 MonoBehaviour:
@@ -2254,7 +2223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9633ebf3cab0a940aaba981b512d0f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  componentID: 4a5550b2-7bc4-4a5b-b57a-bc4af1f9617d
+  guidAsString: 53763b0e-0ab9-4edf-8aef-cc828bde02ba
   componentToSave: {fileID: 359636069}
 --- !u!1 &366570849
 GameObject:
@@ -3733,7 +3702,6 @@ GameObject:
   m_Component:
   - component: {fileID: 769124851}
   - component: {fileID: 769124854}
-  - component: {fileID: 769124853}
   - component: {fileID: 769124850}
   - component: {fileID: 769124852}
   m_Layer: 0
@@ -3786,24 +3754,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a639a007cf413b8367b181c93269a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  componentID: 4b326d2e-d8c7-4e07-acbb-ea5da6f33cf6
+  guidAsString: ef70e32f-7580-4220-81f1-c108885f155b
   componentToSave: {fileID: 769124850}
---- !u!114 &769124853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 769124849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52a5653b056a461daf2b9b95867dadc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabName: 
-  saveLoadController: {fileID: 11400000, guid: 5b1094697c808fa46ae0cf952d481a93, type: 2}
-  saveableComponents:
-  - {fileID: 769124852}
 --- !u!114 &769124854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4528,7 +4480,6 @@ GameObject:
   m_Component:
   - component: {fileID: 946739369}
   - component: {fileID: 946739371}
-  - component: {fileID: 946739370}
   m_Layer: 0
   m_Name: SaveableGameObject
   m_TagString: Untagged
@@ -4551,23 +4502,6 @@ Transform:
   m_Father: {fileID: 290814645}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &946739370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 946739368}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52a5653b056a461daf2b9b95867dadc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabName: 
-  saveLoadController: {fileID: 11400000, guid: 5b1094697c808fa46ae0cf952d481a93, type: 2}
-  saveableComponents:
-  - {fileID: 359636067}
-  - {fileID: 359636069}
 --- !u!114 &946739371
 MonoBehaviour:
   m_ObjectHideFlags: 0

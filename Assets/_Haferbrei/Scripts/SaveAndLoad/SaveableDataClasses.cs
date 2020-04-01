@@ -7,7 +7,6 @@ namespace Haferbrei{
 public abstract class SaveableObjectData //base class for all classes that can be saved
 {
     public Guid guid; //each saveable instance has a unique ID
-    public string saveableType;
 }
 
 [Serializable]
@@ -21,6 +20,8 @@ public class SaveableScriptableObjectData : SaveableObjectData
 [Serializable]
 public class SaveFileData
 {
-    public List<SaveableObjectData> saveableDatas = new List<SaveableObjectData>();
+    public List<SaveableScriptableObjectData> scriptableObjectDatas = new List<SaveableScriptableObjectData>();
+    public List<SaveablePrefabData> prefabDatas = new List<SaveablePrefabData>();
+    public List<SaveableData> componentDatas = new List<SaveableData>();
 }
 }

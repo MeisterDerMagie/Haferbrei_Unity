@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9633ebf3cab0a940aaba981b512d0f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  componentID: 42c2bae4-0dda-47c2-a12d-132f0a60dde2
+  guidAsString: 00000000-0000-0000-0000-000000000000
   componentToSave: {fileID: -8543756859024469053}
 --- !u!114 &4590543434708698875
 MonoBehaviour:
@@ -217,9 +217,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabName: prf_Burgfried
-  saveLoadController: {fileID: 11400000, guid: 5b1094697c808fa46ae0cf952d481a93, type: 2}
   saveableComponents:
-  - {fileID: -8543756859024469053}
+  - component: {fileID: -8543756859024469053}
+    componentId: 95964fe4-846e-4b1b-80ae-446977e5467b
 --- !u!50 &6334500045114794202
 Rigidbody2D:
   serializedVersion: 4
