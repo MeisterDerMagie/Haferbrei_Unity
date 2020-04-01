@@ -58,7 +58,7 @@ public class SaveablePrefab : MonoBehaviour, ISaveablePrefab
     {
         foreach (var pair in saveableComponents)
         {
-            if(pair.component.componentGuid == Guid.Empty) pair.component.SetComponentGuid(Guid.NewGuid());
+            if(pair.component.GetComponentGuid() == Guid.Empty) pair.component.SetComponentGuid(Guid.NewGuid());
         }
     }
 
@@ -69,7 +69,7 @@ public class SaveablePrefab : MonoBehaviour, ISaveablePrefab
         for (int i = 0; i < saveableComponents.Count; i++)
         {
             pairs[i].componentId = saveableComponents[i].componentId;
-            pairs[i].componentGuid = saveableComponents[i].component.componentGuid;
+            pairs[i].componentGuid = saveableComponents[i].component.GetComponentGuid();
         }
 
         return pairs;

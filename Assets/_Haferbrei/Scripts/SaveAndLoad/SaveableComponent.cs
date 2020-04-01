@@ -16,24 +16,23 @@ public class SaveableComponent : MonoBehaviour, ISaveableComponent
 {
     [InfoBox("Missing Initializer in Parent!", InfoMessageType.Error, "missingInitializer")]
     [InfoBox("Missing SaveablePrefab in Parent!", InfoMessageType.Error, "missingSaveablePrefab")]
-    [SerializeField, DisplayAsString, LabelText("Guid")] private string guidAsString;
-    public Guid componentGuid { get; private set; }
+    [SerializeField, DisplayAsString, LabelText("Guid")] private string componentGuid;
 
     [SerializeField] protected Component componentToSave;
     
     private bool missingInitializer => (!this.IsAssetOnDisk()) && !Application.isPlaying && (GetComponentsInParent<INIT001_Initialize>(true).Length == 0); //für Odin
     private bool missingSaveablePrefab => ( this.IsAssetOnDisk() && GetSaveablePrefab() == null); //für Odin
     
-    public SaveableData StoreData() => new SaveableData(componentToSave, guidAsString, "on gameObject: " + gameObject.name);
+    public SaveableData StoreData() => new SaveableData(componentToSave, componentGuid, "on gameObject: " + gameObject.name);
 
     public void RestoreData(SaveableData _loadedData) => _loadedData.PopulateObject(componentToSave);
 
     public void SetComponentGuid(Guid _guid)
     {
-        componentGuid = _guid;
-        guidAsString = _guid.ToString();
+        componentGuid = _guid.ToString();
     }
-
+    public Guid GetComponentGuid() => Guid.Parse(componentGuid);
+    
     private SaveablePrefab GetSaveablePrefab()
     {
         SaveablePrefab saveablePrefab = null;
@@ -54,7 +53,9 @@ public class SaveableComponent : MonoBehaviour, ISaveableComponent
     public virtual void OnValidate()
     {
         if (Application.isPlaying) return;
-        if (componentGuid != Guid.Empty) return;
+        Guid checkGuid = Guid.Empty;
+        Guid.TryParse(componentGuid, out checkGuid);
+        if (checkGuid != Guid.Empty) return; 
         Guid newGuid = (this.IsAssetOnDisk()) ? Guid.Empty : Guid.NewGuid();
         SetComponentGuid(newGuid);
     }

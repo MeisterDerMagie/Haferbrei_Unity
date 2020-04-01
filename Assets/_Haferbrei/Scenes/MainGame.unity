@@ -913,7 +913,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a639a007cf413b8367b181c93269a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guidAsString: 7150b5e6-b6f9-494a-b109-b077571f2819
+  componentGuid: 304cf390-7893-4b90-a746-1d7178c24d7a
   componentToSave: {fileID: 90835712}
 --- !u!1 &101002589
 GameObject:
@@ -2164,7 +2164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a639a007cf413b8367b181c93269a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guidAsString: 33820ddf-e76b-4b09-9380-98d2e825d278
+  componentGuid: 9121e1d9-9f32-4eb4-94ca-aa5d195b9294
   componentToSave: {fileID: 359636068}
 --- !u!114 &359636068
 MonoBehaviour:
@@ -2211,7 +2211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9633ebf3cab0a940aaba981b512d0f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guidAsString: ccc6e2fe-6f4f-40be-adda-caaed52de3d4
+  componentGuid: 5bbe4b93-e9c7-434c-b123-c813302fcde3
   componentToSave: {fileID: 359636069}
 --- !u!1 &366570849
 GameObject:
@@ -3742,7 +3742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a639a007cf413b8367b181c93269a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guidAsString: 7d29e947-a0fd-45e1-9788-7e05f365ddb4
+  componentGuid: c90d432e-bba9-454c-8eee-b0d37a3e8347
   componentToSave: {fileID: 769124850}
 --- !u!114 &769124854
 MonoBehaviour:

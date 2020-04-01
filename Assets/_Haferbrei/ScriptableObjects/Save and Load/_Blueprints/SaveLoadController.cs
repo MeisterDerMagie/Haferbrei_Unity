@@ -77,9 +77,10 @@ public class SaveLoadController : SerializedScriptableObject
 
         serializer.TrySerialize(typeof(SaveFileData), dataToSave, out data).AssertSuccessWithoutWarnings();     // 5.1 Serialize data
         string json = (encryptSaveFile) ? fsJsonPrinter.CompressedJson(data) : fsJsonPrinter.PrettyJson(data);  // 5.2 Create Json string
-        if(encryptSaveFile) json = StringCipher.Encrypt(json, encryptionPassword);          // 5.3 Encrpyt Json string
-        System.IO.Directory.CreateDirectory(saveGameDirectoryPath);                                             // 5.4 Create save game directory path if it doesn't already exists
-        System.IO.File.WriteAllText(saveGameFilePath, json);                                           // 5.5 Write file to disk
+        if(encryptSaveFile) json = StringCompression.Compress(json);                                            // 5.3 Compress Json string
+        if(encryptSaveFile) json = StringCipher.Encrypt(json, encryptionPassword);          // 5.4 Encrpyt Json string
+        System.IO.Directory.CreateDirectory(saveGameDirectoryPath);                                             // 5.5 Create save game directory path if it doesn't already exists
+        System.IO.File.WriteAllText(saveGameFilePath, json);                                           // 5.6 Write file to disk
         
         //6. Finished saving
         Debug.Log("Game saved!");
@@ -113,8 +114,9 @@ public class SaveLoadController : SerializedScriptableObject
         
         string json = System.IO.File.ReadAllText(saveGameFilePath);                                         // 0.1 Read file from disk
         if (encryptSaveFile) json = StringCipher.Decrypt(json, encryptionPassword);    // 0.2 Decrypt json string
-        fsData parsedData = fsJsonParser.Parse(json);                                                       // 0.3 Create data from json string
-        serializer.TryDeserialize(parsedData, ref loadedData);                                              // 0.4 Deserialize json
+        if (encryptSaveFile) json = StringCompression.Decompress(json);                                     // 0.3 Decompress json string
+        fsData parsedData = fsJsonParser.Parse(json);                                                       // 0.4 Create data from json string
+        serializer.TryDeserialize(parsedData, ref loadedData);                                              // 0.5 Deserialize json
         
 
         // 1. Load all necessary scenes
@@ -259,7 +261,7 @@ public class SaveLoadController : SerializedScriptableObject
     {
         foreach (var saveableComponent in _saveableComponents)
         {
-            if (saveableComponent.componentGuid.ToString() == _guid) return saveableComponent;
+            if (saveableComponent.GetComponentGuid().ToString() == _guid) return saveableComponent;
         }
         return null;
     }

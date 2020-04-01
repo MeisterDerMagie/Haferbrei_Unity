@@ -28,7 +28,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9633ebf3cab0a940aaba981b512d0f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guidAsString: 00000000-0000-0000-0000-000000000000
+  componentGuid: 00000000-0000-0000-0000-000000000000
   componentToSave: {fileID: 4921660895980187880}
 --- !u!50 &7688622984602201327
 Rigidbody2D:
