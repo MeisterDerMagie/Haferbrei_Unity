@@ -187,6 +187,8 @@ public class SaveableScriptableObjects : SerializedScriptableObject, IResettable
             SOsOnDisk.RemoveAt(i);
             guidsOnDisk.RemoveAt(i);
         }
+        
+        EditorUtility.SetDirty(this);
     }
     
     private void OnValidate()
