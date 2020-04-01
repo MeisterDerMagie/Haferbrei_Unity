@@ -14,7 +14,7 @@ using Wichtel.Extensions;
 
 namespace Haferbrei {
 [CreateAssetMenu(fileName = "SaveLoadController", menuName = "Scriptable Objects/SaveLoadController", order = 0)]
-public class SaveLoadController : SerializedScriptableObject
+public class SaveLoadController : SerializedScriptableObject, IOnExitPlaymode
 {
     [ReadOnly]
     public bool loadSaveGame; //soll beim nächsten Mal, dass das Spiel initialisiert wird, saveGame data geladen werden?
@@ -273,6 +273,13 @@ public class SaveLoadController : SerializedScriptableObject
         {
             _serializer.AddConverter(converter);
         }
+    }
+
+    
+    public void OnExitPlaymode()
+    {
+        saveablePrefabs.Clear();
+        saveableComponents.Clear();
     }
 }
 }

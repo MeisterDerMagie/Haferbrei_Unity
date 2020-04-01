@@ -11,7 +11,7 @@ using UnityEditor;
 
 namespace Haferbrei {
 [CreateAssetMenu(fileName = "SaveableScriptableObjects", menuName = "Scriptable Objects/Save & Load/SaveableScriptableObjectsCollection", order = 0)]
-public class SaveableScriptableObjects : SerializedScriptableObject, IResettable
+public class SaveableScriptableObjects : SerializedScriptableObject, IResettable, IOnExitPlaymode
 {
     [SerializeField, Delayed] protected string folder;
     [SerializeField, Delayed] protected List<string> foldersToIgnore;
@@ -190,7 +190,7 @@ public class SaveableScriptableObjects : SerializedScriptableObject, IResettable
         
         EditorUtility.SetDirty(this);
     }
-    
+
     private void OnValidate()
     {
         RefreshDictionary();
@@ -204,5 +204,15 @@ public class SaveableScriptableObjects : SerializedScriptableObject, IResettable
         }
     }
     #endif
+    
+    public void OnExitPlaymode()
+    {
+        guidsInstantiatedAtRuntime.Clear();
+        SOsInstantiatedAtRuntime.Clear();
+        
+        #if UNITY_EDITOR
+        EditorUtility.SetDirty(this);
+        #endif
+    }
 }
 }
