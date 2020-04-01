@@ -13,7 +13,7 @@ public class ScriptableObjectConverter : fsConverter
     
     public override fsResult TrySerialize(object instance, out fsData serialized, Type storageType)
     {
-        Guid scriptableObjectGuid = ScriptableObjectReferences.Instance.saveableScriptableObjectsReferences.ResolveReference(instance as ScriptableObject);;
+        Guid scriptableObjectGuid = ScriptableObjectReferences.Instance.saveableScriptableObjects.ResolveReference(instance as ScriptableObject);;
         serialized = new fsData(scriptableObjectGuid.ToString());
         return fsResult.Success;
     }
@@ -24,7 +24,19 @@ public class ScriptableObjectConverter : fsConverter
         
         string dataAsString = data.AsString;
         Guid scriptableObjectGuid = Guid.Parse(dataAsString);
-        instance = ScriptableObjectReferences.Instance.saveableScriptableObjectsReferences.ResolveGuid(scriptableObjectGuid);
+
+        bool scriptableObjectExists = ScriptableObjectReferences.Instance.saveableScriptableObjects.TryResolveGuid(scriptableObjectGuid);
+
+        if (scriptableObjectExists)
+        {
+            instance = ScriptableObjectReferences.Instance.saveableScriptableObjects.ResolveGuid(scriptableObjectGuid);
+        }
+        else
+        {
+            instance = ScriptableObject.CreateInstance(storageType);
+            ScriptableObjectReferences.Instance.saveableScriptableObjects.RegisterNewSoCreatedAtRuntime((ScriptableObject)instance, scriptableObjectGuid);
+        }
+            
         return fsResult.Success;
     }
 

@@ -4,6 +4,5 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Assets/OdinWatchWindow" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Assets/_Wichtel" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Assets/guid-based-reference" vcs="Git" />
   </component>
 </project>

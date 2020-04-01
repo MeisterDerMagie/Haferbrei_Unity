@@ -715,7 +715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d3fbc391bfc4f1da47a257fcf95aae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveableScriptableObjectsReferences: {fileID: 11400000, guid: cbfc8747577e925499c7b9246e721f9a,
+  saveableScriptableObjects: {fileID: 11400000, guid: e62dca1edd5353a4fb1b22a817d638ed,
     type: 2}
 --- !u!4 &1522619134
 Transform:

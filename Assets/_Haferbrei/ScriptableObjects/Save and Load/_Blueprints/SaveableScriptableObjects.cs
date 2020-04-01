@@ -15,6 +15,7 @@ public class SaveableScriptableObjects : SerializedScriptableObject, IResettable
 {
     [SerializeField, Delayed] protected string folder;
     [SerializeField, Delayed] protected List<string> foldersToIgnore;
+    [SerializeField, Delayed] protected List<ScriptableObject> scriptableObjectsToExcludeFromSaving;
 
     [SerializeField, ReadOnly] private List<Guid> guidsOnDisk = new List<Guid>();
     [SerializeField, ReadOnly] private List<ScriptableObject> SOsOnDisk = new List<ScriptableObject>();
@@ -28,7 +29,7 @@ public class SaveableScriptableObjects : SerializedScriptableObject, IResettable
 
         foreach (var so in allSaveableScriptableObjects)
         {
-            if(!(so is ISaveableScriptableObject) || SOsOnDisk.Contains(so) || SOsInstantiatedAtRuntime.Contains(so)) continue;
+            if(SOsOnDisk.Contains(so) || SOsInstantiatedAtRuntime.Contains(so)) continue;
             RegisterNewSoCreatedAtRuntime(so);
         }
     }
@@ -40,12 +41,16 @@ public class SaveableScriptableObjects : SerializedScriptableObject, IResettable
         //Disc
         for (int i = 0; i < SOsOnDisk.Count; i++)
         {
+            if(!(SOsOnDisk[i] is ISaveableScriptableObject)) continue;
+            
             var soData = GetSoSaveableData(i, true);
             data.Add(soData);
         }
         //Runtime
         for (int i = 0; i < SOsInstantiatedAtRuntime.Count; i++)
         {
+            if(!(SOsInstantiatedAtRuntime[i] is ISaveableScriptableObject)) continue;
+            
             var soData = GetSoSaveableData(i, false);
             data.Add(soData);
         }
@@ -73,24 +78,32 @@ public class SaveableScriptableObjects : SerializedScriptableObject, IResettable
     //--- Load Data ---
     public void LoadScriptableObject(SaveableScriptableObjectData _objectData)
     {
+        ScriptableObject so = null;
         if (guidsOnDisk.Contains(_objectData.guid))
         {
             int index = guidsOnDisk.IndexOf(_objectData.guid);
-            var so = SOsOnDisk[index];
-            _objectData.data.PopulateObject(so);
-            //(so as ISaveableScriptableObject).LoadData(_objectData);
-            return;
+            so = SOsOnDisk[index];
         }
-        
-        Type soType = Type.GetType(_objectData.scriptableObjectType);
-        var newSo = ScriptableObject.CreateInstance(soType);
-        newSo.name = _objectData.scriptableObjectName;
-        
-        SOsInstantiatedAtRuntime.Add(newSo);
-        guidsInstantiatedAtRuntime.Add(_objectData.guid);
-        
-        _objectData.data.PopulateObject(newSo);
-        //(newSo as ISaveableScriptableObject).LoadData(_objectData);
+        else if (guidsInstantiatedAtRuntime.Contains((_objectData.guid)))
+        {
+            int index = guidsInstantiatedAtRuntime.IndexOf(_objectData.guid);
+            so = SOsInstantiatedAtRuntime[index];
+        }
+        if (so != null)
+        {
+            so.name = _objectData.scriptableObjectName;
+            _objectData.data.PopulateObject(so);
+        }
+        else
+        {
+            Debug.LogError("Can't load ScriptableObject with guid: " + _objectData.guid);
+        }
+    }
+
+    public void RegisterNewSoCreatedAtRuntime(ScriptableObject _scriptableObject, Guid _guid)
+    {
+        SOsInstantiatedAtRuntime.Add(_scriptableObject);
+        guidsInstantiatedAtRuntime.Add(_guid);
     }
     //--- ---
     
@@ -101,7 +114,7 @@ public class SaveableScriptableObjects : SerializedScriptableObject, IResettable
         guidsInstantiatedAtRuntime.Add(newGuid);
         return newGuid;
     }
-    
+
     public ScriptableObject ResolveGuid(Guid _guid)
     {
         if (guidsOnDisk.Contains(_guid)) return SOsOnDisk[guidsOnDisk.IndexOf(_guid)];
@@ -111,6 +124,11 @@ public class SaveableScriptableObjects : SerializedScriptableObject, IResettable
             Debug.LogError("Can't resolve Guid: " + _guid);
             return null;
         }
+    }
+
+    public bool TryResolveGuid(Guid _guid)
+    {
+        return (guidsOnDisk.Contains(_guid) || guidsInstantiatedAtRuntime.Contains(_guid));
     }
 
     public Guid ResolveReference(ScriptableObject _scriptableObject)
@@ -157,7 +175,7 @@ public class SaveableScriptableObjects : SerializedScriptableObject, IResettable
 
             if (!SOsOnDisk.Contains(so))
             {
-                if (!(so is ISaveableScriptableObject)) continue;
+                //if (!(so is ISaveableScriptableObject)) continue;
                 guidsOnDisk.Add(Guid.NewGuid());
                 SOsOnDisk.Add(so);
             }
