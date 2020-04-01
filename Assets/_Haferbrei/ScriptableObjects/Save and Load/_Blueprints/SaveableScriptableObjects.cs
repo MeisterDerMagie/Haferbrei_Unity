@@ -42,6 +42,7 @@ public class SaveableScriptableObjects : SerializedScriptableObject, IResettable
         for (int i = 0; i < SOsOnDisk.Count; i++)
         {
             if(!(SOsOnDisk[i] is ISaveableScriptableObject)) continue;
+            if (scriptableObjectsToExcludeFromSaving.Contains(SOsOnDisk[i])) continue;
             
             var soData = GetSoSaveableData(i, true);
             data.Add(soData);
