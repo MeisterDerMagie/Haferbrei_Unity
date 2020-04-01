@@ -913,7 +913,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a639a007cf413b8367b181c93269a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guidAsString: eddf5a6a-3ff9-4d2e-972a-58f918e8fe42
+  guidAsString: 7150b5e6-b6f9-494a-b109-b077571f2819
   componentToSave: {fileID: 90835712}
 --- !u!1 &101002589
 GameObject:
@@ -1774,22 +1774,9 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: saveableInits
-      Entry: 7
-      Data: 1|System.Collections.Generic.List`1[[Haferbrei.ISaveable, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: selfInits
       Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[IInitSelf, Assembly-CSharp]], mscorlib
+      Data: 1|System.Collections.Generic.List`1[[IInitSelf, Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 0
@@ -1801,7 +1788,7 @@ MonoBehaviour:
       Data: 
     - Name: dependentInits
       Entry: 7
-      Data: 3|System.Collections.Generic.List`1[[IInitDependencies, Assembly-CSharp]],
+      Data: 2|System.Collections.Generic.List`1[[IInitDependencies, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
@@ -1814,6 +1801,7 @@ MonoBehaviour:
       Data: 
   initOnSceneStart: 1
   initOnAwake: 0
+  saveablePrefabs: []
   onInitializeFinished:
     m_PersistentCalls:
       m_Calls: []
@@ -2176,7 +2164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a639a007cf413b8367b181c93269a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guidAsString: ae193eb7-1f96-472b-a280-fca7398b07bb
+  guidAsString: 33820ddf-e76b-4b09-9380-98d2e825d278
   componentToSave: {fileID: 359636068}
 --- !u!114 &359636068
 MonoBehaviour:
@@ -2223,7 +2211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9633ebf3cab0a940aaba981b512d0f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guidAsString: 53763b0e-0ab9-4edf-8aef-cc828bde02ba
+  guidAsString: ccc6e2fe-6f4f-40be-adda-caaed52de3d4
   componentToSave: {fileID: 359636069}
 --- !u!1 &366570849
 GameObject:
@@ -3754,7 +3742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a639a007cf413b8367b181c93269a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guidAsString: ef70e32f-7580-4220-81f1-c108885f155b
+  guidAsString: 7d29e947-a0fd-45e1-9788-7e05f365ddb4
   componentToSave: {fileID: 769124850}
 --- !u!114 &769124854
 MonoBehaviour:
@@ -4167,22 +4155,9 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: saveableInits
-      Entry: 7
-      Data: 1|System.Collections.Generic.List`1[[Haferbrei.ISaveable, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: selfInits
       Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[IInitSelf, Assembly-CSharp]], mscorlib
+      Data: 1|System.Collections.Generic.List`1[[IInitSelf, Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 3
@@ -4203,7 +4178,7 @@ MonoBehaviour:
       Data: 
     - Name: dependentInits
       Entry: 7
-      Data: 3|System.Collections.Generic.List`1[[IInitDependencies, Assembly-CSharp]],
+      Data: 2|System.Collections.Generic.List`1[[IInitDependencies, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
@@ -4216,6 +4191,7 @@ MonoBehaviour:
       Data: 
   initOnSceneStart: 1
   initOnAwake: 0
+  saveablePrefabs: []
   onInitializeFinished:
     m_PersistentCalls:
       m_Calls: []
@@ -7128,22 +7104,9 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: saveableInits
-      Entry: 7
-      Data: 1|System.Collections.Generic.List`1[[Haferbrei.ISaveable, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: selfInits
       Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[IInitSelf, Assembly-CSharp]], mscorlib
+      Data: 1|System.Collections.Generic.List`1[[IInitSelf, Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
@@ -7158,7 +7121,7 @@ MonoBehaviour:
       Data: 
     - Name: dependentInits
       Entry: 7
-      Data: 3|System.Collections.Generic.List`1[[IInitDependencies, Assembly-CSharp]],
+      Data: 2|System.Collections.Generic.List`1[[IInitDependencies, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
@@ -7171,6 +7134,7 @@ MonoBehaviour:
       Data: 
   initOnSceneStart: 1
   initOnAwake: 0
+  saveablePrefabs: []
   onInitializeFinished:
     m_PersistentCalls:
       m_Calls: []

@@ -15,37 +15,12 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: saveableGameObjects
-      Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[Haferbrei.ISaveable, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 3
-    - Name: 
-      Entry: 10
-      Data: 0
-    - Name: 
-      Entry: 10
-      Data: 1
-    - Name: 
-      Entry: 10
-      Data: 2
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+    SerializationNodes: []
   loadSaveGame: 0
   encryptSaveFile: 0
   saveGameFileExtension: .save
@@ -59,3 +34,105 @@ MonoBehaviour:
     type: 3}
   loadingScreenPrefab: {fileID: 7054887534509017, guid: 84c456272dc885649a5c556341df40c1,
     type: 3}
+  loadedData:
+    scriptableObjectDatas:
+    - scriptableObjectName: PlayerRessources
+      scriptableObjectType: Haferbrei.RessourceContainer
+      data:
+        Id: c49844cd-c376-46f5-999e-06c129dd36ef
+        info: '-'
+    - scriptableObjectName: TooltipRessources
+      scriptableObjectType: Haferbrei.RessourceContainer
+      data:
+        Id: 371f7342-6b38-4f93-8fc0-4a76fc402102
+        info: '-'
+    - scriptableObjectName: Markt_RessourceContainer
+      scriptableObjectType: Haferbrei.RessourceContainer
+      data:
+        Id: ef4ddd27-ff88-4618-943a-0a3d8f2015a6
+        info: '-'
+    - scriptableObjectName: Markt_RessourceContainer
+      scriptableObjectType: Haferbrei.RessourceContainer
+      data:
+        Id: 7f20037e-fe4d-42e7-a12a-a6672cbd9e72
+        info: '-'
+    prefabDatas:
+    - sceneName: MainGame
+      prefabName: prf_Burgfried
+      gameObjectName: prf_Burgfried(Clone)
+      components:
+      - componentId: 95964fe4-846e-4b1b-80ae-446977e5467b
+    - sceneName: MainGame
+      prefabName: prf_Burgfried
+      gameObjectName: prf_Burgfried(Clone)
+      components:
+      - componentId: 95964fe4-846e-4b1b-80ae-446977e5467b
+    componentDatas:
+    - Id: a58a9693-663f-4667-96ad-92e4e1a88818
+      info: 'on gameObject: grp_RessourceBar'
+    - Id: c5d02719-3ea3-49f1-a93e-709261704916
+      info: 'on gameObject: Markt'
+    - Id: 75ed54b3-afd5-4523-9f94-c77d532889cb
+      info: 'on gameObject: SaveTest'
+    - Id: 46f659fa-a1c7-4419-ac56-dfdd180a2591
+      info: 'on gameObject: SaveTest'
+    - Id: b67c91d2-5dd9-49bb-b7ea-44e18562c479
+      info: 'on gameObject: prf_Burgfried(Clone)'
+    - Id: e59e0515-d178-4ca6-929b-53c49f7cbb2f
+      info: 'on gameObject: prf_Burgfried(Clone)'
+  dataToSave:
+    scriptableObjectDatas:
+    - scriptableObjectName: PlayerRessources
+      scriptableObjectType: Haferbrei.RessourceContainer
+      data:
+        Id: c49844cd-c376-46f5-999e-06c129dd36ef
+        info: '-'
+    - scriptableObjectName: TooltipRessources
+      scriptableObjectType: Haferbrei.RessourceContainer
+      data:
+        Id: 371f7342-6b38-4f93-8fc0-4a76fc402102
+        info: '-'
+    - scriptableObjectName: Markt_RessourceContainer
+      scriptableObjectType: Haferbrei.RessourceContainer
+      data:
+        Id: ef4ddd27-ff88-4618-943a-0a3d8f2015a6
+        info: '-'
+    - scriptableObjectName: Markt_RessourceContainer
+      scriptableObjectType: Haferbrei.RessourceContainer
+      data:
+        Id: 7f20037e-fe4d-42e7-a12a-a6672cbd9e72
+        info: '-'
+    prefabDatas:
+    - sceneName: MainGame
+      prefabName: prf_Burgfried
+      gameObjectName: prf_Burgfried(Clone)
+      components:
+      - componentId: 95964fe4-846e-4b1b-80ae-446977e5467b
+    - sceneName: MainGame
+      prefabName: prf_Burgfried
+      gameObjectName: prf_Burgfried(Clone)
+      components:
+      - componentId: 95964fe4-846e-4b1b-80ae-446977e5467b
+    componentDatas:
+    - Id: a58a9693-663f-4667-96ad-92e4e1a88818
+      info: 'on gameObject: grp_RessourceBar'
+    - Id: c5d02719-3ea3-49f1-a93e-709261704916
+      info: 'on gameObject: Markt'
+    - Id: 75ed54b3-afd5-4523-9f94-c77d532889cb
+      info: 'on gameObject: SaveTest'
+    - Id: 46f659fa-a1c7-4419-ac56-dfdd180a2591
+      info: 'on gameObject: SaveTest'
+    - Id: b67c91d2-5dd9-49bb-b7ea-44e18562c479
+      info: 'on gameObject: prf_Burgfried(Clone)'
+    - Id: e59e0515-d178-4ca6-929b-53c49f7cbb2f
+      info: 'on gameObject: prf_Burgfried(Clone)'
+  saveablePrefabs:
+  - {fileID: 0}
+  - {fileID: 0}
+  saveableComponents:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
