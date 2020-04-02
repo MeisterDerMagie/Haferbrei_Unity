@@ -195,7 +195,6 @@ public class GuidManager
         foreach (var guidComponent in guidComponents)
         {
             guidComponent.Initialize();
-            Debug.Log("Initialized " + guidComponent.gameObject.name + " with Guid " + guidComponent.GetGuid());
         }
     }
 }

@@ -70,6 +70,7 @@ public class GuidReference : ISerializationCallbackReceiver
     public GuidReference(Guid targetGuid)
     {
         guid = targetGuid;
+        serializedGuid = targetGuid.ToByteArray();
     }
 
     private void GuidAdded(GameObject go)
