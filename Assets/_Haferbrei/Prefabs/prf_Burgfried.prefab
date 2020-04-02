@@ -204,7 +204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   componentGuid: 00000000-0000-0000-0000-000000000000
   componentToSave: {fileID: -8543756859024469053}
---- !u!114 &4590543434708698875
+--- !u!114 &1912100595514463567
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -219,7 +219,7 @@ MonoBehaviour:
   prefabName: prf_Burgfried
   saveableComponents:
   - component: {fileID: -8543756859024469053}
-    componentId: 95964fe4-846e-4b1b-80ae-446977e5467b
+    componentId: b040e8b9-24cb-4292-9831-1d501bcab5a3
 --- !u!50 &6334500045114794202
 Rigidbody2D:
   serializedVersion: 4
