@@ -2186,19 +2186,13 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: guidTest
-      Entry: 2
-      Data: 00000000000000000000000000000000
-  allRessources: {fileID: 11400000, guid: 7ea0d0d2af1da2c4ab59bef43bf5f2b7, type: 2}
-  testInt: 0
-  testIntList: 
-  testFloat: 0
-  testFloatList: []
-  vector3: {x: 0, y: 0, z: 0}
-  vector2: {x: 0, y: 0}
-  ressource: {fileID: 0}
-  ressourceList: []
+    SerializationNodes: []
+  zuBauendesGebaude:
+    _usage: 2
+    _value: {fileID: 0}
+    _constant: {fileID: 0}
+    _variable: {fileID: 0}
+    _variableInstancer: {fileID: 0}
 --- !u!114 &359636069
 MonoBehaviour:
   m_ObjectHideFlags: 0
