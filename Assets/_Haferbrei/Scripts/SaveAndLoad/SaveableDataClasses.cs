@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Haferbrei{
@@ -18,10 +19,28 @@ public class SaveableScriptableObjectData : SaveableObjectData
 }
 
 [Serializable]
-public class SaveFileData
+public class SaveFile_BodyData
 {
     public List<SaveableScriptableObjectData> scriptableObjectDatas = new List<SaveableScriptableObjectData>();
     public List<SaveablePrefabData> prefabDatas = new List<SaveablePrefabData>();
     public List<SaveableData> componentDatas = new List<SaveableData>();
+}
+
+[Serializable]
+public class SaveFile_HeadData
+{
+    public DateTime date;
+    [PreviewField] public Texture2D screenshot;
+    public int screenshotWidth;
+    public int screenshotHeight;
+
+    public SaveFile_HeadData(DateTime _date, Texture2D _screenshot)
+    {
+        date = _date;
+        screenshot = _screenshot;
+        screenshotWidth = _screenshot.width;
+        screenshotHeight = _screenshot.height;
+    }
+    public SaveFile_HeadData(){}
 }
 }

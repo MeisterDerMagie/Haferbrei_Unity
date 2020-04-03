@@ -19,6 +19,8 @@ public class SaveLoadController : SerializedScriptableObject, IOnExitPlaymode
     [ReadOnly]
     public bool loadSaveGame; //soll beim nächsten Mal, dass das Spiel initialisiert wird, saveGame data geladen werden?
 
+    public SaveFile_HeadData HeadData;
+    
     [SerializeField, BoxGroup("Settings"), Required] private bool encryptSaveFile = true;
     [SerializeField, BoxGroup("Settings"), Required] private string saveGameFileExtension = ".save";
     public PrefabCollection allPrefabsCollection;
@@ -27,16 +29,14 @@ public class SaveLoadController : SerializedScriptableObject, IOnExitPlaymode
     public GameObject initializerPrefab;
     public GameObject loadingScreenPrefab;
 
-    public SaveFileData loadedData = new SaveFileData();
-    public SaveFileData dataToSave = new SaveFileData();
+    public SaveFile_BodyData loadedBodyData = new SaveFile_BodyData();
+    public SaveFile_BodyData bodyDataToSave = new SaveFile_BodyData();
 
     public List<SaveablePrefab> saveablePrefabs = new List<SaveablePrefab>();
     public List<SaveableComponent> saveableComponents = new List<SaveableComponent>();
 
     [ShowInInspector] private Dictionary<Transform, Guid> parents = new Dictionary<Transform, Guid>();
     private Dictionary<Scene, Guid> initializers = new Dictionary<Scene, Guid>();
-    private List<fsConverter> converters;
-    private string encryptionPassword = "Good job, you managed to hack the password! Have fun reading the SaveFile. :)";
     private string saveGameFileName;
 
     private string saveGameDirectoryPath => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), Application.companyName, Application.productName);
@@ -45,7 +45,7 @@ public class SaveLoadController : SerializedScriptableObject, IOnExitPlaymode
     [Button, DisableInEditorMode]
     public void SaveGameState(string _saveGameFileName)
     {
-        dataToSave = new SaveFileData();
+        bodyDataToSave = new SaveFile_BodyData();
         saveGameFileName = _saveGameFileName;
 
         // 1. Collect SaveableScriptableObjects
@@ -53,34 +53,38 @@ public class SaveLoadController : SerializedScriptableObject, IOnExitPlaymode
 
         // 2. Save ScriptableObjects
         var scriptableObjectsData = saveableScriptableObjects.SaveScriptableObjects();
-        dataToSave.scriptableObjectDatas.AddRange(scriptableObjectsData);
+        bodyDataToSave.scriptableObjectDatas.AddRange(scriptableObjectsData);
 
         // 3. Save Prefabs
         saveablePrefabs = ComponentExtensions.FindAllComponentsOfType<SaveablePrefab>();
         foreach (var saveablePrefab in saveablePrefabs)
         {
             SaveablePrefabData objectData = saveablePrefab.SaveData();
-            dataToSave.prefabDatas.Add(objectData);
+            bodyDataToSave.prefabDatas.Add(objectData);
         }
         
         // 4. Save Components
         saveableComponents = ComponentExtensions.FindAllComponentsOfType<SaveableComponent>();
         foreach (var saveableComponent in saveableComponents)
         {
-            dataToSave.componentDatas.Add(saveableComponent.StoreData());
+            bodyDataToSave.componentDatas.Add(saveableComponent.StoreData());
         }
         
         // 5. Write file
-        var serializer = new fsSerializer();
-        fsData data;
-        GetJsonConverters(ref serializer);
-
-        serializer.TrySerialize(typeof(SaveFileData), dataToSave, out data).AssertSuccessWithoutWarnings();     // 5.1 Serialize data
-        string json = (encryptSaveFile) ? fsJsonPrinter.CompressedJson(data) : fsJsonPrinter.PrettyJson(data);  // 5.2 Create Json string
-        if(encryptSaveFile) json = StringCompression.Compress(json);                                            // 5.3 Compress Json string
-        if(encryptSaveFile) json = StringCipher.Encrypt(json, encryptionPassword);          // 5.4 Encrpyt Json string
-        System.IO.Directory.CreateDirectory(saveGameDirectoryPath);                                             // 5.5 Create save game directory path if it doesn't already exists
-        System.IO.File.WriteAllText(saveGameFilePath, json);                                           // 5.6 Write file to disk
+        // 5.1 write head data
+        HeadData = new SaveFile_HeadData(DateTime.Now, ScreenshotTaker.TakeScreenshot(Camera.main, Screen.width/4, Screen.height/4));
+        string fileContent = "<Head>";
+        fileContent += SaveFileSerializer.Serialize(typeof(SaveFile_HeadData), HeadData, encryptSaveFile);
+        fileContent += "</Head>";
+        
+        // 5.2 write body data
+        fileContent += "<Body>";
+        fileContent += SaveFileSerializer.Serialize(typeof(SaveFile_BodyData), bodyDataToSave, encryptSaveFile);
+        fileContent += "</Body>";
+        
+        // 5.3 write to disk
+        System.IO.Directory.CreateDirectory(saveGameDirectoryPath);           // Create save game directory path if it doesn't already exists
+        System.IO.File.WriteAllText(saveGameFilePath, fileContent);  // Write file to disk
         
         //6. Finished saving
         Debug.Log("Game saved!");
@@ -104,27 +108,27 @@ public class SaveLoadController : SerializedScriptableObject, IOnExitPlaymode
 
         // Clean up & prepare
         loadSaveGame = false;
-        loadedData = new SaveFileData();
+        loadedBodyData = new SaveFile_BodyData();
         parents.Clear();
         initializers.Clear();
         
         // 0. Read file and convert Json
-        var serializer = new fsSerializer();
-        GetJsonConverters(ref serializer);
+        string fileContent = System.IO.File.ReadAllText(saveGameFilePath); // read file from disk
         
-        string json = System.IO.File.ReadAllText(saveGameFilePath);                                         // 0.1 Read file from disk
-        if (encryptSaveFile) json = StringCipher.Decrypt(json, encryptionPassword);    // 0.2 Decrypt json string
-        if (encryptSaveFile) json = StringCompression.Decompress(json);                                     // 0.3 Decompress json string
-        fsData parsedData = fsJsonParser.Parse(json);                                                       // 0.4 Create data from json string
-        serializer.TryDeserialize(parsedData, ref loadedData);                                              // 0.5 Deserialize json
+        // 0.1 split head and body
+        String headString = fileContent.Substring("<Head>", "</Head>");
+        String bodyString = fileContent.Substring("<Body>", "</Body>");
         
+        // 0.2 Deserialize
+        SaveFileSerializer.Deserialize(headString, encryptSaveFile, ref HeadData);
+        SaveFileSerializer.Deserialize(bodyString, encryptSaveFile, ref loadedBodyData);
 
         // 1. Load all necessary scenes
         yield return Timing.WaitUntilDone(Timing.RunCoroutine(_LoadNecessaryScenes()));
         Debug.Log("Loaded all scenes @ frame #" + Time.frameCount + " / time: " + DateTime.Now.TimeOfDay);
 
         // 2. Create ScriptableObject Instances and load data into them
-        foreach (var data in loadedData.scriptableObjectDatas)
+        foreach (var data in loadedBodyData.scriptableObjectDatas)
         {
             LoadScriptableObject(data);
         }
@@ -136,7 +140,7 @@ public class SaveLoadController : SerializedScriptableObject, IOnExitPlaymode
         Debug.Log("Initialized all GuidComponents @ frame #" + Time.frameCount + " / time: " + DateTime.Now.TimeOfDay);
 
         // 4. Load GameObject data and create GameObjects
-        foreach (var data in loadedData.prefabDatas)
+        foreach (var data in loadedBodyData.prefabDatas)
         {
             LoadPrefab(data); //yield return Timing.WaitUntilDone(Timing.RunCoroutine(_LoadGameObject(data)));
         }
@@ -145,7 +149,7 @@ public class SaveLoadController : SerializedScriptableObject, IOnExitPlaymode
 
         // 5. Load Components
         List<SaveableComponent> components = ComponentExtensions.FindAllComponentsOfType<SaveableComponent>();
-        foreach (var componentData in loadedData.componentDatas)
+        foreach (var componentData in loadedBodyData.componentDatas)
         {
             var component = FindSaveableComponentByGuid(componentData.Id, components);
             if(component != null) component.RestoreData(componentData);
@@ -178,7 +182,7 @@ public class SaveLoadController : SerializedScriptableObject, IOnExitPlaymode
     {
         //Welche Szenen müssen geladen werden?
         var necessaryScenes = new List<string>();
-        foreach (var data in loadedData.prefabDatas)
+        foreach (var data in loadedBodyData.prefabDatas)
         {
             if (data is SaveablePrefabData gameObjectData && !necessaryScenes.Contains(gameObjectData.sceneName))
                 necessaryScenes.Add(gameObjectData.sceneName);
@@ -266,16 +270,6 @@ public class SaveLoadController : SerializedScriptableObject, IOnExitPlaymode
         return null;
     }
 
-    private void GetJsonConverters(ref fsSerializer _serializer)
-    {
-        converters = new List<fsConverter>(AllJsonConverters.GetAllJsonConverters());
-        foreach (var converter in converters)
-        {
-            _serializer.AddConverter(converter);
-        }
-    }
-
-    
     public void OnExitPlaymode()
     {
         saveablePrefabs.Clear();
