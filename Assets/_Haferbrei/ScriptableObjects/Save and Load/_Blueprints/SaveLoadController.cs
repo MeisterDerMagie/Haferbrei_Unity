@@ -71,18 +71,18 @@ public class SaveLoadController : SerializedScriptableObject, IOnExitPlaymode
         }
         
         // 5. Write file
-        // 5.1 write head data
+        string fileContent = string.Empty;
+        // 5.1 Write version data
+        fileContent += SaveFileSerializer.Serialize("Version", typeof(string), Version.currentVersion, encryptSaveFile);
+        
+        // 5.2 write head data
         HeadData = new SaveFile_HeadData(DateTime.Now, ScreenshotTaker.TakeScreenshot(Camera.main, Screen.width/4, Screen.height/4));
-        string fileContent = "<Head>";
-        fileContent += SaveFileSerializer.Serialize(typeof(SaveFile_HeadData), HeadData, encryptSaveFile);
-        fileContent += "</Head>";
-        
-        // 5.2 write body data
-        fileContent += "<Body>";
-        fileContent += SaveFileSerializer.Serialize(typeof(SaveFile_BodyData), bodyDataToSave, encryptSaveFile);
-        fileContent += "</Body>";
-        
-        // 5.3 write to disk
+        fileContent += SaveFileSerializer.Serialize("Head", typeof(SaveFile_HeadData), HeadData, encryptSaveFile);
+
+        // 5.3 write body data
+        fileContent += SaveFileSerializer.Serialize("Body", typeof(SaveFile_BodyData), bodyDataToSave, encryptSaveFile);
+
+        // 5.4 write to disk
         System.IO.Directory.CreateDirectory(saveGameDirectoryPath);           // Create save game directory path if it doesn't already exists
         System.IO.File.WriteAllText(saveGameFilePath, fileContent);  // Write file to disk
         
@@ -115,13 +115,9 @@ public class SaveLoadController : SerializedScriptableObject, IOnExitPlaymode
         // 0. Read file and convert Json
         string fileContent = System.IO.File.ReadAllText(saveGameFilePath); // read file from disk
         
-        // 0.1 split head and body
-        String headString = fileContent.Substring("<Head>", "</Head>");
-        String bodyString = fileContent.Substring("<Body>", "</Body>");
-        
         // 0.2 Deserialize
-        SaveFileSerializer.Deserialize(headString, encryptSaveFile, ref HeadData);
-        SaveFileSerializer.Deserialize(bodyString, encryptSaveFile, ref loadedBodyData);
+        SaveFileSerializer.Deserialize("Head", fileContent, encryptSaveFile, ref HeadData);
+        SaveFileSerializer.Deserialize("Body", fileContent, encryptSaveFile, ref loadedBodyData);
 
         // 1. Load all necessary scenes
         yield return Timing.WaitUntilDone(Timing.RunCoroutine(_LoadNecessaryScenes()));

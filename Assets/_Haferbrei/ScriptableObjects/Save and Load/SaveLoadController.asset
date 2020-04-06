@@ -24,9 +24,9 @@ MonoBehaviour:
   loadSaveGame: 0
   HeadData:
     screenshot: {fileID: 0}
-    screenshotWidth: 480
-    screenshotHeight: 270
-  encryptSaveFile: 1
+    screenshotWidth: 258
+    screenshotHeight: 138
+  encryptSaveFile: 0
   saveGameFileExtension: .save
   allPrefabsCollection: {fileID: 11400000, guid: 740091d4e49c6c7489b7b44ff400285a,
     type: 2}
@@ -48,15 +48,19 @@ MonoBehaviour:
     - scriptableObjectName: Markt_RessourceContainer
       scriptableObjectType: Haferbrei.RessourceContainer
       data:
-        Id: d6727f9c-bfb8-45ba-a8a2-805e5e042797
+        Id: aa540f40-18e3-4110-ac7a-01c0ba8723a2
         info: '-'
     prefabDatas:
     - sceneName: MainGame
       prefabName: prf_Burgfried
-      gameObjectName: prf_Burgfried(Clone)
+      gameObjectName: sdf
       components:
       - componentId: b040e8b9-24cb-4292-9831-1d501bcab5a3
     componentDatas:
+    - Id: 9c67ded9-170a-4aa6-b2db-5819f1f817b1
+      info: 'on gameObject: Main Camera'
+    - Id: 8cf5e5fb-683b-4f2e-bded-5c4acec0018c
+      info: 'on gameObject: Main Camera'
     - Id: 304cf390-7893-4b90-a746-1d7178c24d7a
       info: 'on gameObject: grp_RessourceBar'
     - Id: c90d432e-bba9-454c-8eee-b0d37a3e8347
@@ -65,8 +69,8 @@ MonoBehaviour:
       info: 'on gameObject: SaveTest'
     - Id: 9121e1d9-9f32-4eb4-94ca-aa5d195b9294
       info: 'on gameObject: SaveTest'
-    - Id: 46dc5e53-72b6-4d33-b000-63b6877f4f8e
-      info: 'on gameObject: prf_Burgfried(Clone)'
+    - Id: 98e9c1e3-674d-44cd-a3e2-f1491a52acdf
+      info: 'on gameObject: sdf'
   bodyDataToSave:
     scriptableObjectDatas:
     - scriptableObjectName: PlayerRessources
@@ -77,15 +81,19 @@ MonoBehaviour:
     - scriptableObjectName: Markt_RessourceContainer
       scriptableObjectType: Haferbrei.RessourceContainer
       data:
-        Id: d6727f9c-bfb8-45ba-a8a2-805e5e042797
+        Id: aa540f40-18e3-4110-ac7a-01c0ba8723a2
         info: '-'
     prefabDatas:
     - sceneName: MainGame
       prefabName: prf_Burgfried
-      gameObjectName: prf_Burgfried(Clone)
+      gameObjectName: sdf
       components:
       - componentId: b040e8b9-24cb-4292-9831-1d501bcab5a3
     componentDatas:
+    - Id: 9c67ded9-170a-4aa6-b2db-5819f1f817b1
+      info: 'on gameObject: Main Camera'
+    - Id: 8cf5e5fb-683b-4f2e-bded-5c4acec0018c
+      info: 'on gameObject: Main Camera'
     - Id: 304cf390-7893-4b90-a746-1d7178c24d7a
       info: 'on gameObject: grp_RessourceBar'
     - Id: c90d432e-bba9-454c-8eee-b0d37a3e8347
@@ -94,7 +102,7 @@ MonoBehaviour:
       info: 'on gameObject: SaveTest'
     - Id: 9121e1d9-9f32-4eb4-94ca-aa5d195b9294
       info: 'on gameObject: SaveTest'
-    - Id: 46dc5e53-72b6-4d33-b000-63b6877f4f8e
-      info: 'on gameObject: prf_Burgfried(Clone)'
+    - Id: 98e9c1e3-674d-44cd-a3e2-f1491a52acdf
+      info: 'on gameObject: sdf'
   saveablePrefabs: []
   saveableComponents: []
