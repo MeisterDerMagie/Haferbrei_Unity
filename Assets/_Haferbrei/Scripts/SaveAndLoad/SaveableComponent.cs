@@ -20,8 +20,10 @@ public class SaveableComponent : MonoBehaviour, ISaveableComponent
 
     [SerializeField] protected Component componentToSave;
     
+    #if UNITY_EDITOR
     private bool missingInitializer => (!this.IsAssetOnDisk()) && !Application.isPlaying && (GetComponentsInParent<INIT001_Initialize>(true).Length == 0); //für Odin
     private bool missingSaveablePrefab => ( this.IsAssetOnDisk() && GetSaveablePrefab() == null); //für Odin
+    #endif
     
     public SaveableData StoreData() => new SaveableData(componentToSave, componentGuid, "on gameObject: " + gameObject.name);
 
