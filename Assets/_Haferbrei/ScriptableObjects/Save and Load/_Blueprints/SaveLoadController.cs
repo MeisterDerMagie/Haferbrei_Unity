@@ -21,13 +21,14 @@ public class SaveLoadController : SerializedScriptableObject, IOnExitPlaymode
 
     public SaveFile_HeadData HeadData;
     
-    [SerializeField, BoxGroup("Settings"), Required] private bool encryptSaveFile = true;
-    [SerializeField, BoxGroup("Settings"), Required] private string saveGameFileExtension = ".save";
+    [SerializeField, BoxGroup("Settings"), Required] public bool encryptSaveFile = true;
+    [SerializeField, BoxGroup("Settings"), Required] public string saveGameFileExtension = ".save";
     public PrefabCollection allPrefabsCollection;
     public SceneCollection allScenesCollection;
     public SaveableScriptableObjects saveableScriptableObjects;
     public GameObject initializerPrefab;
     public GameObject loadingScreenPrefab;
+    public SO_LoadScenes sceneToLoadWhenStartingLoadingAGame;
 
     public SaveFile_BodyData loadedBodyData = new SaveFile_BodyData();
     public SaveFile_BodyData bodyDataToSave = new SaveFile_BodyData();
@@ -39,7 +40,7 @@ public class SaveLoadController : SerializedScriptableObject, IOnExitPlaymode
     private Dictionary<Scene, Guid> initializers = new Dictionary<Scene, Guid>();
     private string saveGameFileName;
 
-    private string saveGameDirectoryPath => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), Application.companyName, Application.productName);
+    public string saveGameDirectoryPath => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), Application.companyName, Application.productName);
     private string saveGameFilePath => Path.Combine(saveGameDirectoryPath, saveGameFileName + ((encryptSaveFile) ? saveGameFileExtension : ".json"));
 
     [Button, DisableInEditorMode]
@@ -73,7 +74,7 @@ public class SaveLoadController : SerializedScriptableObject, IOnExitPlaymode
         // 5. Write file
         string fileContent = string.Empty;
         // 5.1 Write version data
-        fileContent += SaveFileSerializer.Serialize("Version", typeof(string), Version.currentVersion, encryptSaveFile);
+        fileContent += SaveFileSerializer.Serialize("Version", typeof(string), HaferbreiVersion.currentVersion.ToString(), encryptSaveFile);
         
         // 5.2 write head data
         HeadData = new SaveFile_HeadData(DateTime.Now, ScreenshotTaker.TakeScreenshot(Camera.main, Screen.width/4, Screen.height/4));
@@ -96,6 +97,7 @@ public class SaveLoadController : SerializedScriptableObject, IOnExitPlaymode
         Debug.Log("Prepare loading game @ frame #" + Time.frameCount + " / time: " + DateTime.Now.TimeOfDay);
         loadSaveGame = true;
         saveGameFileName = _saveGameFileName;
+        sceneToLoadWhenStartingLoadingAGame.LoadScenes();
     }
 
     public IEnumerator<float> _LoadGameState()

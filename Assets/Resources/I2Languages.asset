@@ -105,6 +105,63 @@ MonoBehaviour:
       - Schmiede
       Flags: 0000
       Languages_Touch: []
+    - Term: ToplevelMenus/LoadGame
+      TermType: 0
+      Description: 
+      Languages:
+      - Load Game
+      - Spielstand laden
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ToplevelMenus/Load
+      TermType: 0
+      Description: 
+      Languages:
+      - Load
+      - Laden
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ToplevelMenus/Delete
+      TermType: 0
+      Description: 
+      Languages:
+      - Delete
+      - "L\xF6schen"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ToplevelMenus/FileError
+      TermType: 0
+      Description: 
+      Languages:
+      - File Error
+      - Dateifehler
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ToplevelMenus/VersionNotCompatible
+      TermType: 0
+      Description: 
+      Languages:
+      - The version of the savegame is not compatible with the installed game.
+      - Die Version des gespeicherten Spielstandes ist nicht mit der Version des
+        Spiels kompatibel.
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ToplevelMenus/VersionNotCompatibleHint
+      TermType: 0
+      Description: 
+      Languages:
+      - Version is not compatible!
+      - Version nicht kompatibel!
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Time/Yesterday
+      TermType: 0
+      Description: 
+      Languages:
+      - yesterday
+      - gestern
+      Flags: 0000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: 

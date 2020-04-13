@@ -20,7 +20,7 @@ public class SaveFile_HeadDataConverter : fsConverter
         
         //date
         fsData dateData;
-        Serializer.TrySerialize(headDataInstance.date, out dateData);
+        Serializer.TrySerialize(headDataInstance.timeStamp, out dateData);
         serialized.AsDictionary["date"] = dateData;
         
         //screenshot
@@ -46,7 +46,7 @@ public class SaveFile_HeadDataConverter : fsConverter
         fsData dateData = data.AsDictionary["date"];
         DateTime dateTime = DateTime.Now;
         Serializer.TryDeserialize(dateData, ref dateTime);
-        headDataInstance.date = dateTime;
+        headDataInstance.timeStamp = dateTime;
         
         //screenshot width and height
         headDataInstance.screenshotWidth = (int)data.AsDictionary["screenshotWidth"].AsInt64;
