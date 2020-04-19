@@ -162,6 +162,62 @@ MonoBehaviour:
       - gestern
       Flags: 0000
       Languages_Touch: []
+    - Term: ToplevelMenus/SaveGame
+      TermType: 0
+      Description: 
+      Languages:
+      - Save Game
+      - Spielstand speichern
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ToplevelMenus/Save
+      TermType: 0
+      Description: 
+      Languages:
+      - Save
+      - Speichern
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ToplevelMenus/Overwrite
+      TermType: 0
+      Description: 
+      Languages:
+      - Overwrite
+      - "\xDCberschreiben"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: General/No
+      TermType: 0
+      Description: 
+      Languages:
+      - No
+      - Nein
+      Flags: 0000
+      Languages_Touch: []
+    - Term: General/Yes
+      TermType: 0
+      Description: 
+      Languages:
+      - Yes
+      - Ja
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ToplevelMenus/SaveSlotAlreadyExistsDoYouWantToOverwrite
+      TermType: 0
+      Description: 
+      Languages:
+      - This slot already exists. Do you wish to overwrite it?
+      - "Dieser Speicherplatz existiert bereits. M\xF6chtest du ihn \xFCberschreiben?"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ToplevelMenus/ReallyDeleteThisSaveSlot
+      TermType: 0
+      Description: 
+      Languages:
+      - Do you really want to delete this save slot?
+      - "M\xF6chtest du diesen Speicherplatz wirklich unwiderruflich l\xF6schen?"
+      Flags: 0000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: 

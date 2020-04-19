@@ -9,13 +9,17 @@ public class QuickSaveController : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F5)) DoQuickSave();
+        #if !UNITY_EDITOR
+        if(Input.GetKeyDown(KeyCode.F9)) DoQuickLoad();
+        #else
         if(Input.GetKeyDown(KeyCode.F6)) DoQuickLoad();
+        #endif
     }
 
     public void DoQuickSave()
     {
         //increase index
-        if(lastQuicksaveIndex++ > 15) lastQuicksaveIndex = 0;
+        if(lastQuicksaveIndex++ > 7) lastQuicksaveIndex = 0;
         PlayerPrefs.SetInt("lastQuicksaveIndex", lastQuicksaveIndex);
         PlayerPrefs.Save();
         

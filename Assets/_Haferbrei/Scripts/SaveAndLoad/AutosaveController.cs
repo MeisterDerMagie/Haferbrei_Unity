@@ -14,7 +14,7 @@ public class AutosaveController : MonoBehaviour, IInitSelf
     public void DoAutoSave()
     {
         //increase index
-        if(lastAutosaveIndex++ > 9) lastAutosaveIndex = 0;
+        if(lastAutosaveIndex++ > 7) lastAutosaveIndex = 0;
         PlayerPrefs.SetInt("lastAutosaveIndex", lastAutosaveIndex);
         PlayerPrefs.Save();
         

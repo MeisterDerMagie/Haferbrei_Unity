@@ -8,10 +8,12 @@ using Sirenix.OdinInspector;
 using UnityEngine.Events;
 
 namespace Haferbrei{
+[DisallowMultipleComponent]
 public class INIT001_Initialize : SerializedMonoBehaviour
 {
     [SerializeField, BoxGroup("Settings")] public bool initOnSceneStart = true;
     [SerializeField, BoxGroup("Settings")] public bool initOnAwake = false;
+    [SerializeField, BoxGroup("Settings")] public bool detachChildrenAndDestroySelf = true;
     [SerializeField, ReadOnly] public List<IInitSingletons> singletonInits = new List<IInitSingletons>();
     [SerializeField, ReadOnly] public List<SaveablePrefab> saveablePrefabs  = new List<SaveablePrefab>();
     [SerializeField, ReadOnly] public List<IInitSelf> selfInits = new List<IInitSelf>();
@@ -62,12 +64,13 @@ public class INIT001_Initialize : SerializedMonoBehaviour
         gameObject.SetActive(true); //Initialization is finished --> activate Scene
 
         //Alle children detachen, damit sie im root sind und nicht unnötige Transform updates senden, wenn sie sich bewegen
-        transform.DetachChildren();
+        if(detachChildrenAndDestroySelf) transform.DetachChildren();
 
         isInitialized = true;
         onInitializeFinished.Invoke();
-
-        Destroy(gameObject);
+        
+        if (detachChildrenAndDestroySelf) Destroy(gameObject);
+        else Destroy(this);
     }
     
     //--- Init Singletons ---

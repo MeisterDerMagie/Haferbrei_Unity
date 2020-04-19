@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f42f06ff6cc543ea942180e019f0fc8d, type: 3}
-  m_Name: UIView_ToplevelMenus
+  m_Script: {fileID: 11500000, guid: 17215f689fb19554ab6b81c2308113df, type: 3}
+  m_Name: UIPopupLink_SpielstandWirklichUeberschreiben
   m_EditorClassIdentifier: 
-  CategoryName: Toplevel Menus
-  DatabaseType: 2
-  Names:
-  - Spielstand laden
-  - Spielstand speichern
+  PopupName: SpielstandWirklichUeberschreiben
+  Prefab: {fileID: 435356813746625254, guid: 2ae97e6bb19ab2e48aa56380ca54408e, type: 3}

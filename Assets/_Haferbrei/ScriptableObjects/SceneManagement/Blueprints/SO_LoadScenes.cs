@@ -9,6 +9,7 @@ using UnityAtoms;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using Wichtel.Extensions;
 
 namespace Haferbrei{
 [CreateAssetMenu(fileName = "LoadScenes", menuName = "Scriptable Objects/Scene Management/Load Scenes", order = 0)]
@@ -76,21 +77,9 @@ public class SO_LoadScenes : ScriptableObject
 
     private void InitializeScenes()
     {
-        //get all root objects
-        var allRootObjects = new List<GameObject>();
-        for (int i = 0; i < SceneManager.sceneCount; i++)
-        {
-            var scene = SceneManager.GetSceneAt(i);
-            allRootObjects.AddRange(scene.GetRootGameObjects());
-        }
-        
         //get all initializers
-        var allInitializers = new List<INIT001_Initialize>();
-        foreach (var rootGameObject in allRootObjects)
-        {
-            var initializer = rootGameObject.GetComponent<INIT001_Initialize>();
-            if(initializer != null) allInitializers.Add(initializer);
-        }
+        var allInitializers = new List<INIT001_Initialize>(ComponentExtensions.FindAllComponentsOfType<INIT001_Initialize>());
+        
         //initialize all initializers
         foreach (var initializer in allInitializers)
         {
