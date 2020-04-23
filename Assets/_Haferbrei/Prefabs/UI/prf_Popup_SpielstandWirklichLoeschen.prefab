@@ -111,7 +111,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.083030745, y: 0.5915404}
   m_AnchorMax: {x: 0.91696924, y: 0.8175505}
-  m_AnchoredPosition: {x: 0, y: 0.025013}
+  m_AnchoredPosition: {x: 0, y: 0.025009155}
   m_SizeDelta: {x: 0, y: 0.049988}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6540369666894020779
@@ -2588,7 +2588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 344445a89b4f74a0e9a0a766903df87e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTerm: General/Yes
+  mTerm: General/Delete
   mTermSecondary: 
   PrimaryTermModifier: 0
   SecondaryTermModifier: 0
@@ -3053,7 +3053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 344445a89b4f74a0e9a0a766903df87e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTerm: General/No
+  mTerm: General/Cancel
   mTermSecondary: 
   PrimaryTermModifier: 0
   SecondaryTermModifier: 0
@@ -5613,7 +5613,7 @@ PrefabInstance:
     - target: {fileID: 6847685797262165175, guid: 8a6ea7961492b2d4b8c3c05e167c475c,
         type: 3}
       propertyPath: m_Name
-      value: btn_No
+      value: btn_Cancel
       objectReference: {fileID: 0}
     - target: {fileID: 6847685798135899997, guid: 8a6ea7961492b2d4b8c3c05e167c475c,
         type: 3}
@@ -5810,12 +5810,12 @@ PrefabInstance:
     - target: {fileID: 6847685797262165175, guid: 8a6ea7961492b2d4b8c3c05e167c475c,
         type: 3}
       propertyPath: m_Name
-      value: btn_Yes
+      value: btn_Delete
       objectReference: {fileID: 0}
     - target: {fileID: 6847685798135899997, guid: 8a6ea7961492b2d4b8c3c05e167c475c,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 2
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6847685798135899997, guid: 8a6ea7961492b2d4b8c3c05e167c475c,
         type: 3}
@@ -5840,7 +5840,7 @@ PrefabInstance:
     - target: {fileID: 6847685798135899997, guid: 8a6ea7961492b2d4b8c3c05e167c475c,
         type: 3}
       propertyPath: m_text
-      value: Ja
+      value: "L\xF6schen"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a6ea7961492b2d4b8c3c05e167c475c, type: 3}

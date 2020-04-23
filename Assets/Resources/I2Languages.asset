@@ -218,6 +218,38 @@ MonoBehaviour:
       - "M\xF6chtest du diesen Speicherplatz wirklich unwiderruflich l\xF6schen?"
       Flags: 0000
       Languages_Touch: []
+    - Term: General/Damn
+      TermType: 0
+      Description: 
+      Languages:
+      - Damn
+      - Mist
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ToplevelMenus/FehlerBeimLoeschenDesSpielstands
+      TermType: 0
+      Description: 
+      Languages:
+      - Error on deleting the save slot.
+      - "Fehler beim L\xF6schen des Spielstands."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: General/Delete
+      TermType: 0
+      Description: 
+      Languages:
+      - Delete
+      - "L\xF6schen"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: General/Cancel
+      TermType: 0
+      Description: 
+      Languages:
+      - Cancel
+      - Abbrechen
+      Flags: 0000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: 
