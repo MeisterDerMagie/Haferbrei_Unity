@@ -44,13 +44,13 @@
     "com.unity.modules.xr": "1.0.0"
   },
   "lock": {
-    "com.mambojambostudios.unity-atoms": {
-      "revision": "canary",
-      "hash": "ce0082df790f2cae24cc4bf8d321e3ad63676b1c"
-    },
     "com.johannesmp.unityscenereference": {
       "revision": "upm",
       "hash": "6b3bbf3b68b23aa88de628095a4656585aaa60df"
+    },
+    "com.mambojambostudios.unity-atoms": {
+      "revision": "canary",
+      "hash": "a0956ccb66363db7ee77105301bf023f3e5787be"
     }
   }
 }

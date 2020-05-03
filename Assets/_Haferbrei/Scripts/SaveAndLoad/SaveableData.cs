@@ -23,11 +23,11 @@ public struct SaveableData
         properties = new Dictionary<string, object>();
         
         var saveableFields = _objectToSave.GetType()
-                                       .GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
+                                       .GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static)
                                        .Where(f => f.GetCustomAttributes(typeof(SaveableAttribute)).Any());
         
         var saveableProperties = _objectToSave.GetType()
-                                           .GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
+                                           .GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static)
                                            .Where(f => f.GetCustomAttributes(typeof(SaveableAttribute)).Any());
         
         foreach(FieldInfo field in saveableFields)
@@ -53,7 +53,7 @@ public struct SaveableData
                 object fieldValue = field.Value;
 
                 _objectToPopulate.GetType()
-                    .GetField(field.Key, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
+                    .GetField(field.Key, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static)
                     ?.SetValue(_objectToPopulate, fieldValue);
             }
 
@@ -62,7 +62,7 @@ public struct SaveableData
                 object fieldValue = field.Value;
 
                 _objectToPopulate.GetType()
-                    .GetProperty(field.Key, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
+                    .GetProperty(field.Key, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static)
                     ?.SetValue(_objectToPopulate, fieldValue);
             }
         }

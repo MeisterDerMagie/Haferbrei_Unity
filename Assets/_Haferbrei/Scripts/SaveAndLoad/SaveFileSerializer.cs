@@ -16,7 +16,7 @@ public static class SaveFileSerializer
         GetJsonConverters(ref serializer);
 
         //serialize data
-        serializer.TrySerialize(typeof(SaveFile_BodyData), instance, out data).AssertSuccessWithoutWarnings();                      // 5.1 Serialize data
+        serializer.TrySerialize(storageType, instance, out data).AssertSuccessWithoutWarnings();                                    // 5.1 Serialize data
         string serializedData = (encryptSaveFile) ? fsJsonPrinter.CompressedJson(data) : fsJsonPrinter.PrettyJson(data);            // 5.2 Create Json string
         if(encryptSaveFile) serializedData = StringCompression.Compress(serializedData);                                            // 5.3 Compress Json string
         if(encryptSaveFile) serializedData = StringCipher.Encrypt(serializedData, encryptionPassword);          // 5.4 Encrpyt Json string

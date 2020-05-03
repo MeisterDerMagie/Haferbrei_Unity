@@ -23,11 +23,10 @@ public class SaveFile_HeadDataConverter : fsConverter
         Serializer.TrySerialize(headDataInstance.timeStamp, out dateData);
         serialized.AsDictionary["date"] = dateData;
         
-        //screenshot
-        byte[] screenshotAsByteArray = headDataInstance.screenshot.EncodeToPNG();
-        string screenshotAsString = Convert.ToBase64String(screenshotAsByteArray);
-        fsData screenshotData = new fsData(screenshotAsString);
-        serialized.AsDictionary["screenshot"] = screenshotData;
+        //playtime
+        fsData playtimeData;
+        Serializer.TrySerialize(headDataInstance.runPlaytime, out playtimeData);
+        serialized.AsDictionary["playtime"] = playtimeData;
         
         //screenshot width and height
         fsData screenshotWidthData = new fsData(headDataInstance.screenshotWidth);
@@ -35,6 +34,12 @@ public class SaveFile_HeadDataConverter : fsConverter
         serialized.AsDictionary["screenshotWidth"] = screenshotWidthData;
         serialized.AsDictionary["screenshotHeight"] = screenshotHeightData;
         
+        //screenshot
+        byte[] screenshotAsByteArray = headDataInstance.screenshot.EncodeToPNG();
+        string screenshotAsString = Convert.ToBase64String(screenshotAsByteArray);
+        fsData screenshotData = new fsData(screenshotAsString);
+        serialized.AsDictionary["screenshot"] = screenshotData;
+
         return fsResult.Success;
     }
 
@@ -47,6 +52,12 @@ public class SaveFile_HeadDataConverter : fsConverter
         DateTime dateTime = DateTime.Now;
         Serializer.TryDeserialize(dateData, ref dateTime);
         headDataInstance.timeStamp = dateTime;
+        
+        //playtime
+        fsData playtimeData = data.AsDictionary["playtime"];
+        string playtime = "";
+        Serializer.TryDeserialize(playtimeData, ref playtime);
+        headDataInstance.runPlaytime = playtime;
         
         //screenshot width and height
         headDataInstance.screenshotWidth = (int)data.AsDictionary["screenshotWidth"].AsInt64;

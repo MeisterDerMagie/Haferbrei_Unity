@@ -11,7 +11,7 @@ using UnityEngine.UI;
 namespace Haferbrei {
 public class SpielstandDetailedPreview : MonoBehaviour
 {
-    [SerializeField, BoxGroup("References")] private TextMeshProUGUI fileNameText, versionText, timeStampText;
+    [SerializeField, BoxGroup("References")] private TextMeshProUGUI fileNameText, versionText, timeStampText, playtimeText;
     [SerializeField, BoxGroup("References")] private Image previewImage;
     [SerializeField, BoxGroup("References")] private LocalizedString yesterday;
 
@@ -24,7 +24,8 @@ public class SpielstandDetailedPreview : MonoBehaviour
         if(fileNameText != null) fileNameText.text = spielstandData.fileName;
         if(versionText != null) versionText.text = spielstandData.version;
         if (previewImage != null) previewImage.sprite = spielstandData.previewImage;
-        
+
+        if (playtimeText != null) playtimeText.text = spielstandData.headData.runPlaytime;
         if (timeStampText != null)
         {
             DateTime dateTime = spielstandData.headData.timeStamp;
