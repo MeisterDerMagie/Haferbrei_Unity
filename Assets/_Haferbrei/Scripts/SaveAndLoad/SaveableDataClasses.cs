@@ -38,7 +38,7 @@ public class SaveFile_HeadData
     public SaveFile_HeadData(DateTime _timeStamp, Texture2D _screenshot)
     {
         timeStamp = _timeStamp;
-        runPlaytime = Playtime.runPlaytime.ToString(@"hh\:mm");
+        runPlaytime = Playtime.Run.ToString(@"hh\:mm");
         screenshot = _screenshot;
         screenshotWidth = _screenshot.width;
         screenshotHeight = _screenshot.height;

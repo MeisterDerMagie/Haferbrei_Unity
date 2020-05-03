@@ -18,9 +18,22 @@ public class GameTime : SerializedMonoBehaviour
     private IEnumerable<IPauseable> allPauseables;
     
     [Button, DisableInEditorMode]
+    public void SetTimeScale(float _newValue)
+    {
+        if (GameIsPaused)
+        {
+            Debug.LogError("Can't set the TimeScale while the game is paused!");
+            return;
+        }
+
+        TimeScale = _newValue;
+    }
+    
+    [Button, DisableInEditorMode]
     public void PauseGame()
     {
         GameIsPaused = true;
+        TimeScale = 0f;
         FindAllIPauseables();
         foreach (var iPauseable in allPauseables) { iPauseable.OnPause(); }
     }
@@ -29,6 +42,7 @@ public class GameTime : SerializedMonoBehaviour
     public void UnpauseGame()
     {
         GameIsPaused = false;
+        TimeScale = 1f;
         foreach (var iPauseable in allPauseables) { iPauseable.OnUnpause(); }
     }
 

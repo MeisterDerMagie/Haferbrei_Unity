@@ -8,27 +8,27 @@ using UnityEngine;
 namespace Haferbrei{
 public class Playtime : SerializedMonoBehaviour
 {
-    [ShowInInspector, LabelText("Total Playtime")] private string totalPlaytimeInspector => totalPlaytime.ToString(@"hh\:mm\:ss");
-    [ShowInInspector, LabelText("Session Playtime")] private string sessionPlaytimeInspector => sessionPlaytime.ToString(@"hh\:mm\:ss");
-    [ShowInInspector, LabelText("Run Playtime")] private string runPlaytimeInspector => runPlaytime.ToString(@"hh\:mm\:ss");
+    [ShowInInspector, LabelText("Total Playtime")] private string TotalPlaytimeInspector => Total.ToString(@"hh\:mm\:ss");
+    [ShowInInspector, LabelText("Session Playtime")] private string SessionPlaytimeInspector => Session.ToString(@"hh\:mm\:ss");
+    [ShowInInspector, LabelText("Run Playtime")] private string RunPlaytimeInspector => Run.ToString(@"hh\:mm\:ss");
 
-    public static TimeSpan totalPlaytime => totalPlaytimeBeforeSession.Add(sessionPlaytime); //die gesamte Spielzeit, die der Spieler in Haferbrei verbracht hat
-    public static TimeSpan sessionPlaytime => TimeSpan.FromSeconds(Time.realtimeSinceStartup); //die Spielzeit, seitdem er das Spiel gestartet hat
-    public static TimeSpan runPlaytime => TimeSpan.FromSeconds(RunPlaytimeController.runPlaytime); //die Spielzeit dieses Spieldurchlaufs
+    public static TimeSpan Total => totalBeforeSession.Add(Session); //die gesamte Spielzeit, die der Spieler in Haferbrei verbracht hat
+    public static TimeSpan Session => TimeSpan.FromSeconds(Time.realtimeSinceStartup); //die Spielzeit, seitdem er das Spiel gestartet hat
+    public static TimeSpan Run => TimeSpan.FromSeconds(RunPlaytimeController.runPlaytime); //die Spielzeit dieses Spieldurchlaufs
 
-    private static TimeSpan totalPlaytimeBeforeSession;
+    private static TimeSpan totalBeforeSession;
 
     public void Awake()
     {
         DontDestroyOnLoad(gameObject);
 
         float totalPlaytimeBeforeSessionInSeconds = PlayerPrefs.GetFloat("totalPlaytime");
-        totalPlaytimeBeforeSession = TimeSpan.FromSeconds(totalPlaytimeBeforeSessionInSeconds);
+        totalBeforeSession = TimeSpan.FromSeconds(totalPlaytimeBeforeSessionInSeconds);
     }
 
     private void OnApplicationQuit()
     {
-        PlayerPrefs.SetFloat("totalPlaytime", (float)totalPlaytime.TotalSeconds);
+        PlayerPrefs.SetFloat("totalPlaytime", (float)Total.TotalSeconds);
     }
 }
 }
