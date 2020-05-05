@@ -2682,8 +2682,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24bef457ac8d4c6591a2b600d52cf759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yearsPerHour: 30
-  startYear: 1200
+  yearsPerHour: 20
+  startYear: 1180
   startMonth: 1
   startDay: 12
 --- !u!114 &459731376

@@ -13,26 +13,36 @@ namespace Haferbrei {
 public class GameTime : SerializedMonoBehaviour
 {
     [ShowInInspector] public static float TimeScale = 1f;
+    [ShowInInspector] private static float targetTimeScale = -1f;
+    
     [ShowInInspector, ReadOnly] public static bool GameIsPaused;
 
     private IEnumerable<IPauseable> allPauseables;
     
     [Button, DisableInEditorMode]
-    public void SetTimeScale(float _newValue)
+    public void SetTimeScale(float _newValue) //Does not unpause the game!
     {
         if (GameIsPaused)
         {
-            Debug.LogError("Can't set the TimeScale while the game is paused!");
+            targetTimeScale = _newValue;
             return;
         }
-
+        
         TimeScale = _newValue;
+    }
+
+    [Button, DisableInEditorMode]
+    public void SetTimeScaleAndUnpause(float _newValue)
+    {
+        targetTimeScale = _newValue;
+        UnpauseGame();
     }
     
     [Button, DisableInEditorMode]
     public void PauseGame()
     {
         GameIsPaused = true;
+        targetTimeScale = TimeScale; //cache vorherige TimeScale
         TimeScale = 0f;
         FindAllIPauseables();
         foreach (var iPauseable in allPauseables) { iPauseable.OnPause(); }
@@ -42,7 +52,7 @@ public class GameTime : SerializedMonoBehaviour
     public void UnpauseGame()
     {
         GameIsPaused = false;
-        TimeScale = 1f;
+        TimeScale = targetTimeScale; //gecachte oder zwischenzeitlich geänderte TimeScale wieder setzen
         foreach (var iPauseable in allPauseables) { iPauseable.OnUnpause(); }
     }
 

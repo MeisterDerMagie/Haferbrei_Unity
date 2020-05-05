@@ -6,5 +6,6 @@ namespace Haferbrei{
 public abstract class BaseModel : SerializedScriptableObject
 {
     public Action onModelChanged;
+    public Action onModelDestroyed;
 }
 }
