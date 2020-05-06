@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace Haferbrei{
-public interface IIsModel
+public interface IModel
 {
     Action OnModelValuesChanged { get; set; }
     Action OnModelDestroyed { get; set; }

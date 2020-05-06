@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Haferbrei {
 [HideMonoScript]
-public abstract class ModelDistributor<T> : MonoBehaviour where T : IIsModel
+public abstract class ModelDistributor<T> : MonoBehaviour where T : IModel
 {
     [SerializeField] private T model;
     [SerializeField, ReadOnly] private List<Component> receivers = new List<Component>();

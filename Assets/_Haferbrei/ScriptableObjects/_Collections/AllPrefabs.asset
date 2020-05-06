@@ -19,18 +19,31 @@ MonoBehaviour:
     - {fileID: 1922013309848833176, guid: 6bc24db9dfcbb1248bddcda08b232168, type: 3}
     - {fileID: 7054887534509017, guid: 84c456272dc885649a5c556341df40c1, type: 3}
     - {fileID: 7060760436674559732, guid: 5d6e697057589ba4c84bedc5a48849e5, type: 3}
-    - {fileID: 6781246456170281791, guid: e4d9279bb5209094f8310ec0ece9f5f4, type: 3}
+    - {fileID: 4604666238020978129, guid: 010f17405f763af4ca405b49a1c3439b, type: 3}
+    - {fileID: 4604666238020978129, guid: 38f2825ca1e1e3c4194170d03ed53761, type: 3}
+    - {fileID: 4604666238020978129, guid: e4d9279bb5209094f8310ec0ece9f5f4, type: 3}
     - {fileID: 4604666238020978129, guid: c4d2f4690995c3549b512497af0a70bb, type: 3}
-    - {fileID: 4604666238020978129, guid: 4b4ff364b97969c4895aba951d5f5dbe, type: 3}
-    - {fileID: 4604666238020978129, guid: 77e4152bfa7dfd44f9d7a874ce064881, type: 3}
+    - {fileID: 4604666238020978129, guid: cd288367b63e5724fa2066bca0030ae3, type: 3}
+    - {fileID: 4604666238020978129, guid: 7e7e8b44439f68a4084b02635aa9240e, type: 3}
+    - {fileID: 4935074229595589801, guid: 1491711a945a1e84985711c6e866ee58, type: 3}
+    - {fileID: 6847685797262165175, guid: 8a6ea7961492b2d4b8c3c05e167c475c, type: 3}
+    - {fileID: 2782115889539004105, guid: 882a7dc3e77c5404a86cd3c2ba0ca565, type: 3}
+    - {fileID: 4852554586327368075, guid: f237aecb8ffb412449ebe169e85b981e, type: 3}
+    - {fileID: 5689830525821156337, guid: c2492925778cedc4da82c1a9431a61e8, type: 3}
+    - {fileID: 435356813746625254, guid: 2ae97e6bb19ab2e48aa56380ca54408e, type: 3}
+    - {fileID: 1491005157798401845, guid: c2e86e8c38035d840a9303104af61592, type: 3}
+    - {fileID: 7491102606030570602, guid: 737f41e1ae5245246a9eb64c87cdb0df, type: 3}
+    - {fileID: 1396826459612026184, guid: 454692d6febb70a44adcc7fe2a62b0c6, type: 3}
+    - {fileID: 8623082135480827453, guid: 99f41d3f835573247999e01ed0978c21, type: 3}
+    - {fileID: 6710084720513629508, guid: ae0acef68e3ad914686e89d045cc1b45, type: 3}
+    - {fileID: 4365075800643206189, guid: e80543a3c4504f14c9bd1b204f0aed27, type: 3}
+    - {fileID: 5187754966445037058, guid: 1fb7edbe3f38c214d83e5b882e7f6096, type: 3}
+    - {fileID: 3145702009290553393, guid: dda0ed037751ecd4599496d59eef80b7, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: guid
-      Entry: 2
-      Data: cf7f66980f69403c9614557de997ea6d
     - Name: prefabReferences
       Entry: 7
       Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[UnityEngine.GameObject,
@@ -44,7 +57,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 7
+      Data: 23
     - Name: 
       Entry: 7
       Data: 
@@ -86,7 +99,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: prf_Hof
+      Data: prf_Burgfried
     - Name: $v
       Entry: 10
       Data: 3
@@ -98,7 +111,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: prf_Hof_Preview
+      Data: prf_Burgfried_Preview
     - Name: $v
       Entry: 10
       Data: 4
@@ -110,7 +123,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: prf_Jagdzimmer
+      Data: prf_Hof
     - Name: $v
       Entry: 10
       Data: 5
@@ -122,10 +135,202 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: prf_Jagdzimmer_Preview
+      Data: prf_Hof_Preview
     - Name: $v
       Entry: 10
       Data: 6
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: prf_Schmiede
+    - Name: $v
+      Entry: 10
+      Data: 7
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: prf_Schmiede_Preview
+    - Name: $v
+      Entry: 10
+      Data: 8
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: btn_Close
+    - Name: $v
+      Entry: 10
+      Data: 9
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: btn_StandardButton_1
+    - Name: $v
+      Entry: 10
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: prf_GebaudeauswahlEntry
+    - Name: $v
+      Entry: 10
+      Data: 11
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: prf_Popup_FehlerBeimLoeschenDesSpielstands
+    - Name: $v
+      Entry: 10
+      Data: 12
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: prf_Popup_SpielstandWirklichLoeschen
+    - Name: $v
+      Entry: 10
+      Data: 13
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: prf_Popup_SpielstandWirklichUeberschreiben
+    - Name: $v
+      Entry: 10
+      Data: 14
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: prf_RessourceEntry
+    - Name: $v
+      Entry: 10
+      Data: 15
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: prf_RessourceEntry_Tooltip
+    - Name: $v
+      Entry: 10
+      Data: 16
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: prf_SaveFilesOverview
+    - Name: $v
+      Entry: 10
+      Data: 17
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: prf_Spielstand
+    - Name: $v
+      Entry: 10
+      Data: 18
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: prf_SpielstandPreview
+    - Name: $v
+      Entry: 10
+      Data: 19
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: prf_SpielstandPreview_Base
+    - Name: $v
+      Entry: 10
+      Data: 20
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: TooltipBodyElement_Ressources
+    - Name: $v
+      Entry: 10
+      Data: 21
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: TooltipBodyElement_Text
+    - Name: $v
+      Entry: 10
+      Data: 22
     - Name: 
       Entry: 8
       Data: 
@@ -135,4 +340,4 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  folder: Assets/_Haferbrei/Prefabs
+  folder: Assets/_Haferbrei

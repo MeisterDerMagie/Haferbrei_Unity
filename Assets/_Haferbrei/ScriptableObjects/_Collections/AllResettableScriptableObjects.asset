@@ -223,5 +223,5 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  folder: Assets/_Haferbrei/ScriptableObjects
+  folder: Assets/_Haferbrei
   foldersToIgnore: []

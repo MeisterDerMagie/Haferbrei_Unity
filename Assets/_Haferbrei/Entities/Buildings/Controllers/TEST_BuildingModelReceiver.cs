@@ -1,6 +1,8 @@
 ﻿//(c) copyright by Martin M. Klöckener
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -35,12 +37,12 @@ public class TEST_BuildingModelReceiver : MonoBehaviour, IModelReceiver<Building
 
     private void OnModelValuesChanged()
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
 
     private void OnModelDestroyed()
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
     #endregion
     //--- ---

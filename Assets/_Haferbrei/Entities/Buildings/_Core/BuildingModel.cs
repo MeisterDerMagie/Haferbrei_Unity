@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Haferbrei {
 [CreateAssetMenu(fileName = "BuildingModel", menuName = "Scriptable Objects/Buildings/BuildingModel", order = 0)]
-public class BuildingModel : SerializedScriptableObject, IIsModel, ISaveableScriptableObject
+public class BuildingModel : SerializedScriptableObject, IModel, ISaveableScriptableObject
 {
     //--- Events ---
     #region Events
@@ -41,7 +41,7 @@ public class BuildingModel : SerializedScriptableObject, IIsModel, ISaveableScri
     #region Instantiierung
     public static BuildingModel Instantiate(Building _buildingType, BuildingModel _template = null)
     {
-        BuildingModel so = (_template == null) ? CreateInstance<BuildingModel>() : Instantiate(_template);
+        BuildingModel so = (_template == null) ? CreateInstance<BuildingModel>() : ScriptableObject.Instantiate(_template);
         so.Initialize(_buildingType);
         return so;
     }

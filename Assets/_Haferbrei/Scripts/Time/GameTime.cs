@@ -13,7 +13,7 @@ namespace Haferbrei {
 public class GameTime : SerializedMonoBehaviour
 {
     [ShowInInspector] public static float TimeScale = 1f;
-    [ShowInInspector] private static float targetTimeScale = -1f;
+    [ShowInInspector, ReadOnly] private static float targetTimeScale = -1f;
     
     [ShowInInspector, ReadOnly] public static bool GameIsPaused;
 
