@@ -111,6 +111,16 @@ PrefabInstance:
       propertyPath: prefabName
       value: prf_Hof
       objectReference: {fileID: 0}
+    - target: {fileID: 4684507435554536178, guid: 5d6e697057589ba4c84bedc5a48849e5,
+        type: 3}
+      propertyPath: graphics.Array.data[0].graphicObject
+      value: 
+      objectReference: {fileID: 5961217462807940412}
+    - target: {fileID: 4684507435554536178, guid: 5d6e697057589ba4c84bedc5a48849e5,
+        type: 3}
+      propertyPath: graphics.Array.data[1].graphicObject
+      value: 
+      objectReference: {fileID: 454436810758740052}
     - target: {fileID: 6693115615061220939, guid: 5d6e697057589ba4c84bedc5a48849e5,
         type: 3}
       propertyPath: m_Sprite
@@ -196,9 +206,21 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6781246456170281765}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5961217462807940412 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 910197767142520345, guid: 5d6e697057589ba4c84bedc5a48849e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 6781246456170281765}
+  m_PrefabAsset: {fileID: 0}
 --- !u!212 &214319596574860654 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 6693115615061220939, guid: 5d6e697057589ba4c84bedc5a48849e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 6781246456170281765}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &454436810758740052 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6365178804604052337, guid: 5d6e697057589ba4c84bedc5a48849e5,
     type: 3}
   m_PrefabInstance: {fileID: 6781246456170281765}
   m_PrefabAsset: {fileID: 0}

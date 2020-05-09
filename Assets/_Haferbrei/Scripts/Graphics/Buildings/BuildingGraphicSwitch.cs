@@ -51,7 +51,7 @@ public class BuildingGraphicSwitch : MonoBehaviour, IInitSelf
     private struct BuildingGraphic
     {
         public BuildingGraphicMode mode;
-        [Required] public GameObject graphicObject;
+        [Required, SerializeField] public GameObject graphicObject;
     }
     
     #if UNITY_EDITOR

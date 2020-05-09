@@ -143,7 +143,7 @@ MonoBehaviour:
   graphicMode: 0
   graphics:
   - mode: 1
-    graphicObject: {fileID: 6365178804604052337}
+    graphicObject: {fileID: 910197767142520345}
   - mode: 2
     graphicObject: {fileID: 6365178804604052337}
 --- !u!114 &6092968651639117048
@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 7060760436674559734}
   - component: {fileID: 3601764366582545202}
   m_Layer: 0
-  m_Name: prf_Building
+  m_Name: prf_BuildingALT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
