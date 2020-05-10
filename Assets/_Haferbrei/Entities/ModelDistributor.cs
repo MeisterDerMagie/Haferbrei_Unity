@@ -15,7 +15,7 @@ public abstract class ModelDistributor<T> : MonoBehaviour where T : IModel
     public void DistributeModel(T _model)
     {
         model = _model;
-        
+
         //hier bekommen die Receiver das Model
         foreach (var receiver in receivers)
         {

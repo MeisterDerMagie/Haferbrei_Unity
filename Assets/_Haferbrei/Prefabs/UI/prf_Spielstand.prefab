@@ -3648,6 +3648,8 @@ MonoBehaviour:
     version: 
     previewImage: {fileID: 0}
     headData:
-      screenshot: {fileID: 0}
+      runPlaytime: 
       screenshotWidth: 0
       screenshotHeight: 0
+      screenshot: {fileID: 0}
+  uiController: {fileID: 0}

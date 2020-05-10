@@ -25,14 +25,20 @@ public class TEST_BuildingModelReceiver : MonoBehaviour, IModelReceiver<Building
 
     private void OnEnable()
     {
-        model.OnModelValuesChanged += OnModelValuesChanged;
-        model.OnModelDestroyed += OnModelDestroyed;
+        if (model != null)
+        {
+            model.OnModelValuesChanged += OnModelValuesChanged;
+            model.OnModelDestroyed += OnModelDestroyed;
+        }
     }
 
     private void OnDisable()
     {
-        model.OnModelValuesChanged -= OnModelValuesChanged;
-        model.OnModelDestroyed -= OnModelDestroyed;
+        if (model != null)
+        {
+            model.OnModelValuesChanged -= OnModelValuesChanged;
+            model.OnModelDestroyed -= OnModelDestroyed;
+        }
     }
 
     private void OnModelValuesChanged()
