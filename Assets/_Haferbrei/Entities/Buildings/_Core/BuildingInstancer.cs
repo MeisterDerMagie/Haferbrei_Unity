@@ -1,19 +1,21 @@
-﻿using Lean.Pool;
+﻿using System;
 using UnityEngine;
 
 namespace Haferbrei{
 public class BuildingInstancer
 {
-    public static BuildingModel Instantiate(Building _buildingType, Vector3 _position)
+    public static Action<BuildingModel> onNewBuilding = delegate(BuildingModel _model) {  };
+    
+    public static BuildingModel Instantiate(Building _buildingType, Vector3 _position, BuildingModel _template = null)
     {
         //-- instantiate Model --
-        var model = BuildingModel.Instantiate(_buildingType);
+        BuildingModel model = (_template == null) ? ScriptableObject.CreateInstance<BuildingModel>() : ScriptableObject.Instantiate(_template);
+        
+        //-- Set initial values --
+        model.SetInitialValues(_buildingType, _position, IngameDateTime.Now);
 
-        //-- instantiate View --
-        var viewPrefab = LeanPool.Spawn(model.BuildingType.instancePrefab, _position, Quaternion.identity);
-        viewPrefab.GetComponent<ModelDistributor_Building>().DistributeModel(model);
-            //alle möglichen Particles, Sounds, ......
-
+        //-- send event --
+        onNewBuilding?.Invoke(model);
         return model;
     }
 }

@@ -28,7 +28,6 @@ public class TEST_BuildingModelReceiver : MonoBehaviour, IModelReceiver<Building
         if (model != null)
         {
             model.OnModelValuesChanged += OnModelValuesChanged;
-            model.OnModelDestroyed += OnModelDestroyed;
         }
     }
 
@@ -37,7 +36,6 @@ public class TEST_BuildingModelReceiver : MonoBehaviour, IModelReceiver<Building
         if (model != null)
         {
             model.OnModelValuesChanged -= OnModelValuesChanged;
-            model.OnModelDestroyed -= OnModelDestroyed;
         }
     }
 

@@ -25,13 +25,11 @@ public class BuildingPrefab : MonoBehaviour, IModelReceiver<BuildingModel>
     private void OnEnable()
     {
         model.OnModelValuesChanged += OnModelValuesChanged;
-        model.OnModelDestroyed += OnModelDestroyed;
     }
 
     private void OnDisable()
     {
         model.OnModelValuesChanged -= OnModelValuesChanged;
-        model.OnModelDestroyed -= OnModelDestroyed;
     }
 
     private void OnModelValuesChanged()

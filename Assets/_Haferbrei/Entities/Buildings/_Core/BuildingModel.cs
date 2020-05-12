@@ -5,20 +5,19 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Haferbrei {
+namespace Haferbrei{
 [CreateAssetMenu(fileName = "BuildingModel", menuName = "Scriptable Objects/Buildings/BuildingModel", order = 0)]
 public class BuildingModel : SerializedScriptableObject, IModel, ISaveableScriptableObject
 {
     //--- Events ---
     #region Events
     public Action OnModelValuesChanged { get; set; }
-    public Action OnModelDestroyed { get; set; }
     #endregion
     //--- ---
     
     //--- Properties ---
     #region Properties
-    [SerializeField][Saveable] private Building buildingType;
+    [SerializeField][Saveable] internal Building buildingType;
     public Building BuildingType => buildingType;
 
     [SerializeField][Saveable] private Vector3 position;
@@ -38,22 +37,12 @@ public class BuildingModel : SerializedScriptableObject, IModel, ISaveableScript
     //--- ---
 
     //--- Instantiierung ---
-    #region Instantiierung
-    public static BuildingModel Instantiate(Building _buildingType, BuildingModel _template = null)
-    {
-        BuildingModel so = (_template == null) ? CreateInstance<BuildingModel>() : ScriptableObject.Instantiate(_template);
-        so.Initialize(_buildingType);
-        return so;
-    }
-    public static void Destroy(BuildingModel _model)
-    {
-        _model.OnModelDestroyed?.Invoke();
-        ScriptableObject.Destroy(_model);
-    }
-    private void Initialize(Building _buildingType)
+    #region Initialization
+    public void SetInitialValues(Building _buildingType, Vector3 _position, DateTime _birthDate)
     {
         buildingType = _buildingType;
-        birthDate = IngameDateTime.Now;
+        position = _position;
+        birthDate = _birthDate;
     }
     #endregion
     //--- ---

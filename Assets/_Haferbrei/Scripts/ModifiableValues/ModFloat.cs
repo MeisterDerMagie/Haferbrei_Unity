@@ -42,6 +42,9 @@ public class ModFloat
 
     public int ValueInt => Mathf.FloorToInt(ValueFloat);
 
+    public static implicit operator float(ModFloat _modFloat) => _modFloat.ValueFloat;
+    public static implicit operator int(ModFloat _modFloat) => _modFloat.ValueInt;
+    
     public void AddModifier(FloatModifier mod)
     {
         isDirty = true;
