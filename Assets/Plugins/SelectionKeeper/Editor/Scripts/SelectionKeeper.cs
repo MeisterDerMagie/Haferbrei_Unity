@@ -52,12 +52,39 @@ namespace kamgam.editor.selectionkeeper
 
         static void onPlayModeStateChanged(PlayModeStateChange state)
         {
-            if( state.Equals( PlayModeStateChange.EnteredEditMode ) )
+            // handle scene changes in between changes from Edit to Play mode.
+            if (state.Equals(PlayModeStateChange.ExitingEditMode))
+            {
+                EditorPrefs.SetBool("SelectionKeeper._isInBetweenEditAndPlayMode", true);
+            }
+            else
+            {
+                EditorPrefs.SetBool("SelectionKeeper._isInBetweenEditAndPlayMode", false);
+            }
+
+            // default logic
+            if ( state.Equals( PlayModeStateChange.EnteredEditMode ) )
             {
                 if (SelectionKeeper_Settings.enablePlugin)
                 {
                     // check if restore is necessary (selection empty)
                     if (Selection.gameObjects.Length == 0 || SelectionKeeper_Settings.ignoreSelectionInPlayMode)
+                    {
+                        LoadSelection();
+                    }
+                }
+
+                // clear up the "handle scene changes" vars
+                EditorPrefs.DeleteKey("SelectionKeeper._isInBetweenEditAndPlayMode");
+                EditorPrefs.DeleteKey("SelectionKeeper._loadFinishedInBetweenEnterAndPlay");
+            }
+            // handle scene changes in between changes from Edit to Play mode.
+            else if (state.Equals(PlayModeStateChange.EnteredPlayMode) && EditorPrefs.GetBool("SelectionKeeper._loadFinishedInBetweenEnterAndPlay", false) == true)
+            {
+                if (SelectionKeeper_Settings.enablePlugin)
+                {
+                    // check if restore is necessary (selection empty)
+                    if (Selection.gameObjects.Length == 0)
                     {
                         LoadSelection();
                     }
@@ -150,10 +177,23 @@ namespace kamgam.editor.selectionkeeper
 
             if( newSelection.Count() > 0 )
             {
+                // handle scene changes in between changes from Edit to Play mode.
+                EditorPrefs.SetBool("SelectionKeeper._loadFinishedInBetweenEnterAndPlay",
+                    EditorPrefs.GetBool("SelectionKeeper._isInBetweenEditAndPlayMode", false)
+                    );
+
+                // update selection
                 Selection.objects = newSelection.ToArray();
+
                 removePingObjectEffect();
                 _ignoreNextSelectionChange = true; // otherwise this would trigger a selection save.
             }
+        }
+
+        IEnumerator DoSelection(List<GameObject> newSelection)
+        {
+            yield return new WaitForEndOfFrame();
+            Selection.objects = newSelection.ToArray();
         }
 
         static void removePingObjectEffect()
@@ -234,11 +274,19 @@ namespace kamgam.editor.selectionkeeper
 
                     try
                     {
-                        if (Selection.gameObjects.Length > 0)
+                        if (EditorApplication.isPlaying == false || SelectionKeeper_Settings.ignoreSelectionInPlayMode == false)
                         {
-                            if (!SelectionKeeper_Settings.ignoreSelectionInPlayMode || !EditorApplication.isPlaying)
+                            if (Selection.gameObjects.Length > 0)
                             {
                                 SaveSelection();
+                            }
+                            else
+                            {
+                                // deselect only in edit mode
+                                if (EditorApplication.isPlaying == false)
+                                {
+                                    ClearSelectionMemory();
+                                }
                             }
                         }
                     }

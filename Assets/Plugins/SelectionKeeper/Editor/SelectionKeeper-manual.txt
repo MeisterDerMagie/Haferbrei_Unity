@@ -19,7 +19,9 @@ Compatible with:
 Unity 5.4+
 Unity 2017
 Unity 2018
-Last test done with 5.4.0 and 2018.2.0f2.
+Unity 2019
+Unity 2020
+Last in depth test done with 5.4.0 and 2019.3.0f6.
 
 Versioning will use the semantic versioning paradigm.
 https://semver.org
@@ -52,7 +54,7 @@ the plugin to cause any weird behaviour (none known at the moment).
 
 
 = License =
-Copyright (C) 2018 KAMGAM e.U. - All rights reserved
+Copyright (C) 2020 KAMGAM e.U. - All rights reserved
 The code can only be used under the standard Unity Asset Store
 End User License Agreement. A Copy of the EULA APPENDIX 1 is
 available at http://unity3d.com/company/legal/as_terms
@@ -63,4 +65,6 @@ others to purchase the plugin. Don't just copy and paste it everywhere.
 Thank you
 
 = Changelog =
+v1.1.0 Fixed an error when loading new scenes in Awake() of the first scene in the build settings.
+
 v1.0.0 Initial public release

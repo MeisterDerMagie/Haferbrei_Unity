@@ -3,7 +3,7 @@
 // A Copy of the EULA APPENDIX 1 is available at http://unity3d.com/company/legal/as_terms
 
 #if UNITY_EDITOR
-#define KAGAM_EDITOR_SELECTION_KEEPER
+#define KAMGAM_SELECTION_KEEPER
 using UnityEngine;
 using UnityEditor;
 
@@ -225,7 +225,7 @@ namespace kamgam.editor.selectionkeeper
         {
             get { return instance._version; }
         }
-        private string _version = "1.0.0"; // semver of course
+        private string _version = "1.1.0"; // semver of course
 
         // GENERNAL SETTINGS
 
@@ -234,7 +234,7 @@ namespace kamgam.editor.selectionkeeper
         {
             get { return instance != null && Application.isEditor && instance._enablePlugin; }
         }
-        [Header("Selection Keeper - v1.0.0")]
+        [Header("Selection Keeper - v1.1.0")]
         [Tooltip("Enables or disables the whole plugin.")]
         [SerializeField]
         private bool _enablePlugin = true;
