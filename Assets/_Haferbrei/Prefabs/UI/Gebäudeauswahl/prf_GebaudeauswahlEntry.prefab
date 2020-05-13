@@ -136,7 +136,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 737c00cd69880da46bc625785e18b218, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d962e5681d038c64c9e35aee8d88cb49, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbd0f10088694d3cbdc6dbbc48fc6ede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  building: {fileID: 11400000, guid: 29d9143f5bc8fe444ad841b05467f467, type: 2}
+  buildingType: {fileID: 11400000, guid: 9db7c860f6a801f46b6c8893a619d682, type: 2}
   tooltip: {fileID: 2782115889539004117}
   icon: {fileID: 2782115889403063231}
 --- !u!114 &2782115889539004117
@@ -262,9 +262,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   optionalAdditionalTooltipYOffset: 0
-  tooltipIcon: {fileID: 21300000, guid: 737c00cd69880da46bc625785e18b218, type: 3}
+  tooltipIcon: {fileID: 21300000, guid: d962e5681d038c64c9e35aee8d88cb49, type: 3}
   tooltipTitle:
-    mTerm: Buildings/hof
+    mTerm: 
     mRTL_IgnoreArabicFix: 0
     mRTL_MaxLineLength: 0
     mRTL_ConvertNumbers: 0
@@ -279,7 +279,7 @@ MonoBehaviour:
       m_DontLocalizeParameters: 0
     ressourceContainer: {fileID: 0}
     recipe: {fileID: 0}
-    modRecipe: {fileID: 11400000, guid: 1ed87efe14c3f094f96eebba00854f1f, type: 2}
+    modRecipe: {fileID: 0}
     prefab: {fileID: 0}
     compareToPlayerRessources: 1
   isRectTransform: 1

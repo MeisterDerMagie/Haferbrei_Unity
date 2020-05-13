@@ -17,7 +17,7 @@ public class Bauauswahl : MonoBehaviour, IInitSelf
     [SerializeField, BoxGroup("Atom Values"), Required] private BuildingVariable zuBauendesGebaeude;
     [SerializeField, BoxGroup("References"), Required] private ToggleGroup toggleGroup;
     [SerializeField, BoxGroup("References"), Required] private Toggle noBuildingToggle;
-    [SerializeField, BoxGroup("References"), Required] private Building noBuilding;
+    [SerializeField, BoxGroup("References"), Required] private BuildingType noBuildingType;
     [SerializeField, BoxGroup("References"), Required] private LeanGameObjectPool prefabPool;
 
     public void InitSelf()
@@ -37,10 +37,10 @@ public class Bauauswahl : MonoBehaviour, IInitSelf
 
         foreach (var building in baubareGebaude)
         {
-            if (building == noBuilding) continue;
+            if (building == noBuildingType) continue;
             
             var newEntry = prefabPool.Spawn(Vector3.zero, Quaternion.identity, transform);
-            newEntry.name = building.identifier;
+            //newEntry.name = building.identifier;
             newEntry.GetComponent<GebaeudeauswahlGebaeude>().SetBuilding(building);
             var entryToggle = newEntry.GetComponent<Toggle>();
             entryToggle.group = toggleGroup;
@@ -59,7 +59,7 @@ public class Bauauswahl : MonoBehaviour, IInitSelf
             return;
         }
 
-        zuBauendesGebaeude.Value = activeBuildingSelection.GetComponent<GebaeudeauswahlGebaeude>().Building;
+        zuBauendesGebaeude.Value = activeBuildingSelection.GetComponent<GebaeudeauswahlGebaeude>().BuildingType;
     }
 
     public void DeselectZuBauendesGebaeude() => noBuildingToggle.isOn = true;

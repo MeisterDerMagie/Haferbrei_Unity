@@ -10,5 +10,5 @@ namespace UnityAtoms
     /// </summary>
     [AddComponentMenu("Unity Atoms/Sync Variable Instancer to Collection/Sync Building Variable Instancer to Collection")]
     [EditorIcon("atom-icon-delicate")]
-    public class SyncBuildingVariableInstancerToCollection : SyncVariableInstancerToCollection<Building, BuildingVariable, BuildingVariableInstancer> { }
+    public class SyncBuildingVariableInstancerToCollection : SyncVariableInstancerToCollection<BuildingType, BuildingVariable, BuildingVariableInstancer> { }
 }

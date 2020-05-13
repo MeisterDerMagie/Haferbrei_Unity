@@ -11,7 +11,7 @@ namespace UnityAtoms
     [EditorIcon("atom-icon-purple")]
     [CreateAssetMenu(menuName = "Unity Atoms/Actions/Set Variable Value/Building", fileName = "SetBuildingVariableValue")]
     public sealed class SetBuildingVariableValue : SetVariableValue<
-        Building,
+        BuildingType,
         BuildingPair,
         BuildingVariable,
         BuildingConstant,

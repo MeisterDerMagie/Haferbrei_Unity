@@ -9,5 +9,5 @@ namespace UnityAtoms
     /// </summary>
     [EditorIcon("atom-icon-teal")]
     [CreateAssetMenu(menuName = "Unity Atoms/Constants/Building", fileName = "BuildingConstant")]
-    public sealed class BuildingConstant : AtomBaseVariable<Building> { }
+    public sealed class BuildingConstant : AtomBaseVariable<BuildingType> { }
 }

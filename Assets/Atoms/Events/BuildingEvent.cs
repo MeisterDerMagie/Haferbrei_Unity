@@ -9,5 +9,5 @@ namespace UnityAtoms
     /// </summary>
     [EditorIcon("atom-icon-cherry")]
     [CreateAssetMenu(menuName = "Unity Atoms/Events/Building", fileName = "BuildingEvent")]
-    public sealed class BuildingEvent : AtomEvent<Building> { }
+    public sealed class BuildingEvent : AtomEvent<BuildingType> { }
 }

@@ -26,7 +26,7 @@ MonoBehaviour:
       Data: 0|System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib
     - Name: 
       Entry: 12
-      Data: 36
+      Data: 32
     - Name: 
       Entry: 2
       Data: d67a49aac4ac4dbd82751e65cb352d8e
@@ -53,22 +53,10 @@ MonoBehaviour:
       Data: abf6ac8409dd432fbe29682fe749bf0f
     - Name: 
       Entry: 2
-      Data: 9ad8d99152af4a99835911994d757d91
-    - Name: 
-      Entry: 2
       Data: 392b8cf01fae4b47b2766e535db3d26f
     - Name: 
       Entry: 2
-      Data: 69a986d9e7d84770a3ea422ae593d463
-    - Name: 
-      Entry: 2
-      Data: b4e6afc087a0470d9eed192c9fd1c157
-    - Name: 
-      Entry: 2
       Data: 9fdbd12f7c8a4d35bb6056860bec8eec
-    - Name: 
-      Entry: 2
-      Data: 6a67d779028347b2b49440335fb52fee
     - Name: 
       Entry: 2
       Data: 6f59013fe10e4bb0b03e40c5b343d948
@@ -167,12 +155,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8367157c0a9c62a4c84c65a39baf612f, type: 2}
   - {fileID: 11400000, guid: 890c3e85c169d784bbf153ae915055ee, type: 2}
   - {fileID: 11400000, guid: 3cfac5e3f26e02c47b2c439154bbbfc6, type: 2}
-  - {fileID: 11400000, guid: 43888af87cfc54344b55ad03b2439706, type: 2}
   - {fileID: 11400000, guid: 30e1736167193f14cb002433a9090c8c, type: 2}
-  - {fileID: 11400000, guid: 29d9143f5bc8fe444ad841b05467f467, type: 2}
-  - {fileID: 11400000, guid: 0f0538b011284d444bfc95bc7e8a1f8b, type: 2}
   - {fileID: 11400000, guid: 4ca02c6c3e5f29c43810eb62c756e3b5, type: 2}
-  - {fileID: 11400000, guid: 345d829411589444f8d15a27c5c4c5cf, type: 2}
   - {fileID: 11400000, guid: 70857ceb9ab64d74b90224e51a3d9096, type: 2}
   - {fileID: 11400000, guid: 7dae4778321c4d045b82bbf0c3957830, type: 2}
   - {fileID: 11400000, guid: b0420bbe1867bd1409edd3fe3d891233, type: 2}

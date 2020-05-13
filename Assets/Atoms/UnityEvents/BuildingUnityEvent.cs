@@ -9,5 +9,5 @@ namespace UnityAtoms
     /// None generic Unity Event of type `Building`. Inherits from `UnityEvent&lt;Building&gt;`.
     /// </summary>
     [Serializable]
-    public sealed class BuildingUnityEvent : UnityEvent<Building> { }
+    public sealed class BuildingUnityEvent : UnityEvent<BuildingType> { }
 }

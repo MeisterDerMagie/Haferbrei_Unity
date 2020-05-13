@@ -9,32 +9,32 @@ using UnityEngine.UI;
 namespace Haferbrei {
 public class GebaeudeauswahlGebaeude : MonoBehaviour
 {
-    public Building Building => building;
-    [SerializeField, BoxGroup("Building")] private Building building;
+    public BuildingType BuildingType => buildingType;
+    [SerializeField, BoxGroup("Building")] private BuildingType buildingType;
 
     [SerializeField, BoxGroup("References"), Required] private HasTooltip tooltip;
     [SerializeField, BoxGroup("References"), Required] private Image icon;
     
     
-    public void SetBuilding(Building _newBuilding)
+    public void SetBuilding(BuildingType _newBuildingType)
     {
-        building = _newBuilding;
+        buildingType = _newBuildingType;
 
-        tooltip.tooltipIcon  = building.icon;
-        tooltip.tooltipTitle = building.buildingName;
+        tooltip.tooltipIcon  = buildingType.icon;
+        tooltip.tooltipTitle = buildingType.buildingName;
         tooltip.bodyElements.Clear();
         var tooltipBodyElement = new TooltipBodyElement
         {
             elementType = TooltipBodyElement.ElementType.ModRecipe,
-            modRecipe = building.cost
+            modRecipe = buildingType.cost
         };
         tooltip.bodyElements.Add(tooltipBodyElement);
 
-        icon.sprite = building.icon;
+        icon.sprite = buildingType.icon;
     }
     
     #if UNITY_EDITOR
-    private void OnValidate() => SetBuilding(building);
+    private void OnValidate() => SetBuilding(buildingType);
     #endif
 }
 }

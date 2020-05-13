@@ -20,19 +20,20 @@ public class Baumodus : MonoBehaviour
     [SerializeField, BoxGroup("Atom Events"), Required] private BuildingEvent onZuBauendesGebaeudeChanged;
     [SerializeField, BoxGroup("Atom Values"), Required] private BuildingVariable zuBauendesGebaeude;
 
+    public ConstructionSiteModel constructionSiteModel;
 
     private void OnEnable() => onZuBauendesGebaeudeChanged.Register(OnZuBauendesGebaeudeChanged);
     private void OnDisable() => onZuBauendesGebaeudeChanged.Unregister(OnZuBauendesGebaeudeChanged);
 
 
-    private void OnZuBauendesGebaeudeChanged(Building _newBuilding)
+    private void OnZuBauendesGebaeudeChanged(BuildingType _newBuildingType)
     {
         if(gebaeudePreview != null) Destroy(gebaeudePreview);
 
-        if (_newBuilding.previewPrefab == null) return;
+        if (_newBuildingType.previewPrefab == null) return;
         
         //set preview
-        gebaeudePreview = Instantiate(   _newBuilding.previewPrefab,
+        gebaeudePreview = Instantiate(   _newBuildingType.previewPrefab,
             Camera.main.ScreenToWorldPoint(Input.mousePosition).With(z: previewParent.transform.position.z),
             Quaternion.identity,
             previewParent);
@@ -69,12 +70,18 @@ public class Baumodus : MonoBehaviour
         //pay for the building
         playerRessourceContainer.SubtractRessources(zuBauendesGebaeude.Value.cost);
         
-        //instantiate building
-        var newBuilding = Instantiate(  zuBauendesGebaeude.Value.instancePrefab,
-                               Camera.main.ScreenToWorldPoint(Input.mousePosition).With(z: previewParent.transform.position.z),
-                                        Quaternion.identity);
-        
-        INIT001_Initialize.InitializePrefab(newBuilding.transform);
+        //instantiate building or construction site
+        Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition).With(z: previewParent.transform.position.z);
+        var buildingType = zuBauendesGebaeude.Value;
+
+        if (buildingType.hasConstructionSite)
+        {
+            constructionSiteModel = ConstructionSiteInstancer.Instantiate(buildingType, position);
+        }
+        else
+        {
+            BuildingInstancer.Instantiate(buildingType, position);
+        }
     }
 }
 }

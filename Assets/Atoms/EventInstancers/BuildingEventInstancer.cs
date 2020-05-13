@@ -9,5 +9,5 @@ namespace UnityAtoms
     /// </summary>
     [EditorIcon("atom-icon-sign-blue")]
     [AddComponentMenu("Unity Atoms/Event Instancers/Building Event Instancer")]
-    public class BuildingEventInstancer : AtomEventInstancer<Building, BuildingEvent> { }
+    public class BuildingEventInstancer : AtomEventInstancer<BuildingType, BuildingEvent> { }
 }

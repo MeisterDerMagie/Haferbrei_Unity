@@ -9,7 +9,7 @@ namespace UnityAtoms
     /// </summary>
     [Serializable]
     public sealed class BuildingEventReference : AtomEventReference<
-        Building,
+        BuildingType,
         BuildingVariable,
         BuildingEvent,
         BuildingVariableInstancer,

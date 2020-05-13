@@ -19,6 +19,12 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 1d8288edb6d88df4fac6e8ccdd59924b, type: 2}
     - {fileID: 11400000, guid: f48f1c1685972c240895e61ee91b3d90, type: 2}
     - {fileID: 11400000, guid: 75021b9634457024c94ca48291e13bd5, type: 2}
+    - {fileID: 11400000, guid: 30e1736167193f14cb002433a9090c8c, type: 2}
+    - {fileID: 11400000, guid: 4ca02c6c3e5f29c43810eb62c756e3b5, type: 2}
+    - {fileID: 11400000, guid: 8db91bc27005b3240933dfb96ecd5040, type: 2}
+    - {fileID: 11400000, guid: 9db7c860f6a801f46b6c8893a619d682, type: 2}
+    - {fileID: 11400000, guid: 203b7da5074baa34eb56a5c85f85e3ee, type: 2}
+    - {fileID: 11400000, guid: 18b5a3165f631c2449ef252b2d3b547c, type: 2}
     - {fileID: 11400000, guid: b17309c26456f60418b1ad63965c198c, type: 2}
     - {fileID: 11400000, guid: 28e6d422beb214444925fefc181a5e55, type: 2}
     - {fileID: 11400000, guid: e4b744396c7f63c45bd2e5897416fae0, type: 2}
@@ -29,12 +35,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 8367157c0a9c62a4c84c65a39baf612f, type: 2}
     - {fileID: 11400000}
     - {fileID: 11400000, guid: 3cfac5e3f26e02c47b2c439154bbbfc6, type: 2}
-    - {fileID: 11400000, guid: 43888af87cfc54344b55ad03b2439706, type: 2}
-    - {fileID: 11400000, guid: 30e1736167193f14cb002433a9090c8c, type: 2}
-    - {fileID: 11400000, guid: 29d9143f5bc8fe444ad841b05467f467, type: 2}
-    - {fileID: 11400000, guid: 0f0538b011284d444bfc95bc7e8a1f8b, type: 2}
-    - {fileID: 11400000, guid: 4ca02c6c3e5f29c43810eb62c756e3b5, type: 2}
-    - {fileID: 11400000, guid: 345d829411589444f8d15a27c5c4c5cf, type: 2}
     - {fileID: 11400000, guid: 70857ceb9ab64d74b90224e51a3d9096, type: 2}
     - {fileID: 11400000, guid: 7dae4778321c4d045b82bbf0c3957830, type: 2}
     - {fileID: 11400000, guid: b0420bbe1867bd1409edd3fe3d891233, type: 2}
@@ -96,7 +96,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: zuBauendesGebaude
+      Data: ZuBauendesGebaude
     - Name: $v
       Entry: 10
       Data: 1
@@ -120,7 +120,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: AlexanderQuill SDF
+      Data: BaubareGebaude
     - Name: $v
       Entry: 10
       Data: 3
@@ -132,7 +132,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Fleisch-Wurst SDF
+      Data: OnBaubareGebaudeChanged
     - Name: $v
       Entry: 10
       Data: 4
@@ -144,7 +144,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: AllBuildingCosts
+      Data: BuildingType_Hof
     - Name: $v
       Entry: 10
       Data: 5
@@ -156,7 +156,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: AllPrefabs
+      Data: BuildingType_NONE
     - Name: $v
       Entry: 10
       Data: 6
@@ -168,7 +168,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: AllResettableScriptableObjects
+      Data: BuildingType_Burgfried
     - Name: $v
       Entry: 10
       Data: 7
@@ -180,7 +180,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: AllRessourceContainers
+      Data: BuildingType_Schmiede
     - Name: $v
       Entry: 10
       Data: 8
@@ -192,7 +192,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: AllRessources
+      Data: AlexanderQuill SDF
     - Name: $v
       Entry: 10
       Data: 9
@@ -204,7 +204,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: AllScenes
+      Data: Fleisch-Wurst SDF
     - Name: $v
       Entry: 10
       Data: 10
@@ -216,7 +216,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: AllScriptableObjectsOnDisk
+      Data: AllBuildingCosts
     - Name: $v
       Entry: 10
       Data: 11
@@ -228,7 +228,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: RessourcesThatCanBeShownInTheRessourceBar
+      Data: AllPrefabs
     - Name: $v
       Entry: 10
       Data: 12
@@ -240,7 +240,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: _NONE_Building
+      Data: AllResettableScriptableObjects
     - Name: $v
       Entry: 10
       Data: 13
@@ -252,7 +252,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: BaubareGebaude
+      Data: AllRessourceContainers
     - Name: $v
       Entry: 10
       Data: 14
@@ -264,7 +264,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Hof_Building
+      Data: AllRessources
     - Name: $v
       Entry: 10
       Data: 15
@@ -276,7 +276,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Burgfried_Building
+      Data: AllScenes
     - Name: $v
       Entry: 10
       Data: 16
@@ -288,7 +288,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: onBaubareGebaudeChanged
+      Data: AllScriptableObjectsOnDisk
     - Name: $v
       Entry: 10
       Data: 17
@@ -300,7 +300,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Schmiede_Building
+      Data: RessourcesThatCanBeShownInTheRessourceBar
     - Name: $v
       Entry: 10
       Data: 18

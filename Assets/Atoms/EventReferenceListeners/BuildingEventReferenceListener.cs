@@ -10,7 +10,7 @@ namespace UnityAtoms
     [EditorIcon("atom-icon-orange")]
     [AddComponentMenu("Unity Atoms/Listeners/Building Event Reference Listener")]
     public sealed class BuildingEventReferenceListener : AtomEventReferenceListener<
-        Building,
+        BuildingType,
         BuildingEvent,
         BuildingEventReference,
         BuildingUnityEvent>

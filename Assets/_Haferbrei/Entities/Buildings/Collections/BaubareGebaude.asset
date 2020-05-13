@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2434de064be35f349b2756a4daf76e78, type: 3}
+  m_Name: BaubareGebaude
+  m_EditorClassIdentifier: 
+  _developerDescription: 
+  Cleared: {fileID: 11400000, guid: 4ca02c6c3e5f29c43810eb62c756e3b5, type: 2}
+  Added: {fileID: 11400000, guid: 4ca02c6c3e5f29c43810eb62c756e3b5, type: 2}
+  Removed: {fileID: 11400000, guid: 4ca02c6c3e5f29c43810eb62c756e3b5, type: 2}
+  list:
+  - {fileID: 11400000, guid: 203b7da5074baa34eb56a5c85f85e3ee, type: 2}
+  - {fileID: 11400000, guid: 8db91bc27005b3240933dfb96ecd5040, type: 2}
+  - {fileID: 11400000, guid: 18b5a3165f631c2449ef252b2d3b547c, type: 2}

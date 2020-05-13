@@ -275,7 +275,7 @@ MonoBehaviour:
   zuBauendesGebaeude: {fileID: 11400000, guid: f48f1c1685972c240895e61ee91b3d90, type: 2}
   toggleGroup: {fileID: 51523455}
   noBuildingToggle: {fileID: 1153425490}
-  noBuilding: {fileID: 11400000, guid: 43888af87cfc54344b55ad03b2439706, type: 2}
+  noBuildingType: {fileID: 11400000, guid: 9db7c860f6a801f46b6c8893a619d682, type: 2}
   prefabPool: {fileID: 51523459}
 --- !u!114 &51523457
 MonoBehaviour:
@@ -1130,7 +1130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baumodusIsActive: 0
   baumodusWindow: {fileID: 51523453}
-  noGebaeude: {fileID: 11400000, guid: 43888af87cfc54344b55ad03b2439706, type: 2}
+  noGebaeude: {fileID: 0}
   bauauswahl: {fileID: 51523456}
   baumodusScript: {fileID: 1649228157}
   zuBauendesGebaeude: {fileID: 11400000, guid: f48f1c1685972c240895e61ee91b3d90, type: 2}
@@ -1809,6 +1809,49 @@ Transform:
   m_Father: {fileID: 921997649}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &270139371
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 270139372}
+  - component: {fileID: 270139373}
+  m_Layer: 0
+  m_Name: ConstructionSite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &270139372
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270139371}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1956718415}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &270139373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270139371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 890b53c2bbb59944bb83f15befe3a894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &288797334
 GameObject:
   m_ObjectHideFlags: 0
@@ -3211,7 +3254,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &656936957
 GameObject:
@@ -4208,7 +4251,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &853656322
 GameObject:
@@ -8508,7 +8551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbd0f10088694d3cbdc6dbbc48fc6ede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  building: {fileID: 11400000, guid: 43888af87cfc54344b55ad03b2439706, type: 2}
+  buildingType: {fileID: 11400000, guid: 9db7c860f6a801f46b6c8893a619d682, type: 2}
   tooltip: {fileID: 1153425488}
   icon: {fileID: 892692949}
 --- !u!114 &1153425490
@@ -8559,7 +8602,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 51523456}
         m_MethodName: UpdateZuBauendesGebaeude
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9615,7 +9658,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1395047249
 GameObject:
@@ -10028,6 +10071,7 @@ Transform:
   m_Children:
   - {fileID: 769124851}
   - {fileID: 1649228156}
+  - {fileID: 1956718415}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10048,6 +10092,7 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 769124850}
+    - {fileID: 270139373}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -10071,10 +10116,13 @@ MonoBehaviour:
       Data: 1|System.Collections.Generic.List`1[[IInitSelf, Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 10
       Data: 0
+    - Name: 
+      Entry: 10
+      Data: 1
     - Name: 
       Entry: 13
       Data: 
@@ -11183,6 +11231,7 @@ MonoBehaviour:
   onZuBauendesGebaeudeChanged: {fileID: 11400000, guid: 1d8288edb6d88df4fac6e8ccdd59924b,
     type: 2}
   zuBauendesGebaeude: {fileID: 11400000, guid: f48f1c1685972c240895e61ee91b3d90, type: 2}
+  constructionSiteModel: {fileID: 0}
 --- !u!114 &1649228158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11952,7 +12001,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1883706085
 GameObject:
@@ -12634,6 +12683,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1956718414
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1956718415}
+  m_Layer: 0
+  m_Name: WorldObjectsPrefabSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1956718415
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956718414}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 270139372}
+  m_Father: {fileID: 1425404367}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1960872570
 GameObject:
   m_ObjectHideFlags: 0

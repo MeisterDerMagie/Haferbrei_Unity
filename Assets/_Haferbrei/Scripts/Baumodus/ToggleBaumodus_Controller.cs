@@ -11,7 +11,7 @@ public class ToggleBaumodus_Controller : MonoBehaviour
 {
     [SerializeField, BoxGroup("Info"), Sirenix.OdinInspector.ReadOnly] private bool baumodusIsActive;
     [SerializeField, FoldoutGroup("References"), Required] private GameObject baumodusWindow;
-    [SerializeField, FoldoutGroup("References"), Required] private Building noGebaeude;
+    [SerializeField, FoldoutGroup("References"), Required] private BuildingType noGebaeude;
     [SerializeField, FoldoutGroup("References"), Required] private Bauauswahl bauauswahl;
     [SerializeField, FoldoutGroup("References"), Required] private Baumodus baumodusScript;
     

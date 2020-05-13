@@ -13,7 +13,7 @@ namespace UnityAtoms
     public class BuildingVariableInstancer : AtomVariableInstancer<
         BuildingVariable,
         BuildingPair,
-        Building,
+        BuildingType,
         BuildingEvent,
         BuildingPairEvent,
         BuildingBuildingFunction>

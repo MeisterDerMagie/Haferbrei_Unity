@@ -9,5 +9,5 @@ namespace UnityAtoms.Editor
     /// Variable Inspector of type `Building`. Inherits from `AtomVariableEditor`
     /// </summary>
     [CustomEditor(typeof(BuildingVariable))]
-    public sealed class BuildingVariableEditor : AtomVariableEditor<Building, BuildingPair> { }
+    public sealed class BuildingVariableEditor : AtomVariableEditor<BuildingType, BuildingPair> { }
 }

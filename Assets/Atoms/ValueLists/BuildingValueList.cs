@@ -9,5 +9,5 @@ namespace UnityAtoms
     /// </summary>
     [EditorIcon("atom-icon-piglet")]
     [CreateAssetMenu(menuName = "Unity Atoms/Value Lists/Building", fileName = "BuildingValueList")]
-    public sealed class BuildingValueList : AtomValueList<Building, BuildingEvent> { }
+    public sealed class BuildingValueList : AtomValueList<BuildingType, BuildingEvent> { }
 }

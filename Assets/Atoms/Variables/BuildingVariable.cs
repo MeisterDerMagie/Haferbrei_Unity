@@ -11,9 +11,9 @@ namespace UnityAtoms
     /// </summary>
     [EditorIcon("atom-icon-lush")]
     [CreateAssetMenu(menuName = "Unity Atoms/Variables/Building", fileName = "BuildingVariable")]
-    public sealed class BuildingVariable : AtomVariable<Building, BuildingPair, BuildingEvent, BuildingPairEvent, BuildingBuildingFunction>
+    public sealed class BuildingVariable : AtomVariable<BuildingType, BuildingPair, BuildingEvent, BuildingPairEvent, BuildingBuildingFunction>
     {
-        protected override bool ValueEquals(Building other)
+        protected override bool ValueEquals(BuildingType other)
         {
             return Value == other;
         }
