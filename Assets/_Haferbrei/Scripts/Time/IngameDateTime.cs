@@ -14,6 +14,7 @@ public class IngameDateTime : MonoBehaviour, IInitSelf
     
     [Saveable] private static DateTime ingameDateTime;
     public static DateTime Now => ingameDateTime;
+    public static bool isRunning = false;
     
     private const double oneYearInSeconds = 31536000.0;
     
@@ -41,6 +42,8 @@ public class IngameDateTime : MonoBehaviour, IInitSelf
     
     public void InitSelf()
     {
+        isRunning = true;
+        
         if (!(ingameDateTime == DateTime.MinValue)) return;
 
         ingameDateTime = new DateTime(startYear, startMonth, startDay);

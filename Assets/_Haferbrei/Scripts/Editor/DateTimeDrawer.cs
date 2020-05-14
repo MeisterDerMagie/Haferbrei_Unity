@@ -21,10 +21,10 @@ public class DateTimeDrawer : OdinValueDrawer<DateTime>
 
         EditorGUI.BeginDisabledGroup(true);
         var _result = EditorGUI.TextField( _rect, _dateTime.ToString("dd.MM.yyyy HH:mm:ss"));
-        if( DateTime.TryParse( _result, null, DateTimeStyles.RoundtripKind, out _dateTime ) )
-        {
-            entry.SmartValue = _dateTime;
-        }
+        //if( DateTime.TryParse( _result, null, DateTimeStyles.RoundtripKind, out _dateTime ) )
+        //{
+        //    entry.SmartValue = _dateTime;
+        //}
         EditorGUI.EndDisabledGroup();
     }
 }

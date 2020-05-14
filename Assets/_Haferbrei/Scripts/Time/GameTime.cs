@@ -17,10 +17,10 @@ public class GameTime : SerializedMonoBehaviour
     
     [ShowInInspector, ReadOnly] public static bool GameIsPaused;
 
-    private IEnumerable<IPauseable> allPauseables;
+    private static IEnumerable<IPauseable> allPauseables;
     
     [Button, DisableInEditorMode]
-    public void SetTimeScale(float _newValue) //Does not unpause the game!
+    public static void SetTimeScale(float _newValue) //Does not unpause the game!
     {
         if (GameIsPaused)
         {
@@ -32,14 +32,14 @@ public class GameTime : SerializedMonoBehaviour
     }
 
     [Button, DisableInEditorMode]
-    public void SetTimeScaleAndUnpause(float _newValue)
+    public static void SetTimeScaleAndUnpause(float _newValue)
     {
         targetTimeScale = _newValue;
         UnpauseGame();
     }
     
     [Button, DisableInEditorMode]
-    public void PauseGame()
+    public static void PauseGame()
     {
         GameIsPaused = true;
         targetTimeScale = TimeScale; //cache vorherige TimeScale
@@ -49,14 +49,14 @@ public class GameTime : SerializedMonoBehaviour
     }
 
     [Button, DisableInEditorMode]
-    public void UnpauseGame()
+    public static void UnpauseGame()
     {
         GameIsPaused = false;
         TimeScale = targetTimeScale; //gecachte oder zwischenzeitlich geänderte TimeScale wieder setzen
         foreach (var iPauseable in allPauseables) { iPauseable.OnUnpause(); }
     }
 
-    private void FindAllIPauseables()
+    private static void FindAllIPauseables()
     {
         allPauseables = FindObjectsOfType<MonoBehaviour>().OfType<IPauseable>();
     }
