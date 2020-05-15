@@ -3,6 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Assets/OdinWatchWindow" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Assets/UnityPrefabTester" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Assets/_Wichtel" vcs="Git" />
   </component>
 </project>

@@ -96,8 +96,16 @@ public class SaveableScriptableObjects : SerializedScriptableObject, IResettable
         }
         else
         {
-            Debug.LogError("Can't load ScriptableObject with guid: " + _objectData.guid);
+            so = ScriptableObject.CreateInstance(_objectData.scriptableObjectType);
+            ScriptableObjectReferences.Instance.saveableScriptableObjects.RegisterNewSoCreatedAtRuntime(so, _objectData.guid);
+            so.name = _objectData.scriptableObjectName;
+            _objectData.data.PopulateObject(so);
         }
+
+        //else
+        //{
+        //    Debug.LogError("Can't load ScriptableObject with guid: " + _objectData.guid);
+        //}
     }
 
     public void RegisterNewSoCreatedAtRuntime(ScriptableObject _scriptableObject, Guid _guid)

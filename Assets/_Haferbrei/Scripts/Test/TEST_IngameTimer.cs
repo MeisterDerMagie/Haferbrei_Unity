@@ -9,6 +9,7 @@ namespace Haferbrei {
 public class TEST_IngameTimer : MonoBehaviour
 {
     [Saveable] public IngameTimer ingameTimer;
+    [Saveable] public ConstructionSiteModel csm;
     [SerializeField, BoxGroup("References"), Required] private TEST_IngameTimer2 otherScript;
     
     [Button]
@@ -18,6 +19,11 @@ public class TEST_IngameTimer : MonoBehaviour
         ingameTimer.RunTimer(_duration, _updateFrequency);
 
         otherScript.ingameTimer = ingameTimer;
+    }
+
+    private void Start()
+    {
+        csm = ScriptableObject.CreateInstance<ConstructionSiteModel>();
     }
 
     [Button]
