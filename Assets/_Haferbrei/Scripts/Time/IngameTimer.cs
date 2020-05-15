@@ -35,6 +35,7 @@ public class IngameTimer
 
     //Events
     public Action onTimerEnded = delegate {  };
+    public Action onProgressChanged = delegate {  };
     
     //-- Constructors --
     public IngameTimer(){}
@@ -169,6 +170,8 @@ public class IngameTimer
 
         double progressUnclamped = 1.0 / durationInDays.TotalDays * elapsedDays;
         progress = Mathf.Clamp((float)progressUnclamped, 0f, 1f);
+        
+        onProgressChanged?.Invoke();
     }
 
     //shift the whole timer to an earlier or later time

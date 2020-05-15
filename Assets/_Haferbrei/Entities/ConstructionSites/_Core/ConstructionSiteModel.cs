@@ -34,16 +34,13 @@ public class ConstructionSiteModel : SerializedScriptableObject, IModel, ISaveab
         set { birthDate = value; OnModelValuesChanged?.Invoke(); }
     }
     
-    [SerializeField][Saveable] private float progress;
-    public float Progress
-    {
-        get => progress;
-        set { progress = Mathf.Clamp(value, 0f, 1f); OnModelValuesChanged?.Invoke(); }
-    }
+    [SerializeField][Saveable] private IngameTimer progress;
+    public IngameTimer Progress => progress;
 
     #endregion
     //--- ---
-
+    
+    
     //--- Instantiierung ---
     #region Instantiierung
     public void SetInitialValues(BuildingType _buildingType, Vector3 _position, DateTime _birthDate)
@@ -54,7 +51,7 @@ public class ConstructionSiteModel : SerializedScriptableObject, IModel, ISaveab
         birthDate = _birthDate;
         
         //internal
-        progress = 0f;
+        progress = new IngameTimer();
     }
     #endregion
     //--- ---
