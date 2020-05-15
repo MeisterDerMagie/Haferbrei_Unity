@@ -9,7 +9,7 @@ using UnityEngine;
 namespace Haferbrei {
 public class IngameDateTime : MonoBehaviour, IInitSelf
 {
-    [SerializeField, BoxGroup("Settings")] private float yearsPerHour = 30f;
+    [ShowInInspector, BoxGroup("Settings")] private static float yearsPerHour = 30f;
     [SerializeField, BoxGroup("Settings")] private int startYear, startMonth, startDay;
     
     [Saveable] private static DateTime ingameDateTime;
@@ -52,7 +52,7 @@ public class IngameDateTime : MonoBehaviour, IInitSelf
     private void Update()
     {
         float timeToAdd = Time.deltaTime * GameTime.TimeScale;
-        ingameDateTime = ingameDateTime.Add(RealtimeSecondsToIngameTime(timeToAdd));
+        ingameDateTime = ingameDateTime.Add(RealtimeSecondsToIngameTimeSpan(timeToAdd));
 
         //fire changed-events
         if (yearBefore != Now.Year) OnNewYear?.Invoke();
@@ -65,7 +65,7 @@ public class IngameDateTime : MonoBehaviour, IInitSelf
         dayBefore = Now.Day;
     }
 
-    private TimeSpan RealtimeSecondsToIngameTime(float _seconds)
+    public static TimeSpan RealtimeSecondsToIngameTimeSpan(float _seconds)
     {
         double yearsPerSecond = yearsPerHour / 3600.0;
         double ingameSecondsPerRealtimeSeconds = oneYearInSeconds * yearsPerSecond;

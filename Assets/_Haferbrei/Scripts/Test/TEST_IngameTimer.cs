@@ -1,4 +1,5 @@
 ﻿//(c) copyright by Martin M. Klöckener
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
@@ -13,10 +14,28 @@ public class TEST_IngameTimer : MonoBehaviour
     [Button]
     public void TEST_NewTimer(float _duration, float _updateFrequency)
     {
-        ingameTimer = new IngameTimer(_duration, _updateFrequency);
-        //ingameTimer.Start();
+        if(ingameTimer == null) ingameTimer = new IngameTimer();
+        ingameTimer.RunTimer(_duration, _updateFrequency);
 
         otherScript.ingameTimer = ingameTimer;
+    }
+
+    [Button]
+    public void Pause()
+    {
+        ingameTimer.Pause();
+    }
+    
+    [Button]
+    public void Cancel()
+    {
+        ingameTimer.CancelTimer();
+    }
+
+    [Button]
+    public void Resume()
+    {
+        ingameTimer.Resume();
     }
 }
 }

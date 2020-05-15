@@ -14,7 +14,7 @@ public class IngameTimer_RunningTimers : MonoBehaviour, IInitSelf
         runningTimers.RemoveEmptyEntries();
         for (int i = 0; i < runningTimers.Count; i++)
         {
-            runningTimers[i].Start();
+            runningTimers[i].ResumeAfterLoadingSaveFile();
         }
     }
     
