@@ -4,11 +4,11 @@ using UnityEngine;
 using Wichtel.Extensions;
 
 namespace Haferbrei{
-public class IngameTimer_StartTimersAfterLoading : MonoBehaviour, IInitSelf
+public class IngameTimer_RunningTimers : MonoBehaviour, IInitSelf
 {
     [Saveable][ShowInInspector] private static List<IngameTimer> runningTimers = new List<IngameTimer>();
 
-    //start timers that got loaded from a save file
+    //start timers after loading a savegame
     public void InitSelf()
     {
         runningTimers.RemoveEmptyEntries();

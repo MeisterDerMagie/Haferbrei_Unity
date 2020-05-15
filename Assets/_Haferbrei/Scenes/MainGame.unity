@@ -1778,6 +1778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8721ed807b2f4246a58f173a44562521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quicksaveSlots: 6
 --- !u!4 &261125338
 Transform:
   m_ObjectHideFlags: 0
@@ -12003,6 +12004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a269e39c5df40408acc950b19e759d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  autosaveSlots: 6
 --- !u!4 &1778337701
 Transform:
   m_ObjectHideFlags: 0

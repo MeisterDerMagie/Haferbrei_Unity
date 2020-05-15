@@ -4,6 +4,9 @@ using UnityEngine;
 namespace Haferbrei{
 public class QuickSaveController : MonoBehaviour
 {
+    [Min(1)]
+    public int quicksaveSlots = 1;
+    
     public static int lastQuicksaveIndex = 0;
 
     private void Update()
@@ -19,7 +22,7 @@ public class QuickSaveController : MonoBehaviour
     public void DoQuickSave()
     {
         //increase index
-        if(lastQuicksaveIndex++ > 7) lastQuicksaveIndex = 0;
+        if(lastQuicksaveIndex++ > (quicksaveSlots-2)) lastQuicksaveIndex = 0;
         PlayerPrefs.SetInt("lastQuicksaveIndex", lastQuicksaveIndex);
         PlayerPrefs.Save();
         

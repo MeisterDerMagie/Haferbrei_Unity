@@ -40,6 +40,8 @@ public class SaveFileListUI : MonoBehaviour, IInitSelf
 
     public void OnSelectedSpielstand(SpielstandListEntry _selectedSpielstand)
     {
+        Debug.Log("Spielstand ist null: " + (_selectedSpielstand == null));
+        
         //update selection UI
         currentlySelected = _selectedSpielstand;
         DeselectAllSpielstande();
@@ -141,7 +143,12 @@ public class SaveFileListUI : MonoBehaviour, IInitSelf
         }
         
         //select first entry
-        if (!_saveFilePreviews.Any()) return;
+        if (!_saveFilePreviews.Any())
+        {
+            DeselectAllSpielstande();
+            HideAllPreviewWindows();
+            return;
+        }
         if (autoSelectFirstSpielstand)
         {
             OnSelectedSpielstand(spielstande[0]);

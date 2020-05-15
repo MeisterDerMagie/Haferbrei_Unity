@@ -58,13 +58,13 @@ public class IngameTimer
             yield return Timing.WaitForSeconds(updateFrequency);
         }
 
-        IngameTimer_StartTimersAfterLoading.UnregisterTimer(this);
+        IngameTimer_RunningTimers.UnregisterTimer(this);
         onTimerEnded?.Invoke();
     }
 
     public void Start()
     {
-        IngameTimer_StartTimersAfterLoading.RegisterTimer(this);
+        IngameTimer_RunningTimers.RegisterTimer(this);
         Timing.RunCoroutine(_Timer());
     }
     
