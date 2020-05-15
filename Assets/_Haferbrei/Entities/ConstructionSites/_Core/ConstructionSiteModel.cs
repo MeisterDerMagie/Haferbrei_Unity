@@ -14,7 +14,7 @@ public class ConstructionSiteModel : SerializedScriptableObject, IModel, ISaveab
     public Action OnModelValuesChanged { get; set; }
     #endregion
     //--- ---
-    
+
     //--- Properties ---
     #region Properties
     [SerializeField][Saveable] private BuildingType buildingType;
@@ -40,7 +40,6 @@ public class ConstructionSiteModel : SerializedScriptableObject, IModel, ISaveab
     #endregion
     //--- ---
     
-    
     //--- Instantiierung ---
     #region Instantiierung
     public void SetInitialValues(BuildingType _buildingType, Vector3 _position, DateTime _birthDate)
@@ -52,6 +51,7 @@ public class ConstructionSiteModel : SerializedScriptableObject, IModel, ISaveab
         
         //internal
         progress = new IngameTimer();
+        progress.RunTimer(buildingType.constructionSiteBaseDuration, 0.5f);
     }
     #endregion
     //--- ---

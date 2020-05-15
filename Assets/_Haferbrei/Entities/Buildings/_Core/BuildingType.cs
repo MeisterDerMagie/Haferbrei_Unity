@@ -18,7 +18,7 @@ public class BuildingType : ScriptableObject
     public ModRessourceRecipe cost;
 
     public bool hasConstructionSite;
-    [ShowIf("hasConstructionSite"), LabelText("Construction Site Duration in Days")] public float constructionSiteBaseDuration;
+    [ShowIf("hasConstructionSite"), LabelText("Construction Site Duration [s]")] public float constructionSiteBaseDuration;
     [ShowIf("hasConstructionSite")] public GameObject constructionSitePrefab;
     
     public GameObject instancePrefab;

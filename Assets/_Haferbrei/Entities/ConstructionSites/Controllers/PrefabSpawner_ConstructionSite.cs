@@ -2,15 +2,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using Lean.Pool;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Haferbrei {
-public class PrefabSpawner_ConstructionSite : MonoBehaviour, IInitSelf
+public class PrefabSpawner_ConstructionSite : MonoBehaviour, IInitSelf, IInitAfterLoading
 {
     public void InitSelf()
     {
         ConstructionSiteInstancer.onNewConstructionSite += SpawnPrefab;
+    }
+    
+    public void InitAfterLoading()
+    {
+        //Spawn construction site prefabs here
+        
+        /*
+        foreach (var model in allConstructionSiteModels)
+        {
+            SpawnPrefab(model);
+        }
+        */
+
+        Debug.Log("Initafterloading");
     }
 
     private void OnDestroy()

@@ -4211,6 +4211,19 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: afterLoadingInits
+      Entry: 7
+      Data: 3|System.Collections.Generic.List`1[[IInitAfterLoading, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   initOnSceneStart: 1
   initOnAwake: 0
   detachChildrenAndDestroySelf: 1
@@ -4470,6 +4483,19 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: afterLoadingInits
+      Entry: 7
+      Data: 3|System.Collections.Generic.List`1[[IInitAfterLoading, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   initOnSceneStart: 1
   initOnAwake: 0
   detachChildrenAndDestroySelf: 1
@@ -4510,6 +4536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6475a169aac42678946385702dda465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  csm: {fileID: 0}
   otherScript: {fileID: 875180351}
 --- !u!4 &875180348
 Transform:
@@ -7204,6 +7231,19 @@ MonoBehaviour:
     - Name: dependentInits
       Entry: 7
       Data: 2|System.Collections.Generic.List`1[[IInitDependencies, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: afterLoadingInits
+      Entry: 7
+      Data: 3|System.Collections.Generic.List`1[[IInitAfterLoading, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
@@ -10181,6 +10221,19 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: afterLoadingInits
+      Entry: 7
+      Data: 3|System.Collections.Generic.List`1[[IInitAfterLoading, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   initOnSceneStart: 1
   initOnAwake: 0
   detachChildrenAndDestroySelf: 1
@@ -10801,6 +10854,19 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: afterLoadingInits
+      Entry: 7
+      Data: 3|System.Collections.Generic.List`1[[IInitAfterLoading, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   initOnSceneStart: 1
   initOnAwake: 0
   detachChildrenAndDestroySelf: 1
@@ -11303,7 +11369,6 @@ MonoBehaviour:
   onZuBauendesGebaeudeChanged: {fileID: 11400000, guid: 1d8288edb6d88df4fac6e8ccdd59924b,
     type: 2}
   zuBauendesGebaeude: {fileID: 11400000, guid: f48f1c1685972c240895e61ee91b3d90, type: 2}
-  constructionSiteModel: {fileID: 0}
 --- !u!114 &1649228158
 MonoBehaviour:
   m_ObjectHideFlags: 0

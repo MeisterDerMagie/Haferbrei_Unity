@@ -6,7 +6,7 @@ namespace Haferbrei{
 public class ConstructionSiteInstancer
 {
     public static Action<ConstructionSiteModel> onNewConstructionSite = delegate(ConstructionSiteModel _model) {  };
-    
+
     public static ConstructionSiteModel Instantiate(BuildingType _buildingType, Vector3 _position, ConstructionSiteModel _template = null)
     {
         //-- instantiate Model --

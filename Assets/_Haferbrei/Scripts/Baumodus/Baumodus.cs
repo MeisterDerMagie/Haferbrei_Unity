@@ -20,8 +20,6 @@ public class Baumodus : MonoBehaviour
     [SerializeField, BoxGroup("Atom Events"), Required] private BuildingEvent onZuBauendesGebaeudeChanged;
     [SerializeField, BoxGroup("Atom Values"), Required] private BuildingVariable zuBauendesGebaeude;
 
-    public ConstructionSiteModel constructionSiteModel;
-
     private void OnEnable() => onZuBauendesGebaeudeChanged.Register(OnZuBauendesGebaeudeChanged);
     private void OnDisable() => onZuBauendesGebaeudeChanged.Unregister(OnZuBauendesGebaeudeChanged);
 
@@ -76,7 +74,7 @@ public class Baumodus : MonoBehaviour
 
         if (buildingType.hasConstructionSite)
         {
-            constructionSiteModel = ConstructionSiteInstancer.Instantiate(buildingType, position);
+            ConstructionSiteInstancer.Instantiate(buildingType, position);
         }
         else
         {

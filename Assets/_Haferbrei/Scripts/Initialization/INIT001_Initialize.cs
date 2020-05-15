@@ -18,6 +18,7 @@ public class INIT001_Initialize : SerializedMonoBehaviour
     [SerializeField, ReadOnly] public List<SaveablePrefab> saveablePrefabs  = new List<SaveablePrefab>();
     [SerializeField, ReadOnly] public List<IInitSelf> selfInits = new List<IInitSelf>();
     [SerializeField, ReadOnly] public List<IInitDependencies> dependentInits = new List<IInitDependencies>();
+    [SerializeField, ReadOnly] public List<IInitAfterLoading> afterLoadingInits = new List<IInitAfterLoading>();
 
     [SerializeField, BoxGroup("OnInitializeFinished"), Required] private UnityEvent onInitializeFinished;
     [SerializeField, ReadOnly] private bool isInitialized;
@@ -55,10 +56,15 @@ public class INIT001_Initialize : SerializedMonoBehaviour
         yield return Timing.WaitForOneFrame;
         
         GetSelfAndDependent(transform, selfInits, dependentInits);
-        InitSelfAndDepentents(selfInits,dependentInits);
+        InitSelfAndDependents(selfInits,dependentInits);
         
         yield return Timing.WaitForOneFrame;
 
+        GetLoadInits(transform, afterLoadingInits);
+        InitAfterLoadings(afterLoadingInits);
+
+        yield return Timing.WaitForOneFrame;
+        
         //System.GC.Collect(); //Force Garbage Collection
 
         gameObject.SetActive(true); //Initialization is finished --> activate Scene
@@ -135,7 +141,7 @@ public class INIT001_Initialize : SerializedMonoBehaviour
             GetSelfAndDependent(t, _initSelvesList, _initDependenciesList, _getRoot);      //initialize this Transform's children recursively
         }
     }
-    private static void InitSelfAndDepentents(List<IInitSelf> _initSelvesList, List<IInitDependencies> _initDependenciesList)
+    private static void InitSelfAndDependents(List<IInitSelf> _initSelvesList, List<IInitDependencies> _initDependenciesList)
     {
         foreach(IInitSelf _self in _initSelvesList)
         {
@@ -144,6 +150,30 @@ public class INIT001_Initialize : SerializedMonoBehaviour
         foreach(IInitDependencies _dependent in _initDependenciesList)
         {
             _dependent.InitDependencies();
+        }
+    }
+    #endregion
+    //--- ---
+    
+    //--- Init After Loading ---
+    #region Init After Loading
+    private static void GetLoadInits(Transform _root, List<IInitAfterLoading> _afterLoadingList, bool _getRoot = false)
+    {
+        IInitAfterLoading[] initsAfterLoading = _root.GetComponents<IInitAfterLoading>();
+        _afterLoadingList.AddRange(initsAfterLoading);
+
+        foreach (Transform t in _root)
+        {
+            if (t == _root && !_getRoot) continue;
+            GetLoadInits(t, _afterLoadingList, _getRoot);
+        }
+    }
+
+    private static void InitAfterLoadings(List<IInitAfterLoading> _afterLoadingList)
+    {
+        foreach (var _init in _afterLoadingList)
+        {
+            _init.InitAfterLoading();
         }
     }
     #endregion
@@ -160,7 +190,7 @@ public class INIT001_Initialize : SerializedMonoBehaviour
         InitSaveablePrefabs(saveableInitsInPrefab);
         
         GetSelfAndDependent(_gameObjectToInitialize, selfInitsInPrefab, dependentInitsInPrefab, true);
-        InitSelfAndDepentents(selfInitsInPrefab, dependentInitsInPrefab);
+        InitSelfAndDependents(selfInitsInPrefab, dependentInitsInPrefab);
     }
     //--- ---
 

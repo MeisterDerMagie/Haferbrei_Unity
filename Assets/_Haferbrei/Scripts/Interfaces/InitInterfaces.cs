@@ -16,3 +16,8 @@ public interface IInitDependencies
 {
     void InitDependencies();
 }
+
+public interface IInitAfterLoading
+{
+    void InitAfterLoading();
+}
