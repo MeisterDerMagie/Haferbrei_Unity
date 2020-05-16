@@ -26,7 +26,7 @@ MonoBehaviour:
       Data: 0|System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib
     - Name: 
       Entry: 12
-      Data: 43
+      Data: 44
     - Name: 
       Entry: 2
       Data: d67a49aac4ac4dbd82751e65cb352d8e
@@ -157,6 +157,9 @@ MonoBehaviour:
       Entry: 2
       Data: 2b2476ee656749bea5f8faa7e78aa452
     - Name: 
+      Entry: 2
+      Data: 165dc9d824994b52b34b0a7e100c22ca
+    - Name: 
       Entry: 13
       Data: 
     - Name: 
@@ -223,4 +226,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 28e6d422beb214444925fefc181a5e55, type: 2}
   - {fileID: 11400000, guid: c64bbc0f336623f449b33157f0701338, type: 2}
   - {fileID: 11400000, guid: 8f03ac93ad52f45418e95fa8b17a8984, type: 2}
+  - {fileID: 11400000, guid: 87e76ca3cf8da7c4c96d1e4cd5da5a11, type: 2}
   SOsInstantiatedAtRuntime: []

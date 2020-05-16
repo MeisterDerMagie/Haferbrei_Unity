@@ -12,7 +12,7 @@ public class BuildingInstancer
         BuildingModel model = (_template == null) ? ScriptableObject.CreateInstance<BuildingModel>() : ScriptableObject.Instantiate(_template);
         
         //-- Set initial values --
-        model.SetInitialValues(_buildingType, _position, IngameDateTime.Now);
+        model.Initialize(_buildingType, _position, IngameDateTime.Now);
 
         //-- send creation event --
         onNewBuilding?.Invoke(model);

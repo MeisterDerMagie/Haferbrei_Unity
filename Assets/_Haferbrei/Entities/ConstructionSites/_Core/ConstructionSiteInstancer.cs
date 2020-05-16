@@ -13,7 +13,7 @@ public class ConstructionSiteInstancer
         ConstructionSiteModel model = (_template == null) ? ScriptableObject.CreateInstance<ConstructionSiteModel>() : ScriptableObject.Instantiate(_template);
         
         //-- Set initial values --
-        model.SetInitialValues(_buildingType, _position, IngameDateTime.Now);
+        model.Initialize(_buildingType, _position, IngameDateTime.Now);
 
         //-- send creation event --
         onNewConstructionSite?.Invoke(model);

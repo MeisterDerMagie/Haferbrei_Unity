@@ -88,7 +88,7 @@ public class INIT001_Initialize : SerializedMonoBehaviour
 
         foreach(Transform t in _root)
         {
-            if(t == _root) continue;  //make sure you don't initialize the existing transform
+            //if(t == _root) continue;  //make sure you don't initialize the existing transform
             GetSingletons(t);        //initialize this Transform's children recursively
         }
     }
@@ -111,7 +111,7 @@ public class INIT001_Initialize : SerializedMonoBehaviour
 
         foreach(Transform t in _root)
         {
-            if(t == _root && !_getRoot) continue;      //make sure you don't initialize the existing transform
+            //if(t == _root && !_getRoot) continue;      //make sure you don't initialize the existing transform
             GetSaveablePrefabs(t, _saveablesList, _getRoot); //get this Transform's children recursively
         }
     }
@@ -137,7 +137,7 @@ public class INIT001_Initialize : SerializedMonoBehaviour
 
         foreach(Transform t in _root)
         {
-            if(t == _root && !_getRoot) continue;  //make sure you don't initialize the existing transform
+            //if(t == _root && !_getRoot) continue;  //make sure you don't initialize the existing transform
             GetSelfAndDependent(t, _initSelvesList, _initDependenciesList, _getRoot);      //initialize this Transform's children recursively
         }
     }
@@ -164,7 +164,7 @@ public class INIT001_Initialize : SerializedMonoBehaviour
 
         foreach (Transform t in _root)
         {
-            if (t == _root && !_getRoot) continue;
+            //if (t == _root && !_getRoot) continue;
             GetLoadInits(t, _afterLoadingList, _getRoot);
         }
     }

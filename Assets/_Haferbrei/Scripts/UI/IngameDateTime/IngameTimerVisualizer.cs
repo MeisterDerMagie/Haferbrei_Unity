@@ -17,40 +17,31 @@ public class IngameTimerVisualizer : MonoBehaviour, IModelReceiver<ConstructionS
 
     public void SetModel(ConstructionSiteModel _model)
     {
-        if (model != null) model.Progress.onProgressChanged -= UpdateProgress;
+        UnsubscribeFromModelEvents();
         
         model = _model;
         if (!Application.isPlaying) return;
         
         //-- OnReceivedModel --
-        model.Progress.onProgressChanged += UpdateProgress;
+        SubscribeToModelEvents();
         //-- --
-    }
-
-    private void OnEnable()
-    {
-        if (model != null)
-        {
-            model.OnModelValuesChanged += OnModelValuesChanged;
-        }
     }
 
     private void OnDestroy()
     {
-        if (model != null)
-        {
-            model.OnModelValuesChanged -= OnModelValuesChanged;
-        }
+        UnsubscribeFromModelEvents();
     }
 
-    private void OnModelValuesChanged()
+    private void UnsubscribeFromModelEvents()
     {
-        throw new NotImplementedException();
+        if (model == null) return;
+        model.Progress.onProgressChanged -= UpdateProgress;
     }
 
-    private void OnModelDestroyed()
+    private void SubscribeToModelEvents()
     {
-        throw new NotImplementedException();
+        if (model == null) return;
+        model.Progress.onProgressChanged += UpdateProgress;
     }
     #endregion
     //--- ---

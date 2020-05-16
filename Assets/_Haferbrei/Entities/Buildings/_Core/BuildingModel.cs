@@ -12,6 +12,8 @@ public abstract class BuildingModel : SerializedScriptableObject, IModel, ISavea
     //--- Events ---
     #region Events
     public Action OnModelValuesChanged { get; set; }
+    public Action OnModelDestroyed { get; set; }
+
     #endregion
     //--- ---
     
@@ -45,12 +47,23 @@ public abstract class BuildingModel : SerializedScriptableObject, IModel, ISavea
 
     //--- Instantiierung ---
     #region Initialization
-    public void SetInitialValues(BuildingType _buildingType, Vector3 _position, DateTime _birthDate)
+    public void Initialize(BuildingType _buildingType, Vector3 _position, DateTime _birthDate)
     {
         buildingType = _buildingType;
         position = _position;
         birthDate = _birthDate;
+        
+        //register Model
+        ModelCollection.RegisterModel(this);
     }
+
+    public void Terminate()
+    {
+        //unregister Model
+        ModelCollection.UnregisterModel(this);
+    }
+
+    private void OnDestroy() => Terminate();
     #endregion
     //--- ---
 }

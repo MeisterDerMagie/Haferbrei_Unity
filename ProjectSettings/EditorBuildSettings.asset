@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Haferbrei/Scenes/MainGame.unity
     guid: 43bdf5d9ff415084bae1026c5ab14d11
+  - enabled: 1
+    path: Assets/_Haferbrei/Scenes/MainMenu.unity
+    guid: 0857799108a4c2b4c8e0c16264fff908
   m_configObjects: {}

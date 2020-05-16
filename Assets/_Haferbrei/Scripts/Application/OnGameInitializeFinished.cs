@@ -10,7 +10,6 @@ public class OnGameInitializeFinished : MonoBehaviour
 {
     [SerializeField, BoxGroup("Scene Loader"), Required] private SO_LoadScenes nextScenesToLoadInBuild;
     
-    
     public void OnInitializeFinished()
     {
         Debug.Log("Successfully initialized game.");

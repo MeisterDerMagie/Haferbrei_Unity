@@ -12,6 +12,7 @@ public class ConstructionSiteModel : SerializedScriptableObject, IModel, ISaveab
     //--- Events ---
     #region Events
     public Action OnModelValuesChanged { get; set; }
+    public Action OnModelDestroyed { get; set; }
     #endregion
     //--- ---
 
@@ -42,7 +43,7 @@ public class ConstructionSiteModel : SerializedScriptableObject, IModel, ISaveab
     
     //--- Instantiierung ---
     #region Instantiierung
-    public void SetInitialValues(BuildingType _buildingType, Vector3 _position, DateTime _birthDate)
+    public void Initialize(BuildingType _buildingType, Vector3 _position, DateTime _birthDate)
     {
         //external
         buildingType = _buildingType;
@@ -52,7 +53,18 @@ public class ConstructionSiteModel : SerializedScriptableObject, IModel, ISaveab
         //internal
         progress = new IngameTimer();
         progress.RunTimer(buildingType.constructionSiteBaseDuration, 0.5f);
+        
+        //register Model
+        ModelCollection.RegisterModel(this);
     }
+
+    public void Terminate()
+    {
+        //unregister Model
+        ModelCollection.UnregisterModel(this);
+    }
+    
+    private void OnDestroy() => Terminate();
     #endregion
     //--- ---
 }
