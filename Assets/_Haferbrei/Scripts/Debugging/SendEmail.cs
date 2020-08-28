@@ -29,7 +29,7 @@ public static class SendEmail
         // you can use others too.
         SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
         smtpServer.Port = 587;
-        smtpServer.Credentials = new System.Net.NetworkCredential("Haferbrei.Bugreport@gmail.com", "GMAhaf1Haf3rbr31,") as ICredentialsByHost;
+        smtpServer.Credentials = new System.Net.NetworkCredential("Haferbrei.Bugreport@gmail.com", "BUG-r3p0rt3r") as ICredentialsByHost;
         smtpServer.EnableSsl = true;
         ServicePointManager.ServerCertificateValidationCallback =
             delegate(object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
